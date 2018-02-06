@@ -1,0 +1,15 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+
+SELECT ?entry_id ?pdb_id ?refine_method ?aa_seq_code ?pb_seq_code
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+WHERE {
+
+  ?s_pbl BMRBo:pb_list.entry_id ?entry_id ;
+         BMRBo:pb_list.id "1" ;
+         BMRBo:pb_list.pdb_id ?pdb_id ;
+         BMRBo:pb_list.pdbx_nmr_refine_method ?refine_method ;
+         BMRBo:pb_list.aa_seq_one_letter_code ?aa_seq_code ;
+         BMRBo:pb_list.pb_seq_code ?pb_seq_code .
+
+} ORDER BY ?entry_id
+LIMIT 100

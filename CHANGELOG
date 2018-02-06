@@ -1,0 +1,179 @@
+ Changes in BMRBxTool 1.26.0 (release 2018-02-06)
+
+  Updated dictionary from NMR-STAR v3.2.0.11 to v3.2.0.13.
+  Apache License V2.0 branding.
+
+ Changes in BMRBoTool 1.25.0 (release 2018-02-02)
+
+  Synchronus update with BMRBxTool.
+  Updated dictionary from NMR-STAR v3.2.0.9 to v3.2.0.11.
+  Added xml:base attribute in BMRB/OWL.
+  Added exclude-result-prefixes="BMRBx" in XML->RDF XSLT code.
+  Updated saxon9he.jar.
+  Add object property "datablock_of" in BMRB/OWL.
+
+ Changes in BMRBoTool 1.24.0 (release 2017-09-08)
+
+  Synchronus update with BMRBxTool.
+  Updated dictionary from NMR-STAR v3.2.0.7 to v3.2.0.9.
+  Used Dublin Core Terms in BMRB/OWL.
+  Updated PDBx Ontology from v42 to v50.
+
+ Changes in BMRBoTool 1.23.0 (release 2017-03-31)
+
+  Synchronus update with BMRBxTool.
+  Updated dictionary from NMR-STAR v3.1.2.6 to v3.2.0.7.
+  Revised XML->RDF XSLT code (entry.doi, auxiliary_files.doi, entry_author.orcid, citation_author.orcid).
+
+ Changes in BMRBoTool 1.22.0 (release 2016-12-13)
+
+  Synchronus update with BMRBxTool.
+  Updated dictionary from NMR-STAR v3.1.1.65 to v3.1.2.6.
+  Fixed XML->RDF XSLT code to support matched_entries, which is introduced from v3.1.2.6.
+
+ Changes in BMRBoTool 1.21.0 (release 2016-11-24)
+
+  Synchronus update with BMRBxTool.
+  Changed directory name for N-Triples (rdf_*_ntz -> nt_*_doc).
+  Updated Xerces from 2.7.0 to 2.11.0.
+  Added JSON Schema for BMRB/JSON.
+
+ Changes in BMRBoTool 1.20.0 (release 2016-07-22)
+
+  Synchronus update with BMRBxTool.
+  Revised BMRB/XML Schema and BMRB/OWL, which reduces substitutions of meaningless zero value.
+  Revised data item name 'cross_correlation_list_id' in NMR-STAR Dictionary, they are splitted into 'cross_correlation_dd_list_id' and 'cross_correlation_d_csa_list_id'.
+  Revised stylesheet bmrb-rdf.xsl to redirect integrated search service of PDBj-BMRB.
+  Revised XML->RDF XSLT code (pdbj-bmrbdep integrated search).
+
+ Changes in BMRBoTool 1.19.0 (release 2015-10-16)
+
+  Synchronus update with BMRBxTool.
+  Revised BMRB/XML Schema and BMRB/OWL to support reference pointers to NMR-STAR Dictionary.
+  Fixed RDF link properties of BMRB/OWL to PubChem SID and CID.
+  Added owl-ann.jar to append owl:equivalentProperty and rdfs:seeAlso referring to equivalent properties in PDBx OWL.
+  Changed PubMed link pattern to http://rdf.ncbi.nlm.nih.gov/pubmed/{pmid}.
+  Replaced BMRBo:link_to by rdfs:seeAlso in BMRB/OWL.
+  Changed "info" URI to use info:ddbj-embl-genbank instead of info:ddbj, info:embl and info:genbank, respectively.
+  Added many SPARQL query examples in queries directory.
+  Revised namespace of "info" URI scheme to fit with registry name in http://identifiers.org/.
+  Added cross references to http://identifiers.org/{db_namespace}/{db_id}.
+  Added struct_classification.sunid for storing SCOP unique identifier (sunid).
+
+ Changes in BMRBoTool 1.18.0 (release 2015-09-18)
+
+  Extended dictionary to support validation reports about completeness of assigned chemical shifts.
+  Synchronus update with BMRBxTool.
+  Fixed stylesheet (bmrb-rdf.xsl).
+  Added external RDF links pointing to PubChem SID (chem_comp.pubchem_code, chem_comp_db_link.accession_code) and CID (chem_comp_db_link.accession_code).
+
+ Changes in BMRBoTool 1.17.0 (release 2015-05-18)
+
+  Synchronus update with BMRBxTool.
+
+ Changes in BMRBoTool 1.16.0 (release 2015-04-15)
+
+  Extended dictionary to support Protein Blocks annotation.
+  Revised BMRB/XML Schema (xsd:decimal -> xsd:double @ entity_db_link.seq_homology_expectation_val).
+  Fixed XML->RDF XSLT code (assembly_db_link.accession_code).
+  Added citation_author.pdbx_name, citation_editor.pdbx_name and entry_author.pdbx_name tags for storing pdbx-style author name (e.g. O'Neil, F.K.).
+  Synchronus update with BMRBxTool.
+  Added extlibs directory, which includes external jar libraries.
+  Revised RDF validation script.
+
+ Changes in BMRBoTool 1.15.0 (release 2014-11-19)
+
+  Synchronus update with BMRBxTool.
+  Added RDF/XML -> N-Triples conversion script (bmr2nt.sh and bms2n.sh).
+  Revised stylesheet (bmrb-rdf.xsl) to support N-Triples format.
+
+ Changes in BMRBoTool 1.14.0 (release 2014-09-30)
+
+  Synchronus update with BMRBxTool.
+
+ Changes in BMRBoTool 1.13.0 (release 2014-09-12)
+
+  Revived entry.assigned_pdb_id and entry.assigned_pdb_deposition_id for primary reference to PDB.
+  Revised XML->RDF XSLT code (entry.assigned_pdb_id).
+
+ Changes in BMRBoTool 1.12.0 (release 2014-09-03)
+
+  Synchronus update with BMRBxTool.
+  Dropped FUSEKI relating scripts.
+  Added PostgreSQL DDL generated from BMRB/XML Schema.
+  Dropped GRAPH URIs for each of BMRB entries and Metabolomics entries.
+  GRAPH URI for OMIM is updated.
+  Updated owl2xhtml.xsl.
+
+ Changes in BMRBoTool 1.11.1 (release 2014-07-04)
+
+  Synchronus update with BMRBxTool.
+  Added chkrdflinks.sh, which returns statitics on external RDF links.
+
+ Changes in BMRBoTool 1.11.0 (release 2014-06-17)
+
+  Extended dictionary to support LACS validation reports.
+  Synchronus update with BMRBxTool.
+
+ Changes in BMRBoTool 1.10.0 (release 2014-06-12)
+
+  Updated dictionary from NMR-STAR v3.1.1.53 to v3.1.1.65.
+  Removed bmrb-owl.xsl, which was replaced by owl2xhtml.xsl.
+  Added stylesheets xs3p.xsl (for BMRB/XML Schema) and owl2xhtml.xsl (for BMRB/OWL).
+
+ Changes in BMRBoTool 1.9.4 (release 2014-06-04)
+
+  Synchronus update with BMRBxTool.
+
+ Changes in BMRBoTool 1.9.3 (release 2014-05-02)
+
+  Synchronus update with BMRBxTool.
+
+ Changes in BMRBoTool 1.9.2 (release 2014-04-15)
+
+  Fixed update script for the NMR-STAR dictionary.
+  Fixed reference_to property of BMRB/OWL.
+  Revised comment of BMRB/OWL.
+
+ Changes in BMRBoTool 1.9.1 (release 2014-03-19)
+
+  Added federated SPARQL queries that span PDB.
+  Added GRAPH URIs for each of BMRB entries and Metabolomics entries (e.g. http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr[0-9]+ or http://bmrbpub.protein.osaka-u.ac.jp/rdf/bms[et][0-9]{6}).
+
+ Changes in BMRBoTool 1.9.0 (release 2014-02-07)
+
+  Revised ontology to support SCOP (Structural Classification of Proteins).
+  Changed URL from bmrb.protein.osaka-u.ac.jp to bmrb.pdbj.org.
+  Fixed invalid chem_comp.id.
+  Revised ontology to support chem_comp and ligand_expo.
+  Added run_sparql.sh, collect_cs_all.sh, collect_cs_sel.sh, count_comp_id.sh,
+        average_cs.sh, variance_cs.sh and relating SPARQL templates.
+  Added federated SPARQL queries that span BMRB, UniProt, OMIM and PubMed.
+  Changed GRAPH URI from http://bmrbpub.protein.osaka-u.ac.jp/search/rdf/bm[rs] to http://bmrbpub.protein.osaka-u.ac.jp/rdf/bm[rs]. (Canceled in v1.12.0 or later)
+
+ Changes in BMRBoTool 1.8.0 (release 2013-12-06)
+
+  Revised ontology to support both ISSN and ISBN.
+  Revised base of URLs linking UniProt ID, NCBI Taxonomy ID and enzyme commission number.
+
+ Changes in BMRBoTool 1.7.0 (release 2013-11-12)
+
+  Updated dictionary from NMR-STAR v3.1.1.38 to v3.1.1.53.
+  Added do_all.sh script.
+
+ Changes in BMRBoTool 1.6.0 (internal version)
+
+  Updated dictionary from NMR-STAR v3.1.1.29 to v3.1.1.38.
+
+ Changes in BMRBxTool 1.4.0 (release 2013-10-25)
+
+  Revised TDB bulk loader and removed FUSEKI bulk loader.
+  Revised FUSEKI start script.
+  Added Virtuoso bulk loader.
+  Revised XML->RDF XSLT code (linked data).
+  Revised BMRB/RDF->HTML XSLT codes used in bmrbpub.protein.osaka-u.ac.jp.
+
+ Changes in BMRBoTool 1.4.0 (release 2013-07-10)
+
+  First release.
+

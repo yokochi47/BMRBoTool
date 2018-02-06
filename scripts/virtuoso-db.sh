@@ -1,0 +1,6 @@
+#!/bin/bash
+
+VIRTUOSO_DB_PORT=1111
+VIRTUOSO_DB_USER=dba
+VIRTUOSO_DB_PASS=dba
+

@@ -1,0 +1,18 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+
+SELECT ?entry_id ?list_id ?polymer_type ?res_coverage ?all_fraction ?bb_fraction ?sc_fraction ?arom_fraction ?methyl_fraction
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+WHERE {
+
+  ?s_csc BMRBo:chem_shift_completeness_list.entry_id ?entry_id ;
+         BMRBo:chem_shift_completeness_list.assigned_chem_shift_list_id ?list_id ;
+         BMRBo:chem_shift_completeness_list.entity_polymer_type ?polymer_type ;
+         BMRBo:chem_shift_completeness_list.assigned_residue_coverage ?res_coverage ;
+         BMRBo:chem_shift_completeness_list.chem_shift_fraction ?all_fraction ;
+         BMRBo:chem_shift_completeness_list.bb_chem_shift_fraction ?bb_fraction ;
+         BMRBo:chem_shift_completeness_list.sc_chem_shift_fraction ?sc_fraction ;
+         BMRBo:chem_shift_completeness_list.arom_chem_shift_fraction ?arom_fraction ;
+         BMRBo:chem_shift_completeness_list.methyl_chem_shift_fraction ?methyl_fraction .
+
+} ORDER BY ?entry_id
+LIMIT 100

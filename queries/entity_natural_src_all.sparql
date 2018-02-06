@@ -1,0 +1,21 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?entry_id ?entity_id ?entity_label ?type ?species ?tax_id ?link_to_taxonomy
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+WHERE {
+
+  ?s_src BMRBo:entity_natural_src.entry_id ?entry_id ;
+         BMRBo:entity_natural_src.entity_id ?entity_id ;
+         BMRBo:entity_natural_src.entity_label ?entity_label ;
+         BMRBo:entity_natural_src.type ?type ;
+         BMRBo:entity_natural_src.organism_name_scientific ?species ;
+         BMRBo:entity_natural_src.ncbi_taxonomy_id ?tax_id ;
+         rdfs:seeAlso ?link_to_taxonomy .
+
+  ?link_to_taxonomy rdfs:label ?label .
+
+  FILTER (STRSTARTS(?label, "info:taxonomy"))
+
+} ORDER BY ?entry_id
+LIMIT 100

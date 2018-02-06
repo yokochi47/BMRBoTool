@@ -1,0 +1,114 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+
+SELECT ?comp_id ?ca_ppm ?cb_ppm ?c_ppm ?n_ppm ?h_ppm ?ha_ppm
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+{
+
+  ?s_ca  BMRBo:atom_chem_shift.atom_id "CA" ;
+         BMRBo:atom_chem_shift.atom_type "C" ;
+         BMRBo:atom_chem_shift.entry_id ?entry_id ;    # fill entry_id.
+         BMRBo:atom_chem_shift.entity_id ?entity_id ;  # fill entity_id.
+         BMRBo:atom_chem_shift.comp_index_id ?seq_id ; # fill seq_id.
+         BMRBo:atom_chem_shift.comp_id ?comp_id ;
+         BMRBo:atom_chem_shift.val ?ca_ppm ;
+         BMRBo:atom_chem_shift.assigned_chem_shift_list_id ?assigned_chem_shift_list_id .
+
+  FILTER (xsd:float(?ca_ppm) > 35.0 && xsd:float(?ca_ppm) < 85.0)
+
+  OPTIONAL {
+
+    ?s_cb BMRBo:atom_chem_shift.atom_id "CB" ;
+          BMRBo:atom_chem_shift.atom_type "C" ;
+          BMRBo:atom_chem_shift.entry_id ?entry_id ;    # fill entry_id.
+          BMRBo:atom_chem_shift.entity_id ?entity_id ;  # fill entity_id.
+          BMRBo:atom_chem_shift.comp_index_id ?seq_id ; # fill seq_id.
+          BMRBo:atom_chem_shift.val ?cb_ppm ;
+          BMRBo:atom_chem_shift.assigned_chem_shift_list_id ?assigned_chem_shift_list_id .
+
+    FILTER (xsd:float(?cb_ppm) > 5.0 && xsd:float(?cb_ppm) < 85.0)
+
+  }
+
+  OPTIONAL {
+
+    ?s_c  BMRBo:atom_chem_shift.atom_id "C" ;
+          BMRBo:atom_chem_shift.atom_type "C" ;
+          BMRBo:atom_chem_shift.entry_id ?entry_id ;    # fill entry_id.
+          BMRBo:atom_chem_shift.entity_id ?entity_id ;  # fill entity_id.
+          BMRBo:atom_chem_shift.comp_index_id ?seq_id ; # fill seq_id.
+          BMRBo:atom_chem_shift.val ?c_ppm ;
+          BMRBo:atom_chem_shift.assigned_chem_shift_list_id ?assigned_chem_shift_list_id .
+
+    FILTER (xsd:float(?c_ppm) > 150.0 && xsd:float(?c_ppm) < 200.0)
+
+  }
+
+  OPTIONAL {
+
+    ?s_n  BMRBo:atom_chem_shift.atom_id "N" ;
+          BMRBo:atom_chem_shift.atom_type "N" ;
+          BMRBo:atom_chem_shift.entry_id ?entry_id ;    # fill entry_id.
+          BMRBo:atom_chem_shift.entity_id ?entity_id ;  # fill entity_id.
+          BMRBo:atom_chem_shift.comp_index_id ?seq_id ; # fill seq_id.
+          BMRBo:atom_chem_shift.val ?n_ppm ;
+          BMRBo:atom_chem_shift.assigned_chem_shift_list_id ?assigned_chem_shift_list_id .
+
+    FILTER (xsd:float(?n_ppm) > 90.0 && xsd:float(?n_ppm) < 150.0)
+
+  }
+
+  OPTIONAL {
+
+    ?s_h  BMRBo:atom_chem_shift.atom_id "H" ;
+          BMRBo:atom_chem_shift.atom_type "H" ;
+          BMRBo:atom_chem_shift.entry_id ?entry_id ;    # fill entry_id.
+          BMRBo:atom_chem_shift.entity_id ?entity_id ;  # fill entity_id.
+          BMRBo:atom_chem_shift.comp_index_id ?seq_id ; # fill seq_id.
+          BMRBo:atom_chem_shift.val ?h_ppm ;
+          BMRBo:atom_chem_shift.assigned_chem_shift_list_id ?assigned_chem_shift_list_id .
+
+    FILTER (xsd:float(?h_ppm) > 2.0 && xsd:float(?h_ppm) < 13.0)
+
+  }
+
+  OPTIONAL {
+
+    ?s_ha BMRBo:atom_chem_shift.atom_id "HA" ;
+          BMRBo:atom_chem_shift.atom_type "H" ;
+          BMRBo:atom_chem_shift.entry_id ?entry_id ;    # fill entry_id.
+          BMRBo:atom_chem_shift.entity_id ?entity_id ;  # fill entity_id.
+          BMRBo:atom_chem_shift.comp_index_id ?seq_id ; # fill seq_id.
+          BMRBo:atom_chem_shift.val ?_ha_ppm ;
+          BMRBo:atom_chem_shift.assigned_chem_shift_list_id ?assigned_chem_shift_list_id .
+
+    FILTER (xsd:float(?_ha_ppm) > 0.0 && xsd:float(?_ha_ppm) < 7.0)
+
+  }
+
+  OPTIONAL {
+
+    ?s_ha2 BMRBo:atom_chem_shift.atom_id "HA2" ;
+          BMRBo:atom_chem_shift.atom_type "H" ;
+          BMRBo:atom_chem_shift.entry_id ?entry_id ;    # fill entry_id.
+          BMRBo:atom_chem_shift.entity_id ?entity_id ;  # fill entity_id.
+          BMRBo:atom_chem_shift.comp_index_id ?seq_id ; # fill seq_id.
+          BMRBo:atom_chem_shift.val ?ha2_ppm ;
+          BMRBo:atom_chem_shift.assigned_chem_shift_list_id ?assigned_chem_shift_list_id .
+
+    ?s_ha3 BMRBo:atom_chem_shift.atom_id "HA3" ;
+          BMRBo:atom_chem_shift.atom_type "H" ;
+          BMRBo:atom_chem_shift.entry_id ?entry_id ;    # fill entry_id.
+          BMRBo:atom_chem_shift.entity_id ?entity_id ;  # fill entity_id.
+          BMRBo:atom_chem_shift.comp_index_id ?seq_id ; # fill seq_id.
+          BMRBo:atom_chem_shift.val ?ha3_ppm ;
+          BMRBo:atom_chem_shift.assigned_chem_shift_list_id ?assigned_chem_shift_list_id .
+
+    BIND (STR(round((xsd:float(?ha2_ppm) + xsd:float(?ha3_ppm)) / 2.0 * 1000) / 1000) AS ?gly_ha_ppm)
+
+    FILTER (xsd:float(?gly_ha_ppm) > 0.0 && xsd:float(?gly_ha_ppm) < 7.0)
+
+  }
+
+  BIND (COALESCE(?gly_ha_ppm,?_ha_ppm) AS ?ha_ppm)
+
+} LIMIT 1

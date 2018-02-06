@@ -1,0 +1,20 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+
+SELECT ?entry_id ?spectrometer_id ?field ?vendor ?model ?submission_date ?details
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+WHERE {
+
+  ?s_nmrs BMRBo:nmr_spectrometer.entry_id ?entry_id ;
+          BMRBo:nmr_spectrometer.id ?spectrometer_id ;
+          BMRBo:nmr_spectrometer.field_strength ?field ;
+          BMRBo:nmr_spectrometer.manufacturer ?vendor ;
+          BMRBo:nmr_spectrometer.model ?model ;
+          BMRBo:nmr_spectrometer.details ?details .
+
+  ?s_ent  BMRBo:entry.id ?entry_id ;
+          BMRBo:entry.submission_date ?submission_date .
+
+  FILTER (?field != "na")
+
+} ORDER BY ?entry_id
+LIMIT 100

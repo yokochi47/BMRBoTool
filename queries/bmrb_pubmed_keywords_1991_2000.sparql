@@ -1,0 +1,39 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+PREFIX pv: <http://bio2rdf.org/pubmed_vocabulary:>
+
+SELECT ?name (COUNT(?name) AS ?count)
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+FROM <http://bio2rdf.org/pubmed_resource:bio2rdf.dataset.pubmed.R3>
+WHERE {
+
+  SELECT DISTINCT ?pubmed_id ?name
+  WHERE {
+
+    SERVICE <http://bmrbpub.protein.osaka-u.ac.jp/search/rdf> {
+
+      ?s_citation BMRBo:citation.pubmed_id ?pubmed_id ;
+                  BMRBo:citation.year ?year .
+
+      FILTER (bound(?pubmed_id) && xsd:integer(?year) >= 1991 && xsd:integer(?year) <= 2000)
+
+      BIND (IRI(CONCAT("http://bio2rdf.org/pubmed:", ?pubmed_id)) AS ?s_pubmed)
+
+    }
+
+    SERVICE <http://cu.pubmed.bio2rdf.org/sparql> {
+
+      ?s_pubmed pv:mesh_heading ?s_meshhd .
+
+      ?s_meshhd pv:mesh_descriptor_name ?mesh_descriptor .
+
+      BIND ((IF (CONTAINS(?mesh_descriptor, ","), STRBEFORE(?mesh_descriptor, ","), ?mesh_descriptor)) AS ?name_)
+      BIND ((IF (CONTAINS(?name_, ","), STRBEFORE(?name_, ","), ?name_)) AS ?name)
+
+      FILTER (?name NOT IN ("Magnetic Resonance Spectroscopy", "Nuclear Magnetic Resonance"))
+      FILTER (?name NOT IN ("X-Ray Diffraction", "X-rays", "Crystallography", "Crystallization"))
+
+    }
+
+  }
+
+} ORDER BY DESC(?count)

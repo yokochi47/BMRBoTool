@@ -1,0 +1,11 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+
+SELECT ?entry_id ?axis ?offset
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+WHERE {
+
+  ?s_lacs BMRBo:lacs_plot.entry_id ?entry_id ;
+          BMRBo:lacs_plot.y_coord_name ?axis ;
+          BMRBo:lacs_plot.y_axis_chem_shift_offset ?offset .
+
+} ORDER BY ?entry_id

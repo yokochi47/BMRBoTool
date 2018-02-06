@@ -1,0 +1,122 @@
+
+    Installation and usage guide
+
+A. Requirements
+
+    OpenJDK 1.8 or later (http://www.oracle.com/)
+    SAXON 9 or later (http://saxon.sourceforge.net/)
+    MMCIF Dictionary Suite (http://sw-tools.pdb.org/)
+    BMRBxTool (http://bmrbdep.pdbj.org/)
+    Raptor RDF Syntax Library (http://librdf.org/raptor/)
+    OpenLink Virtuoso (http://virtuoso.openlinksw.com/ or http://sourceforge.net/projects/virtuoso/)
+
+    and
+
+    BMRB/XML documents validated by BMRBxTool v1.26.0
+    NOTE: This version supports NMR-STAR v3.2.0.13 only.
+
+B. Retrieve mmCIF dictionary (NMR-STAR.dic) and update XML schema
+
+    Please edit MMCIF_DS_DIR in schema/update_schema.sh
+
+     % cd dic2xsd
+     % update_schema.sh
+
+    Then, you will find the following files...
+
+    NMR-STAR.dic              : mmCIF dictionary patched by PDBj-BMRB.
+    schema/mmcif_nmr-star.xsd : XML schema derived from NMR-STAR.dic.
+
+C. Translate XML schema to BMRB/OWL
+
+   Please edit path for MMCIF Dictionary Suite (MMCIF_DS_DIR) in schema/update_schema.sh
+
+    % cd xsd2owl
+    % bmrbx2owl.sh
+
+   schema/mmcif_nmr-star.owl: BMRB/OWL derived from XML schema.
+
+D. Translate XML schema to BMRB/XML->RDF XSLT code
+
+    % cd xsd2xml2rdf
+    % bmrbx2xml2rdf.sh
+
+   schema/bmrbx2rdf.xsl : BMRB/XML->RDF XSLT code
+
+E. Translate BMRB/XML to BMRB/RDF
+
+   Please edit path for BMRBxTool (BMRBX_TOOL_HOME) in scripts/xtool-home.sh
+
+    % bmr2rdf.sh
+
+   To refresh all RDF files,
+
+    % bmr2rdf.sh -u no
+
+F. Validate BMRB/RDF
+
+   To validate all RDF files,
+
+    % bmrchk_rdf.sh
+
+G. OPTION: Starting Virtuoso (RDF data server over HTTP)
+
+   Please set environment variable VIRTUOSO_HOME that points Virtuoso directory.
+
+   If you drop current db and restart virtuoso database,
+
+    % init_virtuoso.sh
+
+   To load all RDF data inio Virtuoso,
+
+    % bmr2virtuoso.sh
+
+H. Compress RDF files (gzip)
+
+    % bmrzip_rdf.sh
+
+H. OPTION: Generate compressed NT files
+
+    % bmr2nt.sh
+
+I. Other files and directories
+
+    update_rsrc.sh       : same as to run update_schma.sh, bmrbx2owl.sh and bmrbx2xml2rdf.sh
+    bm[rs]zip_rdf.sh     : compress RDF files.
+    chkrdflinks.sh       : count rdf links to external information resources.
+    schema/bmrb-owl.xsl  : BMRB/OWL->HTML XSLT code.
+    schema/bmrb-rdf*.xsl : BMRB/RDF->HTML XSLT codes.
+    scripts/*            : utility shell scripts.
+    start_virtuoso.sh    : script for starting Virtuoso server.
+    virtuoso.ini         : configuration file for Virtuoso server.
+                           Please fill <path_here>/bmrbo-tool-1.26.0
+                           and copy the file in /usr/local/virtuoso-opensource/var/lib/virtuoso/db.
+    run_sparql.sh        : shell script for SPARQL query.
+    queries              : includes example SPARQL (ca_all.sparql, cacb_all.sparql and ca_ph_5.5_or_lower.sparql).
+
+   You will find next directories after executing the translation scripts.
+
+    bmr_rdf_raw    : includes BMRB/RDF files (uncompressed)
+    bmr_rdf_rel    : includes update information files
+    bmr_rdf_err    : includes XSLT error logs (disappears if no errors)
+    bmr_rdf_doc    : includes BMRB/RDF files (compressed RDF/XML)
+    bmr_rdf_ntz    : includes BMRB/RDF files (compressed N-Triples)
+
+J. As for Metabolomics database
+
+    % bms2rdf.sh
+    % bmschk_rdf.sh
+    % bms2virtuoso.sh
+    % bmszip_rdf.sh
+
+K. ### An interactive script executing all processes above ###
+
+    % do_all.sh
+
+L. Questions or comment
+
+    Please contact to system maintainer (Masashi Yokochi) at PDBj-BMRB:
+
+    yokochi@protein.osaka-u.ac.jp
+
+    Copyright 2013-2018 PDBj-BMRB, Institute for Protein Research, Osaka University

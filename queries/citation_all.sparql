@@ -1,0 +1,39 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?entry_id ?citation_id ?journal ?year ?volume ?page_first ?page_last ?pubmed_id ?doi ?title ?link_to_pubmed ?link_to_doi
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+WHERE {
+
+  ?s_cit BMRBo:citation.entry_id ?entry_id ;
+         BMRBo:citation.id ?citation_id ;
+         BMRBo:citation.year ?year ;
+         BMRBo:citation.journal_abbrev ?journal ;
+         BMRBo:citation.journal_volume ?volume ;
+         BMRBo:citation.page_first ?page_first ;
+         BMRBo:citation.page_last ?page_last ;
+         BMRBo:citation.pubmed_id ?pubmed_id ;
+         BMRBo:citation.doi ?doi ;
+         BMRBo:citation.title ?title ;
+         rdfs:seeAlso ?link .
+
+  ?link  rdfs:label ?label .
+
+  FILTER (STRSTARTS(?label, "info:pmid"))
+
+  BIND (?link AS ?link_to_pubmed)
+
+  OPTIONAL {
+
+    ?s_cit rdfs:seeAlso ?link_ .
+
+    ?link_ rdfs:label ?label_ .
+
+    FILTER (STRSTARTS(?label_, "info:doi"))
+
+    BIND (?link_ AS ?link_to_doi)
+
+  }
+
+} ORDER BY ?entry_id
+LIMIT 100

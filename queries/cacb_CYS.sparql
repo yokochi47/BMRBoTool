@@ -1,0 +1,64 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+
+SELECT ?entry_id ?entity_assembly_id ?entity_id ?seq_id ?ca_ppm ?cb_ppm
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+WHERE {
+
+  ?s_ca BMRBo:atom_chem_shift.atom_id "CA" ;
+        BMRBo:atom_chem_shift.atom_type "C" ;
+        BMRBo:atom_chem_shift.entry_id ?entry_id ;
+        BMRBo:atom_chem_shift.entity_assembly_id ?entity_assembly_id ;
+        BMRBo:atom_chem_shift.entity_id ?entity_id ;
+        BMRBo:atom_chem_shift.seq_id ?seq_id ;
+        BMRBo:atom_chem_shift.comp_id "CYS" ;
+        BMRBo:atom_chem_shift.val ?ca_ppm ;
+        BMRBo:atom_chem_shift.assigned_chem_shift_list_id ?assigned_chem_shift_list_id .
+
+  ?s_en BMRBo:entity.entry_id ?entry_id ;
+        BMRBo:entity.id ?entity_id ;
+        BMRBo:entity.thiol_state ?thiol_state .
+
+  FILTER (bound(?thiol_state) && ?thiol_state != "unknown" && ?thiol_state != "not reported" && ?thiol_state != "not available")
+
+  FILTER (?thiol_state != "all disulfide bound" && ?thiol_state != "all other bound")
+#  FILTER (?thiol_state = "all free" || ?thiol_state = "not present")
+
+  OPTIONAL {
+
+    ?s_bond1 BMRBo:bond.entry_id ?entry_id ;
+             BMRBo:bond.entity_assembly_id_1 ?entity_assembly_id ;
+             BMRBo:bond.entity_id_1 ?entity_id ;
+             BMRBo:bond.seq_id_1 ?seq_id ;
+             BMRBo:bond.comp_id_1 "CYS" ;
+             BMRBo:bond.atom_id_1 "SG" .
+
+  }
+
+  OPTIONAL {
+
+    ?s_bond2 BMRBo:bond.entry_id ?entry_id ;
+             BMRBo:bond.entity_assembly_id_2 ?entity_assembly_id ;
+             BMRBo:bond.entity_id_2 ?entity_id ;
+             BMRBo:bond.seq_id_2 ?seq_id ;
+             BMRBo:bond.comp_id_2 "CYS" ;
+             BMRBo:bond.atom_id_2 "SG" .
+
+  }
+
+  FILTER (!bound(?s_bond1) && !bound(?s_bond2))
+
+  OPTIONAL {
+
+    ?s_cb BMRBo:atom_chem_shift.atom_id "CB" ;
+          BMRBo:atom_chem_shift.atom_type "C" ;
+          BMRBo:atom_chem_shift.entry_id ?entry_id ;
+          BMRBo:atom_chem_shift.entity_assembly_id ?entity_assembly_id ;
+          BMRBo:atom_chem_shift.entity_id ?entity_id ;
+          BMRBo:atom_chem_shift.seq_id ?seq_id ;
+          BMRBo:atom_chem_shift.val ?cb_ppm ;
+          BMRBo:atom_chem_shift.assigned_chem_shift_list_id ?assigned_chem_shift_list_id .
+
+  }
+
+} ORDER BY ?entry_id
+LIMIT 100

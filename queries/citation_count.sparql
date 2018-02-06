@@ -1,0 +1,10 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+
+SELECT ?year (COUNT(?year) AS ?count)
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+WHERE {
+
+  ?s_cit BMRBo:citation.id "1" ;
+         BMRBo:citation.year ?year .
+
+} GROUP BY ?year ORDER BY ?year

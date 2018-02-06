@@ -1,0 +1,21 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?entry_id ?comp_id ?database_code ?accession_code ?mol_name ?link_to_pubchem
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bms>
+WHERE {
+
+  ?s_ccdl BMRBo:chem_comp_db_link.entry_id ?entry_id ;
+          BMRBo:chem_comp_db_link.comp_id ?comp_id ;
+          BMRBo:chem_comp_db_link.database_code ?database_code ;
+          BMRBo:chem_comp_db_link.accession_code ?accession_code ;
+          BMRBo:chem_comp_db_link.accession_code_type \"sid\" ;
+          BMRBo:chem_comp_db_link.entry_mol_name ?mol_name ;
+          rdfs:seeAlso ?link_to_pubchem .
+
+  ?link_to_pubchem rdfs:label ?label .
+
+  FILTER (STRSTARTS(?label, \"info:pubchem\"))
+
+} ORDER BY ?entry_id
+LIMIT 100

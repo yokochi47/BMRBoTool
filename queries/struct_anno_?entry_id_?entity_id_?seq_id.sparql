@@ -1,0 +1,125 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+
+SELECT DISTINCT ?comp_id ?avg_phi ?avg_psi ?avg_hydrophobic ?avg_sasa (xsd:float(?h_model - ?e_model) / xsd:float(?total_model) AS ?helicity) ?ss_code
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+{
+
+  {
+
+  SELECT (AVG(xsd:float(?phi) + 360.0) - 360.0 AS ?avg_phi) (AVG(xsd:float(?psi) + 360.0) - 360.0 AS ?avg_psi) (AVG(xsd:float(?hydrophobic)) AS ?avg_hydrophobic) (AVG(xsd:float(?sasa)) AS ?avg_sasa) (COUNT(?s_ann) AS ?total_model)
+  WHERE {
+
+    ?s_ann BMRBo:struct_anno_char.entry_id ?entry_id ;    # fill entry_id.
+           BMRBo:struct_anno_char.entity_id ?entity_id ;  # fill entity_id.
+           BMRBo:struct_anno_char.comp_index_id ?seq_id ; # fill seq_id.
+           BMRBo:struct_anno_char.phi_angle ?phi ;
+           BMRBo:struct_anno_char.psi_angle ?psi ;
+           BMRBo:struct_anno_char.hydrophobicity ?hydrophobic ;
+           BMRBo:struct_anno_char.solvent_accessible_surface_area ?sasa .
+
+  }
+
+  }
+
+  FILTER (?total_model > 0)
+
+  ?s_ca  BMRBo:atom_chem_shift.atom_id "CA" ;
+         BMRBo:atom_chem_shift.atom_type "C" ;
+         BMRBo:atom_chem_shift.entry_id ?entry_id ;     # fill entry_id.
+         BMRBo:atom_chem_shift.entity_id ?entity_id ;   # fill entity_id.
+         BMRBo:atom_chem_shift.comp_index_id ?seq_id ;  # fill seq_id.
+         BMRBo:atom_chem_shift.entity_assembly_id ?entity_assembly_id ;
+         BMRBo:atom_chem_shift.comp_id ?comp_id .
+
+  OPTIONAL {
+
+  SELECT (COUNT(?s_ann_h) AS ?h_model_)
+  WHERE {
+
+    ?s_ann_h BMRBo:struct_anno_char.entry_id ?entry_id ;    # fill entry_id.
+             BMRBo:struct_anno_char.entity_id ?entity_id ;  # fill entity_id.
+             BMRBo:struct_anno_char.comp_index_id ?seq_id ; # fill seq_id.
+             BMRBo:struct_anno_char.entity_assembly_id ?entity_assembly_id ;
+             BMRBo:struct_anno_char.secondary_structure_code "H" .
+
+  }
+
+  }
+
+  BIND (IF (bound(?h_model_), ?h_model_, 0) AS ?h_model)
+
+  OPTIONAL {
+
+  SELECT (COUNT(?s_ann_e) AS ?e_model_)
+  WHERE {
+
+    ?s_ann_e BMRBo:struct_anno_char.entry_id ?entry_id ;    # fill entry_id.
+             BMRBo:struct_anno_char.entity_id ?entity_id ;  # fill entity_id.
+             BMRBo:struct_anno_char.comp_index_id ?seq_id ; # fill seq_id.
+             BMRBo:struct_anno_char.entity_assembly_id ?entity_assembly_id ;
+             BMRBo:struct_anno_char.secondary_structure_code "E" .
+
+  }
+
+  }
+
+  BIND (IF (bound(?e_model_), ?e_model_, 0) AS ?e_model)
+
+  OPTIONAL {
+
+  SELECT (COUNT(?s_ann_c) AS ?c_model_)
+  WHERE {
+
+    ?s_ann_c BMRBo:struct_anno_char.entry_id ?entry_id ;    # fill entry_id.
+             BMRBo:struct_anno_char.entity_id ?entity_id ;  # fill entity_id.
+             BMRBo:struct_anno_char.comp_index_id ?seq_id ; # fill seq_id.
+             BMRBo:struct_anno_char.entity_assembly_id ?entity_assembly_id ;
+             BMRBo:struct_anno_char.secondary_structure_code "C" .
+
+  }
+
+  }
+
+  BIND (IF (bound(?c_model_), ?c_model_, 0) AS ?c_model)
+
+  OPTIONAL {
+
+  SELECT (COUNT(?s_ann_t) AS ?t_model_)
+  WHERE {
+
+    ?s_ann_t BMRBo:struct_anno_char.entry_id ?entry_id ;    # fill entry_id.
+             BMRBo:struct_anno_char.entity_id ?entity_id ;  # fill entity_id.
+             BMRBo:struct_anno_char.comp_index_id ?seq_id ; # fill seq_id.
+             BMRBo:struct_anno_char.entity_assembly_id ?entity_assembly_id ;
+             BMRBo:struct_anno_char.secondary_structure_code "T" .
+
+  }
+
+  }
+
+  BIND (IF (bound(?t_model_), ?t_model_, 0) AS ?t_model)
+
+  OPTIONAL {
+
+  SELECT (COUNT(?s_ann_g) AS ?g_model_)
+  WHERE {
+
+    ?s_ann_g BMRBo:struct_anno_char.entry_id ?entry_id ;    # fill entry_id.
+             BMRBo:struct_anno_char.entity_id ?entity_id ;  # fill entity_id.
+             BMRBo:struct_anno_char.comp_index_id ?seq_id ; # fill seq_id.
+             BMRBo:struct_anno_char.entity_assembly_id ?entity_assembly_id ;
+             BMRBo:struct_anno_char.secondary_structure_code "G" .
+
+  }
+
+  }
+
+  BIND (IF (bound(?g_model_), ?g_model_, 0) AS ?g_model)
+
+  BIND (IF (?h_model >= ?e_model && ?h_model >= ?c_model && ?h_model >= ?t_model && ?h_model >= ?g_model, "H",
+        IF (?e_model >= ?h_model && ?e_model >= ?c_model && ?e_model >= ?t_model && ?e_model >= ?g_model, "E",
+        IF (?c_model >= ?h_model && ?c_model >= ?e_model && ?c_model >= ?t_model && ?c_model >= ?g_model, "C",
+        IF (?t_model >= ?h_model && ?t_model >= ?e_model && ?t_model >= ?c_model && ?t_model >= ?g_model, "T",
+        IF (?g_model >= ?h_model && ?g_model >= ?e_model && ?g_model >= ?c_model && ?g_model >= ?t_model, "G", ""))))) AS ?ss_code)
+
+}

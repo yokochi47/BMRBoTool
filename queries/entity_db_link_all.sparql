@@ -1,0 +1,19 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+
+SELECT ?entry_id ?entity_id ?database_code ?accession_code ?mol_name ?eval ?identity ?positive ?q_perc ?sub_len
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+WHERE {
+
+  ?s_edl BMRBo:entity_db_link.entry_id ?entry_id ;
+         BMRBo:entity_db_link.entity_id ?entity_id ;
+         BMRBo:entity_db_link.database_code ?database_code ;
+         BMRBo:entity_db_link.accession_code ?accession_code ;
+         BMRBo:entity_db_link.entry_mol_name ?mol_name ;
+         BMRBo:entity_db_link.seq_homology_expectation_val ?eval ;
+         BMRBo:entity_db_link.seq_identity ?identity ;
+         BMRBo:entity_db_link.seq_positive ?positive ;
+         BMRBo:entity_db_link.seq_query_to_submitted_percent ?q_perc ;
+         BMRBo:entity_db_link.seq_subject_length ?sub_len .
+
+} ORDER BY ?entry_id
+LIMIT 100

@@ -1,0 +1,11 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+
+SELECT ?entity_id ?sequence
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+WHERE {
+
+  ?s_up BMRBo:entity.entry_id ?entry_id ; # fill entry_id.
+        BMRBo:entity.id ?entity_id ;
+        BMRBo:entity.polymer_seq_one_letter_code ?sequence .
+
+}

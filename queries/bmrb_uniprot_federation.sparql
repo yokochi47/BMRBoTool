@@ -1,0 +1,25 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?uniprot_id ?p ?o
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+FROM <http://purl.uniprot.org/uniprot>
+WHERE {
+
+  ?s_up BMRBo:entity_db_link.entry_id "15154" ;
+        BMRBo:entity_db_link.database_code "SP" ; # uniptot
+        BMRBo:entity_db_link.accession_code ?uniprot_id ;
+        rdfs:seeAlso ?link_to_uniprot .
+
+  ?link_to_uniprot rdfs:label ?label .
+
+  FILTER (STRSTARTS(?label, \"info:uniprot\"))
+
+  SERVICE <http://sparql.uniprot.org/sparql>
+  {
+
+    ?link_to_uniprot ?p ?o .
+
+  }
+
+}

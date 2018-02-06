@@ -1,0 +1,23 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+
+SELECT ?entry_id ?assembly_name ?entity_id ?asym_id ?formula_weight ?role
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+WHERE {
+
+  ?s_asm BMRBo:assembly.entry_id ?entry_id ;
+         BMRBo:assembly.id ?assembly_id ;
+         BMRBo:assembly.name ?assembly_name .
+
+  ?s_easm BMRBo:entity_assembly.entry_id ?entry_id ;
+          BMRBo:entity_assembly.id ?assembly_id ;
+          BMRBo:entity_assembly.entity_id ?entity_id ;
+          BMRBo:entity_assembly.asym_id ?asym_id ;
+          BMRBo:entity_assembly.role ?role .
+
+  ?s_ent BMRBo:entity.entry_id ?entry_id ;
+         BMRBo:entity.id ?entity_id ;
+         BMRBo:entity.formula_weight ?formula_weight ;
+         BMRBo:entity.polymer_type ?polymer_type .
+
+} ORDER BY ?entry_id
+LIMIT 100

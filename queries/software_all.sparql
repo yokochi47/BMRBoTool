@@ -1,0 +1,20 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+
+SELECT ?entry_id ?software_id ?name ?version ?submission_date ?task
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+WHERE {
+
+  ?s_soft BMRBo:software.entry_id ?entry_id ;
+          BMRBo:software.id ?software_id ;
+          BMRBo:software.name ?name ;
+          BMRBo:software.version ?version .
+
+  ?s_task BMRBo:task.entry_id ?entry_id ;
+          BMRBo:task.software_id ?software_id ;
+          BMRBo:task.task ?task .
+
+  ?s_ent  BMRBo:entry.id ?entry_id ;
+          BMRBo:entry.submission_date ?submission_date .
+
+} ORDER BY ?entry_id
+LIMIT 100

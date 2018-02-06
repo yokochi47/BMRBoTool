@@ -1,0 +1,22 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?entry_id ?description ?code ?class ?fold ?superfamily ?family ?link_to_scop
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+WHERE {
+
+  ?s_str BMRBo:struct_classification.entry_id ?entry_id ;
+         BMRBo:struct_classification.description ?description ;
+         BMRBo:struct_classification.code ?code ;
+         BMRBo:struct_classification.class ?class ;
+         BMRBo:struct_classification.fold ?fold ;
+         BMRBo:struct_classification.superfamily ?superfamily ;
+         BMRBo:struct_classification.family ?family ;
+         rdfs:seeAlso ?link_to_scop .
+
+  ?link_to_scop rdfs:label ?label .
+
+  FILTER (STRSTARTS(?label, \"info:scop\"))
+
+} ORDER BY ?entry_id
+LIMIT 100

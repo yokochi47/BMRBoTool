@@ -1,0 +1,31 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+
+SELECT ?entry_id ?entity_assembly_id ?entity_id ?seq_id ?comp_id ?ca_ppm ?cb_ppm
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+WHERE {
+
+  ?s_ca BMRBo:atom_chem_shift.atom_id "CA" ;
+        BMRBo:atom_chem_shift.atom_type "C" ;
+        BMRBo:atom_chem_shift.entry_id ?entry_id ;
+        BMRBo:atom_chem_shift.entity_assembly_id ?entity_assembly_id ;
+        BMRBo:atom_chem_shift.entity_id ?entity_id ;
+        BMRBo:atom_chem_shift.seq_id ?seq_id ;
+        BMRBo:atom_chem_shift.comp_id ?comp_id ;
+        BMRBo:atom_chem_shift.val ?ca_ppm ;
+        BMRBo:atom_chem_shift.assigned_chem_shift_list_id ?assigned_chem_shift_list_id .
+
+  OPTIONAL {
+
+    ?s_cb BMRBo:atom_chem_shift.atom_id "CB" ;
+          BMRBo:atom_chem_shift.atom_type "C" ;
+          BMRBo:atom_chem_shift.entry_id ?entry_id ;
+          BMRBo:atom_chem_shift.entity_assembly_id ?entity_assembly_id ;
+          BMRBo:atom_chem_shift.entity_id ?entity_id ;
+          BMRBo:atom_chem_shift.seq_id ?seq_id ;
+          BMRBo:atom_chem_shift.val ?cb_ppm ;
+          BMRBo:atom_chem_shift.assigned_chem_shift_list_id ?assigned_chem_shift_list_id .
+
+  }
+
+} ORDER BY ?entry_id
+LIMIT 100

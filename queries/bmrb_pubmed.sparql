@@ -1,0 +1,35 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+PREFIX pv: <http://bio2rdf.org/pubmed_vocabulary:>
+
+SELECT ?pubmed_id ?s_pubmed ?s_meshhd ?mesh_qualifier ?mesh_descriptor
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+FROM <http://bio2rdf.org/pubmed_resource:bio2rdf.dataset.pubmed.R3>
+WHERE {
+
+  SERVICE <http://bmrbpub.protein.osaka-u.ac.jp/search/rdf> {
+
+    ?s_citation BMRBo:citation.entry_id "15154" ;
+                BMRBo:citation.pubmed_id ?pubmed_id .
+
+    FILTER (bound(?pubmed_id))
+
+    BIND (IRI(CONCAT("http://bio2rdf.org/pubmed:", ?pubmed_id)) AS ?s_pubmed)
+
+  }
+
+  SERVICE <http://cu.pubmed.bio2rdf.org/sparql>
+  {
+
+    ?s_pubmed pv:mesh_heading ?s_meshhd .
+
+    ?s_meshhd pv:mesh_descriptor_name ?mesh_descriptor .
+
+    OPTIONAL {
+
+      ?s_meshhd pv:mesh_qualifier_name ?mesh_qualifier .
+
+    }
+
+  }
+
+}

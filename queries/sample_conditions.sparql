@@ -1,0 +1,43 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+
+SELECT ?entry_id ?assigned_chem_shift_list_id ?ph ?pressure ?temperature
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+WHERE {
+
+  ?s_csl BMRBo:assigned_chem_shift_list.entry_id ?entry_id ;
+         BMRBo:assigned_chem_shift_list.id ?assigned_chem_shift_list_id ;
+         BMRBo:assigned_chem_shift_list.sample_condition_list_id ?sample_condition_list_id .
+
+  ?s_sys BMRBo:assembly.paramagnetic "no" ;
+         BMRBo:assembly.entry_id ?entry_id .
+
+  ?s_phy BMRBo:entity_assembly.physical_state "native" ;
+         BMRBo:entity_assembly.entry_id ?entry_id .
+
+  ?s_ref BMRBo:chem_shift_ref.mol_common_name "DSS" ;
+         BMRBo:chem_shift_ref.ref_method "internal" ;
+         BMRBo:chem_shift_ref.entry_id ?entry_id .
+
+  ?s_ph  BMRBo:sample_condition_variable.type "pH" ;
+         BMRBo:sample_condition_variable.val ?ph ;
+         BMRBo:sample_condition_variable.entry_id ?entry_id ;
+         BMRBo:sample_condition_variable.sample_condition_list_id ?sample_condition_list_id .
+
+  ?s_prs BMRBo:sample_condition_variable.type "pressure" ;
+         BMRBo:sample_condition_variable.val_units "atm" ;
+         BMRBo:sample_condition_variable.val ?pressure ;
+         BMRBo:sample_condition_variable.entry_id ?entry_id ;
+         BMRBo:sample_condition_variable.sample_condition_list_id ?sample_condition_list_id .
+
+  ?s_tmp BMRBo:sample_condition_variable.type "temperature" ;
+         BMRBo:sample_condition_variable.val_units "K" ;
+         BMRBo:sample_condition_variable.val ?temperature ;
+         BMRBo:sample_condition_variable.entry_id ?entry_id ;
+         BMRBo:sample_condition_variable.sample_condition_list_id ?sample_condition_list_id .
+
+  FILTER (xsd:float(?ph) > 4.0 && xsd:float(?ph) < 10.0 &&
+          xsd:float(?pressure) > 0.5 && xsd:float(?pressure) < 10.0 &&
+          xsd:float(?temperature) > 253.0 && xsd:float(?temperature) < 353.0)
+
+} ORDER BY ?entry_id
+LIMIT 100

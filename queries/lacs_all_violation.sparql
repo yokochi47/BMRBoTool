@@ -1,0 +1,27 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+
+SELECT ?entry_id ?entity_id ?seq_id ?comp_id ?atom_id ?ppm
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+WHERE {
+
+  ?s_lacs_char BMRBo:lacs_char.lacs_plot_id ?lacs_plot_id ;
+               BMRBo:lacs_plot.entry_id ?entry_id ;
+               BMRBo:lacs_char.entity_id ?entity_id ;
+               BMRBo:lacs_char.comp_index_id ?seq_id ;
+               BMRBo:lacs_char.comp_id ?comp_id ;
+               BMRBo:lacs_char.designator "0" .
+
+  ?s_lacs_plot BMRBo:lacs_plot.id ?lacs_plot_id ;
+               BMRBo:lacs_plot.entry_id ?entry_id ;
+               BMRBo:lacs_plot.y_coord_name ?axis .
+
+  BIND ((IF (?axis != "CO", ?axis, "C")) AS ?atom_id)
+
+  ?s_cs BMRBo:atom_chem_shift.atom_id ?atom_id ;
+        BMRBo:atom_chem_shift.entry_id ?entry_id ;
+        BMRBo:atom_chem_shift.entity_id ?entity_id ;
+        BMRBo:atom_chem_shift.seq_id ?seq_id ;
+        BMRBo:atom_chem_shift.comp_id ?comp_id ;
+        BMRBo:atom_chem_shift.val ?ppm .
+
+} ORDER BY ?entry_id

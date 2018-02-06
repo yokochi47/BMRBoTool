@@ -1,0 +1,22 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?entry_id ?pdb_id ?rcsb_id ?method ?submission_date ?accession_date ?title ?link_to_pdb
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+WHERE {
+
+  ?s_ent BMRBo:entry.id ?entry_id ;
+         BMRBo:entry.assigned_pdb_id ?pdb_id ;
+         BMRBo:entry.assigned_pdb_deposition_code ?rcsb_id ;
+         BMRBo:entry.experimental_method ?method ;
+         BMRBo:entry.title ?title ;
+         BMRBo:entry.submission_date ?submission_date ;
+         BMRBo:entry.accession_date ?accession_date ;
+         rdfs:seeAlso ?link_to_pdb .
+
+  ?link_to_pdb rdfs:label ?label .
+
+  FILTER (STRSTARTS(?label, \"info:pdb\"))
+
+} ORDER BY ?entry_id
+LIMIT 100

@@ -1,0 +1,12 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+
+SELECT ?year (COUNT(?year) AS ?year_count) ?method (COUNT(?method) AS ?method_count)
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+WHERE {
+
+  ?s_ent BMRBo:entry.submission_date ?date ;
+         BMRBo:entry.experimental_method_subtype ?method .
+
+  BIND(year(xsd:dateTime(?date)) AS ?year)
+
+} GROUP BY ?year ?method ORDER BY ?year

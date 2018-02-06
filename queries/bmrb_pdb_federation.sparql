@@ -1,0 +1,25 @@
+PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?pdb_id ?p ?o
+FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+FROM <http://rdf.wwpdb.org/pdb>
+WHERE {
+
+  ?s_up BMRBo:entity_db_link.entry_id "15154" ;
+        BMRBo:entity_db_link.database_code "PDB" ;
+        BMRBo:entity_db_link.accession_code ?pdb_id ;
+        rdfs:seeAlso ?link_to_pdb .
+
+  ?link_to_uniprot rdfs:label ?label .
+
+  FILTER (STRSTARTS(?label, \"info:pdb\"))
+
+#  SERVICE <http://rdf.wwpdb.org/sparql> 
+  {
+
+    ?link_to_pdb ?p ?o .
+
+  }
+
+}
