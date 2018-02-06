@@ -1,5 +1,5 @@
 /*
-    BMRBoTool - XML converter for NMR-STAR data
+    BMRBoTool - Ontology tool for NMR-STAR data
     Copyright 2013-2018 Masashi Yokochi
     
     https://github.com/yokochi47/BMRBxTool
