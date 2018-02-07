@@ -85,11 +85,11 @@ else
 
 fi
 
-BMRB_XSLT_CODE=schema/bmrbx2rdf.xsl
+BMRBX2RDF_XSL=schema/bmrbx2rdf.xsl
 
-if [ ! -e $BMRB_XSLT_CODE ] ; then
+if [ ! -e $BMRBX2RDF_XSL ] ; then
 
- echo "Couldn't find BMRB/XML->RDF XSLT code ($BMRB_XSLT_CODE)."
+ echo "Couldn't find BMRB/XML->RDF XSL style sheet ($BMRBX2RDF_XSL)."
  exit 1
 
 fi
@@ -201,7 +201,7 @@ convert() {
 
      if [ -e $XML_DOC_FILE ] ; then
 
-      java -jar $SAXON_JAR_HOME/$SAXON_JAR_FILE -s:$XML_DOC_FILE -xsl:$BMRB_XSLT_CODE -o:$RDF_DOC_FILE -versionmsg:off 2> $RDF_ERR_FILE
+      java -jar $SAXON -s:$XML_DOC_FILE -xsl:$BMRBX2RDF_XSL -o:$RDF_DOC_FILE -versionmsg:off 2> $RDF_ERR_FILE
 
       if [ $? = 0 ] ; then
 
