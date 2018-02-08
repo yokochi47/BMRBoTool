@@ -10,6 +10,6 @@ Please refer to [INSTALL](https://github.com/yokochi47/BMRBoTool/blob/master/INS
 
 ## Reference
 
-- Yokochi M, Kobayashi N, Ulrich EL, Kinjo AR, Iwata T, Ioannidis YE, Linvy M, Markley JL, Nakamura H, Kojima C, Fujiwara T,<br />
+- Masashi Yokochi, Naohiro Kobayashi, Eldon L. Ulrich, Akira R. Kinjo, Takeshi Iwata, Yannis E. Ioannidis, Miron Linvy, John L. Markley, Haruki Nakamura, Chojiro Kojima, Toshimichi Fujiwara.<br />
  "Publication of nuclear magnetic resonance experimental data with semantic web technology and the application thereof to biomedical research of proteins", J. Biomed. Semantics, 7, 1-4 (2016)
 
