@@ -47,7 +47,7 @@
           </xsl:call-template>
         </xsl:variable>
         <xsl:if test="$pdbx_category!='' and $pdbx_item!='' and $nmr-star_category!='' and $nmr-star_item!=''">
-          <nmr-star-item id="{$nmr-star_category}.{$nmr-star_item}" trans_func="{$trans_func}">
+          <nmr-star-item name="{$nmr-star_category}.{$nmr-star_item}" trans_func="{$trans_func}">
             <xsl:value-of select="concat($pdbx_category,'.',$pdbx_item)"/>
           </nmr-star-item>
         </xsl:if>
