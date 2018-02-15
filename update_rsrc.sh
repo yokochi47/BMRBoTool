@@ -1,14 +1,12 @@
 #!/bin/bash
 
 if [ $# = 0 ] || [ $1 = "xsd" ] ; then
- cd dic2xsd
- ./update_schema.sh
+ ( cd dic2xsd; ./update_schema.sh )
  if [ $? = 0 ] && [ -e ../schema/mmcif_nmr-star.xsd ] ; then
   echo "Updated BMRB/XML Schema (schema/mmcif_nmr-star.xsd)."
  else
   exit 1
  fi
- cd ..
  source ./scripts/xtool-home.sh
  XSD_SCHEMA=schema/mmcif_nmr-star.xsd
  DB_SCHEMA=schema/mmcif_nmr-star.dic.schema
@@ -38,6 +36,5 @@ if [ $# = 0 ] || [[ $1 =~ ^xsl.* ]] ; then
  else
   exit 1
  fi
- cd ..
 fi
 
