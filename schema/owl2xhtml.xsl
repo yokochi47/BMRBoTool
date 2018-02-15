@@ -46,7 +46,7 @@ by Masahide Kanzaki, and from the OWL2HTML stylesheet (2), by Li Ding. We are ve
  xmlns:dc="http://purl.org/dc/elements/1.1/"
  xmlns:dcterms="http://purl.org/dc/terms/"
  xmlns:BMRBo="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#"
- xmlns:PDBo="http://rdf.wwpdb.org/schema/pdbx-v42.owl#"
+ xmlns:PDBo="https://rdf.wwpdb.org/schema/pdbx-v50.owl#"
  exclude-result-prefixes="xsd html">
 
   <xsl:output
@@ -70,7 +70,7 @@ by Masahide Kanzaki, and from the OWL2HTML stylesheet (2), by Li Ding. We are ve
     <html>
       <head>
 	<title>
-	  <xsl:value-of select="//owl:Ontology/rdfs:label" />
+	  <xsl:value-of select="concat(//owl:Ontology/rdfs:label,' v',substring(//owl:Ontology/owl:versionIRI/@rdf:resource,64)" />
 	</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<style type="text/css">

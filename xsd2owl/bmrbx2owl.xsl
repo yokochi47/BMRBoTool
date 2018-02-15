@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE rdf:RDF [
   <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#">
   <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#">
@@ -7,13 +6,18 @@
   <!ENTITY owl "http://www.w3.org/2002/07/owl#">
 ]>
 <xsl:stylesheet
-   version="2.0"
+   version="1.0"
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-   xmlns:owl="http://www.w3.org/2002/07/owl#">
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   exclude-result-prefixes="xsd xsi">
+
+  <xsl:param name="tagmap_xml_file" required="yes"/>
+  <xsl:param name="tagmap_xml" select="document($tagmap_xml_file)"/>
+
   <xsl:output method="xml" indent="yes"/>
   <xsl:strip-space elements="*"/>
 
@@ -24,19 +28,16 @@
     <rdf:RDF
        xml:base="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl"
        xmlns:xml="http://www.w3.org/XML/1998/namespace"
-       xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
        xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
        xmlns:owl="http://www.w3.org/2002/07/owl#"
        xmlns:dc="http://purl.org/dc/elements/1.1/"
-       xmlns:dcterms="http://purl.org/dc/terms/">
-       <!--xmlns:BMRBo="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#"
-       xmlns:PDBo="https://rdf.wwpdb.org/schema/pdbx-v50.owl#"-->
+       xmlns:dcterms="http://purl.org/dc/terms/"
+       xmlns:PDBo="https://rdf.wwpdb.org/schema/pdbx-v50.owl#">
 
       <owl:Ontology rdf:about="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl">
-	<rdfs:label>BMRB/OWL v3.2.0.15</rdfs:label>
-	<rdfs:comment xml:lang="en">The BMRB/RDF ontology translated from BMRB/XML Schema.</rdfs:comment>
+	<rdfs:label>BMRB/OWL</rdfs:label>
+	<rdfs:comment xml:lang="en">he OWL ontology for BMRB/RDF.</rdfs:comment>
 	<rdfs:seeAlso rdf:resource="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.xsd"/>
 	<rdfs:seeAlso rdf:resource="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.dic"/>
         <owl:versionIRI rdf:resource="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl/3.2.0.15"/>
@@ -45,17 +46,20 @@
       <owl:Class rdf:ID="Category">
 	<rdfs:label>Category</rdfs:label>
 	<rdfs:comment xml:lang="en">Abstract class for category holders.</rdfs:comment>
+        <owl:sameAs rdf:resource="PDBo:Category"/>
       </owl:Class>
 
       <owl:Class rdf:ID="CategoryElement">
 	<rdfs:label>CategoryElement</rdfs:label>
 	<rdfs:comment xml:lang="en">Abstract class for category elements.</rdfs:comment>
+        <owl:sameAs rdf:resource="PDBo:CategoryElement"/>
       </owl:Class>
 
       <owl:DatatypeProperty rdf:ID="categoryItem">
 	<rdfs:label>categoryItem</rdfs:label>
 	<rdfs:comment xml:lang="en">Abstract datatype property for category items.</rdfs:comment>
 	<rdfs:domain rdf:resource="#CategoryElement"/>
+        <owl:sameAs rdf:resource="PDBo:categoryItem"/>
       </owl:DatatypeProperty>
 
       <!--owl:ObjectProperty rdf:ID="crossReference">
@@ -68,6 +72,7 @@
         <rdfs:subPropertyOf rdf:resource="dcterms:references"/>
 	<rdfs:domain rdf:resource="#CategoryElement"/>
 	<rdfs:range rdf:resource="#CategoryElement"/>
+        <owl:equivalentProperty rdf:resource="PDBo:reference_to"/>
       </owl:ObjectProperty>
 
       <owl:ObjectProperty rdf:ID="referenced_by">
@@ -76,6 +81,7 @@
         <rdfs:subPropertyOf rdf:resource="dcterms:isReferencedBy"/>
 	<rdfs:domain rdf:resource="#CategoryElement"/>
 	<rdfs:range rdf:resource="#CategoryElement"/>
+        <owl:equivalentProperty rdf:resource="PDBo:referenced_by"/>
       </owl:ObjectProperty>
 <!--
       <owl:ObjectProperty rdf:ID="link_to">
@@ -228,7 +234,7 @@
   <xsl:template name="datablockType">
     <owl:Class rdf:ID="datablock">
       <rdfs:label>datablock</rdfs:label>
-      <rdfs:comment xml:lang="en">datablock class holds all categories of BMRB NMR-STAR data.</rdfs:comment>
+      <rdfs:comment xml:lang="en">The datablock class holds all categories of BMRB NMR-STAR data.</rdfs:comment>
       <rdfs:subClassOf>
 	<owl:Class>
 	  <owl:intersectionOf rdf:parseType="Collection">
@@ -241,33 +247,39 @@
 	  </owl:intersectionOf>
 	</owl:Class>
       </rdfs:subClassOf>
+      <owl:equivalentClass rdf:resource="PDBo:datablock"/>
     </owl:Class>
 
     <owl:DatatypeProperty rdf:ID="datablockName">
       <rdfs:domain rdf:resource="#datablock"/>
       <rdfs:range rdf:resource="&xsd;string"/>
       <xsl:apply-templates select="./xsd:annotation"/>
+      <owl:equivalentProperty rdf:resource="PDBo:datablockName"/>
     </owl:DatatypeProperty>
 
     <owl:InverseFunctionalProperty rdf:ID="hasCategory">
-      <rdfs:comment xml:lang="en">Abstract property for category elements pointing to category.</rdfs:comment>
+      <rdfs:comment xml:lang="en">Abstract property pointing to category.</rdfs:comment>
       <rdfs:domain rdf:resource="#datablock"/>
+      <owl:equivalentProperty rdf:resource="PDBo:hasCategory"/>
     </owl:InverseFunctionalProperty>
 
     <owl:InverseFunctionalProperty rdf:ID="hasCategoryElement">
-      <rdfs:comment xml:lang="en">Abstract property for category pointing to category elements.</rdfs:comment>
+      <rdfs:comment xml:lang="en">Abstract property pointing to category element.</rdfs:comment>
       <!-- range should be rdf:List, but OWL doesn't allow this... -->
+      <owl:equivalentProperty rdf:resource="PDBo:hasCategoryElement"/>
     </owl:InverseFunctionalProperty>
 
     <owl:ObjectProperty rdf:ID="of_datablock">
       <rdfs:label>link_to_datablock</rdfs:label>
-      <rdfs:comment xml:lang="en">Link to the datablock from category elements.</rdfs:comment>
+      <rdfs:comment xml:lang="en">Link to the base datablock of category elements.</rdfs:comment>
       <rdfs:domain rdf:resource="#CategoryElement"/>
       <rdfs:range rdf:resource="#datablock"/>
+      <owl:equivalentProperty rdf:resource="PDBo:of_datablock"/>
     </owl:ObjectProperty>
 
     <owl:ObjectProperty rdf:ID="datablock_of">
       <owl:inverseOf rdf:resource="#of_datablock"/>
+      <owl:equivalentProperty rdf:resource="PDBo:datablock_of"/>
     </owl:ObjectProperty>
 
   </xsl:template>
@@ -291,7 +303,7 @@
       <owl:onProperty rdf:resource="#has_{$category}"/>
       <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger"><xsl:value-of select="$categoryType/@minOccurs"/></owl:minCardinality>
     </owl:Restriction>
-    <xsl:if test="$categoryType/@maxOccurs != 'unbounded'">
+    <xsl:if test="$categoryType/@maxOccurs!='unbounded'">
       <owl:Restriction>
 	<owl:onProperty rdf:resource="#has_{$category}"/>
 	<owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger"><xsl:value-of select="$categoryType/@maxOccurs"/></owl:maxCardinality>
@@ -419,8 +431,11 @@
   <xsl:template name="category_item">
     <xsl:param name="category"/>
     <xsl:variable name="id"><xsl:value-of select="concat($category,'.',@name)"/></xsl:variable>
+    <xsl:variable name="pdbx_item">
+      <xsl:if test="$tagmap_xml/nmr-star-to-pdbx/nmr-star-item[@id=$id and not(starts-with(@trans_func,'-'))]"><xsl:value-of select="$tagmap_xml/nmr-star-to-pdbx/nmr-star-item[@id=$id and not(starts-with(@trans_func,'-'))][1]"/></xsl:if>
+    </xsl:variable>
     <xsl:choose>
-      <xsl:when test="count(.//xsd:enumeration) = 0">
+      <xsl:when test="count(.//xsd:enumeration)=0">
 	<!-- basic types -->
 	<xsl:variable name="datatype1" select="substring-after(@type,':')"/>
 	<xsl:variable name="datatype2" select="substring-after(./xsd:complexType/xsd:simpleContent/xsd:extension/@base,':')"/>
@@ -430,6 +445,9 @@
 	  <rdfs:range rdf:resource="&xsd;{concat($datatype1,$datatype2,$datatype3)}"/>
 	  <rdfs:label><xsl:value-of select="$id"/></rdfs:label>
 	  <xsl:apply-templates select="./xsd:annotation"/>
+          <xsl:if test="$pdbx_item!=''">
+            <owl:equivalentProperty rdf:resource="PDBo:{$pdbx_item}"/>
+          </xsl:if>
 	</owl:DatatypeProperty>
       </xsl:when>
       <xsl:otherwise>
@@ -448,6 +466,9 @@
 	    </owl:DataRange>
 	  </rdfs:range>
 	  <xsl:apply-templates select="./xsd:annotation"/>
+          <xsl:if test="$pdbx_item!=''">
+            <owl:equivalentProperty rdf:resource="PDBo:{$pdbx_item}"/>
+          </xsl:if>
 	</owl:DatatypeProperty>
       </xsl:otherwise>
     </xsl:choose>
@@ -459,7 +480,7 @@
     <rdf:List>
       <rdf:first rdf:datatype="&xsd;{$t}"><xsl:value-of select="$elm/@value"/></rdf:first>
       <xsl:choose>
-	<xsl:when test="count($elm/following-sibling::node()) = 0">
+	<xsl:when test="count($elm/following-sibling::node())=0">
 	  <rdf:rest rdf:resource="&rdf;nil"/>
 	</xsl:when>
 	<xsl:otherwise>
@@ -480,14 +501,12 @@
       <xsl:value-of select="./xsd:documentation"/>
     </rdfs:comment>
     <xsl:variable name="pointer"><xsl:value-of select="./xsd:documentation/@source"/></xsl:variable>
-    <xsl:if test="$pointer != ''">
+    <xsl:if test="$pointer!=''">
       <rdfs:seeAlso rdf:resource="{$pointer}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="text()|*|@*"/>
   <xsl:template match="text()|*|@*" mode="annotation"/>
-
-  <!-- restore category group -->
 
 </xsl:stylesheet>
