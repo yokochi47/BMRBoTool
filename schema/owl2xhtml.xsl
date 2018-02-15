@@ -58,7 +58,7 @@ by Masahide Kanzaki, and from the OWL2HTML stylesheet (2), by Li Ding. We are ve
    indent="yes" />
 
   <!-- global variables and functions -->
-  <xsl:variable name="class-name" select="//owl:Ontology/rdfs:label" />
+  <xsl:variable name="class-name" select="concat(//owl:Ontology/rdfs:label,' v',substring(//owl:Ontology/owl:versionIRI/@rdf:resource,64))" />
   <xsl:variable name="nodeset-ontology" select=".//*[rdf:type/@rdf:resource='http://www.w3.org/2002/07/owl#Ontology' or (local-name()='Ontology' and namespace-uri()='http://www.w3.org/2002/07/owl#')]" />
   <xsl:variable name="nodeset-class" select=".//*[(rdf:type/@rdf:resource='http://www.w3.org/2002/07/owl#Class' or (local-name()='Class' and namespace-uri()='http://www.w3.org/2002/07/owl#')) and @rdf:ID!='']" />
   <xsl:variable name="nodeset-property" select=".//*[((local-name()='Property' and namespace-uri()='http://www.w3.org/1999/02/22-rdf-syntax-ns#') or (local-name()='ConstraintProperty' and namespace-uri()='http://www.w3.org/2000/01/rdf-schema#') or (local-name()='DatatypeProperty' and namespace-uri()='http://www.w3.org/2002/07/owl#') or (local-name()='ObjectProperty' and namespace-uri()='http://www.w3.org/2002/07/owl#')) and @rdf:ID!='']" />
@@ -70,7 +70,7 @@ by Masahide Kanzaki, and from the OWL2HTML stylesheet (2), by Li Ding. We are ve
     <html>
       <head>
 	<title>
-	  <xsl:value-of select="concat(//owl:Ontology/rdfs:label,' v',substring(//owl:Ontology/owl:versionIRI/@rdf:resource,64)" />
+	  <xsl:value-of select="$class-name" />
 	</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<style type="text/css">
@@ -228,7 +228,7 @@ hr {
     <div id="header">
       <div id="superHeader">
 	<big style="font-weight: bold;">
-	  <xsl:value-of select="owl:Ontology/rdfs:label" />
+	  <xsl:value-of select="$class-name" />
 	</big>
 	<p class="alignright">
 	</p>
