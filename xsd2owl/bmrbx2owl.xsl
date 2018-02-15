@@ -21,8 +21,6 @@
   <xsl:output method="xml" indent="yes"/>
   <xsl:strip-space elements="*"/>
 
-  <xsl:variable name="pdbo">https://rdf.wwpdb.org/schema/pdbx-v50.owl#</xsl:variable>
-
   <xsl:template match="/">
     <xsl:text disable-output-escaping="yes">
 &lt;?xml-stylesheet type="text/xsl" href="http://bmrbpub.protein.osaka-u.ac.jp/schema/owl2xhtml.xsl"?&gt;
@@ -34,7 +32,8 @@
        xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
        xmlns:owl="http://www.w3.org/2002/07/owl#"
        xmlns:dc="http://purl.org/dc/elements/1.1/"
-       xmlns:dcterms="http://purl.org/dc/terms/">
+       xmlns:dcterms="http://purl.org/dc/terms/"
+       xmlns:PDBo="https://rdf.wwpdb.org/schema/pdbx-v50.owl#">
 
       <owl:Ontology rdf:about="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl">
 	<rdfs:label>BMRB/OWL</rdfs:label>
@@ -47,20 +46,20 @@
       <owl:Class rdf:ID="Category">
 	<rdfs:label>Category</rdfs:label>
 	<rdfs:comment xml:lang="en">Abstract class for category holders.</rdfs:comment>
-        <owl:sameAs rdf:resource="{$pdbo}Category"/>
+        <owl:sameAs rdf:resource="PDBo:Category"/>
       </owl:Class>
 
       <owl:Class rdf:ID="CategoryElement">
 	<rdfs:label>CategoryElement</rdfs:label>
 	<rdfs:comment xml:lang="en">Abstract class for category elements.</rdfs:comment>
-        <owl:sameAs rdf:resource="{$pdbo}CategoryElement"/>
+        <owl:sameAs rdf:resource="PDBo:CategoryElement"/>
       </owl:Class>
 
       <owl:DatatypeProperty rdf:ID="categoryItem">
 	<rdfs:label>categoryItem</rdfs:label>
 	<rdfs:comment xml:lang="en">Abstract datatype property for category items.</rdfs:comment>
 	<rdfs:domain rdf:resource="#CategoryElement"/>
-        <owl:sameAs rdf:resource="{$pdbo}categoryItem"/>
+        <owl:sameAs rdf:resource="PDBo:categoryItem"/>
       </owl:DatatypeProperty>
 
       <!--owl:ObjectProperty rdf:ID="crossReference">
@@ -73,7 +72,7 @@
         <rdfs:subPropertyOf rdf:resource="dcterms:references"/>
 	<rdfs:domain rdf:resource="#CategoryElement"/>
 	<rdfs:range rdf:resource="#CategoryElement"/>
-        <owl:equivalentProperty rdf:resource="{$pdbo}reference_to"/>
+        <owl:equivalentProperty rdf:resource="PDBo:reference_to"/>
       </owl:ObjectProperty>
 
       <owl:ObjectProperty rdf:ID="referenced_by">
@@ -82,7 +81,7 @@
         <rdfs:subPropertyOf rdf:resource="dcterms:isReferencedBy"/>
 	<rdfs:domain rdf:resource="#CategoryElement"/>
 	<rdfs:range rdf:resource="#CategoryElement"/>
-        <owl:equivalentProperty rdf:resource="{$pdbo}referenced_by"/>
+        <owl:equivalentProperty rdf:resource="PDBo:referenced_by"/>
       </owl:ObjectProperty>
 <!--
       <owl:ObjectProperty rdf:ID="link_to">
@@ -248,26 +247,26 @@
 	  </owl:intersectionOf>
 	</owl:Class>
       </rdfs:subClassOf>
-      <owl:equivalentClass rdf:resource="{$pdbo}datablock"/>
+      <owl:equivalentClass rdf:resource="PDBo:datablock"/>
     </owl:Class>
 
     <owl:DatatypeProperty rdf:ID="datablockName">
       <rdfs:domain rdf:resource="#datablock"/>
       <rdfs:range rdf:resource="&xsd;string"/>
       <xsl:apply-templates select="./xsd:annotation"/>
-      <owl:equivalentProperty rdf:resource="{$pdbo}datablockName"/>
+      <owl:equivalentProperty rdf:resource="PDBo:datablockName"/>
     </owl:DatatypeProperty>
 
     <owl:InverseFunctionalProperty rdf:ID="hasCategory">
       <rdfs:comment xml:lang="en">Abstract property pointing to category.</rdfs:comment>
       <rdfs:domain rdf:resource="#datablock"/>
-      <owl:equivalentProperty rdf:resource="{$pdbo}hasCategory"/>
+      <owl:equivalentProperty rdf:resource="PDBo:hasCategory"/>
     </owl:InverseFunctionalProperty>
 
     <owl:InverseFunctionalProperty rdf:ID="hasCategoryElement">
       <rdfs:comment xml:lang="en">Abstract property pointing to category element.</rdfs:comment>
       <!-- range should be rdf:List, but OWL doesn't allow this... -->
-      <owl:equivalentProperty rdf:resource="{$pdbo}hasCategoryElement"/>
+      <owl:equivalentProperty rdf:resource="PDBo:hasCategoryElement"/>
     </owl:InverseFunctionalProperty>
 
     <owl:ObjectProperty rdf:ID="of_datablock">
@@ -275,12 +274,12 @@
       <rdfs:comment xml:lang="en">Link to the base datablock of category elements.</rdfs:comment>
       <rdfs:domain rdf:resource="#CategoryElement"/>
       <rdfs:range rdf:resource="#datablock"/>
-      <owl:equivalentProperty rdf:resource="{$pdbo}of_datablock"/>
+      <owl:equivalentProperty rdf:resource="PDBo:of_datablock"/>
     </owl:ObjectProperty>
 
     <owl:ObjectProperty rdf:ID="datablock_of">
       <owl:inverseOf rdf:resource="#of_datablock"/>
-      <owl:equivalentProperty rdf:resource="{$pdbo}datablock_of"/>
+      <owl:equivalentProperty rdf:resource="PDBo:datablock_of"/>
     </owl:ObjectProperty>
 
   </xsl:template>
@@ -447,7 +446,7 @@
 	  <rdfs:label><xsl:value-of select="$id"/></rdfs:label>
 	  <xsl:apply-templates select="./xsd:annotation"/>
           <xsl:if test="$pdbx_item!=''">
-            <owl:equivalentProperty rdf:resource="{$pdbo}{$pdbx_item}"/>
+            <owl:equivalentProperty rdf:resource="PDBo:{$pdbx_item}"/>
           </xsl:if>
 	</owl:DatatypeProperty>
       </xsl:when>
@@ -468,7 +467,7 @@
 	  </rdfs:range>
 	  <xsl:apply-templates select="./xsd:annotation"/>
           <xsl:if test="$pdbx_item!=''">
-            <owl:equivalentProperty rdf:resource="{$pdbo}{$pdbx_item}"/>
+            <owl:equivalentProperty rdf:resource="PDBo:{$pdbx_item}"/>
           </xsl:if>
 	</owl:DatatypeProperty>
       </xsl:otherwise>
