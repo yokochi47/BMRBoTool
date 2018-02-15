@@ -255,7 +255,6 @@
    <nmr-star-item id="entity_natural_src.strain" trans_func="1">entity_src_nat.strain</nmr-star-item>
    <nmr-star-item id="entity_natural_src.tissue" trans_func="1">entity_src_nat.tissue</nmr-star-item>
    <nmr-star-item id="entity_common_name.type" trans_func="1">entity_src_nat.tissue_fraction</nmr-star-item>
-   <nmr-star-item id="assembly.entry_id" trans_func="1">entry.id</nmr-star-item>
    <nmr-star-item id="entry_experimental_methods.id" trans_func="5">exptl.method</nmr-star-item>
    <nmr-star-item id="entry_experimental_methods.method" trans_func="1">exptl.method</nmr-star-item>
    <nmr-star-item id="entry_experimental_methods.subtype" trans_func="1">exptl.method</nmr-star-item>
