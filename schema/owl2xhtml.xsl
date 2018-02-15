@@ -361,7 +361,7 @@ hr {
     </xsl:variable>
     <div class="Class" id="ontologylabel">
       <a>
-	<xsl:value-of select="$class-name" />
+	<xsl:value-of select="//owl:Ontology/rdfs:label" />
       </a>
       <span class="cp-type">
 	( rdf:type
