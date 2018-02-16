@@ -166,11 +166,7 @@ if [ $? = 0 ] && [ $update_virtuoso = "true" ] ; then
  case $ans in
   y*|Y*)
 
-   ./start_virtuoso.sh
-
-   if [ $? != 0 ] ; then
-    exit 1
-   fi
+   ./start_virtuoso.sh || exit 1
 
    GRAPH_URI=http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr
    graph_exist=`./ask_graph_existance.sh $GRAPH_URI`

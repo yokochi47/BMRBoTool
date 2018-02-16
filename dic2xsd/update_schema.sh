@@ -3,7 +3,6 @@
 if [ ! `which DictToSdb` ] || [ ! `which Dict2XMLSchema` ] || [ ! `which Dict2XMLSchema` ]; then
 
  echo "Please install MMCIF Dictionary Suite (http://sw-tools.pdb.org/)."
-
  exit 1
 
 fi
@@ -69,13 +68,13 @@ do
 
  time=`ping -c 1 -w 10 $url | grep 'avg' | cut -d '=' -f 2 | cut -d '/' -f 2`
 
- if [ $? = "0" ] ; then
+ if [ $? = 0 ] ; then
 
   printf "[%d] %s\t\t%6.1f\n" $i $url $time
 
   cmp=`echo "$time > $delay" | bc`
 
-  if [ $cmp = "0" ] ; then
+  if [ $cmp = 0 ] ; then
    BMRB_URL=$url
    delay=$time
   fi

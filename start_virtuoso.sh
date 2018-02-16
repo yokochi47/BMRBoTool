@@ -45,26 +45,12 @@ VIRTUOSO_DATA_DIR=$VIRTUOSO_HOME/var/lib/virtuoso/db
 echo "start virtuoso (local)"
 cd $VIRTUOSO_DATA_DIR; virtuoso-t
 
-pid=`pidof virtuoso-t`
+pid=`pidof virtuoso-t` || exit 1
 
-if [ $? = 0 ] ; then
+oom_score_adj=`cat /proc/$pid/oom_score_adj`
 
- oom_score_adj=`cat /proc/$pid/oom_score_adj`
-
- echo "pid:           "$pid
- echo "oom_score_adj: "$oom_score_adj
-<< REMARK
- if [ $oom_score_adj != -1000 ] ; then
-
-  su -c "echo -17 > /proc/$pid/oom_adj"
-  oom_score_adj=`cat /proc/$pid/oom_score_adj`
-  echo "oom_score_adj: "$oom_score_adj
-
- fi
-REMARK
-else
- exit 1
-fi
+echo "pid:           "$pid
+echo "oom_score_adj: "$oom_score_adj
 
 iter=1
 
@@ -79,7 +65,6 @@ while true ; do
  elif [ $iter > 30 ] ; then
   echo Failed.
   break
-#  exit 1
  fi
 
  let iter++
