@@ -111,7 +111,7 @@ J. As for Metabolomics database
 
 K. ### An interactive script executing all processes above ###
 
-    % do_all.sh
+    % run_all.sh
 
 L. Questions or comment
 
