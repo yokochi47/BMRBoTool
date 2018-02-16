@@ -17,28 +17,29 @@ while true ; do
  case "$1" in
  -p)
   PREFIX=$2
-  shift 2
+  shift
  ;;
  -a)
   ATOM=$2
-  shift 2
+  shift
  ;;
  -u)
   UPDATE=$2
-  shift 2
+  shift
  ;;
  -i)
   INIT=$2
-  shift 2
+  shift
  ;;
  -n)
   PROC_INFO=$2
-  shift 2
+  shift
  ;;
  *)
   break
  ;;
  esac
+ shift
 done
 
 if [ $PREFIX != "bmr" ] && [ $PREFIX != "bms" ] ; then
