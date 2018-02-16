@@ -92,7 +92,16 @@ echo "$BMRB_URL was selected."
 
 java -classpath ../$BMRBX_TOOL_HOME/xsd-ann.jar:../$BMRBX_TOOL_HOME/extlibs/* XSD_ann --home .. --user-bmrb $DB_USER --url-mirror $BMRB_URL --dic-ver $DICT_VERSION
 
+SAXON=../extlibs/saxon9he.jar
+
+APPEND_XSD_XSL=append_xsd.xsl
+
+java -jar $SAXON -s:$DICT_PREFIX-v$DICT_VERSION.xsd -xsl:$APPEND_XSD_XSL -o:$DICT_PREFIX-v$DICT_VERSION.xsd~
+
+mv $DICT_PREFIX-v$DICT_VERSION.xsd~ $DICT_PREFIX-v$DICT_VERSION.xsd
+
 sed '1a\<?xml-stylesheet type="text/xsl" href="http://bmrbpub.protein.osaka-u.ac.jp/schema/xs3p.xsl"?>' $DICT_PREFIX-v$DICT_VERSION.xsd > $DICT_PREFIX-v$DICT_VERSION.xsd~
+
 mv $DICT_PREFIX-v$DICT_VERSION.xsd~ $DICT_PREFIX-v$DICT_VERSION.xsd
 
 cp -f $NMRSTAR_DICT_FILE ../schema/$DICT_PREFIX.dic
