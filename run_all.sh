@@ -8,12 +8,12 @@ while true ; do
  case "$1" in
  -n)
   update_virtuoso=false
-  shift 1
  ;;
  *)
   break
  ;;
  esac
+ shift
 done
 
 echo "# BMRBoTool v1.26.0 (NMR-STAR v3.2.0.13)"
