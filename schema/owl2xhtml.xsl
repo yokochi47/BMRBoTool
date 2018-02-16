@@ -58,7 +58,7 @@ by Masahide Kanzaki, and from the OWL2HTML stylesheet (2), by Li Ding. We are ve
    indent="yes" />
 
   <!-- global variables and functions -->
-  <xsl:variable name="class-name" select="concat(//owl:Ontology/rdfs:label,' v',substring(//owl:Ontology/owl:versionIRI/@rdf:resource,string-length(//owl:Ontology/@rdf:about)+1))" />
+  <xsl:variable name="class-name" select="concat(//owl:Ontology/rdfs:label,' v',substring(//owl:Ontology/owl:versionIRI/@rdf:resource,string-length(//owl:Ontology/@rdf:about)+2))" />
   <xsl:variable name="nodeset-ontology" select=".//*[rdf:type/@rdf:resource='http://www.w3.org/2002/07/owl#Ontology' or (local-name()='Ontology' and namespace-uri()='http://www.w3.org/2002/07/owl#')]" />
   <xsl:variable name="nodeset-class" select=".//*[(rdf:type/@rdf:resource='http://www.w3.org/2002/07/owl#Class' or (local-name()='Class' and namespace-uri()='http://www.w3.org/2002/07/owl#')) and @rdf:ID!='']" />
   <xsl:variable name="nodeset-property" select=".//*[((local-name()='Property' and namespace-uri()='http://www.w3.org/1999/02/22-rdf-syntax-ns#') or (local-name()='ConstraintProperty' and namespace-uri()='http://www.w3.org/2000/01/rdf-schema#') or (local-name()='DatatypeProperty' and namespace-uri()='http://www.w3.org/2002/07/owl#') or (local-name()='ObjectProperty' and namespace-uri()='http://www.w3.org/2002/07/owl#')) and @rdf:ID!='']" />
