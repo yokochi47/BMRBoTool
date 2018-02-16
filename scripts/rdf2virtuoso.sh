@@ -102,11 +102,7 @@ if [ $graph_exist = 0 ] ; then
  VIRTUOSO_EXEC_COM="ld_dir('$PWD/$RDF_RAW_DIR', '*.rdf', '$GRAPH_URI');"
  echo $VIRTUOSO_EXEC_COM
 
- isql $VIRTUOSO_DB_PORT $VIRTUOSO_DB_USER $VIRTUOSO_DB_PASS exec="$VIRTUOSO_EXEC_COM" 2> $VIRTUOSO_ERR_FILE
-
- if [ $? != 0 ] ; then
-  exit 1
- fi
+ isql $VIRTUOSO_DB_PORT $VIRTUOSO_DB_USER $VIRTUOSO_DB_PASS exec="$VIRTUOSO_EXEC_COM" 2> $VIRTUOSO_ERR_FILE || exit 1
 
  rm -f $VIRTUOSO_ERR_FILE
 
@@ -129,11 +125,7 @@ else
   VIRTUOSO_EXEC_COM="log_enable(3,1); SPARQL CLEAR GRAPH <$GRAPH_URI>;"
   echo $VIRTUOSO_EXEC_COM
 
-  isql $VIRTUOSO_DB_PORT $VIRTUOSO_DB_USER $VIRTUOSO_DB_PASS exec="$VIRTUOSO_EXEC_COM" 2> $VIRTUOSO_ERR_FILE
-
-  if [ $? != 0 ] ; then
-   exit 1
-  fi
+  isql $VIRTUOSO_DB_PORT $VIRTUOSO_DB_USER $VIRTUOSO_DB_PASS exec="$VIRTUOSO_EXEC_COM" 2> $VIRTUOSO_ERR_FILE || exit 1
 
  fi
 
@@ -142,11 +134,7 @@ else
 
   VIRTUOSO_EXEC_COM="ld_file('$PWD/$file', '$GRAPH_URI');"
 
-  isql $VIRTUOSO_DB_PORT $VIRTUOSO_DB_USER $VIRTUOSO_DB_PASS exec="$VIRTUOSO_EXEC_COM" > /dev/null 2> $VIRTUOSO_ERR_FILE
-
-  if [ $? != 0 ] ; then
-   exit 1
-  fi
+  isql $VIRTUOSO_DB_PORT $VIRTUOSO_DB_USER $VIRTUOSO_DB_PASS exec="$VIRTUOSO_EXEC_COM" > /dev/null 2> $VIRTUOSO_ERR_FILE || exit 1
 
   echo -n .
 
@@ -158,11 +146,5 @@ else
 
 fi
 
-isql $VIRTUOSO_DB_PORT $VIRTUOSO_DB_USER $VIRTUOSO_DB_PASS exec="checkpoint;"
-
-if [ $? != 0 ] ; then
- exit 1
-fi
-
-exit 0
+isql $VIRTUOSO_DB_PORT $VIRTUOSO_DB_USER $VIRTUOSO_DB_PASS exec="checkpoint;" || exit 1
 
