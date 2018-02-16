@@ -439,7 +439,7 @@
 	<!-- basic types -->
 	<xsl:variable name="datatype1" select="substring-after(@type,':')"/>
 	<xsl:variable name="datatype2" select="substring-after(./xsd:complexType/xsd:simpleContent/xsd:extension/@base,':')"/>
-	<xsl:variable name="datatype3" select="substring-after(./xsd:simpleType/xsd:union/xsd:simpleType[1]/xsd:restriction/@base,':')"/>
+	<xsl:variable name="datatype3" select="substring-after(./xsd:simpleType[1]/xsd:restriction/@base,':')"/>
 	<owl:DatatypeProperty rdf:ID="{$id}">
 	  <rdfs:subPropertyOf rdf:resource="#{$category}Item"/>
 	  <rdfs:range rdf:resource="&xsd;{concat($datatype1,$datatype2,$datatype3)}"/>
