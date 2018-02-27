@@ -4,11 +4,7 @@
   Apache License V2.0 branding.
   Added ontology relationship between BMRB/OWL and PDBx ontology.
   Renamed script: do_all.sh -> run_all.sh
-<<<<<<< HEAD
-  Append _pdbx_item_linked_group loop and _pdbx_item_linked_group_list loop in NMR-STAR Dictionary.
-=======
   Appended _pdbx_item_linked_group loop and _pdbx_item_linked_group_list loop in NMR-STAR Dictionary.
->>>>>>> 9a1740106cb5cf82e501bd36505f1e40f2156429
 
  Changes in BMRBoTool 1.25.0 (release 2018-02-02)
 
