@@ -119,35 +119,15 @@ done
 
 echo "# + File compressions (BMRB/RDF)"
 
-echo
-echo "Do you want to compress RDF files? (y [n]) "
-
-read ans
-
-case $ans in
- y*|Y*)
-  for prefix in bmr bms ; do
-   ./$prefix"zip_rdf.sh"
-  done;;
- *)
-  echo skipped.;;
-esac
+for prefix in bmr bms ; do
+ ./$prefix"zip_rdf.sh"
+done
 
 echo "# + RDF/XML -> N-Triples conversion (BMRB/RDF)"
 
-echo
-echo "Do you want to convert to N-Triples files? (y [n]) "
-
-read ans
-
-case $ans in
- y*|Y*)
-  for prefix in bmr bms ; do
-   ./$prefix"2nt.sh"
-  done;;
- *)
-  echo skipped.;;
-esac
+for prefix in bmr bms ; do
+ ./$prefix"2nt.sh"
+done
 
 rm -f /tmp/bmr-virtuoso-last
 rm -f /tmp/bms-virtuoso-last
