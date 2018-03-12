@@ -1,7 +1,8 @@
 #!/bin/bash
 
-MAXPROCS=`cat /proc/cpuinfo 2> /dev/null | grep 'cpu cores' | uniq | sed 's/\s//g' | cut -d ':' -f 2`
-#MAXPROCS=`cat /proc/cpuinfo 2> /dev/null | grep 'cpu cores' | wc -l`
+MAXPROCS=`cat /proc/cpuinfo 2> /dev/null | grep 'cpu cores' | wc -l`
+
+MAXPROCS=`ehoc "scale=0; $MAXPROCS / 2.5" | bc`
 
 if [ $MAXPROCS = 0 ] ; then
  MAXPROCS=1
