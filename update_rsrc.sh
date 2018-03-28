@@ -4,7 +4,7 @@ if [ $# = 0 ] || [ $1 = "xsd" ] ; then
 
  ( cd dic2xsd; ./update_schema.sh )
 
- if [ $? = 0 ] && [ -e ../schema/mmcif_nmr-star.xsd ] ; then
+ if [ $? = 0 ] && [ -e schema/mmcif_nmr-star.xsd ] ; then
   echo "Updated BMRB/XML Schema (schema/mmcif_nmr-star.xsd)."
  else
   exit 1
@@ -15,7 +15,7 @@ if [ $# = 0 ] || [ $1 = "xsd" ] ; then
  XSD_SCHEMA=schema/mmcif_nmr-star.xsd
  DB_SCHEMA=schema/mmcif_nmr-star.dic.schema
 
- java -cp $BMRBX_TOOL_HOME/extlibs/xsd2pgschema.jar xsd2pgschema --xsd $XSD_SCHEMA --no-rel --hash-by SHA-1 > $DB_SCHEMA
+ java -cp $BMRBX_TOOL_HOME/extlibs/xsd2pgschema.jar xsd2pgschema --xsd $XSD_SCHEMA --no-rel --hash-by SHA-1 --inplace-doc-key-name entry_id --inplace-doc-key-name entry.id > $DB_SCHEMA
 
 # DB_SCHEMA=schema/mmcif_nmr-star.xsd-strict.schema
 # java -cp $BMRBX_TOOL_HOME/extlibs/xsd2pgschema.jar xsd2pgschema --xsd $XSD_SCHEMA > $DB_SCHEMA
@@ -36,7 +36,7 @@ if [ $# = 0 ] || [ $1 = "owl" ] ; then
 
  ( cd xsd2owl; ./bmrbx2owl.sh )
 
- if [ $? = 0 ] && [ -e ../schema/mmcif_nmr-star.owl ] ; then
+ if [ $? = 0 ] && [ -e schema/mmcif_nmr-star.owl ] ; then
   echo "Updated BMRB/OWL (schema/mmcif_nmr-star.owl)."
  else
   exit 1
@@ -48,7 +48,7 @@ if [ $# = 0 ] || [[ $1 =~ ^xsl.* ]] ; then
 
  ( cd xsd2xml2rdf; ./bmrbx2xml2rdf.sh )
 
- if [ $? = 0 ] && [ -e ../schema/bmrbx2rdf.xsl ] ; then
+ if [ $? = 0 ] && [ -e schema/bmrbx2rdf.xsl ] ; then
   echo "Updated BMRB/XML->RDF XSLT code (schema/bmrbx2rdf.xsl)."
  else
   exit 1
