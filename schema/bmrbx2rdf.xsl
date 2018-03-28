@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <xsl:stylesheet
   version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -6658,6 +6657,19 @@
       <xsl:apply-templates mode="linked"/>
       </BMRBo:peak_general_char>
       </BMRBo:has_peak_general_char>
+  </xsl:template>
+
+
+  <xsl:template match="BMRBx:datablock/BMRBx:peak_row_formatCategory/BMRBx:peak_row_format">
+      <BMRBo:has_peak_row_format>
+      <BMRBo:peak_row_format rdf:about="{$base}/peak_row_format/{translate(@entry_id,' []@#%+&amp;','_()a....')},{translate(@id,' []@#%+&amp;','_()a....')},{translate(@spectral_peak_list_id,' []@#%+&amp;','_()a....')}">
+	<BMRBo:of_datablock rdf:resource="{$base}"/>
+      <xsl:apply-templates select="@*"/>
+      <xsl:apply-templates select="@*" mode="linked"/>
+      <xsl:apply-templates/>
+      <xsl:apply-templates mode="linked"/>
+      </BMRBo:peak_row_format>
+      </BMRBo:has_peak_row_format>
   </xsl:template>
 
 
