@@ -148,6 +148,8 @@ if [ $? = 0 ] && [ $update_virtuoso = "true" ] ; then
 
    ./start_virtuoso.sh || exit 1
 
+   sleep 180
+
    GRAPH_URI=http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr
    graph_exist=`./ask_graph_existance.sh $GRAPH_URI`
 
@@ -156,9 +158,16 @@ if [ $? = 0 ] && [ $update_virtuoso = "true" ] ; then
    fi
 
    if [ $bmr_ulist_len -gt 0 ] || [ $graph_exist = 0 ] ; then
+
     ./init_virtuoso.sh
+
+    sleep 180
+
     ./bmr2virtuoso.sh
+
    fi
+
+   sleep 180
 
    GRAPH_URI=http://bmrbpub.protein.osaka-u.ac.jp/rdf/bms
    graph_exist=`./ask_graph_existance.sh $GRAPH_URI`

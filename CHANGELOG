@@ -1,10 +1,11 @@
- Changes in BMRBxTool 1.26.0 (release 2018-03-28)
+ Changes in BMRBxTool 1.26.0 (release 2018-03-29)
 
   Updated dictionary from NMR-STAR v3.2.0.11 to v3.2.0.15.
   Apache License V2.0 branding.
   Added ontology relationship between BMRB/OWL and PDBx ontology.
   Renamed script: do_all.sh -> run_all.sh
   Appended _pdbx_item_linked_group loop and _pdbx_item_linked_group_list loop in NMR-STAR Dictionary.
+  Added delay time after virtuoso starts.
 
  Changes in BMRBoTool 1.25.0 (release 2018-02-02)
 
