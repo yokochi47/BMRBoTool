@@ -16,7 +16,7 @@ while true ; do
  shift
 done
 
-echo "# BMRBoTool v1.26.0 (NMR-STAR v3.2.0.13)"
+echo "# BMRBoTool v1.27.0 (NMR-STAR v3.2.1.2)"
 echo "# + Resource updates"
 
 if [ ! -e ./schema/mmcif_nmr-star.xsd ] ; then

@@ -12,8 +12,8 @@ A. Requirements
 
     and
 
-    BMRB/XML documents validated by BMRBxTool v1.26.0
-    NOTE: This version supports NMR-STAR v3.2.0.13 only.
+    BMRB/XML documents validated by BMRBxTool v1.27.0
+    NOTE: This version supports NMR-STAR v3.2.1.2 only.
 
 B. Retrieve mmCIF dictionary (NMR-STAR.dic) and update XML schema
 
@@ -89,7 +89,7 @@ I. Other files and directories
     scripts/*            : utility shell scripts.
     start_virtuoso.sh    : script for starting Virtuoso server.
     virtuoso.ini         : configuration file for Virtuoso server.
-                           Please fill <path_here>/bmrbo-tool-1.26.0
+                           Please fill <path_here>/BMRBoTool
                            and copy the file in /usr/local/virtuoso-opensource/var/lib/virtuoso/db.
     run_sparql.sh        : shell script for SPARQL query.
     queries              : includes example SPARQL (ca_all.sparql, cacb_all.sparql and ca_ph_5.5_or_lower.sparql).

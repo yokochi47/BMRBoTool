@@ -23,9 +23,10 @@ rm -f $NMRSTAR_DIC_FILE~
 
 patch -N < $NMRSTAR_DIC_FILE.patch
 
-rm -f  $NMRSTAR_DIC_FILE.rej
+rm -f $NMRSTAR_DIC_FILE.rej $NMRSTAR_DIC_FILE-*.log
 
 DictToSdb -ddlFile mmcif_nmr-star_ddl.dic -dictFile $NMRSTAR_DIC_FILE -dictSdbFile $DIC_PREFIX.sdb
+
 DictObjFileCreator -dictSdbFile $DIC_PREFIX.sdb -o $DIC_PREFIX.odb
 Dict2XMLSchema -dictName $DIC_PREFIX.dic -df $DIC_PREFIX.odb -ns $NAME_SPACE -prefix $DIC_PREFIX
 
