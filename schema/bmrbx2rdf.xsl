@@ -7950,19 +7950,6 @@
   </xsl:template>
 
 
-  <xsl:template match="BMRBx:datablock/BMRBx:spectral_transition_contribCategory/BMRBx:spectral_transition_contrib">
-      <BMRBo:has_spectral_transition_contrib>
-      <BMRBo:spectral_transition_contrib rdf:about="{$base}/spectral_transition_contrib/{translate(@id,' []@#%+&amp;','_()a....')}">
-	<BMRBo:of_datablock rdf:resource="{$base}"/>
-      <xsl:apply-templates select="@*"/>
-      <xsl:apply-templates select="@*" mode="linked"/>
-      <xsl:apply-templates/>
-      <xsl:apply-templates mode="linked"/>
-      </BMRBo:spectral_transition_contrib>
-      </BMRBo:has_spectral_transition_contrib>
-  </xsl:template>
-
-
   <xsl:template match="BMRBx:datablock/BMRBx:spectral_transition_general_charCategory/BMRBx:spectral_transition_general_char">
       <BMRBo:has_spectral_transition_general_char>
       <BMRBo:spectral_transition_general_char rdf:about="{$base}/spectral_transition_general_char/{translate(@entry_id,' []@#%+&amp;','_()a....')},{translate(@intensity_val,' []@#%+&amp;','_()a....')},{translate(@spectral_peak_list_id,' []@#%+&amp;','_()a....')},{translate(@spectral_transition_id,' []@#%+&amp;','_()a....')}">
