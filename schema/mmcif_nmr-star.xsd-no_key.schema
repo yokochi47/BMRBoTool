@@ -16087,8 +16087,6 @@ CREATE TABLE chem_comp_common_name (
 --
 DROP TYPE IF EXISTS ENUM_chem_comp_db_link_author_supplied;
 CREATE TYPE ENUM_chem_comp_db_link_author_supplied AS ENUM ( 'yes', 'no' );
-DROP TYPE IF EXISTS ENUM_chem_comp_db_link_database_code;
-CREATE TYPE ENUM_chem_comp_db_link_database_code AS ENUM ( 'CDDC', 'PDB', 'PubChem SID', 'PubChem CID', 'KEGG' );
 CREATE TABLE chem_comp_db_link (
 	chem_comp_db_link_id BIGINT CHECK ( chem_comp_db_link_id >= 0 ) ,
 -- FOREIGN KEY : "chem_comp_db_linkType" ( "chem_comp_db_linkType_id" )
@@ -16105,7 +16103,7 @@ CREATE TABLE chem_comp_db_link (
 -- ATTRIBUTE
 	comp_id TEXT NOT NULL ,
 -- ATTRIBUTE
-	database_code ENUM_chem_comp_db_link_database_code NOT NULL ,
+	database_code TEXT NOT NULL ,
 -- ATTRIBUTE
 	entry_id TEXT NOT NULL 
 );
@@ -17539,8 +17537,6 @@ CREATE TABLE constraint_stat_list (
 --
 DROP TYPE IF EXISTS ENUM_constraint_stat_list_ens_constraint_stats_not_available;
 CREATE TYPE ENUM_constraint_stat_list_ens_constraint_stats_not_available AS ENUM ( 'yes', 'no' );
-DROP TYPE IF EXISTS ENUM_constraint_stat_list_ens_dihedral_const_stat_calc_meth;
-CREATE TYPE ENUM_constraint_stat_list_ens_dihedral_const_stat_calc_meth AS ENUM ( 'calculated over all dihedral constraints', 'calculated for dihedral violations only' );
 CREATE TABLE constraint_stat_list_ens (
 	constraint_stat_list_ens_id BIGINT CHECK ( constraint_stat_list_ens_id >= 0 ) ,
 -- FOREIGN KEY : "constraint_stat_list_ensType" ( "constraint_stat_list_ensType_id" )
@@ -17554,7 +17550,7 @@ CREATE TABLE constraint_stat_list_ens (
 	constraint_stats_not_available ENUM_constraint_stat_list_ens_constraint_stats_not_available ,
 	dihedral_angle_rmsd DECIMAL ,
 	dihedral_angle_rmsd_err DECIMAL ,
-	dihedral_const_stat_calc_meth ENUM_constraint_stat_list_ens_dihedral_const_stat_calc_meth ,
+	dihedral_const_stat_calc_meth TEXT ,
 	dihedral_const_violat_avg DECIMAL ,
 	dihedral_const_violat_max DECIMAL ,
 	dipolar_13c_13c_rmsd DECIMAL ,
@@ -23056,8 +23052,6 @@ CREATE TABLE observed_conformer (
 -- xmlns: http://pdbml.pdb.org/schema/mmcif_nmr-star.xsd (BMRBx), schema location: schema/mmcif_nmr-star.xsd
 -- type: admin child, content: true, list: false, bridge: false, virtual: false
 --
-DROP TYPE IF EXISTS ENUM_order_param_model_fit;
-CREATE TYPE ENUM_order_param_model_fit AS ENUM ( 'Rex', 'S2', 'S2, te', 'S2, Rex', 'S2, te, Rex', 'S2f, S2, ts', 'S2f, S2s, ts', 'S2f, tf, S2, ts', 'S2f, tf, S2s, ts', 'S2f, S2, ts, Rex', 'S2f, S2s, ts, Rex', 'S2f, tf, S2, ts, Rex', 'S2f, tf, S2s, ts, Rex' );
 CREATE TABLE order_param (
 	order_param_id BIGINT CHECK ( order_param_id >= 0 ) ,
 -- FOREIGN KEY : "order_paramType" ( "order_paramType_id" )
@@ -23074,7 +23068,7 @@ CREATE TABLE order_param (
 	comp_index_id INTEGER ,
 	entity_assembly_id INTEGER ,
 	entity_id INTEGER ,
-	model_fit ENUM_order_param_model_fit ,
+	model_fit TEXT ,
 	model_free_sum_squared_errs DECIMAL ,
 	order_param_val DECIMAL ,
 	order_param_val_fit_err DECIMAL ,
