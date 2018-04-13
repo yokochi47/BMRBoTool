@@ -101,9 +101,9 @@ java -jar $SAXON -s:$DIC_PREFIX-v$DIC_VERSION.xsd -xsl:$APPEND_XSD_XSL -o:$DIC_P
 
 mv $DIC_PREFIX-v$DIC_VERSION.xsd~ $DIC_PREFIX-v$DIC_VERSION.xsd
 
-sed '1a\<?xml-stylesheet type="text/xsl" href="http://bmrbpub.protein.osaka-u.ac.jp/schema/xs3p.xsl"?>' $DIC_PREFIX-v$DIC_VERSION.xsd > $DIC_PREFIX-v$DIC_VERSION.xsd~
+sed -i -e "3,2h; s/pdbml.pdb.org/bmrbpub.protein-osaka-u.ac.jp/g" $DIC_PREFIX-v$DIC_VERSION.xsd
 
-mv $DIC_PREFIX-v$DIC_VERSION.xsd~ $DIC_PREFIX-v$DIC_VERSION.xsd
+sed -i '1a\<?xml-stylesheet type="text/xsl" href="http://bmrbpub.protein.osaka-u.ac.jp/schema/xs3p.xsl"?>' $DIC_PREFIX-v$DIC_VERSION.xsd # > $DIC_PREFIX-v$DIC_VERSION.xsd~
 
 cp -f $NMRSTAR_DIC_FILE ../schema/$DIC_PREFIX.dic
 cp -f $DIC_PREFIX-v$DIC_VERSION.xsd ../schema/$DIC_PREFIX.xsd
