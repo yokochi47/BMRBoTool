@@ -40,7 +40,7 @@
 	<rdfs:comment xml:lang="en">he OWL ontology for BMRB/RDF.</rdfs:comment>
 	<rdfs:seeAlso rdf:resource="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.xsd"/>
 	<rdfs:seeAlso rdf:resource="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.dic"/>
-        <owl:versionIRI rdf:resource="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl/3.2.1.2"/>
+        <owl:versionIRI rdf:resource="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl/3.2.1.5"/>
       </owl:Ontology>
 
       <owl:Class rdf:ID="Category">

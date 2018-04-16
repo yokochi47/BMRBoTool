@@ -1,6 +1,6 @@
 data_mmcif_nmr-star.dic
 
-#  version date -  2018-04-05
+#  version date -  2018-04-13
 
 
 # The majority of the following item type definitions and descriptions for units
@@ -21,7 +21,7 @@ data_mmcif_nmr-star.dic
 
     _dictionary.title           mmcif_nmr-star.dic
     _dictionary.datablock_id    mmcif_nmr-star.dic
-    _dictionary.version         3.2.1.2
+    _dictionary.version         3.2.1.5
 
      loop_
        _dictionary_history.version
@@ -61,7 +61,7 @@ Many corrections and suggestions provided by PDBj-BMRB implemented.
      Added tags for FID sampling
 ;
 
-     3.2.1.2          2018-04-05
+     3.2.1.5          2018-04-13
 ;
      ?
 ;
@@ -2767,7 +2767,7 @@ Version of NMR-STAR in which the current entry is formatted.
    _item.mandatory_code                         yes
 #  _pdbx_item_enumeration_details.closed_flag   no
    _item_type.code                             'line'
-   _item_default.value            '3.2.1.2'
+   _item_default.value            '3.2.1.5'
 
    loop_
      _item_enumeration.value
@@ -2796,6 +2796,7 @@ Version of NMR-STAR in which the current entry is formatted.
    3.2.0.15    ?
    3.2.0.16    ?
    3.2.1.2    ?
+   3.2.1.5    ?
 
    stop_
 
@@ -2870,6 +2871,7 @@ Version of NMR-STAR in which the original entry was generated.
    3.2.0.15    ?
    3.2.0.16    ?
    3.2.1.2    ?
+   3.2.1.5    ?
 
    stop_
 
@@ -30225,6 +30227,7 @@ A value that attempts to classify software applications.
 # BMRB/XML: Eliminated the following enumerations.
 #  'NUS schedule generator'    ?
 #  'structure calculation'    ?
+#  'test lex'    ?
 #
 #  stop_
 
