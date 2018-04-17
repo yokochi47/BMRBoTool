@@ -16,7 +16,18 @@ while true ; do
  shift
 done
 
-echo "# BMRBoTool v1.27.0 (NMR-STAR v3.2.1.2)"
+VERSION=`grep BMRBoTool NOTICE | grep -v github | cut -d ' ' -f 2`
+
+NMRSTAR_DIC_FILE=NMR-STAR.dic
+
+if [ -e $NMRSTAR_DIC_FILE ] ; then
+
+ arg=(`tr -d '\r' < $NMRSTAR_DIC_FILE | grep dictionary.version`)
+ DIC_VERSION=${arg[1]}
+
+fi
+
+echo "# BMRBoTool $VERSION (NMR-STAR v$DIC_VERSION)"
 echo "# + Resource updates"
 
 if [ ! -e ./schema/mmcif_nmr-star.xsd ] ; then

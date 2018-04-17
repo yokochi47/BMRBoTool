@@ -15,6 +15,8 @@
    xmlns:owl="http://www.w3.org/2002/07/owl#"
    exclude-result-prefixes="xsd xsi">
 
+  <xsl:param name="dic_version" required="yes"/>
+
   <xsl:param name="tagmap_xml_file" required="yes"/>
   <xsl:param name="tagmap_xml" select="document($tagmap_xml_file)"/>
 
@@ -37,10 +39,10 @@
 
       <owl:Ontology rdf:about="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl">
 	<rdfs:label>BMRB/OWL</rdfs:label>
-	<rdfs:comment xml:lang="en">he OWL ontology for BMRB/RDF.</rdfs:comment>
+	<rdfs:comment xml:lang="en">The OWL ontology for BMRB/RDF.</rdfs:comment>
 	<rdfs:seeAlso rdf:resource="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.xsd"/>
 	<rdfs:seeAlso rdf:resource="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.dic"/>
-        <owl:versionIRI rdf:resource="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl/3.2.1.2"/>
+        <owl:versionIRI rdf:resource="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl/{$dic_version}"/>
       </owl:Ontology>
 
       <owl:Class rdf:ID="Category">

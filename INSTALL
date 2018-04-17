@@ -12,8 +12,7 @@ A. Requirements
 
     and
 
-    BMRB/XML documents validated by BMRBxTool v1.27.0
-    NOTE: This version supports NMR-STAR v3.2.1.2 only.
+    BMRB/XML documents validated by the same version of BMRBxTool
 
 B. Retrieve mmCIF dictionary (NMR-STAR.dic) and update XML schema
 

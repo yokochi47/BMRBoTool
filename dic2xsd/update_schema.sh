@@ -108,3 +108,7 @@ sed -i '1a\<?xml-stylesheet type="text/xsl" href="http://bmrbpub.protein.osaka-u
 cp -f $NMRSTAR_DIC_FILE ../schema/$DIC_PREFIX.dic
 cp -f $DIC_PREFIX-v$DIC_VERSION.xsd ../schema/$DIC_PREFIX.xsd
 
+pattern=s/DIC_VERSION/$DIC_VERSION/
+
+sed -e $pattern xs3p.xsl.bk > ../schema/xs3p.xsl
+
