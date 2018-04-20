@@ -198,7 +198,10 @@ convert() {
     if [ $? = 0 ] ; then
 
      cp -f $XML_GZ_FILE $XML_TMP_DIR
-     $UNZIP -f $XML_TMP_DIR/$BASENAME_XML.xml.gz
+
+     if [ -e $XML_TMP_DIR/$BASENAME_XML.xml.gz ] ; then
+      $UNZIP -f $XML_TMP_DIR/$BASENAME_XML.xml.gz
+     fi
 
      if [ -e $XML_DOC_FILE ] ; then
 
