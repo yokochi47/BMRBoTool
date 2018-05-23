@@ -61,9 +61,9 @@
   &lt;xsl:variable name="refseq-ident"&gt;http://identifiers.org/refseq/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="scop"&gt;http://scop.berkeley.edu/sunid=&lt;/xsl:variable&gt;
   &lt;xsl:variable name="scop-ident"&gt;http://identifiers.org/scop/&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="pdb"&gt;http://rdf.wwpdb.org/pdb/&lt;/xsl:variable&gt;
+  &lt;xsl:variable name="pdb"&gt;https://rdf.wwpdb.org/pdb/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="pdb-ident"&gt;http://identifiers.org/pdb/&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="pdb-ccd"&gt;http://rdf.wwpdb.org/cc/&lt;/xsl:variable&gt;
+  &lt;xsl:variable name="pdb-ccd"&gt;https://rdf.wwpdb.org/cc/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="pdb-ccd-ident"&gt;http://identifiers.org/pdb-ccd/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="pdb.ligand"&gt;http://ligand-expo.rcsb.org/pyapps/ldHandler.py?formid=cc-index-search&amp;amp;operation=ccid&amp;amp;target=&lt;/xsl:variable&gt;
   &lt;xsl:variable name="pdb.ligand-ident"&gt;http://identifiers.org/pdb.ligand/&lt;/xsl:variable&gt;

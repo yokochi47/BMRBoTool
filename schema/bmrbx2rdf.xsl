@@ -39,9 +39,9 @@
   <xsl:variable name="refseq-ident">http://identifiers.org/refseq/</xsl:variable>
   <xsl:variable name="scop">http://scop.berkeley.edu/sunid=</xsl:variable>
   <xsl:variable name="scop-ident">http://identifiers.org/scop/</xsl:variable>
-  <xsl:variable name="pdb">http://rdf.wwpdb.org/pdb/</xsl:variable>
+  <xsl:variable name="pdb">https://rdf.wwpdb.org/pdb/</xsl:variable>
   <xsl:variable name="pdb-ident">http://identifiers.org/pdb/</xsl:variable>
-  <xsl:variable name="pdb-ccd">http://rdf.wwpdb.org/cc/</xsl:variable>
+  <xsl:variable name="pdb-ccd">https://rdf.wwpdb.org/cc/</xsl:variable>
   <xsl:variable name="pdb-ccd-ident">http://identifiers.org/pdb-ccd/</xsl:variable>
   <xsl:variable name="pdb.ligand">http://ligand-expo.rcsb.org/pyapps/ldHandler.py?formid=cc-index-search&amp;operation=ccid&amp;target=</xsl:variable>
   <xsl:variable name="pdb.ligand-ident">http://identifiers.org/pdb.ligand/</xsl:variable>
