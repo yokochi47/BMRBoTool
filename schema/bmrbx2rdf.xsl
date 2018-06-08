@@ -1682,12 +1682,12 @@
 
   <xsl:template match="BMRBx:datablock/BMRBx:chem_shift_completeness_charCategory/BMRBx:chem_shift_completeness_char">
       <BMRBo:has_chem_shift_completeness_char>
-      <BMRBo:chem_shift_completeness_char rdf:about="{$base}/chem_shift_completeness_char/{translate(@assigned_chem_shift_list_id,' []@#%+&amp;','_()a....')},{translate(@entry_id,' []@#%+&amp;','_()a....')}">
+      <BMRBo:chem_shift_completeness_char rdf:about="{$base}/chem_shift_completeness_char/{translate(@assigned_chem_shift_list_id,' []@#%+&amp;','_()a....')},{translate(@entry_id,' []@#%+&amp;','_()a....')},{translate(@id,' []@#%+&amp;','_()a....')}">
 	<BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
 	<BMRBo:reference_to_entry>
 	  <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' []@#%+&amp;','_()a....')}">
-	    <BMRBo:referenced_by_chem_shift_completeness_char rdf:resource="{$base}/chem_shift_completeness_char/{translate(@assigned_chem_shift_list_id,' []@#%+&amp;','_()a....')},{translate(@entry_id,' []@#%+&amp;','_()a....')}"/>
+	    <BMRBo:referenced_by_chem_shift_completeness_char rdf:resource="{$base}/chem_shift_completeness_char/{translate(@assigned_chem_shift_list_id,' []@#%+&amp;','_()a....')},{translate(@entry_id,' []@#%+&amp;','_()a....')},{translate(@id,' []@#%+&amp;','_()a....')}"/>
 	  </rdf:Description>
 	</BMRBo:reference_to_entry>
 	    <!-- entryKeyref_0_0_30_0 -->
@@ -5250,12 +5250,12 @@
 
   <xsl:template match="BMRBx:datablock/BMRBx:lacs_charCategory/BMRBx:lacs_char">
       <BMRBo:has_lacs_char>
-      <BMRBo:lacs_char rdf:about="{$base}/lacs_char/{translate(@entry_id,' []@#%+&amp;','_()a....')},{translate(@lacs_plot_id,' []@#%+&amp;','_()a....')}">
+      <BMRBo:lacs_char rdf:about="{$base}/lacs_char/{translate(@entry_id,' []@#%+&amp;','_()a....')},{translate(@id,' []@#%+&amp;','_()a....')},{translate(@lacs_plot_id,' []@#%+&amp;','_()a....')}">
 	<BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
 	<BMRBo:reference_to_entry>
 	  <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' []@#%+&amp;','_()a....')}">
-	    <BMRBo:referenced_by_lacs_char rdf:resource="{$base}/lacs_char/{translate(@entry_id,' []@#%+&amp;','_()a....')},{translate(@lacs_plot_id,' []@#%+&amp;','_()a....')}"/>
+	    <BMRBo:referenced_by_lacs_char rdf:resource="{$base}/lacs_char/{translate(@entry_id,' []@#%+&amp;','_()a....')},{translate(@id,' []@#%+&amp;','_()a....')},{translate(@lacs_plot_id,' []@#%+&amp;','_()a....')}"/>
 	  </rdf:Description>
 	</BMRBo:reference_to_entry>
 	    <!-- entryKeyref_0_0_165_0 -->
@@ -6496,12 +6496,12 @@
 
   <xsl:template match="BMRBx:datablock/BMRBx:pb_charCategory/BMRBx:pb_char">
       <BMRBo:has_pb_char>
-      <BMRBo:pb_char rdf:about="{$base}/pb_char/{translate(@entry_id,' []@#%+&amp;','_()a....')},{translate(@pb_list_id,' []@#%+&amp;','_()a....')}">
+      <BMRBo:pb_char rdf:about="{$base}/pb_char/{translate(@entry_id,' []@#%+&amp;','_()a....')},{translate(@id,' []@#%+&amp;','_()a....')},{translate(@pb_list_id,' []@#%+&amp;','_()a....')}">
 	<BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
 	<BMRBo:reference_to_entry>
 	  <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' []@#%+&amp;','_()a....')}">
-	    <BMRBo:referenced_by_pb_char rdf:resource="{$base}/pb_char/{translate(@entry_id,' []@#%+&amp;','_()a....')},{translate(@pb_list_id,' []@#%+&amp;','_()a....')}"/>
+	    <BMRBo:referenced_by_pb_char rdf:resource="{$base}/pb_char/{translate(@entry_id,' []@#%+&amp;','_()a....')},{translate(@id,' []@#%+&amp;','_()a....')},{translate(@pb_list_id,' []@#%+&amp;','_()a....')}"/>
 	  </rdf:Description>
 	</BMRBo:reference_to_entry>
 	    <!-- entryKeyref_0_0_211_0 -->
