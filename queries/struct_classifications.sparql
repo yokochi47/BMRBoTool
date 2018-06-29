@@ -1,8 +1,8 @@
-PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+PREFIX BMRBo: <https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 SELECT ?entry_id ?description ?code ?class ?fold ?superfamily ?family ?link_to_scop
-FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+FROM <https://bmrbpub.pdbj.org/rdf/bmr>
 WHERE {
 
   ?s_str BMRBo:struct_classification.entry_id ?entry_id ;

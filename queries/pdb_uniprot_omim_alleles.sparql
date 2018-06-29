@@ -1,18 +1,18 @@
-PREFIX PDBo: <http://rdf.wwpdb.org/schema/pdbx-v40.owl#>
+PREFIX PDBo: <https://rdf.wwpdb.org/schema/pdbx-v50.owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX omim_v: <http://bio2rdf.org/omim_vocabulary:>
 
 SELECT DISTINCT ?pdb_id ?entity_id ?pdb_seq ?uniprot_id ?label ?uniprot_seq ?omim_id ?dbsnp_id ?mutation ?phenotype
-FROM <http://rdf.wwpdb.org/pdb>
+FROM <https://rdf.wwpdb.org/pdb>
 FROM <http://purl.uniprot.org/uniprot>
 FROM <http://bio2rdf.org/omim_resource:bio2rdf.dataset.omim.R3>
 WHERE {
 
   BIND ("4K75" AS ?pdb_id)
 
-  BIND (IRI(CONCAT("http://rdf.wwpdb.org/pdb/", ?pdb_id, "/struct_refCategory")) AS ?s_pdb)
+  BIND (IRI(CONCAT("https://rdf.wwpdb.org/pdb/", ?pdb_id, "/struct_refCategory")) AS ?s_pdb)
 
-  SERVICE <http://bmrbpub.protein.osaka-u.ac.jp/search/rdf> {
+  SERVICE <https://bmrbpub.pdbj.org/search/rdf> {
 
     ?s_pdb PDBo:has_struct_ref ?o_struct_ref .
 
@@ -24,9 +24,9 @@ WHERE {
                   
   }
 
-  BIND (IRI(CONCAT("http://rdf.wwpdb.org/pdb/", ?pdb_id, "/entity_poly/", ?entity_id)) AS ?s_pdb_entity_poly)
+  BIND (IRI(CONCAT("https://rdf.wwpdb.org/pdb/", ?pdb_id, "/entity_poly/", ?entity_id)) AS ?s_pdb_entity_poly)
 
-  SERVICE <http://bmrbpub.protein.osaka-u.ac.jp/search/rdf> {
+  SERVICE <https://bmrbpub.pdbj.org/search/rdf> {
 
     ?s_pdb_entity_poly PDBo:entity_poly.pdbx_seq_one_letter_code ?pdb_seq .
 

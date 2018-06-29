@@ -1,15 +1,15 @@
-PREFIX PDBo: <http://rdf.wwpdb.org/schema/pdbx-v40.owl#>
+PREFIX PDBo: <https://rdf.wwpdb.org/schema/pdbx-v50.owl#>
 PREFIX pv: <http://bio2rdf.org/pubmed_vocabulary:>
 
 SELECT ?name (COUNT(?name) AS ?count)
-FROM <http://rdf.wwpdb.org/pdb>
+FROM <https://rdf.wwpdb.org/pdb>
 FROM <http://bio2rdf.org/pubmed_resource:bio2rdf.dataset.pubmed.R3>
 WHERE {
 
   SELECT DISTINCT ?pubmed_id ?name
   WHERE {
 
-    SERVICE <http://bmrbpub.protein.osaka-u.ac.jp/search/rdf> {
+    SERVICE <https://bmrbpub.pdbj.org/search/rdf> {
 
       ?s_citation PDBo:citation.pdbx_database_id_PubMed ?pubmed_id ;
                   PDBo:citation.year ?year .

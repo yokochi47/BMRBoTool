@@ -1,7 +1,7 @@
-PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+PREFIX BMRBo: <https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#>
 
 SELECT ?entry_id ?list_id ?polymer_type ?res_coverage ?all_fraction ?bb_fraction ?sc_fraction ?arom_fraction ?methyl_fraction
-FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+FROM <https://bmrbpub.pdbj.org/rdf/bmr>
 WHERE {
 
   ?s_csc BMRBo:chem_shift_completeness_list.entry_id ?entry_id ;

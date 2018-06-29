@@ -1,7 +1,7 @@
-PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+PREFIX BMRBo: <https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#>
 
 SELECT ?entry_id ?seq_id ?comp_id ?ca_ppm
-FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+FROM <https://bmrbpub.pdbj.org/rdf/bmr>
 WHERE {
 
   ?s_ph BMRBo:sample_condition_variable.type "pH" ;

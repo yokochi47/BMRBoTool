@@ -1,7 +1,7 @@
-PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+PREFIX BMRBo: <https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#>
 
 SELECT ?comp_id ?ca_ppm ?cb_ppm ?c_ppm ?n_ppm ?h_ppm ?ha_ppm
-FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+FROM <https://bmrbpub.pdbj.org/rdf/bmr>
 {
 
   ?s_ca  BMRBo:atom_chem_shift.atom_id "CA" ;

@@ -1,7 +1,7 @@
-PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+PREFIX BMRBo: <https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#>
 
 SELECT ?entry_id ?spectrometer_id ?field ?vendor ?model ?submission_date ?details
-FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+FROM <https://bmrbpub.pdbj.org/rdf/bmr>
 WHERE {
 
   ?s_nmrs BMRBo:nmr_spectrometer.entry_id ?entry_id ;
