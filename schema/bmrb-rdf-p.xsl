@@ -2,7 +2,7 @@
 <xsl:stylesheet
    version="1.0"
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-   xmlns:BMRBo="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#"
+   xmlns:BMRBo="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
    xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -10,8 +10,8 @@
   <xsl:output method="html" indent="yes"/>
 
   <xsl:strip-space elements="*"/>
-  <xsl:variable name="BMRBo">http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#</xsl:variable>
-  <xsl:variable name="BMRBr" select="'http://bmrbpub.protein.osaka-u.ac.jp/rdf/'" />
+  <xsl:variable name="BMRBo">https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#</xsl:variable>
+  <xsl:variable name="BMRBr" select="'https://bmrbpub.pdbj.org/rdf/'" />
   <xsl:variable name="rdf">http://www.w3.org/1999/02/22-rdf-syntax-ns#</xsl:variable>
   <xsl:variable name="rdfs">http://www.w3.org/2000/01/rdf-schema#</xsl:variable>
   <xsl:variable name="owl">http://www.w3.org/2002/07/owl#</xsl:variable>
@@ -41,7 +41,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <title>PDBj-BMRB - BMRB/RDF Search: Result - <xsl:value-of select="rdf:Description/@rdf:about" /></title>
-    <base href="http://bmrbpub.protein.osaka-u.ac.jp/" />
+    <base href="https://bmrbpub.pdbj.org/" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="Content-Script-Type" content="text/javascript" />
@@ -65,11 +65,6 @@
     <![endif]-->
     <link rel="stylesheet" href="assets/css/docs.css" />
     <link rel="stylesheet" href="assets/js/google-code-prettify/prettify.css" />
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
 
     <link rel="stylesheet" href="assets/css/codemirror.css" />
 
@@ -104,7 +99,7 @@
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li>
-                        <a href="http://bmrbpub.protein.osaka-u.ac.jp/">Home</a>
+                        <a href="https://bmrbpub.pdbj.org/">Home</a>
                     </li>
                     <li class="active">
                         <a href="search.html">Search</a>
@@ -137,12 +132,12 @@
         <span class="icon-info-sign"></span>  Prefixes of BMRB/RDF
         <span class="small">
     <ul>
-        <li>rdf:  &lt;<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a>&gt;</li>
-        <li>rdfs:  &lt;<a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>&gt;</li>
-        <li>owl:  &lt;<a href="http://www.w3.org/2002/07/owl#">http://www.w3.org/2002/07/owl#</a>&gt;</li>
-        <li>BMRBx:  &lt;<a href="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.xsd">http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.xsd</a>&gt;</li>
-        <li>BMRBo:  &lt;<a href="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#">http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#</a>&gt;</li>
-        <li>BMRBr:  &lt;<a href="http://bmrbpub.protein.osaka-u.ac.jp/rdf/">http://bmrbpub.protein.osaka-u.ac.jp/rdf/</a>&gt;</li>
+        <li>rdf:  &lt;<a href="https://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a>&gt;</li>
+        <li>rdfs:  &lt;<a href="https://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>&gt;</li>
+        <li>owl:  &lt;<a href="https://www.w3.org/2002/07/owl#">http://www.w3.org/2002/07/owl#</a>&gt;</li>
+        <li>BMRBx:  &lt;<a href="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd">https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd</a>&gt;</li>
+        <li>BMRBo:  &lt;<a href="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#">https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#</a>&gt;</li>
+        <li>BMRBr:  &lt;<a href="https://bmrbpub.pdbj.org/rdf/">https://bmrbpub.pdbj.org/rdf/</a>&gt;</li>
     </ul>
         </span>
     </div>
@@ -197,7 +192,7 @@
         <td>
         <form method="get" action="rdf/subject_search.php" name="subject">
         <div class="ui-widget">
-            <label for="subject">Subject: <b>http://bmrbpub.protein.osaka-u.ac.jp/rdf/</b></label>
+            <label for="subject">Subject: <b>https://bmrbpub.pdbj.org/rdf/</b></label>
             <input name="subject" id="subject" value="" class="ui-widget-content ui-corner-all" />&#160;<input type="submit" class="button" value="Submit" />
             <label><span class="xsmall">bmr+entry_id/description (e.g. bmr15400/chem_compCategory, bmse000400/atom_chem_shiftCategory).</span></label>
         </div>
@@ -205,7 +200,7 @@
         </td>
         <td><span class="xsmall">
         XSLT code for converting BMRB/XML to BMRB/RDF:<br />
-        <a href="http://bmrbpub.protein.osaka-u.ac.jp/schema/bmrbx2rdf.xsl.gz">bmrbx2rdf.xsl.gz</a>
+        <a href="https://bmrbpub.pdbj.org/schema/bmrbx2rdf.xsl.gz">bmrbx2rdf.xsl.gz</a>
         </span>
         </td>
         </tr>
@@ -217,7 +212,7 @@
         <div class="ui-widget">
             <label for="predicate">Predicate: <b>BMRBo:</b></label>
             <input name="predicate" id="predicate" value="" class="ui-widget-content ui-corner-all" />&#160;<input type="submit" class="button" value="Submit" />
-            <label><span class="xsmall">Refer to <a href="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl">BMRB/OWL</a> (e.g. datablockName, has_chem_compCategory).</span></label>
+            <label><span class="xsmall">Refer to <a href="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl">BMRB/OWL</a> (e.g. datablockName, has_chem_compCategory).</span></label>
         </div>
         </form>
         </td>
@@ -243,16 +238,16 @@
 <div class="container">
 <div class="row">
     <div class="span3">
-        <h3><span class="icon-envelope"></span>&#160;<a><xsl:attribute name="href"><xsl:value-of select="concat('mailto:bmrbhelp@protein.osaka-u.ac.jp?subject=Feedback URL:http://bmrbpub.protein.osaka-u.ac.jp/predicate_search.php?predicate=', $predicate)" /></xsl:attribute>Contact Us</a></h3>
+        <h3><span class="icon-envelope"></span>&#160;<a><xsl:attribute name="href"><xsl:value-of select="concat('mailto:bmrbhelp@protein.osaka-u.ac.jp?subject=Feedback URL:https://bmrbpub.pdbj.org/predicate_search.php?predicate=', $predicate)" /></xsl:attribute>Contact Us</a></h3>
     </div>
     <div class="span9">
     <table id="footer" border="0" callpadding="16" cellspacing="16" align="center">
     <tr>
         <td><a href="http://www.bmrb.wisc.edu/"><img src="images/bmrb.svg" alt="BMRB" width="60" height="60" hspace="16" /></a></td>
-        <td><a href="http://bmrbdep.pdbj.org/index_en.html"><img src="images/pdbj-bmrb.png" alt="PDBj-BMRB" /></a></td>
-        <td><a href="http://www.pdbj.org/"><img src="images/pdbj.png" alt="PDBj" /></a></td>
-        <td><a href="http://www.wwpdb.org/"><img src="images/wwpdb.png" alt="wwPDB" /></a></td>
-        <td><a href="http://biosciencedbc.jp/en/"><img src="images/ndbc.png" alt="NDBC" /></a></td>
+        <td><a href="https://bmrbdep.pdbj.org/"><img src="images/pdbj-bmrb.png" alt="PDBj-BMRB" /></a></td>
+        <td><a href="https://www.pdbj.org/"><img src="images/pdbj.png" alt="PDBj" /></a></td>
+        <td><a href="https://www.wwpdb.org/"><img src="images/wwpdb.png" alt="wwPDB" /></a></td>
+        <td><a href="https://biosciencedbc.jp/en/"><img src="images/ndbc.png" alt="NDBC" /></a></td>
     </tr>
     </table>
     </div>

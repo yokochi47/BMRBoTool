@@ -21,8 +21,8 @@
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:owl="http://www.w3.org/2002/07/owl#"
-  xmlns:BMRBx="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.xsd"
-  xmlns:BMRBo="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#"
+  xmlns:BMRBx="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd"
+  xmlns:BMRBo="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#"
   exclude-result-prefixes="BMRBx"&gt;
     </xsl2:text>
     <xsl2:apply-templates/>
@@ -74,8 +74,8 @@
 
   &lt;xsl:variable name="base"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($entry_id, 'bms')"&gt;http://bmrbpub.protein.osaka-u.ac.jp/rdf/&lt;xsl:value-of select="$entry_id"/&gt;&lt;/xsl:when&gt;
-      &lt;xsl:otherwise&gt;http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr&lt;xsl:value-of select="$entry_id"/&gt;&lt;/xsl:otherwise&gt;
+      &lt;xsl:when test="starts-with($entry_id, 'bms')"&gt;https://bmrbpub.pdbj.org/rdf/&lt;xsl:value-of select="$entry_id"/&gt;&lt;/xsl:when&gt;
+      &lt;xsl:otherwise&gt;https://bmrbpub.pdbj.org/rdf/bmr&lt;xsl:value-of select="$entry_id"/&gt;&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
@@ -105,8 +105,8 @@
 
   &lt;xsl:variable name="bmrbx"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($entry_id, 'bms')"&gt;http://bmrbpub.protein.osaka-u.ac.jp/xml/bms/&lt;/xsl:when&gt;
-      &lt;xsl:otherwise&gt;http://bmrbpub.protein.osaka-u.ac.jp/xml/bmr/bmr&lt;/xsl:otherwise&gt;
+      &lt;xsl:when test="starts-with($entry_id, 'bms')"&gt;https://bmrbpub.pdbj.org/xml/bms/&lt;/xsl:when&gt;
+      &lt;xsl:otherwise&gt;https://bmrbpub.pdbj.org/xml/bmr/bmr&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
@@ -119,15 +119,15 @@
 
   &lt;xsl:variable name="bmrb_url"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($entry_id, 'bms')"&gt;http://bmrbpub.protein.osaka-u.ac.jp/rdf/&lt;/xsl:when&gt;
-      &lt;xsl:otherwise&gt;http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr&lt;/xsl:otherwise&gt;
+      &lt;xsl:when test="starts-with($entry_id, 'bms')"&gt;https://bmrbpub.pdbj.org/rdf/&lt;/xsl:when&gt;
+      &lt;xsl:otherwise&gt;https://bmrbpub.pdbj.org/rdf/bmr&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
   &lt;xsl:variable name="pdbj-bmrbdep"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($entry_id, 'bms')"&gt;http://bmrbdep.pdbj.org/bms/&lt;/xsl:when&gt;
-      &lt;xsl:otherwise&gt;http://bmrbdep.pdbj.org/bmr/bmr&lt;/xsl:otherwise&gt;
+      &lt;xsl:when test="starts-with($entry_id, 'bms')"&gt;https://bmrbdep.pdbj.org/bms/&lt;/xsl:when&gt;
+      &lt;xsl:otherwise&gt;https://bmrbdep.pdbj.org/bmr/bmr&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 

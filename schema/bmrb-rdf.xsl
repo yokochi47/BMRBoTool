@@ -2,7 +2,7 @@
 <xsl:stylesheet
    version="1.0"
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-   xmlns:BMRBo="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#"
+   xmlns:BMRBo="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
    xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -10,8 +10,8 @@
   <xsl:output method="html" indent="yes"/>
 
   <xsl:strip-space elements="*"/>
-  <xsl:variable name="BMRBo">http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#</xsl:variable>
-  <xsl:variable name="BMRBr" select="'http://bmrbpub.protein.osaka-u.ac.jp/rdf/'" />
+  <xsl:variable name="BMRBo">https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#</xsl:variable>
+  <xsl:variable name="BMRBr" select="'https://bmrbpub.pdbj.org/rdf/'" />
   <xsl:variable name="rdf">http://www.w3.org/1999/02/22-rdf-syntax-ns#</xsl:variable>
   <xsl:variable name="rdfs">http://www.w3.org/2000/01/rdf-schema#</xsl:variable>
   <xsl:variable name="owl">http://www.w3.org/2002/07/owl#</xsl:variable>
@@ -41,7 +41,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
     <title>PDBj-BMRB - BMRB/RDF Search: Result - <xsl:value-of select="rdf:Description/@rdf:about" /></title>
-    <base href="http://bmrbpub.protein.osaka-u.ac.jp/" />
+    <base href="https://bmrbpub.pdbj.org/" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="Content-Script-Type" content="text/javascript" />
@@ -65,11 +65,6 @@
     <![endif]-->
     <link rel="stylesheet" href="assets/css/docs.css" />
     <link rel="stylesheet" href="assets/js/google-code-prettify/prettify.css" />
-
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
 
     <link rel="stylesheet" href="assets/css/codemirror.css" />
 
@@ -104,7 +99,7 @@
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     <li>
-                        <a href="http://bmrbpub.protein.osaka-u.ac.jp/">Home</a>
+                        <a href="https://bmrbpub.pdbj.org/">Home</a>
                     </li>
                     <li class="active">
                         <a href="search.html">Search</a>
@@ -137,12 +132,12 @@
         <span class="icon-info-sign"></span>  Prefixes of BMRB/RDF
         <span class="small">
     <ul>
-        <li>rdf:  &lt;<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a>&gt;</li>
-        <li>rdfs:  &lt;<a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>&gt;</li>
-        <li>owl:  &lt;<a href="http://www.w3.org/2002/07/owl#">http://www.w3.org/2002/07/owl#</a>&gt;</li>
-        <li>BMRBx:  &lt;<a href="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.xsd">http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.xsd</a>&gt;</li>
-        <li>BMRBo:  &lt;<a href="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#">http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#</a>&gt;</li>
-        <li>BMRBr:  &lt;<a href="http://bmrbpub.protein.osaka-u.ac.jp/rdf/">http://bmrbpub.protein.osaka-u.ac.jp/rdf/</a>&gt;</li>
+        <li>rdf:  &lt;<a href="https://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a>&gt;</li>
+        <li>rdfs:  &lt;<a href="https://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>&gt;</li>
+        <li>owl:  &lt;<a href="https://www.w3.org/2002/07/owl#">http://www.w3.org/2002/07/owl#</a>&gt;</li>
+        <li>BMRBx:  &lt;<a href="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd">https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd</a>&gt;</li>
+        <li>BMRBo:  &lt;<a href="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#">https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#</a>&gt;</li>
+        <li>BMRBr:  &lt;<a href="https://bmrbpub.pdbj.org/rdf/">https://bmrbpub.pdbj.org/rdf/</a>&gt;</li>
     </ul>
         </span>
     </div>
@@ -157,47 +152,47 @@
     <div class="row-fluid">
         <table border="0" cellpadding="8">
         <tr align="left">
-            <td><h5>NMR-STAR v3.2:</h5></td>
+            <td><h5>NMR-STAR v3:</h5></td>
             <td><h5>BMRB/XML (complete):</h5></td>
             <td><h5>BMRB/XML (noatom):</h5></td>
             <td><h5>BMRB/RDF:</h5></td>
             <td><h5>BMRB/RDF (N-Triples):</h5></td>
         </tr>
-            <xsl:variable name="url_bmrb-xml" select="concat('http://bmrbpub.protein.osaka-u.ac.jp/archive/xml/', $entry_id, '.xml.gz')" />
-            <xsl:variable name="url_bmrb-xml-noatom" select="concat('http://bmrbpub.protein.osaka-u.ac.jp/archive/xml-noatom/', $entry_id, '-noatom.xml.gz')" />
-            <xsl:variable name="url_bmrb-rdf" select="concat('http://bmrbpub.protein.osaka-u.ac.jp/archive/rdf/', $entry_id, '.rdf.gz')" />
-            <xsl:variable name="url_bmrb-nt" select="concat('http://bmrbpub.protein.osaka-u.ac.jp/archive/nt/', $entry_id, '.nt.gz')" />
+            <xsl:variable name="url_bmrb-xml" select="concat('https://bmrbpub.pdbj.org/archive/xml/', $entry_id, '.xml.gz')" />
+            <xsl:variable name="url_bmrb-xml-noatom" select="concat('https://bmrbpub.pdbj.org/archive/xml-noatom/', $entry_id, '-noatom.xml.gz')" />
+            <xsl:variable name="url_bmrb-rdf" select="concat('https://bmrbpub.pdbj.org/archive/rdf/', $entry_id, '.rdf.gz')" />
+            <xsl:variable name="url_bmrb-nt" select="concat('https://bmrbpub.pdbj.org/archive/nt/', $entry_id, '.nt.gz')" />
             <xsl:variable name="apos">'</xsl:variable>
         <tr>
             <td>
             <xsl:choose>
               <xsl:when test="starts-with($entry_id, 'bmse')">
-                <form method="post" action="http://bmrb.pdbj.org/metabolomics/db_find/index.php" enctype="multipart/form-data" id="generalForm">
-                <xsl:variable name="url_nmr-star3.2" select="concat('http://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/', $entry_id, '.str')" />
-<!--                <xsl:variable name="post_form" select="concat('execPost(',$apos,'http://bmrb.pdbj.org/metabolomics/db_find/index.php',$apos,', {',$apos,'table',$apos,':',$apos,'bmrbID',$apos,', ',$apos,'term',$apos,':',$apos,$entry_id,$apos,', ',$apos,'expORtheo',$apos,':',$apos,'bmse',$apos,'});return false;')" /> -->
-                <xsl:variable name="url_summary" select="concat('http://bmrbdep.pdbj.org/bms/', $entry_id)" />
-                <a class="download-btn ui-button-primary"><xsl:attribute name="href"><xsl:value-of select="$url_nmr-star3.2" /></xsl:attribute>Download</a>&#160;&#160;
-<!--                <a class="download-btn" href="http://bmrb.pdbj.org/metabolomics/db_find/index.php"><xsl:attribute name="onclick"><xsl:value-of select="$post_form" /></xsl:attribute>Summary</a> -->
+                <form method="post" action="https://bmrb.pdbj.org/metabolomics/db_find/index.php" enctype="multipart/form-data" id="generalForm">
+                <xsl:variable name="url_nmr-star3" select="concat('https://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/', $entry_id, '.str')" />
+<!--                <xsl:variable name="post_form" select="concat('execPost(',$apos,'https://bmrb.pdbj.org/metabolomics/db_find/index.php',$apos,', {',$apos,'table',$apos,':',$apos,'bmrbID',$apos,', ',$apos,'term',$apos,':',$apos,$entry_id,$apos,', ',$apos,'expORtheo',$apos,':',$apos,'bmse',$apos,'});return false;')" /> -->
+                <xsl:variable name="url_summary" select="concat('https://bmrbdep.pdbj.org/bms/', $entry_id)" />
+                <a class="download-btn ui-button-primary"><xsl:attribute name="href"><xsl:value-of select="$url_nmr-star3" /></xsl:attribute>Download</a>&#160;&#160;
+<!--                <a class="download-btn" href="https://bmrb.pdbj.org/metabolomics/db_find/index.php"><xsl:attribute name="onclick"><xsl:value-of select="$post_form" /></xsl:attribute>Summary</a> -->
                 <a class="download-btn"><xsl:attribute name="href"><xsl:value-of select="$url_summary" /></xsl:attribute>Summary</a>
                 </form>
               </xsl:when>
               <xsl:when test="starts-with($entry_id, 'bmst')">
-                <form method="post" action="http://bmrb.pdbj.org/metabolomics/db_find/index.php" enctype="multipart/form-data" id="generalForm">
-                <xsl:variable name="url_nmr-star3.2" select="concat('http://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/', $entry_id, '.str')" />
-<!--                <xsl:variable name="post_form" select="concat('execPost(',$apos,'http://bmrb.pdbj.org/metabolomics/db_find/index.php',$apos,', {',$apos,'table',$apos,':',$apos,'bmrbID',$apos,', ',$apos,'term',$apos,':',$apos,$entry_id,$apos,', ',$apos,'expORtheo',$apos,':',$apos,'bmst',$apos,'});return false;')" /> -->
-                <xsl:variable name="url_summary" select="concat('http://bmrbdep.pdbj.org/bms/', $entry_id)" />
-                <a class="download-btn ui-button-primary"><xsl:attribute name="href"><xsl:value-of select="$url_nmr-star3.2" /></xsl:attribute>Download</a>&#160;&#160;
-<!--                <a class="download-btn" href="http://bmrb.pdbj.org/metabolomics/db_find/index.php"><xsl:attribute name="onclick"><xsl:value-of select="$post_form" /></xsl:attribute>Summary</a> -->
+                <form method="post" action="https://bmrb.pdbj.org/metabolomics/db_find/index.php" enctype="multipart/form-data" id="generalForm">
+                <xsl:variable name="url_nmr-star3" select="concat('https://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/', $entry_id, '.str')" />
+<!--                <xsl:variable name="post_form" select="concat('execPost(',$apos,'https://bmrb.pdbj.org/metabolomics/db_find/index.php',$apos,', {',$apos,'table',$apos,':',$apos,'bmrbID',$apos,', ',$apos,'term',$apos,':',$apos,$entry_id,$apos,', ',$apos,'expORtheo',$apos,':',$apos,'bmst',$apos,'});return false;')" /> -->
+                <xsl:variable name="url_summary" select="concat('https://bmrbdep.pdbj.org/bms/', $entry_id)" />
+                <a class="download-btn ui-button-primary"><xsl:attribute name="href"><xsl:value-of select="$url_nmr-star3" /></xsl:attribute>Download</a>&#160;&#160;
+<!--                <a class="download-btn" href="https://bmrb.pdbj.org/metabolomics/db_find/index.php"><xsl:attribute name="onclick"><xsl:value-of select="$post_form" /></xsl:attribute>Summary</a> -->
                 <a class="download-btn"><xsl:attribute name="href"><xsl:value-of select="$url_summary" /></xsl:attribute>Summary</a>
                 </form>
               </xsl:when>
               <xsl:otherwise>
                 <form>
-                <xsl:variable name="url_nmr-star3.2" select="concat('http://bmrb.pdbj.org/ftp/pub/bmrb/entry_lists/nmr-star3.1/', $entry_id, '.str')" />
+                <xsl:variable name="url_nmr-star3" select="concat('https://bmrb.pdbj.org/ftp/pub/bmrb/entry_lists/nmr-star3.1/', $entry_id, '.str')" />
                 <xsl:variable name="bmr_id" select="substring-after($entry_id, 'bmr')" />
-<!--            <xsl:variable name="url_summary" select="concat('http://bmrb.pdbj.org/data_library/summary/index.php?bmrbId=', $bmr_id)" /> -->
-                <xsl:variable name="url_summary" select="concat('http://bmrbdep.pdbj.org/bmr/bmr', $bmr_id)" />
-                <a class="download-btn ui-button-primary"><xsl:attribute name="href"><xsl:value-of select="$url_nmr-star3.2" /></xsl:attribute>Download</a>&#160;&#160;
+<!--            <xsl:variable name="url_summary" select="concat('https://bmrb.pdbj.org/data_library/summary/index.php?bmrbId=', $bmr_id)" /> -->
+                <xsl:variable name="url_summary" select="concat('https://bmrbdep.pdbj.org/bmr/bmr', $bmr_id)" />
+                <a class="download-btn ui-button-primary"><xsl:attribute name="href"><xsl:value-of select="$url_nmr-star3" /></xsl:attribute>Download</a>&#160;&#160;
                 <a class="download-btn"><xsl:attribute name="href"><xsl:value-of select="$url_summary" /></xsl:attribute>Summary</a> 
                 </form>
               </xsl:otherwise>
@@ -258,7 +253,7 @@
         <td>
         <form method="get" action="rdf/subject_search.php" name="subject">
         <div class="ui-widget">
-            <label for="subject">Subject: <b>http://bmrbpub.protein.osaka-u.ac.jp/rdf/</b></label>
+            <label for="subject">Subject: <b>https://bmrbpub.pdbj.org/rdf/</b></label>
             <input name="subject" id="subject" class="ui-widget-content ui-corner-all"><xsl:attribute name="value"><xsl:value-of select="$entry_id" /></xsl:attribute></input>&#160;<input type="submit" class="button" value="Submit" />
             <label><span class="xsmall">bmr+entry_id/description (e.g. bmr15400/chem_compCategory, bmse000400/atom_chem_shiftCategory).</span></label>
         </div>
@@ -266,7 +261,7 @@
         </td>
         <td><span class="xsmall">
         XSLT code for converting BMRB/XML to BMRB/RDF:<br />
-        <a href="http://bmrbpub.protein.osaka-u.ac.jp/schema/bmrbx2rdf.xsl.gz">bmrbx2rdf.xsl.gz</a>
+        <a href="https://bmrbpub.pdbj.org/schema/bmrbx2rdf.xsl.gz">bmrbx2rdf.xsl.gz</a>
         </span>
         </td>
         </tr>
@@ -278,7 +273,7 @@
         <div class="ui-widget">
             <label for="predicate">Predicate: <b>BMRBo:</b></label>
             <input name="predicate" id="predicate" value="" class="ui-widget-content ui-corner-all" />&#160;<input type="submit" class="button" value="Submit" />
-            <label><span class="xsmall">Refer to <a href="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl">BMRB/OWL</a> (e.g. datablockName, has_chem_compCategory).</span></label>
+            <label><span class="xsmall">Refer to <a href="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl">BMRB/OWL</a> (e.g. datablockName, has_chem_compCategory).</span></label>
         </div>
         </form>
         </td>
@@ -310,10 +305,10 @@
     <table id="footer" border="0" callpadding="16" cellspacing="16" align="center">
     <tr>
         <td><a href="http://www.bmrb.wisc.edu/"><img src="images/bmrb.svg" alt="BMRB" width="60" height="60" hspace="16" /></a></td>
-        <td><a href="http://bmrbdep.pdbj.org/index_en.html"><img src="images/pdbj-bmrb.png" alt="PDBj-BMRB" /></a></td>
-        <td><a href="http://www.pdbj.org/"><img src="images/pdbj.png" alt="PDBj" /></a></td>
-        <td><a href="http://www.wwpdb.org/"><img src="images/wwpdb.png" alt="wwPDB" /></a></td>
-        <td><a href="http://biosciencedbc.jp/en/"><img src="images/ndbc.png" alt="NDBC" /></a></td>
+        <td><a href="https://bmrbdep.pdbj.org/"><img src="images/pdbj-bmrb.png" alt="PDBj-BMRB" /></a></td>
+        <td><a href="https://www.pdbj.org/"><img src="images/pdbj.png" alt="PDBj" /></a></td>
+        <td><a href="https://www.wwpdb.org/"><img src="images/wwpdb.png" alt="wwPDB" /></a></td>
+        <td><a href="https://biosciencedbc.jp/en/"><img src="images/ndbc.png" alt="NDBC" /></a></td>
     </tr>
     </table>
     </div>

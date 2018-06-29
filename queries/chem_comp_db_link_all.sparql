@@ -1,8 +1,8 @@
-PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+PREFIX BMRBo: <https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 SELECT ?entry_id ?comp_id ?database_code ?accession_code ?mol_name ?link_to_pubchem
-FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bms>
+FROM <https://bmrbpub.pdbj.org/rdf/bms>
 WHERE {
 
   ?s_ccdl BMRBo:chem_comp_db_link.entry_id ?entry_id ;

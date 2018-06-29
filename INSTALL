@@ -6,7 +6,7 @@ A. Requirements
     OpenJDK 1.8 or later (http://www.oracle.com/)
     SAXON 9 or later (http://saxon.sourceforge.net/)
     MMCIF Dictionary Suite (http://sw-tools.pdb.org/)
-    BMRBxTool (http://bmrbdep.pdbj.org/)
+    BMRBxTool (https://github.com/yokochi47/BMRBxTool)
     Raptor RDF Syntax Library (http://librdf.org/raptor/)
     OpenLink Virtuoso (http://virtuoso.openlinksw.com/ or http://sourceforge.net/projects/virtuoso/)
 

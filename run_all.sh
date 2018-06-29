@@ -161,7 +161,7 @@ if [ $? = 0 ] && [ $update_virtuoso = "true" ] ; then
 
    sleep 180
 
-   GRAPH_URI=http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr
+   GRAPH_URI=https://bmrbpub.pdbj.org/rdf/bmr
    graph_exist=`./ask_graph_existance.sh $GRAPH_URI`
 
    if [ $? != 0 ] ; then
@@ -180,7 +180,7 @@ if [ $? = 0 ] && [ $update_virtuoso = "true" ] ; then
 
    sleep 180
 
-   GRAPH_URI=http://bmrbpub.protein.osaka-u.ac.jp/rdf/bms
+   GRAPH_URI=https://bmrbpub.pdbj.org/rdf/bms
    graph_exist=`./ask_graph_existance.sh $GRAPH_URI`
 
    if [ $? != 0 ] ; then

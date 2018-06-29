@@ -6,8 +6,8 @@
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:owl="http://www.w3.org/2002/07/owl#"
-  xmlns:BMRBx="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.xsd"
-  xmlns:BMRBo="http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#"
+  xmlns:BMRBx="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd"
+  xmlns:BMRBo="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#"
   exclude-result-prefixes="BMRBx">
     
   <xsl:output method="xml" indent="yes"/>
@@ -52,8 +52,8 @@
 
   <xsl:variable name="base">
     <xsl:choose>
-      <xsl:when test="starts-with($entry_id, 'bms')">http://bmrbpub.protein.osaka-u.ac.jp/rdf/<xsl:value-of select="$entry_id"/></xsl:when>
-      <xsl:otherwise>http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr<xsl:value-of select="$entry_id"/></xsl:otherwise>
+      <xsl:when test="starts-with($entry_id, 'bms')">https://bmrbpub.pdbj.org/rdf/<xsl:value-of select="$entry_id"/></xsl:when>
+      <xsl:otherwise>https://bmrbpub.pdbj.org/rdf/bmr<xsl:value-of select="$entry_id"/></xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
@@ -83,8 +83,8 @@
 
   <xsl:variable name="bmrbx">
     <xsl:choose>
-      <xsl:when test="starts-with($entry_id, 'bms')">http://bmrbpub.protein.osaka-u.ac.jp/xml/bms/</xsl:when>
-      <xsl:otherwise>http://bmrbpub.protein.osaka-u.ac.jp/xml/bmr/bmr</xsl:otherwise>
+      <xsl:when test="starts-with($entry_id, 'bms')">https://bmrbpub.pdbj.org/xml/bms/</xsl:when>
+      <xsl:otherwise>https://bmrbpub.pdbj.org/xml/bmr/bmr</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
@@ -97,15 +97,15 @@
 
   <xsl:variable name="bmrb_url">
     <xsl:choose>
-      <xsl:when test="starts-with($entry_id, 'bms')">http://bmrbpub.protein.osaka-u.ac.jp/rdf/</xsl:when>
-      <xsl:otherwise>http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr</xsl:otherwise>
+      <xsl:when test="starts-with($entry_id, 'bms')">https://bmrbpub.pdbj.org/rdf/</xsl:when>
+      <xsl:otherwise>https://bmrbpub.pdbj.org/rdf/bmr</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
   <xsl:variable name="pdbj-bmrbdep">
     <xsl:choose>
-      <xsl:when test="starts-with($entry_id, 'bms')">http://bmrbdep.pdbj.org/bms/</xsl:when>
-      <xsl:otherwise>http://bmrbdep.pdbj.org/bmr/bmr</xsl:otherwise>
+      <xsl:when test="starts-with($entry_id, 'bms')">https://bmrbdep.pdbj.org/bms/</xsl:when>
+      <xsl:otherwise>https://bmrbdep.pdbj.org/bmr/bmr</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 

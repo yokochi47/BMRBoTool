@@ -1,8 +1,8 @@
-PREFIX BMRBo: <http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.owl#>
+PREFIX BMRBo: <https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 SELECT ?entry_id ?citation_id ?journal ?year ?volume ?page_first ?page_last ?pubmed_id ?doi ?title ?link_to_pubmed ?link_to_doi
-FROM <http://bmrbpub.protein.osaka-u.ac.jp/rdf/bmr>
+FROM <https://bmrbpub.pdbj.org/rdf/bmr>
 WHERE {
 
   ?s_cit BMRBo:citation.entry_id ?entry_id ;

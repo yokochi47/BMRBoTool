@@ -83,7 +83,7 @@ if [ ! -d $RDF_RAW_DIR ] ; then
 
 fi
 
-GRAPH_URI=http://bmrbpub.protein.osaka-u.ac.jp/rdf/$PREFIX
+GRAPH_URI=https://bmrbpub.pdbj.org/rdf/$PREFIX
 
 red='\e[0;31m'
 normal='\e[0m'
