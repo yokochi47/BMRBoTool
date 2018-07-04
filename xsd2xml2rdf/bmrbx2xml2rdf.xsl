@@ -89,9 +89,9 @@
 
   &lt;xsl:variable name="pdbj-bmrb"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($entry_id, 'bmse')"&gt;http://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/&lt;/xsl:when&gt;
-      &lt;xsl:when test="starts-with($entry_id, 'bmst')"&gt;http://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/&lt;/xsl:when&gt;
-      &lt;xsl:otherwise&gt;http://bmrb.pdbj.org/ftp/pub/bmrb/entry_lists/nmr-star3.1/bmr&lt;/xsl:otherwise&gt;
+      &lt;xsl:when test="starts-with($entry_id, 'bmse')"&gt;https://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/&lt;/xsl:when&gt;
+      &lt;xsl:when test="starts-with($entry_id, 'bmst')"&gt;https://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/&lt;/xsl:when&gt;
+      &lt;xsl:otherwise&gt;https://bmrb.pdbj.org/ftp/pub/bmrb/entry_lists/nmr-star3.1/bmr&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
@@ -141,10 +141,10 @@
   &lt;xsl:template match="/BMRBx:datablock"&gt;
     &lt;BMRBo:datablock rdf:about="{$base}" rdfs:label="{$bmrb_urn}{$entry_id}"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$bmrbx}{$entry_id}-noatom.xml"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$bmrb}{$entry_id}.str"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$pdbj-bmrb}{$entry_id}.str"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$bmrb-cerm}{$entry_id}.str"/&gt;
       &lt;rdfs:seeAlso rdf:resource="{$pdbj-bmrbdep}{$entry_id}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$pdbj-bmrb}{$entry_id}.str"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$bmrb}{$entry_id}.str"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$bmrb-cerm}{$entry_id}.str"/&gt;
 
       &lt;BMRBo:datablockName&gt;&lt;xsl:value-of select="@datablockName"/&gt;&lt;/BMRBo:datablockName&gt;
       &lt;xsl:apply-templates select="./*"/&gt;
