@@ -67,9 +67,9 @@
 
   <xsl:variable name="pdbj-bmrb">
     <xsl:choose>
-      <xsl:when test="starts-with($entry_id, 'bmse')">http://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/</xsl:when>
-      <xsl:when test="starts-with($entry_id, 'bmst')">http://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/</xsl:when>
-      <xsl:otherwise>http://bmrb.pdbj.org/ftp/pub/bmrb/entry_lists/nmr-star3.1/bmr</xsl:otherwise>
+      <xsl:when test="starts-with($entry_id, 'bmse')">https://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/</xsl:when>
+      <xsl:when test="starts-with($entry_id, 'bmst')">https://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/</xsl:when>
+      <xsl:otherwise>https://bmrb.pdbj.org/ftp/pub/bmrb/entry_lists/nmr-star3.1/bmr</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
@@ -119,10 +119,10 @@
   <xsl:template match="/BMRBx:datablock">
     <BMRBo:datablock rdf:about="{$base}" rdfs:label="{$bmrb_urn}{$entry_id}">
       <rdfs:seeAlso rdf:resource="{$bmrbx}{$entry_id}-noatom.xml"/>
-      <rdfs:seeAlso rdf:resource="{$bmrb}{$entry_id}.str"/>
-      <rdfs:seeAlso rdf:resource="{$pdbj-bmrb}{$entry_id}.str"/>
-      <rdfs:seeAlso rdf:resource="{$bmrb-cerm}{$entry_id}.str"/>
       <rdfs:seeAlso rdf:resource="{$pdbj-bmrbdep}{$entry_id}"/>
+      <rdfs:seeAlso rdf:resource="{$pdbj-bmrb}{$entry_id}.str"/>
+      <rdfs:seeAlso rdf:resource="{$bmrb}{$entry_id}.str"/>
+      <rdfs:seeAlso rdf:resource="{$bmrb-cerm}{$entry_id}.str"/>
 
       <BMRBo:datablockName><xsl:value-of select="@datablockName"/></BMRBo:datablockName>
       <xsl:apply-templates select="./*"/>
