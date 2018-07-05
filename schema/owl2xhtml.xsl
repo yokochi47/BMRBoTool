@@ -464,7 +464,7 @@ hr {
 	  <xsl:value-of select="$name" />
 	</a>
       </xsl:when>
-      <xsl:when test="(string-length($ns)&gt;0) or starts-with($name,'http://')">
+      <xsl:when test="(string-length($ns)&gt;0) or starts-with($name,'http')">
 	<a href="{concat($ns,$name)}">
 	  <xsl:value-of select="$name" />
 	</a>
