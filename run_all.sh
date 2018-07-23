@@ -1,6 +1,6 @@
 #!/bin/bash
 
-update_virtuoso=true
+update_virtuoso=false # true
 
 ARGV=`getopt --long -o "n" "$@"`
 eval set -- "$ARGV"
