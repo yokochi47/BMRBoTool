@@ -170,9 +170,9 @@ if [ $? = 0 ] && [ $update_virtuoso = "true" ] ; then
 
    if [ $bmr_ulist_len -gt 0 ] || [ $graph_exist = 0 ] ; then
 
-    ./init_virtuoso.sh
-
-    sleep 180
+    if [ $graph_exist = 1 ] ; then
+     ./clear_graph.sh $GRAPH_URI
+    fi
 
     ./bmr2virtuoso.sh
 
@@ -188,7 +188,13 @@ if [ $? = 0 ] && [ $update_virtuoso = "true" ] ; then
    fi
 
    if [ $bms_ulist_len -gt 0 ] || [ $graph_exist = 0 ] ; then
+
+    if [ $graph_exist = 1 ] ; then
+     ./clear_graph.sh $GRAPH_URI
+    fi
+
     ./bms2virtuoso.sh
+
    fi
 
    ;;
