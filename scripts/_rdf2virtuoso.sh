@@ -27,7 +27,6 @@ if [ $ATOM != "noatom" ] && [ $ATOM != "atom" ] ; then
 
  echo "Usage: $0 -a ATOM"
  echo ATOM should be either \"noatom\" or \"atom\".
-
  exit 1
 
 fi
@@ -42,12 +41,7 @@ else
 
 fi
 
-./scripts/rdf2virtuoso.sh -p $PREFIX -a $ATOM -u $UPDATE
-
-if [ $? != 0 ] ; then
- echo "$0 aborted."
- exit 1
-fi
+./scripts/rdf2virtuoso.sh -p $PREFIX -a $ATOM -u $UPDATE || ( echo "$0 aborted."; exit 1 )
 
 red='\e[0;31m'
 normal='\e[0m'
@@ -91,7 +85,6 @@ else
 
  echo
  echo -e "${red}$errs errors were detected. Please check the log files for more details.${normal}"
-
  exit 1
 
 fi

@@ -24,7 +24,6 @@ if [ $ATOM != "noatom" ] && [ $ATOM != "atom" ] ; then
 
  echo "Usage: $0 -a ATOM"
  echo ATOM should be either \"noatom\" or \"atom\".
-
  exit 1
 
 fi
@@ -49,7 +48,6 @@ if [ $? != 0 ] ; then
 
  echo "rapper: command not found..."
  echo "Please install Raptor RDF Syntax Library (http://librdf.org/raptor/)."
-
  exit 1
 
 fi
