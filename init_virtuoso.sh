@@ -6,7 +6,6 @@ if [ $? != 0 ] ; then
 
  echo "isql: command not found..."
  echo "Please install Virtuoso (https://virtuoso.openlinksw.com/)."
-
  exit 1
 
 fi

@@ -8,7 +8,6 @@ if [ $? != 0 ] ; then
 
  echo "isql: command not found..."
  echo "Please install Virtuoso (https://virtuoso.openlinksw.com/)."
-
  exit 1
 
 fi
@@ -35,7 +34,6 @@ if [ $? = 0 ] ; then
  isql $VIRTUOSO_DB_PORT $VIRTUOSO_DB_USER $VIRTUOSO_DB_PASS exec='grant execute on "DB.DBA.SPARQL_SINV_IMP" to "SPARQL";'
 
  echo "virtuoso is already running."
-
  exit 0
 
 fi
