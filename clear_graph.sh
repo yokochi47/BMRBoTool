@@ -10,7 +10,6 @@ if [ $? != 0 ] ; then
 
  echo "isql: command not found..."
  echo "Please install Virtuoso (https://virtuoso.openlinksw.com/)."
-
  exit 1
 
 fi
@@ -22,8 +21,10 @@ GRAPH_URI=$1
 graph_exist=`./ask_graph_existance.sh $GRAPH_URI`
 
 if [ $? != 0 ] ; then
+
  echo GRAPH <$GRAPH_URI> does not exist.
  exit 0
+
 fi
 
 VIRTUOSO_EXEC_COM="log_enable(3,1); SPARQL CLEAR GRAPH <$GRAPH_URI>;"
