@@ -34,7 +34,6 @@ if [ $ATOM != "noatom" ] && [ $ATOM != "atom" ] ; then
 
  echo "Usage: $0 -a ATOM"
  echo ATOM should be either \"noatom\" or \"atom\".
-
  exit 1
 
 fi
@@ -72,8 +71,10 @@ for proc_id in `seq 1 $MAXPROCS` ; do
 done
 
 if [ $? != 0 ] ; then
+
  echo "$0 aborted."
  exit 1
+
 fi
 
 wait
@@ -114,7 +115,6 @@ else
 
  echo
  echo -e "${red}$errs errors were detected. Please check the log files for more details.${normal}"
-
  exit 1
 
 fi
