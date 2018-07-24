@@ -67,5 +67,3 @@ rm -f $VIRTUOSO_DATA_DIR/virtuoso.db $VIRTUOSO_DATA_DIR/virtuoso.pxa $VIRTUOSO_D
 
 ./start_virtuoso.sh
 
-# exit $?
-

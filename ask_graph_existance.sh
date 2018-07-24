@@ -5,14 +5,7 @@ result=ask_graph_existance.result
 
 echo "ASK { GRAPH <$1> { ?s ?p ?o . } }" > $sparql
 
-./run_sparql.sh -s yes -q $sparql > $result
-
-if [ $? != 0 ] ; then
-
- echo "Couldn't connect server."
- exit 1 
-
-fi
+./run_sparql.sh -s yes -q $sparql > $result || ( echo "Couldn't connect server."; exit 1 )
 
 tail -n 1 $result
 
