@@ -68,7 +68,7 @@ which isql &> /dev/null
 if [ $? != 0 ] ; then
 
  echo "isql: command not found..."
- echo "Please install Virtuoso (http://www.openlinksw.com/dataspace/doc/dav/wiki/Main/)."
+ echo "Please install Virtuoso (https://virtuoso.openlinksw.com/)."
  exit 1
 
 fi
@@ -96,54 +96,28 @@ VIRTUOSO_DB_PASS=dba
 
 graph_exist=`./ask_graph_existance.sh $GRAPH_URI`
 
-if [ $graph_exist = 0 ] ; then
-
- VIRTUOSO_EXEC_COM="ld_dir('$PWD/$RDF_RAW_DIR', '*.rdf', '$GRAPH_URI');"
- echo $VIRTUOSO_EXEC_COM
-
- isql $VIRTUOSO_DB_PORT $VIRTUOSO_DB_USER $VIRTUOSO_DB_PASS exec="$VIRTUOSO_EXEC_COM" 2> $VIRTUOSO_ERR_FILE || exit 1
-
- rm -f $VIRTUOSO_ERR_FILE
-
- for proc_id in `seq 1 $MAXPROCS` ; do
-
-  isql $VIRTUOSO_DB_PORT $VIRTUOSO_DB_USER $VIRTUOSO_DB_PASS exec="rdf_loader_run();" &
-
- done
-
- if [ $? != 0 ] ; then
-  exit 1
- fi
-
- wait
-
-else
-
- if [ $graph_exist = 1 ] ; then
-
-  VIRTUOSO_EXEC_COM="log_enable(3,1); SPARQL CLEAR GRAPH <$GRAPH_URI>;"
-  echo $VIRTUOSO_EXEC_COM
-
-  isql $VIRTUOSO_DB_PORT $VIRTUOSO_DB_USER $VIRTUOSO_DB_PASS exec="$VIRTUOSO_EXEC_COM" 2> $VIRTUOSO_ERR_FILE || exit 1
-
- fi
-
- for file in `ls $RDF_RAW_DIR/*.rdf 2> /dev/null`
- do
-
-  VIRTUOSO_EXEC_COM="ld_file('$PWD/$file', '$GRAPH_URI');"
-
-  isql $VIRTUOSO_DB_PORT $VIRTUOSO_DB_USER $VIRTUOSO_DB_PASS exec="$VIRTUOSO_EXEC_COM" > /dev/null 2> $VIRTUOSO_ERR_FILE || exit 1
-
-  echo -n .
-
-  rm -f $VIRTUOSO_ERR_FILE
-
- done
-
- echo
-
+if [ $graph_exist = 1 ] ; then
+ ./clear_graph.sh $GRAPH_URI
 fi
+
+VIRTUOSO_EXEC_COM="ld_dir('$PWD/$RDF_RAW_DIR', '*.rdf', '$GRAPH_URI');"
+echo $VIRTUOSO_EXEC_COM
+
+isql $VIRTUOSO_DB_PORT $VIRTUOSO_DB_USER $VIRTUOSO_DB_PASS exec="$VIRTUOSO_EXEC_COM" 2> $VIRTUOSO_ERR_FILE || exit 1
+
+rm -f $VIRTUOSO_ERR_FILE
+
+for proc_id in `seq 1 $MAXPROCS` ; do
+
+ isql $VIRTUOSO_DB_PORT $VIRTUOSO_DB_USER $VIRTUOSO_DB_PASS exec="rdf_loader_run();" &
+
+done
+
+if [ $? != 0 ] ; then
+ exit 1
+fi
+
+wait
 
 isql $VIRTUOSO_DB_PORT $VIRTUOSO_DB_USER $VIRTUOSO_DB_PASS exec="checkpoint;" || exit 1
 
