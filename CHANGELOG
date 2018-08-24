@@ -1,3 +1,7 @@
+ Changes in BMRBxTool 1.30.0 (release 2018-08-24)
+
+  Updated dictionary NMR-STAR v3.2.1.5 to v3.2.1.9.
+
  Changes in BMRBxTool 1.29.0 (release 2018-06-29)
 
   Changed namespace URI from http://bmrbpub.protein.osaka-u.ac.jp/schema/mmcif_nmr-star.xsd to https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd.

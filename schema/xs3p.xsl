@@ -186,7 +186,7 @@
    <xsl:variable name="ATTR_INDENT">0.5</xsl:variable>
 
    <!-- Title to use if none provided -->
-   <xsl:variable name="DEFAULT_TITLE">BMRB/XML Schema v3.2.1.5</xsl:variable>
+   <xsl:variable name="DEFAULT_TITLE">BMRB/XML Schema v3.2.1.9</xsl:variable>
 
    <!-- Prefixes used for anchor names -->
       <!-- Type definitions -->
