@@ -41,7 +41,7 @@ else
 
 fi
 
-./scripts/rdf2virtuoso.sh -p $PREFIX -a $ATOM -u $UPDATE || echo "$0 aborted." && exit 1
+./scripts/rdf2virtuoso.sh -p $PREFIX -a $ATOM -u $UPDATE || ( echo "$0 aborted." && exit 1 )
 
 red='\e[0;31m'
 normal='\e[0m'
