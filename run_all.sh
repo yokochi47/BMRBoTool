@@ -109,7 +109,7 @@ for prefix in bmr bms ; do
  ./$prefix"2rdf.sh"
 
  if [ $? != 0 ] || [ -d $prefix"_rdf_err" ] ; then
-  echo "$0 aborted."
+  echo $0 aborted.
   if [ -d $prefix"_rdf_err" ] ; then
    echo "Please check error messages in "$prefix"_rdf_err directory."
   fi
@@ -119,7 +119,7 @@ for prefix in bmr bms ; do
  ./$prefix"chk_rdf.sh"
 
  if [ $? != 0 ] || [ -d $prefix"_rdf_err" ] ; then
-  echo "$0 aborted."
+  echo $0 aborted.
   if [ -d $prefix"_rdf_err" ] ; then
    echo "Please check error messages in "$prefix"_rdf_err directory."
   fi
