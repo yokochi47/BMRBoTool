@@ -18,7 +18,7 @@ fi
 
 GRAPH_URI=$1
 
-graph_exist=`./ask_graph_existance.sh $GRAPH_URI` || echo GRAPH <$GRAPH_URI> does not exist. && exit 0
+graph_exist=`./ask_graph_existance.sh $GRAPH_URI` || ( echo GRAPH <$GRAPH_URI> does not exist. && exit 0 )
 
 VIRTUOSO_EXEC_COM="log_enable(3,1); SPARQL CLEAR GRAPH <$GRAPH_URI>;"
 echo $VIRTUOSO_EXEC_COM
