@@ -102,6 +102,7 @@ java -jar $SAXON -s:$DIC_PREFIX-v$DIC_VERSION.xsd -xsl:$APPEND_XSD_XSL -o:$DIC_P
 mv $DIC_PREFIX-v$DIC_VERSION.xsd~ $DIC_PREFIX-v$DIC_VERSION.xsd
 
 sed -i -e "3,2h; s/http:\/\/pdbml.pdb.org/https:\/\/bmrbpub.pdbj.org/g" $DIC_PREFIX-v$DIC_VERSION.xsd
+sed -i -e "s/xsd:integer/xsd:int/g" $DIC_PREFIX-v$DIC_VERSION.xsd
 
 sed -i '1a\<?xml-stylesheet type="text/xsl" href="https://bmrbpub.pdbj.org/schema/xs3p.xsl"?>' $DIC_PREFIX-v$DIC_VERSION.xsd # > $DIC_PREFIX-v$DIC_VERSION.xsd~
 
