@@ -1,6 +1,7 @@
- Changes in BMRBxTool 1.31.0 (release 2018-10-29)
+ Changes in BMRBxTool 1.31.0 (release 2018-11-08)
 
   Synchronus update with BMRBxTool.
+  Added 'NSC NUMBER' of enumeration of '_chem_comp_identifer.type'.
 
  Changes in BMRBxTool 1.30.0 (release 2018-08-24)
 
