@@ -20,7 +20,7 @@
 --  hash key type: unsigned long 64 bits
 --
 -- Statistics of schema:
---  Generated 1370 tables (9401 fields), 0 attr groups, 0 model groups in total
+--  Generated 1370 tables (9492 fields), 0 attr groups, 0 model groups in total
 --   Namespaces:
 --    https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd (BMRBx), http://www.w3.org/2001/XMLSchema (xsd)
 --   Schema locations:
@@ -32,7 +32,7 @@
 --   User keys:
 --    0 document keys, 0 serial keys, 0 xpath keys
 --   Contents:
---    1317 attributes (0 in-place document keys), 4432 elements (0 in-place document keys), 0 simple contents (0 in-place document keys, 0 as attribute, 0 as conditional attribute)
+--    1317 attributes (0 in-place document keys), 4523 elements (0 in-place document keys), 0 simple contents (0 in-place document keys, 0 as attribute, 0 as conditional attribute)
 --   Wild cards:
 --    0 any elements, 0 any attributes
 --   Constraints:
@@ -40,8 +40,8 @@
 --
 
 --
--- BMRB/XML Schema v3.2.1.12
--- BMRB/XML Schema translated from extended version of NMR-STAR Dictionary v3.2.1.12, which is backward compatible with the original NMR-STAR Dictionary: http://svn.bmrb.wisc.edu/svn/nmr-star-dictionary/bmrb_only_files/adit_input/NMR-STAR.dic
+-- BMRB/XML Schema v3.2.1.15
+-- BMRB/XML Schema translated from extended version of NMR-STAR Dictionary v3.2.1.15, which is backward compatible with the original NMR-STAR Dictionary: http://svn.bmrb.wisc.edu/svn/nmr-star-dictionary/bmrb_only_files/adit_input/NMR-STAR.dic
 -- URI-reference = https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.dic
 --
 
@@ -1456,9 +1456,9 @@ CREATE TYPE ENUM_entry_experimental_method_subtype AS ENUM ( 'SOLUTION', 'SOLID-
 DROP TYPE IF EXISTS ENUM_entry_format_name CASCADE;
 CREATE TYPE ENUM_entry_format_name AS ENUM ( 'NMR-STAR' );
 DROP TYPE IF EXISTS ENUM_entry_nmr_star_version CASCADE;
-CREATE TYPE ENUM_entry_nmr_star_version AS ENUM ( '3.1', '3.1.0.29', '3.1.1.7', '3.1.1.21', '3.1.1.31', '3.1.1.61', '3.1.1.77', '3.1.1.81', '3.1.1.92', '3.1.1.93', '3.1.1.96', '3.1.1.97', '3.1.1.99', '3.1.2.6', '3.2.0.9', '3.2.0.10', '3.2.0.11', '3.2.0.13', '3.2.0.15', '3.2.0.16', '3.2.1.2', '3.2.1.5', '3.2.1.9', '3.2.1.12' );
+CREATE TYPE ENUM_entry_nmr_star_version AS ENUM ( '3.1', '3.1.0.29', '3.1.1.7', '3.1.1.21', '3.1.1.31', '3.1.1.61', '3.1.1.77', '3.1.1.81', '3.1.1.92', '3.1.1.93', '3.1.1.96', '3.1.1.97', '3.1.1.99', '3.1.2.6', '3.2.0.9', '3.2.0.10', '3.2.0.11', '3.2.0.13', '3.2.0.15', '3.2.0.16', '3.2.1.2', '3.2.1.5', '3.2.1.9', '3.2.1.12', '3.2.1.15' );
 DROP TYPE IF EXISTS ENUM_entry_original_nmr_star_version CASCADE;
-CREATE TYPE ENUM_entry_original_nmr_star_version AS ENUM ( '2.1', '3.0.2.8', '3.0.8.100', '3.0.8.109', '3.0.8.111', '3.0.8.112', '3.0.8.116', '3.0.8.120', '3.0.8.125', '3.0.8.34', '3.0.8.53', '3.0.8.58', '3.0.8.59', '3.0.8.78', '3.0.8.94', '3.0.8.96', '3.0.9.2', '3.0.9.13', '3.0.9.14', '3.1', '3.1.0.46', '3.1.1.7', '3.1.1.15', '3.1.1.19', '3.1.1.21', '3.1.1.31', '3.1.1.44', '3.1.1.61', '3.1.1.65', '3.1.1.75', '3.1.1.77', '3.1.1.81', '3.1.1.92', '3.1.1.99', '3.1.2.6', '3.2.0.9', '3.2.0.10', '3.2.0.11', '3.2.0.13', '3.2.0.15', '3.2.0.16', '3.2.1.2', '3.2.1.5', '3.2.1.9', '3.2.1.12' );
+CREATE TYPE ENUM_entry_original_nmr_star_version AS ENUM ( '2.1', '3.0.2.8', '3.0.8.100', '3.0.8.109', '3.0.8.111', '3.0.8.112', '3.0.8.116', '3.0.8.120', '3.0.8.125', '3.0.8.34', '3.0.8.53', '3.0.8.58', '3.0.8.59', '3.0.8.78', '3.0.8.94', '3.0.8.96', '3.0.9.2', '3.0.9.13', '3.0.9.14', '3.1', '3.1.0.46', '3.1.1.7', '3.1.1.15', '3.1.1.19', '3.1.1.21', '3.1.1.31', '3.1.1.44', '3.1.1.61', '3.1.1.65', '3.1.1.75', '3.1.1.77', '3.1.1.81', '3.1.1.92', '3.1.1.99', '3.1.2.6', '3.2.0.9', '3.2.0.10', '3.2.0.11', '3.2.0.13', '3.2.0.15', '3.2.0.16', '3.2.1.2', '3.2.1.5', '3.2.1.9', '3.2.1.12', '3.2.1.15' );
 DROP TYPE IF EXISTS ENUM_entry_type CASCADE;
 CREATE TYPE ENUM_entry_type AS ENUM ( 'macromolecule', 'metabolite/natural product', 'small molecule', 'small molecule structure' );
 DROP TYPE IF EXISTS ENUM_entry_version_type CASCADE;
@@ -14376,6 +14376,7 @@ CREATE TABLE angular_order_parameter_list (
 	angular_order_parameter_list_id BIGINT CHECK ( angular_order_parameter_list_id >= 0 ) ,
 -- FOREIGN KEY : "angular_order_parameter_listType" ( "angular_order_parameter_listType_id" )
 	"angular_order_parameter_listType_id" BIGINT CHECK ( "angular_order_parameter_listType_id" >= 0 ) ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 	text_data TEXT ,
@@ -14731,6 +14732,7 @@ CREATE TABLE assigned_chem_shift_list (
 	chem_shift_reference_label TEXT ,
 	details TEXT ,
 	error_derivation_method TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -15162,6 +15164,7 @@ CREATE TABLE auto_relaxation_list (
 	common_relaxation_type_name ENUM_auto_relaxation_list_common_relaxation_type_name ,
 	details TEXT ,
 	exact_field_strength DECIMAL ,
+	name TEXT ,
 	relaxation_coherence_type ENUM_auto_relaxation_list_relaxation_coherence_type ,
 	relaxation_val_units ENUM_auto_relaxation_list_relaxation_val_units ,
 	rex_field_strength TEXT ,
@@ -15292,6 +15295,7 @@ CREATE TABLE binding_param_list (
 	binding_value_list_label TEXT ,
 	concentration_val_units TEXT ,
 	details TEXT ,
+	name TEXT ,
 	observed_param TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
@@ -15402,6 +15406,7 @@ CREATE TABLE binding_value_list (
 -- FOREIGN KEY : "binding_value_listType" ( "binding_value_listType_id" )
 	"binding_value_listType_id" BIGINT CHECK ( "binding_value_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -15532,6 +15537,7 @@ CREATE TABLE bond_annotation_list (
 -- FOREIGN KEY : "bond_annotation_listType" ( "bond_annotation_listType_id" )
 	"bond_annotation_listType_id" BIGINT CHECK ( "bond_annotation_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 -- ATTRIBUTE
@@ -15699,6 +15705,7 @@ CREATE TABLE ca_cb_constraint_list (
 	constraint_file_id INTEGER ,
 	data_file_format TEXT ,
 	details TEXT ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 	text_data TEXT ,
@@ -16271,6 +16278,7 @@ CREATE TABLE chem_shift_anisotropy (
 -- FOREIGN KEY : "chem_shift_anisotropyType" ( "chem_shift_anisotropyType_id" )
 	"chem_shift_anisotropyType_id" BIGINT CHECK ( "chem_shift_anisotropyType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -16413,6 +16421,7 @@ CREATE TABLE chem_shift_isotope_effect_list (
 	details TEXT ,
 	isotope_effect_type TEXT ,
 	isotope_effect_val_units TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -16503,6 +16512,7 @@ CREATE TABLE chem_shift_perturbation_list (
 	chem_shift_ref_set_id INTEGER ,
 	chem_shift_ref_set_label TEXT ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -16606,6 +16616,7 @@ CREATE TABLE chem_shift_reference (
 -- FOREIGN KEY : "chem_shift_referenceType" ( "chem_shift_referenceType_id" )
 	"chem_shift_referenceType_id" BIGINT CHECK ( "chem_shift_referenceType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 -- ATTRIBUTE
@@ -16684,6 +16695,7 @@ CREATE TABLE chem_shifts_calc_type (
 	details TEXT ,
 	modeled_sample_cond_list_id INTEGER ,
 	modeled_sample_cond_list_label TEXT ,
+	name TEXT ,
 	quantum_mechanical_basis_set TEXT ,
 	quantum_mechanical_method ENUM_chem_shifts_calc_type_quantum_mechanical_method ,
 	quantum_mechanical_theory_level ENUM_chem_shifts_calc_type_quantum_mechanical_theory_level ,
@@ -16801,6 +16813,7 @@ CREATE TABLE chemical_rate_list (
 -- FOREIGN KEY : "chemical_rate_listType" ( "chemical_rate_listType_id" )
 	"chemical_rate_listType_id" BIGINT CHECK ( "chemical_rate_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -16847,6 +16860,7 @@ CREATE TABLE chromatographic_column (
 -- FOREIGN KEY : "chromatographic_columnType" ( "chromatographic_columnType_id" )
 	"chromatographic_columnType_id" BIGINT CHECK ( "chromatographic_columnType_id" >= 0 ) ,
 	length DECIMAL ,
+	name TEXT ,
 	packing_material TEXT ,
 	packing_material_pore_size DECIMAL ,
 	sf_category TEXT ,
@@ -16878,6 +16892,7 @@ CREATE TABLE chromatographic_system (
 	col_compartment_model TEXT ,
 	col_compartment_serial_number TEXT ,
 	details TEXT ,
+	name TEXT ,
 	pump_manufacturer TEXT ,
 	pump_model TEXT ,
 	pump_serial_number TEXT ,
@@ -16934,6 +16949,7 @@ CREATE TABLE citation (
 	journal_name_full TEXT ,
 	journal_volume TEXT ,
 	medline_ui_code TEXT ,
+	name TEXT ,
 	page_first TEXT ,
 	page_last TEXT ,
 	pubmed_id TEXT ,
@@ -17044,6 +17060,7 @@ CREATE TABLE computer (
 	hardware_code TEXT ,
 	manufacturer TEXT ,
 	model TEXT ,
+	name TEXT ,
 	operating_system ENUM_computer_operating_system ,
 	operating_system_version TEXT ,
 	sf_category TEXT ,
@@ -17134,6 +17151,7 @@ CREATE TABLE conformer_family_coord_set (
 	constraints_pdb_file_id TEXT ,
 	details TEXT ,
 	file_name TEXT ,
+	name TEXT ,
 	pdb_accession_code TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
@@ -17237,6 +17255,7 @@ CREATE TABLE conformer_stat_list (
 	conformer_selection_criteria ENUM_conformer_stat_list_conformer_selection_criteria ,
 	conformer_submitted_total_num INTEGER ,
 	details TEXT ,
+	name TEXT ,
 	original_conformer_stats_file_id INTEGER ,
 	rep_conformer_selection_criteria ENUM_conformer_stat_list_rep_conformer_selection_criteria ,
 	representative_conformer INTEGER ,
@@ -17463,6 +17482,7 @@ CREATE TABLE constraint_stat_list (
 	na_other_angle_tot_num INTEGER ,
 	na_other_tot_num INTEGER ,
 	na_sugar_pucker_tot_num INTEGER ,
+	name TEXT ,
 	noe_ambig_intermol_tot_num INTEGER ,
 	noe_ambig_intramol_tot_num INTEGER ,
 	noe_dist_averaging_method ENUM_constraint_stat_list_noe_dist_averaging_method ,
@@ -17758,6 +17778,7 @@ CREATE TABLE coupling_constant_list (
 -- FOREIGN KEY : "coupling_constant_listType" ( "coupling_constant_listType_id" )
 	"coupling_constant_listType_id" BIGINT CHECK ( "coupling_constant_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -17909,6 +17930,7 @@ CREATE TABLE cross_correlation_d_csa_list (
 -- FOREIGN KEY : "cross_correlation_d_csa_listType" ( "cross_correlation_d_csa_listType_id" )
 	"cross_correlation_d_csa_listType_id" BIGINT CHECK ( "cross_correlation_d_csa_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -18061,6 +18083,7 @@ CREATE TABLE cross_correlation_dd_list (
 -- FOREIGN KEY : "cross_correlation_dd_listType" ( "cross_correlation_dd_listType_id" )
 	"cross_correlation_dd_listType_id" BIGINT CHECK ( "cross_correlation_dd_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -18279,6 +18302,7 @@ CREATE TABLE d_h_fractionation_factor_list (
 -- FOREIGN KEY : "d_h_fractionation_factor_listType" ( "d_h_fractionation_factor_listType_id" )
 	"d_h_fractionation_factor_listType_id" BIGINT CHECK ( "d_h_fractionation_factor_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -18445,6 +18469,7 @@ CREATE TABLE deduced_h_bond_list (
 -- FOREIGN KEY : "deduced_h_bond_listType" ( "deduced_h_bond_listType_id" )
 	"deduced_h_bond_listType_id" BIGINT CHECK ( "deduced_h_bond_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -18587,6 +18612,7 @@ CREATE TABLE deduced_secd_struct_list (
 -- FOREIGN KEY : "deduced_secd_struct_listType" ( "deduced_secd_struct_listType_id" )
 	"deduced_secd_struct_listType_id" BIGINT CHECK ( "deduced_secd_struct_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	residue_struct_value_details TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
@@ -18717,6 +18743,7 @@ CREATE TABLE dipolar_coupling_list (
 	"dipolar_coupling_listType_id" BIGINT CHECK ( "dipolar_coupling_listType_id" >= 0 ) ,
 	details TEXT ,
 	fitting_procedure TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	scaling_factor DECIMAL ,
@@ -18841,6 +18868,7 @@ CREATE TABLE dipole_dipole_relax_list (
 -- FOREIGN KEY : "dipole_dipole_relax_listType" ( "dipole_dipole_relax_listType_id" )
 	"dipole_dipole_relax_listType_id" BIGINT CHECK ( "dipole_dipole_relax_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -19129,6 +19157,7 @@ CREATE TABLE distance_constraint_list (
 	constraint_file_id INTEGER ,
 	constraint_type ENUM_distance_constraint_list_constraint_type ,
 	details TEXT ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 	text_data TEXT ,
@@ -19206,6 +19235,7 @@ CREATE TABLE emr_instrument (
 	details TEXT ,
 	manufacturer TEXT ,
 	model TEXT ,
+	name TEXT ,
 	serial_number TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
@@ -20159,6 +20189,7 @@ CREATE TABLE floating_chirality_assign (
 -- FOREIGN KEY : "floating_chirality_assignType" ( "floating_chirality_assignType_id" )
 	"floating_chirality_assignType_id" BIGINT CHECK ( "floating_chirality_assignType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 	stereo_assigned_count INTEGER ,
@@ -20205,6 +20236,7 @@ CREATE TABLE fluorescence_instrument (
 	details TEXT ,
 	manufacturer TEXT ,
 	model TEXT ,
+	name TEXT ,
 	serial_number TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
@@ -20256,6 +20288,7 @@ CREATE TABLE force_constant_list (
 	"force_constant_listType_id" BIGINT CHECK ( "force_constant_listType_id" >= 0 ) ,
 	default_software_values_used ENUM_force_constant_list_default_software_values_used ,
 	details TEXT ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 -- ATTRIBUTE
@@ -20497,6 +20530,7 @@ CREATE TABLE gen_dist_constraint_list (
 	constraint_file_id INTEGER ,
 	constraint_type ENUM_gen_dist_constraint_list_constraint_type ,
 	details TEXT ,
+	name TEXT ,
 	potential_type ENUM_gen_dist_constraint_list_potential_type ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
@@ -20678,6 +20712,7 @@ CREATE TABLE h_chem_shift_constraint_list (
 	constraint_file_id INTEGER ,
 	data_file_format TEXT ,
 	details TEXT ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 	text_data TEXT ,
@@ -20806,6 +20841,7 @@ CREATE TABLE h_exch_protection_factor_list (
 -- FOREIGN KEY : "h_exch_protection_factor_listType" ( "h_exch_protection_factor_listType_id" )
 	"h_exch_protection_factor_listType_id" BIGINT CHECK ( "h_exch_protection_factor_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -20896,6 +20932,7 @@ CREATE TABLE h_exch_rate_list (
 -- FOREIGN KEY : "h_exch_rate_listType" ( "h_exch_rate_listType_id" )
 	"h_exch_rate_listType_id" BIGINT CHECK ( "h_exch_rate_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -21020,6 +21057,7 @@ CREATE TABLE heteronucl_noe_list (
 	"heteronucl_noe_listType_id" BIGINT CHECK ( "heteronucl_noe_listType_id" >= 0 ) ,
 	details TEXT ,
 	heteronuclear_noe_val_type ENUM_heteronucl_noe_list_heteronuclear_noe_val_type ,
+	name TEXT ,
 	noe_ref_description TEXT ,
 	noe_ref_val DECIMAL ,
 	sample_condition_list_id INTEGER ,
@@ -21098,6 +21136,7 @@ CREATE TABLE heteronucl_t1_list (
 -- FOREIGN KEY : "heteronucl_t1_listType" ( "heteronucl_t1_listType_id" )
 	"heteronucl_t1_listType_id" BIGINT CHECK ( "heteronucl_t1_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -21182,6 +21221,7 @@ CREATE TABLE heteronucl_t1rho_list (
 -- FOREIGN KEY : "heteronucl_t1rho_listType" ( "heteronucl_t1rho_listType_id" )
 	"heteronucl_t1rho_listType_id" BIGINT CHECK ( "heteronucl_t1rho_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	rex_units ENUM_heteronucl_t1rho_list_rex_units ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
@@ -21269,6 +21309,7 @@ CREATE TABLE heteronucl_t2_list (
 -- FOREIGN KEY : "heteronucl_t2_listType" ( "heteronucl_t2_listType_id" )
 	"heteronucl_t2_listType_id" BIGINT CHECK ( "heteronucl_t2_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	rex_units ENUM_heteronucl_t2_list_rex_units ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
@@ -21428,6 +21469,7 @@ CREATE TABLE homonucl_noe_list (
 	"homonucl_noe_listType_id" BIGINT CHECK ( "homonucl_noe_listType_id" >= 0 ) ,
 	details TEXT ,
 	homonuclear_noe_val_type ENUM_homonucl_noe_list_homonuclear_noe_val_type ,
+	name TEXT ,
 	noe_ref_description TEXT ,
 	noe_ref_val DECIMAL ,
 	sample_condition_list_id INTEGER ,
@@ -21523,6 +21565,7 @@ CREATE TABLE interatomic_distance_list (
 -- FOREIGN KEY : "interatomic_distance_listType" ( "interatomic_distance_listType_id" )
 	"interatomic_distance_listType_id" BIGINT CHECK ( "interatomic_distance_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 	text_data TEXT ,
@@ -21778,6 +21821,7 @@ CREATE TABLE j_three_bond_constraint_list (
 	constraint_file_id INTEGER ,
 	data_file_format TEXT ,
 	details TEXT ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 	text_data TEXT ,
@@ -21941,6 +21985,7 @@ CREATE TABLE mass_spec (
 	details TEXT ,
 	manufacturer ENUM_mass_spec_manufacturer ,
 	model TEXT ,
+	name TEXT ,
 	serial_number TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
@@ -22051,6 +22096,7 @@ CREATE TABLE mass_spec_ref_compd_set (
 -- FOREIGN KEY : "mass_spec_ref_compd_setType" ( "mass_spec_ref_compd_setType_id" )
 	"mass_spec_ref_compd_setType_id" BIGINT CHECK ( "mass_spec_ref_compd_setType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 -- ATTRIBUTE
@@ -22091,6 +22137,7 @@ CREATE TABLE mass_spectrometer_list (
 -- FOREIGN KEY : "mass_spectrometer_listType" ( "mass_spectrometer_listType_id" )
 	"mass_spectrometer_listType_id" BIGINT CHECK ( "mass_spectrometer_listType_id" >= 0 ) ,
 	id INTEGER ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 -- ATTRIBUTE
@@ -22169,6 +22216,7 @@ CREATE TABLE method (
 	computer_label TEXT ,
 	derivation_type TEXT ,
 	details TEXT ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 -- ATTRIBUTE
@@ -22346,6 +22394,7 @@ CREATE TABLE ms_chromatogram_list (
 -- FOREIGN KEY : "ms_chromatogram_listType" ( "ms_chromatogram_listType_id" )
 	"ms_chromatogram_listType_id" BIGINT CHECK ( "ms_chromatogram_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -22593,6 +22642,7 @@ CREATE TABLE mz_ratio_data_list (
 	mass_spec_ref_compd_set_id INTEGER ,
 	mass_spec_ref_compd_set_label TEXT ,
 	mz_error_units TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -22899,6 +22949,7 @@ CREATE TABLE nmr_spectrometer (
 	field_strength ENUM_nmr_spectrometer_field_strength ,
 	manufacturer ENUM_nmr_spectrometer_manufacturer ,
 	model TEXT ,
+	name TEXT ,
 	serial_number TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
@@ -22939,6 +22990,7 @@ CREATE TABLE nmr_spectrometer_list (
 	nmr_spectrometer_list_id BIGINT CHECK ( nmr_spectrometer_list_id >= 0 ) ,
 -- FOREIGN KEY : "nmr_spectrometer_listType" ( "nmr_spectrometer_listType_id" )
 	"nmr_spectrometer_listType_id" BIGINT CHECK ( "nmr_spectrometer_listType_id" >= 0 ) ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 -- ATTRIBUTE
@@ -22967,6 +23019,7 @@ CREATE TABLE nmr_spectrometer_probe (
 	internal_volume DECIMAL ,
 	manufacturer ENUM_nmr_spectrometer_probe_manufacturer ,
 	model TEXT ,
+	name TEXT ,
 	rotor_composition TEXT ,
 	rotor_length DECIMAL ,
 	serial_number TEXT ,
@@ -23152,6 +23205,7 @@ CREATE TABLE order_parameter_list (
 -- FOREIGN KEY : "order_parameter_listType" ( "order_parameter_listType_id" )
 	"order_parameter_listType_id" BIGINT CHECK ( "order_parameter_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	rex_field_strength TEXT ,
 	rex_val_units ENUM_order_parameter_list_rex_val_units ,
 	sample_condition_list_id INTEGER ,
@@ -23259,6 +23313,7 @@ CREATE TABLE other_constraint_list (
 	entity_id INTEGER ,
 	file_format TEXT ,
 	file_name TEXT ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 	subtype TEXT ,
@@ -23437,6 +23492,7 @@ CREATE TABLE other_struct_feature_list (
 -- FOREIGN KEY : "other_struct_feature_listType" ( "other_struct_feature_listType_id" )
 	"other_struct_feature_listType_id" BIGINT CHECK ( "other_struct_feature_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	selection_method TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
@@ -23708,6 +23764,7 @@ CREATE TABLE peak_constraint_link_list (
 	peak_constraint_link_list_id BIGINT CHECK ( peak_constraint_link_list_id >= 0 ) ,
 -- FOREIGN KEY : "peak_constraint_link_listType" ( "peak_constraint_link_listType_id" )
 	"peak_constraint_link_listType_id" BIGINT CHECK ( "peak_constraint_link_listType_id" >= 0 ) ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 -- ATTRIBUTE
@@ -23758,31 +23815,38 @@ CREATE TABLE peak_row_format (
 	ambiguity_code_2 INTEGER ,
 	ambiguity_code_3 INTEGER ,
 	ambiguity_code_4 INTEGER ,
+	ambiguity_code_5 INTEGER ,
 	ambiguity_set_id_1 INTEGER ,
 	ambiguity_set_id_2 INTEGER ,
 	ambiguity_set_id_3 INTEGER ,
 	ambiguity_set_id_4 INTEGER ,
+	ambiguity_set_id_5 INTEGER ,
 	atom_id_1 TEXT ,
 	atom_id_2 TEXT ,
 	atom_id_3 TEXT ,
 	atom_id_4 TEXT ,
+	atom_id_5 TEXT ,
 	comp_id_1 TEXT ,
 	comp_id_2 TEXT ,
 	comp_id_3 TEXT ,
 	comp_id_4 TEXT ,
+	comp_id_5 TEXT ,
 	comp_index_id_1 INTEGER ,
 	comp_index_id_2 INTEGER ,
 	comp_index_id_3 INTEGER ,
 	comp_index_id_4 INTEGER ,
+	comp_index_id_5 INTEGER ,
 	details TEXT ,
 	entity_assembly_id_1 INTEGER ,
 	entity_assembly_id_2 INTEGER ,
 	entity_assembly_id_3 INTEGER ,
 	entity_assembly_id_4 INTEGER ,
+	entity_assembly_id_5 INTEGER ,
 	entity_id_1 INTEGER ,
 	entity_id_2 INTEGER ,
 	entity_id_3 INTEGER ,
 	entity_id_4 INTEGER ,
+	entity_id_5 INTEGER ,
 	figure_of_merit DECIMAL ,
 	height DECIMAL ,
 	height_uncertainty DECIMAL ,
@@ -23800,6 +23864,7 @@ CREATE TABLE peak_row_format (
 	seq_id_2 INTEGER ,
 	seq_id_3 INTEGER ,
 	seq_id_4 INTEGER ,
+	seq_id_5 INTEGER ,
 	volume DECIMAL ,
 	volume_uncertainty DECIMAL ,
 -- ATTRIBUTE
@@ -23848,6 +23913,7 @@ CREATE TABLE ph_param_list (
 -- FOREIGN KEY : "ph_param_listType" ( "ph_param_listType_id" )
 	"ph_param_listType_id" BIGINT CHECK ( "ph_param_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	observed_nmr_param ENUM_ph_param_list_observed_nmr_param ,
 	ph_titration_list_id INTEGER ,
 	ph_titration_list_label TEXT ,
@@ -23956,6 +24022,7 @@ CREATE TABLE ph_titration_list (
 	"ph_titration_listType_id" BIGINT CHECK ( "ph_titration_listType_id" >= 0 ) ,
 	details TEXT ,
 	expt_observed_param ENUM_ph_titration_list_expt_observed_param ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -24233,6 +24300,7 @@ CREATE TABLE rdc_constraint_list (
 	general_order_param_int_motions DECIMAL ,
 	mol_align_tensor_axial_sym_mol DECIMAL ,
 	mol_align_tensor_rhombic_mol DECIMAL ,
+	name TEXT ,
 	potential_type ENUM_rdc_constraint_list_potential_type ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
@@ -24367,6 +24435,7 @@ CREATE TABLE rdc_list (
 	general_order_param_int_motions DECIMAL ,
 	mol_align_tensor_axial_sym_mol DECIMAL ,
 	mol_align_tensor_rhombic_mol DECIMAL ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -24597,6 +24666,7 @@ CREATE TABLE representative_conformer (
 	conformer_family_coord_set_id INTEGER ,
 	conformer_family_coord_set_label TEXT ,
 	details TEXT ,
+	name TEXT ,
 	pdb_accession_code TEXT ,
 	rep_conformer_derivation TEXT ,
 	rep_conformer_file_name TEXT ,
@@ -24696,6 +24766,7 @@ CREATE TABLE resonance_linker_list (
 -- FOREIGN KEY : "resonance_linker_listType" ( "resonance_linker_listType_id" )
 	"resonance_linker_listType_id" BIGINT CHECK ( "resonance_linker_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 -- ATTRIBUTE
@@ -24735,6 +24806,7 @@ CREATE TABLE sample (
 	crystal_grow_time DECIMAL ,
 	details TEXT ,
 	lyophilization_cryo_protectant TEXT ,
+	name TEXT ,
 	oriented_sample_prep_protocol TEXT ,
 	polycrystallization_protocol TEXT ,
 	preparation_date DATE ,
@@ -24973,6 +25045,7 @@ CREATE TABLE saxs_constraint_list (
 -- FOREIGN KEY : "saxs_constraint_listType" ( "saxs_constraint_listType_id" )
 	"saxs_constraint_listType_id" BIGINT CHECK ( "saxs_constraint_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -25081,6 +25154,7 @@ CREATE TABLE secondary_struct_list (
 	secondary_struct_list_id BIGINT CHECK ( secondary_struct_list_id >= 0 ) ,
 -- FOREIGN KEY : "secondary_struct_listType" ( "secondary_struct_listType_id" )
 	"secondary_struct_listType_id" BIGINT CHECK ( "secondary_struct_listType_id" >= 0 ) ,
+	name TEXT ,
 	representative_conformer_id INTEGER ,
 	representative_conformer_label TEXT ,
 	sf_category TEXT ,
@@ -25171,6 +25245,7 @@ CREATE TABLE software_applied_history (
 -- FOREIGN KEY : "software_applied_historyType" ( "software_applied_historyType_id" )
 	"software_applied_historyType_id" BIGINT CHECK ( "software_applied_historyType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 -- ATTRIBUTE
@@ -25191,6 +25266,7 @@ CREATE TABLE software_applied_list (
 -- FOREIGN KEY : "software_applied_listType" ( "software_applied_listType_id" )
 	"software_applied_listType_id" BIGINT CHECK ( "software_applied_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 -- ATTRIBUTE
@@ -25278,6 +25354,7 @@ CREATE TABLE software_specific_info_list (
 	software_specific_info_list_id BIGINT CHECK ( software_specific_info_list_id >= 0 ) ,
 -- FOREIGN KEY : "software_specific_info_listType" ( "software_specific_info_listType_id" )
 	"software_specific_info_listType_id" BIGINT CHECK ( "software_specific_info_listType_id" >= 0 ) ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 -- ATTRIBUTE
@@ -25390,6 +25467,7 @@ CREATE TABLE spectral_density_list (
 -- FOREIGN KEY : "spectral_density_listType" ( "spectral_density_listType_id" )
 	"spectral_density_listType_id" BIGINT CHECK ( "spectral_density_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -25518,6 +25596,7 @@ CREATE TABLE spectral_peak_list (
 	experiment_id INTEGER ,
 	experiment_name TEXT ,
 	experiment_type ENUM_spectral_peak_list_experiment_type ,
+	name TEXT ,
 	number_of_spectral_dimensions INTEGER ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
@@ -25880,6 +25959,7 @@ CREATE TABLE structure_annotation (
 	db_source_release_date DATE ,
 	db_source_release_designation TEXT ,
 	details TEXT ,
+	name TEXT ,
 	pdb_id TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
@@ -25947,6 +26027,7 @@ CREATE TABLE structure_interaction_list (
 -- FOREIGN KEY : "structure_interaction_listType" ( "structure_interaction_listType_id" )
 	"structure_interaction_listType_id" BIGINT CHECK ( "structure_interaction_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 -- ATTRIBUTE
@@ -26521,6 +26602,7 @@ CREATE TABLE tensor_list (
 	isotropic_val_formula TEXT ,
 	isotropic_val_type TEXT ,
 	matrix_val_units ENUM_tensor_list_matrix_val_units ,
+	name TEXT ,
 	rhombic_val_formula TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
@@ -26607,6 +26689,7 @@ CREATE TABLE tertiary_struct_element_list (
 	tertiary_struct_element_list_id BIGINT CHECK ( tertiary_struct_element_list_id >= 0 ) ,
 -- FOREIGN KEY : "tertiary_struct_element_listType" ( "tertiary_struct_element_listType_id" )
 	"tertiary_struct_element_listType_id" BIGINT CHECK ( "tertiary_struct_element_listType_id" >= 0 ) ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 -- ATTRIBUTE
@@ -26724,6 +26807,7 @@ CREATE TABLE theoretical_auto_relaxation_list (
 	common_relaxation_type_name ENUM_theoretical_auto_relaxation_list_common_relaxation_type_na ,
 	details TEXT ,
 	exact_field_strength DECIMAL ,
+	name TEXT ,
 	relaxation_coherence_type ENUM_theoretical_auto_relaxation_list_relaxation_coherence_type ,
 	relaxation_val_units ENUM_theoretical_auto_relaxation_list_relaxation_val_units ,
 	rex_field_strength TEXT ,
@@ -26824,6 +26908,7 @@ CREATE TABLE theoretical_chem_shift_list (
 	fermi_contact_spin_density_units TEXT ,
 	model_atomic_coordinates_id INTEGER ,
 	model_atomic_coordinates_label TEXT ,
+	name TEXT ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
 	tensor_list_id INTEGER ,
@@ -26930,6 +27015,7 @@ CREATE TABLE theoretical_coupling_constant_list (
 -- FOREIGN KEY : "theoretical_coupling_constant_listType" ( "theoretical_coupling_constant_listType_id" )
 	"theoretical_coupling_constant_listType_id" BIGINT CHECK ( "theoretical_coupling_constant_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -27081,6 +27167,7 @@ CREATE TABLE theoretical_cross_correlation_dd_list (
 -- FOREIGN KEY : "theoretical_cross_correlation_dd_listType" ( "theoretical_cross_correlation_dd_listType_id" )
 	"theoretical_cross_correlation_dd_listType_id" BIGINT CHECK ( "theoretical_cross_correlation_dd_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -27206,6 +27293,7 @@ CREATE TABLE theoretical_heteronucl_noe_list (
 	"theoretical_heteronucl_noe_listType_id" BIGINT CHECK ( "theoretical_heteronucl_noe_listType_id" >= 0 ) ,
 	details TEXT ,
 	heteronuclear_noe_val_type ENUM_theoretical_heteronucl_noe_list_heteronuclear_noe_val_type ,
+	name TEXT ,
 	noe_ref_description TEXT ,
 	noe_ref_val DECIMAL ,
 	sample_condition_list_id INTEGER ,
@@ -27284,6 +27372,7 @@ CREATE TABLE theoretical_heteronucl_t1_list (
 -- FOREIGN KEY : "theoretical_heteronucl_t1_listType" ( "theoretical_heteronucl_t1_listType_id" )
 	"theoretical_heteronucl_t1_listType_id" BIGINT CHECK ( "theoretical_heteronucl_t1_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
 	sf_category TEXT ,
@@ -27368,6 +27457,7 @@ CREATE TABLE theoretical_heteronucl_t2_list (
 -- FOREIGN KEY : "theoretical_heteronucl_t2_listType" ( "theoretical_heteronucl_t2_listType_id" )
 	"theoretical_heteronucl_t2_listType_id" BIGINT CHECK ( "theoretical_heteronucl_t2_listType_id" >= 0 ) ,
 	details TEXT ,
+	name TEXT ,
 	rex_units ENUM_theoretical_heteronucl_t2_list_rex_units ,
 	sample_condition_list_id INTEGER ,
 	sample_condition_list_label TEXT ,
@@ -27687,6 +27777,7 @@ CREATE TABLE torsion_angle_constraint_list (
 	constraint_file_id INTEGER ,
 	constraint_type ENUM_torsion_angle_constraint_list_constraint_type ,
 	details TEXT ,
+	name TEXT ,
 	potential_type ENUM_torsion_angle_constraint_list_potential_type ,
 	sf_category TEXT ,
 	sf_framecode TEXT ,
