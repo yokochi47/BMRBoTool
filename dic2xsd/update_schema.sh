@@ -9,6 +9,7 @@ fi
 
 BMRB_URL=svn.bmrb.wisc.edu
 NMRSTAR_DIC_DIR=http://$BMRB_URL/svn/nmr-star-dictionary/bmrb_only_files/adit_input
+NMRSTAR_DIC_DIR=https://raw.githubusercontent.com/uwbmrb/nmr-star-dictionary/7061314ffb32ba56b92392d7453cea1495d48db0
 NMRSTAR_DIC_FILE=NMR-STAR.dic
 
 DIC_PREFIX=mmcif_nmr-star
@@ -104,7 +105,13 @@ mv $DIC_PREFIX-v$DIC_VERSION.xsd~ $DIC_PREFIX-v$DIC_VERSION.xsd
 sed -i -e "3,2h; s/http:\/\/pdbml.pdb.org/https:\/\/bmrbpub.pdbj.org/g" $DIC_PREFIX-v$DIC_VERSION.xsd
 sed -i -e "s/xsd:integer/xsd:int/g" $DIC_PREFIX-v$DIC_VERSION.xsd
 
-sed -i '1a\<?xml-stylesheet type="text/xsl" href="https://bmrbpub.pdbj.org/schema/xs3p.xsl"?>' $DIC_PREFIX-v$DIC_VERSION.xsd # > $DIC_PREFIX-v$DIC_VERSION.xsd~
+sed '1a\<?xml-stylesheet type="text/xsl" href="https://bmrbpub.pdbj.org/schema/xs3p.xsl"?>' $DIC_PREFIX-v$DIC_VERSION.xsd > $DIC_PREFIX-v$DIC_VERSION.xsd~
+
+if [ `which xmllint 2> /dev/null` ] ; then
+ xmllint --format $DIC_PREFIX-v$DIC_VERSION.xsd~ > $DIC_PREFIX-v$DIC_VERSION.xsd ; rm -f $DIC_PREFIX-v$DIC_VERSION.xsd~
+else
+ mv -f $DIC_PREFIX-v$DIC_VERSION.xsd~ $DIC_PREFIX-v$DIC_VERSION.xsd
+fi
 
 cp -f $NMRSTAR_DIC_FILE ../schema/$DIC_PREFIX.dic
 cp -f $DIC_PREFIX-v$DIC_VERSION.xsd ../schema/$DIC_PREFIX.xsd
