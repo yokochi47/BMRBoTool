@@ -27088,6 +27088,7 @@ Version of NMR-STAR in which the current entry is formatted.
                   <xsd:enumeration value="3.2.1.12"/>
                   <xsd:enumeration value="3.2.1.15"/>
                   <xsd:enumeration value="3.2.1.18"/>
+                  <xsd:enumeration value="3.2.1.32"/>
                 </xsd:restriction>
               </xsd:simpleType>
             </xsd:element>
@@ -27149,6 +27150,7 @@ Version of NMR-STAR in which the original entry was generated.
                   <xsd:enumeration value="3.2.1.12"/>
                   <xsd:enumeration value="3.2.1.15"/>
                   <xsd:enumeration value="3.2.1.18"/>
+                  <xsd:enumeration value="3.2.1.32"/>
                 </xsd:restriction>
               </xsd:simpleType>
             </xsd:element>
