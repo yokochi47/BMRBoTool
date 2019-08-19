@@ -212,7 +212,7 @@
     <rdfs:seeAlso rdf:resource="{$taxonomy-ident}{text()}" rdfs:label="urn:miriam:taxonomy:{text()}"/>
   </xsl:template>
 
-  <xsl:template match="BMRBx:assembly/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a']" mode="linked">
+  <xsl:template match="BMRBx:assembly/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a' and not(contains(text(), ' '))]" mode="linked">
     <xsl:choose>
       <xsl:when test="contains(text(), ',')">
         <xsl:for-each select="tokenize(text(), ', ')">
@@ -228,7 +228,7 @@
     </xsl:choose>
   </xsl:template>
 
-  <xsl:template match="BMRBx:assembly_subsystem/BMRBx:enzyme_commission_number[text() != '' and text() != 'na']" mode="linked">
+  <xsl:template match="BMRBx:assembly_subsystem/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a' and not(contains(text(), ' '))]" mode="linked">
     <xsl:choose>
       <xsl:when test="contains(text(), ',')">
         <xsl:for-each select="tokenize(text(), ', ')">
@@ -244,7 +244,7 @@
     </xsl:choose>
   </xsl:template>
 
-  <xsl:template match="BMRBx:entity/BMRBx:ec_number[text() != '' and text() != 'na']" mode="linked">
+  <xsl:template match="BMRBx:entity/BMRBx:ec_number[text() != '' and text() != 'na' and text() != 'n/a' and not(contains(text(), ' '))]" mode="linked">
     <xsl:choose>
       <xsl:when test="contains(text(), ',')">
         <xsl:for-each select="tokenize(text(), ', ')">
@@ -281,63 +281,87 @@
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='DBJ']/@accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$ddbj}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    <xsl:if test="not(contains({.}, ' '))">
+      <rdfs:seeAlso rdf:resource="{$ddbj}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
+      <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:entity_db_link[@database_code='DBJ']/@accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$ddbj}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    <xsl:if test="not(contains({.}, ' '))">
+      <rdfs:seeAlso rdf:resource="{$ddbj}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
+      <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:related_entries[@database_name='DBJ']/@database_accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$ddbj}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    <xsl:if test="not(contains({.}, ' '))">
+      <rdfs:seeAlso rdf:resource="{$ddbj}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
+      <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:matched_entries[@database_name='DBJ']/@database_accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$ddbj}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    <xsl:if test="not(contains({.}, ' '))">
+      <rdfs:seeAlso rdf:resource="{$ddbj}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
+      <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='EMBL']/@accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$embl}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    <xsl:if test="not(contains({.}, ' '))">
+      <rdfs:seeAlso rdf:resource="{$embl}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
+      <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:entity_db_link[@database_code='EMBL']/@accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$embl}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    <xsl:if test="not(contains({.}, ' '))">
+      <rdfs:seeAlso rdf:resource="{$embl}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
+      <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:related_entries[@database_name='EMBL']/@database_accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$embl}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    <xsl:if test="not(contains({.}, ' '))">
+      <rdfs:seeAlso rdf:resource="{$embl}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
+      <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:matched_entries[@database_name='EMBL']/@database_accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$embl}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    <xsl:if test="not(contains({.}, ' '))">
+      <rdfs:seeAlso rdf:resource="{$embl}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
+      <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='GB']/@accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$genbank}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    <xsl:if test="not(contains({.}, ' '))">
+      <rdfs:seeAlso rdf:resource="{$genbank}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
+      <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:entity_db_link[@database_code='GB']/@accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$genbank}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    <xsl:if test="not(contains({.}, ' '))">
+      <rdfs:seeAlso rdf:resource="{$genbank}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
+      <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:related_entries[@database_name='GB']/@database_accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$genbank}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    <xsl:if test="not(contains({.}, ' '))">
+      <rdfs:seeAlso rdf:resource="{$genbank}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
+      <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:matched_entries[@database_name='GB']/@database_accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$genbank}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    <xsl:if test="not(contains({.}, ' '))">
+      <rdfs:seeAlso rdf:resource="{$genbank}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
+      <rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='PIR']/@accession_code" mode="linked">
@@ -423,23 +447,31 @@
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='PDB']/@accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$pdb-ident}{.}" rdfs:label="urn:miriam:pdb:{.}"/>
+    <xsl:if test="not(contains({.}, ' '))">
+      <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
+      <rdfs:seeAlso rdf:resource="{$pdb-ident}{.}" rdfs:label="urn:miriam:pdb:{.}"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:entity_db_link[@database_code='PDB']/@accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$pdb-ident}{.}" rdfs:label="urn:miriam:pdb:{.}"/>
+    <xsl:if test="not(contains({.}, ' '))">
+      <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
+      <rdfs:seeAlso rdf:resource="{$pdb-ident}{.}" rdfs:label="urn:miriam:pdb:{.}"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:related_entries[@database_name='PDB']/@database_accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$pdb-ident}{.}" rdfs:label="urn:miriam:pdb:{.}"/>
+    <xsl:if test="not(contains({.}, ' '))">
+      <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
+      <rdfs:seeAlso rdf:resource="{$pdb-ident}{.}" rdfs:label="urn:miriam:pdb:{.}"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:matched_entries[@database_name='PDB']/@database_accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$pdb-ident}{.}" rdfs:label="urn:miriam:pdb:{.}"/>
+    <xsl:if test="not(contains({.}, ' '))">
+      <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
+      <rdfs:seeAlso rdf:resource="{$pdb-ident}{.}" rdfs:label="urn:miriam:pdb:{.}"/>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='BMRB']/@accession_code" mode="linked">
