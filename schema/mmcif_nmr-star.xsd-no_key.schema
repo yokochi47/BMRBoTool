@@ -6,6 +6,7 @@
 -- Schema modeling options:
 --  explicit named schema: false
 --  relational extension: true
+--  inline simple content: false
 --  wild card extension: true
 --  case sensitive name: true
 --  no name collision: true
@@ -13346,917 +13347,917 @@ CREATE TABLE "datablockType" (
 	"datablockType_id" BIGINT CHECK ( "datablockType_id" >= 0 ) ,
 -- FOREIGN KEY : datablock ( datablock_id )
 	datablock_id BIGINT CHECK ( datablock_id >= 0 ) ,
--- NESTED KEY : "ambiguous_atom_chem_shiftCategory" ( "ambiguous_atom_chem_shiftCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ambiguous_atom_chem_shiftCategory" ( "ambiguous_atom_chem_shiftCategory_id", DELEGATED TO "ambiguous_atom_chem_shiftType_id" ), PARENT NODE : datablock
 	"ambiguous_atom_chem_shiftCategory_id" BIGINT CHECK ( "ambiguous_atom_chem_shiftCategory_id" >= 0 ) ,
--- NESTED KEY : "angleCategory" ( "angleCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "angleCategory" ( "angleCategory_id", DELEGATED TO "angleType_id" ), PARENT NODE : datablock
 	"angleCategory_id" BIGINT CHECK ( "angleCategory_id" >= 0 ) ,
--- NESTED KEY : "angular_order_paramCategory" ( "angular_order_paramCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "angular_order_paramCategory" ( "angular_order_paramCategory_id", DELEGATED TO "angular_order_paramType_id" ), PARENT NODE : datablock
 	"angular_order_paramCategory_id" BIGINT CHECK ( "angular_order_paramCategory_id" >= 0 ) ,
--- NESTED KEY : "angular_order_parameter_listCategory" ( "angular_order_parameter_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "angular_order_parameter_listCategory" ( "angular_order_parameter_listCategory_id", DELEGATED TO "angular_order_parameter_listType_id" ), PARENT NODE : datablock
 	"angular_order_parameter_listCategory_id" BIGINT CHECK ( "angular_order_parameter_listCategory_id" >= 0 ) ,
--- NESTED KEY : "assemblyCategory" ( "assemblyCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "assemblyCategory" ( "assemblyCategory_id", DELEGATED TO "assemblyType_id" ), PARENT NODE : datablock
 	"assemblyCategory_id" BIGINT CHECK ( "assemblyCategory_id" >= 0 ) ,
--- NESTED KEY : "assembly_annotation_listCategory" ( "assembly_annotation_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "assembly_annotation_listCategory" ( "assembly_annotation_listCategory_id", DELEGATED TO "assembly_annotation_listType_id" ), PARENT NODE : datablock
 	"assembly_annotation_listCategory_id" BIGINT CHECK ( "assembly_annotation_listCategory_id" >= 0 ) ,
--- NESTED KEY : "assembly_bio_functionCategory" ( "assembly_bio_functionCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "assembly_bio_functionCategory" ( "assembly_bio_functionCategory_id", DELEGATED TO "assembly_bio_functionType_id" ), PARENT NODE : datablock
 	"assembly_bio_functionCategory_id" BIGINT CHECK ( "assembly_bio_functionCategory_id" >= 0 ) ,
--- NESTED KEY : "assembly_citationCategory" ( "assembly_citationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "assembly_citationCategory" ( "assembly_citationCategory_id", DELEGATED TO "assembly_citationType_id" ), PARENT NODE : datablock
 	"assembly_citationCategory_id" BIGINT CHECK ( "assembly_citationCategory_id" >= 0 ) ,
--- NESTED KEY : "assembly_common_nameCategory" ( "assembly_common_nameCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "assembly_common_nameCategory" ( "assembly_common_nameCategory_id", DELEGATED TO "assembly_common_nameType_id" ), PARENT NODE : datablock
 	"assembly_common_nameCategory_id" BIGINT CHECK ( "assembly_common_nameCategory_id" >= 0 ) ,
--- NESTED KEY : "assembly_db_linkCategory" ( "assembly_db_linkCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "assembly_db_linkCategory" ( "assembly_db_linkCategory_id", DELEGATED TO "assembly_db_linkType_id" ), PARENT NODE : datablock
 	"assembly_db_linkCategory_id" BIGINT CHECK ( "assembly_db_linkCategory_id" >= 0 ) ,
--- NESTED KEY : "assembly_interactionCategory" ( "assembly_interactionCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "assembly_interactionCategory" ( "assembly_interactionCategory_id", DELEGATED TO "assembly_interactionType_id" ), PARENT NODE : datablock
 	"assembly_interactionCategory_id" BIGINT CHECK ( "assembly_interactionCategory_id" >= 0 ) ,
--- NESTED KEY : "assembly_keywordCategory" ( "assembly_keywordCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "assembly_keywordCategory" ( "assembly_keywordCategory_id", DELEGATED TO "assembly_keywordType_id" ), PARENT NODE : datablock
 	"assembly_keywordCategory_id" BIGINT CHECK ( "assembly_keywordCategory_id" >= 0 ) ,
--- NESTED KEY : "assembly_segmentCategory" ( "assembly_segmentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "assembly_segmentCategory" ( "assembly_segmentCategory_id", DELEGATED TO "assembly_segmentType_id" ), PARENT NODE : datablock
 	"assembly_segmentCategory_id" BIGINT CHECK ( "assembly_segmentCategory_id" >= 0 ) ,
--- NESTED KEY : "assembly_segment_descriptionCategory" ( "assembly_segment_descriptionCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "assembly_segment_descriptionCategory" ( "assembly_segment_descriptionCategory_id", DELEGATED TO "assembly_segment_descriptionType_id" ), PARENT NODE : datablock
 	"assembly_segment_descriptionCategory_id" BIGINT CHECK ( "assembly_segment_descriptionCategory_id" >= 0 ) ,
--- NESTED KEY : "assembly_subsystemCategory" ( "assembly_subsystemCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "assembly_subsystemCategory" ( "assembly_subsystemCategory_id", DELEGATED TO "assembly_subsystemType_id" ), PARENT NODE : datablock
 	"assembly_subsystemCategory_id" BIGINT CHECK ( "assembly_subsystemCategory_id" >= 0 ) ,
--- NESTED KEY : "assembly_systematic_nameCategory" ( "assembly_systematic_nameCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "assembly_systematic_nameCategory" ( "assembly_systematic_nameCategory_id", DELEGATED TO "assembly_systematic_nameType_id" ), PARENT NODE : datablock
 	"assembly_systematic_nameCategory_id" BIGINT CHECK ( "assembly_systematic_nameCategory_id" >= 0 ) ,
--- NESTED KEY : "assembly_typeCategory" ( "assembly_typeCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "assembly_typeCategory" ( "assembly_typeCategory_id", DELEGATED TO "assembly_typeType_id" ), PARENT NODE : datablock
 	"assembly_typeCategory_id" BIGINT CHECK ( "assembly_typeCategory_id" >= 0 ) ,
--- NESTED KEY : "assigned_chem_shift_listCategory" ( "assigned_chem_shift_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "assigned_chem_shift_listCategory" ( "assigned_chem_shift_listCategory_id", DELEGATED TO "assigned_chem_shift_listType_id" ), PARENT NODE : datablock
 	"assigned_chem_shift_listCategory_id" BIGINT CHECK ( "assigned_chem_shift_listCategory_id" >= 0 ) ,
--- NESTED KEY : "assigned_peak_chem_shiftCategory" ( "assigned_peak_chem_shiftCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "assigned_peak_chem_shiftCategory" ( "assigned_peak_chem_shiftCategory_id", DELEGATED TO "assigned_peak_chem_shiftType_id" ), PARENT NODE : datablock
 	"assigned_peak_chem_shiftCategory_id" BIGINT CHECK ( "assigned_peak_chem_shiftCategory_id" >= 0 ) ,
--- NESTED KEY : "assigned_spectral_transitionCategory" ( "assigned_spectral_transitionCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "assigned_spectral_transitionCategory" ( "assigned_spectral_transitionCategory_id", DELEGATED TO "assigned_spectral_transitionType_id" ), PARENT NODE : datablock
 	"assigned_spectral_transitionCategory_id" BIGINT CHECK ( "assigned_spectral_transitionCategory_id" >= 0 ) ,
--- NESTED KEY : "atomCategory" ( "atomCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "atomCategory" ( "atomCategory_id", DELEGATED TO "atomType_id" ), PARENT NODE : datablock
 	"atomCategory_id" BIGINT CHECK ( "atomCategory_id" >= 0 ) ,
--- NESTED KEY : "atom_chem_shiftCategory" ( "atom_chem_shiftCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "atom_chem_shiftCategory" ( "atom_chem_shiftCategory_id", DELEGATED TO "atom_chem_shiftType_id" ), PARENT NODE : datablock
 	"atom_chem_shiftCategory_id" BIGINT CHECK ( "atom_chem_shiftCategory_id" >= 0 ) ,
--- NESTED KEY : "atom_nomenclatureCategory" ( "atom_nomenclatureCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "atom_nomenclatureCategory" ( "atom_nomenclatureCategory_id", DELEGATED TO "atom_nomenclatureType_id" ), PARENT NODE : datablock
 	"atom_nomenclatureCategory_id" BIGINT CHECK ( "atom_nomenclatureCategory_id" >= 0 ) ,
--- NESTED KEY : "atom_siteCategory" ( "atom_siteCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "atom_siteCategory" ( "atom_siteCategory_id", DELEGATED TO "atom_siteType_id" ), PARENT NODE : datablock
 	"atom_siteCategory_id" BIGINT CHECK ( "atom_siteCategory_id" >= 0 ) ,
--- NESTED KEY : "atom_sites_footnoteCategory" ( "atom_sites_footnoteCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "atom_sites_footnoteCategory" ( "atom_sites_footnoteCategory_id", DELEGATED TO "atom_sites_footnoteType_id" ), PARENT NODE : datablock
 	"atom_sites_footnoteCategory_id" BIGINT CHECK ( "atom_sites_footnoteCategory_id" >= 0 ) ,
--- NESTED KEY : "atom_typeCategory" ( "atom_typeCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "atom_typeCategory" ( "atom_typeCategory_id", DELEGATED TO "atom_typeType_id" ), PARENT NODE : datablock
 	"atom_typeCategory_id" BIGINT CHECK ( "atom_typeCategory_id" >= 0 ) ,
--- NESTED KEY : "author_annotationCategory" ( "author_annotationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "author_annotationCategory" ( "author_annotationCategory_id", DELEGATED TO "author_annotationType_id" ), PARENT NODE : datablock
 	"author_annotationCategory_id" BIGINT CHECK ( "author_annotationCategory_id" >= 0 ) ,
--- NESTED KEY : "auto_relaxationCategory" ( "auto_relaxationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "auto_relaxationCategory" ( "auto_relaxationCategory_id", DELEGATED TO "auto_relaxationType_id" ), PARENT NODE : datablock
 	"auto_relaxationCategory_id" BIGINT CHECK ( "auto_relaxationCategory_id" >= 0 ) ,
--- NESTED KEY : "auto_relaxation_experimentCategory" ( "auto_relaxation_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "auto_relaxation_experimentCategory" ( "auto_relaxation_experimentCategory_id", DELEGATED TO "auto_relaxation_experimentType_id" ), PARENT NODE : datablock
 	"auto_relaxation_experimentCategory_id" BIGINT CHECK ( "auto_relaxation_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "auto_relaxation_listCategory" ( "auto_relaxation_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "auto_relaxation_listCategory" ( "auto_relaxation_listCategory_id", DELEGATED TO "auto_relaxation_listType_id" ), PARENT NODE : datablock
 	"auto_relaxation_listCategory_id" BIGINT CHECK ( "auto_relaxation_listCategory_id" >= 0 ) ,
--- NESTED KEY : "auto_relaxation_softwareCategory" ( "auto_relaxation_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "auto_relaxation_softwareCategory" ( "auto_relaxation_softwareCategory_id", DELEGATED TO "auto_relaxation_softwareType_id" ), PARENT NODE : datablock
 	"auto_relaxation_softwareCategory_id" BIGINT CHECK ( "auto_relaxation_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "auxiliary_filesCategory" ( "auxiliary_filesCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "auxiliary_filesCategory" ( "auxiliary_filesCategory_id", DELEGATED TO "auxiliary_filesType_id" ), PARENT NODE : datablock
 	"auxiliary_filesCategory_id" BIGINT CHECK ( "auxiliary_filesCategory_id" >= 0 ) ,
--- NESTED KEY : "binding_experimentCategory" ( "binding_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "binding_experimentCategory" ( "binding_experimentCategory_id", DELEGATED TO "binding_experimentType_id" ), PARENT NODE : datablock
 	"binding_experimentCategory_id" BIGINT CHECK ( "binding_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "binding_paramCategory" ( "binding_paramCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "binding_paramCategory" ( "binding_paramCategory_id", DELEGATED TO "binding_paramType_id" ), PARENT NODE : datablock
 	"binding_paramCategory_id" BIGINT CHECK ( "binding_paramCategory_id" >= 0 ) ,
--- NESTED KEY : "binding_param_listCategory" ( "binding_param_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "binding_param_listCategory" ( "binding_param_listCategory_id", DELEGATED TO "binding_param_listType_id" ), PARENT NODE : datablock
 	"binding_param_listCategory_id" BIGINT CHECK ( "binding_param_listCategory_id" >= 0 ) ,
--- NESTED KEY : "binding_partnersCategory" ( "binding_partnersCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "binding_partnersCategory" ( "binding_partnersCategory_id", DELEGATED TO "binding_partnersType_id" ), PARENT NODE : datablock
 	"binding_partnersCategory_id" BIGINT CHECK ( "binding_partnersCategory_id" >= 0 ) ,
--- NESTED KEY : "binding_resultCategory" ( "binding_resultCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "binding_resultCategory" ( "binding_resultCategory_id", DELEGATED TO "binding_resultType_id" ), PARENT NODE : datablock
 	"binding_resultCategory_id" BIGINT CHECK ( "binding_resultCategory_id" >= 0 ) ,
--- NESTED KEY : "binding_softwareCategory" ( "binding_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "binding_softwareCategory" ( "binding_softwareCategory_id", DELEGATED TO "binding_softwareType_id" ), PARENT NODE : datablock
 	"binding_softwareCategory_id" BIGINT CHECK ( "binding_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "binding_value_listCategory" ( "binding_value_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "binding_value_listCategory" ( "binding_value_listCategory_id", DELEGATED TO "binding_value_listType_id" ), PARENT NODE : datablock
 	"binding_value_listCategory_id" BIGINT CHECK ( "binding_value_listCategory_id" >= 0 ) ,
--- NESTED KEY : "bondCategory" ( "bondCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "bondCategory" ( "bondCategory_id", DELEGATED TO "bondType_id" ), PARENT NODE : datablock
 	"bondCategory_id" BIGINT CHECK ( "bondCategory_id" >= 0 ) ,
--- NESTED KEY : "bond_annotationCategory" ( "bond_annotationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "bond_annotationCategory" ( "bond_annotationCategory_id", DELEGATED TO "bond_annotationType_id" ), PARENT NODE : datablock
 	"bond_annotationCategory_id" BIGINT CHECK ( "bond_annotationCategory_id" >= 0 ) ,
--- NESTED KEY : "bond_annotation_listCategory" ( "bond_annotation_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "bond_annotation_listCategory" ( "bond_annotation_listCategory_id", DELEGATED TO "bond_annotation_listType_id" ), PARENT NODE : datablock
 	"bond_annotation_listCategory_id" BIGINT CHECK ( "bond_annotation_listCategory_id" >= 0 ) ,
--- NESTED KEY : "bond_observed_conformerCategory" ( "bond_observed_conformerCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "bond_observed_conformerCategory" ( "bond_observed_conformerCategory_id", DELEGATED TO "bond_observed_conformerType_id" ), PARENT NODE : datablock
 	"bond_observed_conformerCategory_id" BIGINT CHECK ( "bond_observed_conformerCategory_id" >= 0 ) ,
--- NESTED KEY : "ca_cb_constraintCategory" ( "ca_cb_constraintCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ca_cb_constraintCategory" ( "ca_cb_constraintCategory_id", DELEGATED TO "ca_cb_constraintType_id" ), PARENT NODE : datablock
 	"ca_cb_constraintCategory_id" BIGINT CHECK ( "ca_cb_constraintCategory_id" >= 0 ) ,
--- NESTED KEY : "ca_cb_constraint_exptCategory" ( "ca_cb_constraint_exptCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ca_cb_constraint_exptCategory" ( "ca_cb_constraint_exptCategory_id", DELEGATED TO "ca_cb_constraint_exptType_id" ), PARENT NODE : datablock
 	"ca_cb_constraint_exptCategory_id" BIGINT CHECK ( "ca_cb_constraint_exptCategory_id" >= 0 ) ,
--- NESTED KEY : "ca_cb_constraint_listCategory" ( "ca_cb_constraint_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ca_cb_constraint_listCategory" ( "ca_cb_constraint_listCategory_id", DELEGATED TO "ca_cb_constraint_listType_id" ), PARENT NODE : datablock
 	"ca_cb_constraint_listCategory_id" BIGINT CHECK ( "ca_cb_constraint_listCategory_id" >= 0 ) ,
--- NESTED KEY : "ca_cb_constraint_softwareCategory" ( "ca_cb_constraint_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ca_cb_constraint_softwareCategory" ( "ca_cb_constraint_softwareCategory_id", DELEGATED TO "ca_cb_constraint_softwareType_id" ), PARENT NODE : datablock
 	"ca_cb_constraint_softwareCategory_id" BIGINT CHECK ( "ca_cb_constraint_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "characteristicCategory" ( "characteristicCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "characteristicCategory" ( "characteristicCategory_id", DELEGATED TO "characteristicType_id" ), PARENT NODE : datablock
 	"characteristicCategory_id" BIGINT CHECK ( "characteristicCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_compCategory" ( "chem_compCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_compCategory" ( "chem_compCategory_id", DELEGATED TO "chem_compType_id" ), PARENT NODE : datablock
 	"chem_compCategory_id" BIGINT CHECK ( "chem_compCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_comp_angleCategory" ( "chem_comp_angleCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_comp_angleCategory" ( "chem_comp_angleCategory_id", DELEGATED TO "chem_comp_angleType_id" ), PARENT NODE : datablock
 	"chem_comp_angleCategory_id" BIGINT CHECK ( "chem_comp_angleCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_comp_assemblyCategory" ( "chem_comp_assemblyCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_comp_assemblyCategory" ( "chem_comp_assemblyCategory_id", DELEGATED TO "chem_comp_assemblyType_id" ), PARENT NODE : datablock
 	"chem_comp_assemblyCategory_id" BIGINT CHECK ( "chem_comp_assemblyCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_comp_atomCategory" ( "chem_comp_atomCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_comp_atomCategory" ( "chem_comp_atomCategory_id", DELEGATED TO "chem_comp_atomType_id" ), PARENT NODE : datablock
 	"chem_comp_atomCategory_id" BIGINT CHECK ( "chem_comp_atomCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_comp_bio_functionCategory" ( "chem_comp_bio_functionCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_comp_bio_functionCategory" ( "chem_comp_bio_functionCategory_id", DELEGATED TO "chem_comp_bio_functionType_id" ), PARENT NODE : datablock
 	"chem_comp_bio_functionCategory_id" BIGINT CHECK ( "chem_comp_bio_functionCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_comp_bondCategory" ( "chem_comp_bondCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_comp_bondCategory" ( "chem_comp_bondCategory_id", DELEGATED TO "chem_comp_bondType_id" ), PARENT NODE : datablock
 	"chem_comp_bondCategory_id" BIGINT CHECK ( "chem_comp_bondCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_comp_citationCategory" ( "chem_comp_citationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_comp_citationCategory" ( "chem_comp_citationCategory_id", DELEGATED TO "chem_comp_citationType_id" ), PARENT NODE : datablock
 	"chem_comp_citationCategory_id" BIGINT CHECK ( "chem_comp_citationCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_comp_common_nameCategory" ( "chem_comp_common_nameCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_comp_common_nameCategory" ( "chem_comp_common_nameCategory_id", DELEGATED TO "chem_comp_common_nameType_id" ), PARENT NODE : datablock
 	"chem_comp_common_nameCategory_id" BIGINT CHECK ( "chem_comp_common_nameCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_comp_db_linkCategory" ( "chem_comp_db_linkCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_comp_db_linkCategory" ( "chem_comp_db_linkCategory_id", DELEGATED TO "chem_comp_db_linkType_id" ), PARENT NODE : datablock
 	"chem_comp_db_linkCategory_id" BIGINT CHECK ( "chem_comp_db_linkCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_comp_descriptorCategory" ( "chem_comp_descriptorCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_comp_descriptorCategory" ( "chem_comp_descriptorCategory_id", DELEGATED TO "chem_comp_descriptorType_id" ), PARENT NODE : datablock
 	"chem_comp_descriptorCategory_id" BIGINT CHECK ( "chem_comp_descriptorCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_comp_identifierCategory" ( "chem_comp_identifierCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_comp_identifierCategory" ( "chem_comp_identifierCategory_id", DELEGATED TO "chem_comp_identifierType_id" ), PARENT NODE : datablock
 	"chem_comp_identifierCategory_id" BIGINT CHECK ( "chem_comp_identifierCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_comp_keywordCategory" ( "chem_comp_keywordCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_comp_keywordCategory" ( "chem_comp_keywordCategory_id", DELEGATED TO "chem_comp_keywordType_id" ), PARENT NODE : datablock
 	"chem_comp_keywordCategory_id" BIGINT CHECK ( "chem_comp_keywordCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_comp_smilesCategory" ( "chem_comp_smilesCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_comp_smilesCategory" ( "chem_comp_smilesCategory_id", DELEGATED TO "chem_comp_smilesType_id" ), PARENT NODE : datablock
 	"chem_comp_smilesCategory_id" BIGINT CHECK ( "chem_comp_smilesCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_comp_systematic_nameCategory" ( "chem_comp_systematic_nameCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_comp_systematic_nameCategory" ( "chem_comp_systematic_nameCategory_id", DELEGATED TO "chem_comp_systematic_nameType_id" ), PARENT NODE : datablock
 	"chem_comp_systematic_nameCategory_id" BIGINT CHECK ( "chem_comp_systematic_nameCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_comp_torCategory" ( "chem_comp_torCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_comp_torCategory" ( "chem_comp_torCategory_id", DELEGATED TO "chem_comp_torType_id" ), PARENT NODE : datablock
 	"chem_comp_torCategory_id" BIGINT CHECK ( "chem_comp_torCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_shift_anisotropyCategory" ( "chem_shift_anisotropyCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_shift_anisotropyCategory" ( "chem_shift_anisotropyCategory_id", DELEGATED TO "chem_shift_anisotropyType_id" ), PARENT NODE : datablock
 	"chem_shift_anisotropyCategory_id" BIGINT CHECK ( "chem_shift_anisotropyCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_shift_completeness_charCategory" ( "chem_shift_completeness_charCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_shift_completeness_charCategory" ( "chem_shift_completeness_charCategory_id", DELEGATED TO "chem_shift_completeness_charType_id" ), PARENT NODE : datablock
 	"chem_shift_completeness_charCategory_id" BIGINT CHECK ( "chem_shift_completeness_charCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_shift_completeness_listCategory" ( "chem_shift_completeness_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_shift_completeness_listCategory" ( "chem_shift_completeness_listCategory_id", DELEGATED TO "chem_shift_completeness_listType_id" ), PARENT NODE : datablock
 	"chem_shift_completeness_listCategory_id" BIGINT CHECK ( "chem_shift_completeness_listCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_shift_experimentCategory" ( "chem_shift_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_shift_experimentCategory" ( "chem_shift_experimentCategory_id", DELEGATED TO "chem_shift_experimentType_id" ), PARENT NODE : datablock
 	"chem_shift_experimentCategory_id" BIGINT CHECK ( "chem_shift_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_shift_isotope_effect_listCategory" ( "chem_shift_isotope_effect_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_shift_isotope_effect_listCategory" ( "chem_shift_isotope_effect_listCategory_id", DELEGATED TO "chem_shift_isotope_effect_listType_id" ), PARENT NODE : datablock
 	"chem_shift_isotope_effect_listCategory_id" BIGINT CHECK ( "chem_shift_isotope_effect_listCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_shift_perturbationCategory" ( "chem_shift_perturbationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_shift_perturbationCategory" ( "chem_shift_perturbationCategory_id", DELEGATED TO "chem_shift_perturbationType_id" ), PARENT NODE : datablock
 	"chem_shift_perturbationCategory_id" BIGINT CHECK ( "chem_shift_perturbationCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_shift_perturbation_experimentCategory" ( "chem_shift_perturbation_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_shift_perturbation_experimentCategory" ( "chem_shift_perturbation_experimentCategory_id", DELEGATED TO "chem_shift_perturbation_experimentType_id" ), PARENT NODE : datablock
 	"chem_shift_perturbation_experimentCategory_id" BIGINT CHECK ( "chem_shift_perturbation_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_shift_perturbation_listCategory" ( "chem_shift_perturbation_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_shift_perturbation_listCategory" ( "chem_shift_perturbation_listCategory_id", DELEGATED TO "chem_shift_perturbation_listType_id" ), PARENT NODE : datablock
 	"chem_shift_perturbation_listCategory_id" BIGINT CHECK ( "chem_shift_perturbation_listCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_shift_perturbation_softwareCategory" ( "chem_shift_perturbation_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_shift_perturbation_softwareCategory" ( "chem_shift_perturbation_softwareCategory_id", DELEGATED TO "chem_shift_perturbation_softwareType_id" ), PARENT NODE : datablock
 	"chem_shift_perturbation_softwareCategory_id" BIGINT CHECK ( "chem_shift_perturbation_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_shift_refCategory" ( "chem_shift_refCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_shift_refCategory" ( "chem_shift_refCategory_id", DELEGATED TO "chem_shift_refType_id" ), PARENT NODE : datablock
 	"chem_shift_refCategory_id" BIGINT CHECK ( "chem_shift_refCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_shift_referenceCategory" ( "chem_shift_referenceCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_shift_referenceCategory" ( "chem_shift_referenceCategory_id", DELEGATED TO "chem_shift_referenceType_id" ), PARENT NODE : datablock
 	"chem_shift_referenceCategory_id" BIGINT CHECK ( "chem_shift_referenceCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_shift_softwareCategory" ( "chem_shift_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_shift_softwareCategory" ( "chem_shift_softwareCategory_id", DELEGATED TO "chem_shift_softwareType_id" ), PARENT NODE : datablock
 	"chem_shift_softwareCategory_id" BIGINT CHECK ( "chem_shift_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_shifts_calc_softwareCategory" ( "chem_shifts_calc_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_shifts_calc_softwareCategory" ( "chem_shifts_calc_softwareCategory_id", DELEGATED TO "chem_shifts_calc_softwareType_id" ), PARENT NODE : datablock
 	"chem_shifts_calc_softwareCategory_id" BIGINT CHECK ( "chem_shifts_calc_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_shifts_calc_typeCategory" ( "chem_shifts_calc_typeCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_shifts_calc_typeCategory" ( "chem_shifts_calc_typeCategory_id", DELEGATED TO "chem_shifts_calc_typeType_id" ), PARENT NODE : datablock
 	"chem_shifts_calc_typeCategory_id" BIGINT CHECK ( "chem_shifts_calc_typeCategory_id" >= 0 ) ,
--- NESTED KEY : "chem_struct_descriptorCategory" ( "chem_struct_descriptorCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chem_struct_descriptorCategory" ( "chem_struct_descriptorCategory_id", DELEGATED TO "chem_struct_descriptorType_id" ), PARENT NODE : datablock
 	"chem_struct_descriptorCategory_id" BIGINT CHECK ( "chem_struct_descriptorCategory_id" >= 0 ) ,
--- NESTED KEY : "chemical_rateCategory" ( "chemical_rateCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chemical_rateCategory" ( "chemical_rateCategory_id", DELEGATED TO "chemical_rateType_id" ), PARENT NODE : datablock
 	"chemical_rateCategory_id" BIGINT CHECK ( "chemical_rateCategory_id" >= 0 ) ,
--- NESTED KEY : "chemical_rate_experimentCategory" ( "chemical_rate_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chemical_rate_experimentCategory" ( "chemical_rate_experimentCategory_id", DELEGATED TO "chemical_rate_experimentType_id" ), PARENT NODE : datablock
 	"chemical_rate_experimentCategory_id" BIGINT CHECK ( "chemical_rate_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "chemical_rate_listCategory" ( "chemical_rate_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chemical_rate_listCategory" ( "chemical_rate_listCategory_id", DELEGATED TO "chemical_rate_listType_id" ), PARENT NODE : datablock
 	"chemical_rate_listCategory_id" BIGINT CHECK ( "chemical_rate_listCategory_id" >= 0 ) ,
--- NESTED KEY : "chemical_rate_softwareCategory" ( "chemical_rate_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chemical_rate_softwareCategory" ( "chemical_rate_softwareCategory_id", DELEGATED TO "chemical_rate_softwareType_id" ), PARENT NODE : datablock
 	"chemical_rate_softwareCategory_id" BIGINT CHECK ( "chemical_rate_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "chromatographic_columnCategory" ( "chromatographic_columnCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chromatographic_columnCategory" ( "chromatographic_columnCategory_id", DELEGATED TO "chromatographic_columnType_id" ), PARENT NODE : datablock
 	"chromatographic_columnCategory_id" BIGINT CHECK ( "chromatographic_columnCategory_id" >= 0 ) ,
--- NESTED KEY : "chromatographic_systemCategory" ( "chromatographic_systemCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "chromatographic_systemCategory" ( "chromatographic_systemCategory_id", DELEGATED TO "chromatographic_systemType_id" ), PARENT NODE : datablock
 	"chromatographic_systemCategory_id" BIGINT CHECK ( "chromatographic_systemCategory_id" >= 0 ) ,
--- NESTED KEY : "citationCategory" ( "citationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "citationCategory" ( "citationCategory_id", DELEGATED TO "citationType_id" ), PARENT NODE : datablock
 	"citationCategory_id" BIGINT CHECK ( "citationCategory_id" >= 0 ) ,
--- NESTED KEY : "citation_authorCategory" ( "citation_authorCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "citation_authorCategory" ( "citation_authorCategory_id", DELEGATED TO "citation_authorType_id" ), PARENT NODE : datablock
 	"citation_authorCategory_id" BIGINT CHECK ( "citation_authorCategory_id" >= 0 ) ,
--- NESTED KEY : "citation_editorCategory" ( "citation_editorCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "citation_editorCategory" ( "citation_editorCategory_id", DELEGATED TO "citation_editorType_id" ), PARENT NODE : datablock
 	"citation_editorCategory_id" BIGINT CHECK ( "citation_editorCategory_id" >= 0 ) ,
--- NESTED KEY : "citation_keywordCategory" ( "citation_keywordCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "citation_keywordCategory" ( "citation_keywordCategory_id", DELEGATED TO "citation_keywordType_id" ), PARENT NODE : datablock
 	"citation_keywordCategory_id" BIGINT CHECK ( "citation_keywordCategory_id" >= 0 ) ,
--- NESTED KEY : "computerCategory" ( "computerCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "computerCategory" ( "computerCategory_id", DELEGATED TO "computerType_id" ), PARENT NODE : datablock
 	"computerCategory_id" BIGINT CHECK ( "computerCategory_id" >= 0 ) ,
--- NESTED KEY : "computer_citationCategory" ( "computer_citationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "computer_citationCategory" ( "computer_citationCategory_id", DELEGATED TO "computer_citationType_id" ), PARENT NODE : datablock
 	"computer_citationCategory_id" BIGINT CHECK ( "computer_citationCategory_id" >= 0 ) ,
--- NESTED KEY : "conf_family_coord_set_constr_listCategory" ( "conf_family_coord_set_constr_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "conf_family_coord_set_constr_listCategory" ( "conf_family_coord_set_constr_listCategory_id", DELEGATED TO "conf_family_coord_set_constr_listType_id" ), PARENT NODE : datablock
 	"conf_family_coord_set_constr_listCategory_id" BIGINT CHECK ( "conf_family_coord_set_constr_listCategory_id" >= 0 ) ,
--- NESTED KEY : "conf_stats_softwareCategory" ( "conf_stats_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "conf_stats_softwareCategory" ( "conf_stats_softwareCategory_id", DELEGATED TO "conf_stats_softwareType_id" ), PARENT NODE : datablock
 	"conf_stats_softwareCategory_id" BIGINT CHECK ( "conf_stats_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "conformer_family_coord_setCategory" ( "conformer_family_coord_setCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "conformer_family_coord_setCategory" ( "conformer_family_coord_setCategory_id", DELEGATED TO "conformer_family_coord_setType_id" ), PARENT NODE : datablock
 	"conformer_family_coord_setCategory_id" BIGINT CHECK ( "conformer_family_coord_setCategory_id" >= 0 ) ,
--- NESTED KEY : "conformer_family_coord_set_exptCategory" ( "conformer_family_coord_set_exptCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "conformer_family_coord_set_exptCategory" ( "conformer_family_coord_set_exptCategory_id", DELEGATED TO "conformer_family_coord_set_exptType_id" ), PARENT NODE : datablock
 	"conformer_family_coord_set_exptCategory_id" BIGINT CHECK ( "conformer_family_coord_set_exptCategory_id" >= 0 ) ,
--- NESTED KEY : "conformer_family_refinementCategory" ( "conformer_family_refinementCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "conformer_family_refinementCategory" ( "conformer_family_refinementCategory_id", DELEGATED TO "conformer_family_refinementType_id" ), PARENT NODE : datablock
 	"conformer_family_refinementCategory_id" BIGINT CHECK ( "conformer_family_refinementCategory_id" >= 0 ) ,
--- NESTED KEY : "conformer_family_softwareCategory" ( "conformer_family_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "conformer_family_softwareCategory" ( "conformer_family_softwareCategory_id", DELEGATED TO "conformer_family_softwareType_id" ), PARENT NODE : datablock
 	"conformer_family_softwareCategory_id" BIGINT CHECK ( "conformer_family_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "conformer_stat_listCategory" ( "conformer_stat_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "conformer_stat_listCategory" ( "conformer_stat_listCategory_id", DELEGATED TO "conformer_stat_listType_id" ), PARENT NODE : datablock
 	"conformer_stat_listCategory_id" BIGINT CHECK ( "conformer_stat_listCategory_id" >= 0 ) ,
--- NESTED KEY : "conformer_stat_list_ensCategory" ( "conformer_stat_list_ensCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "conformer_stat_list_ensCategory" ( "conformer_stat_list_ensCategory_id", DELEGATED TO "conformer_stat_list_ensType_id" ), PARENT NODE : datablock
 	"conformer_stat_list_ensCategory_id" BIGINT CHECK ( "conformer_stat_list_ensCategory_id" >= 0 ) ,
--- NESTED KEY : "conformer_stat_list_repCategory" ( "conformer_stat_list_repCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "conformer_stat_list_repCategory" ( "conformer_stat_list_repCategory_id", DELEGATED TO "conformer_stat_list_repType_id" ), PARENT NODE : datablock
 	"conformer_stat_list_repCategory_id" BIGINT CHECK ( "conformer_stat_list_repCategory_id" >= 0 ) ,
--- NESTED KEY : "constraint_fileCategory" ( "constraint_fileCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "constraint_fileCategory" ( "constraint_fileCategory_id", DELEGATED TO "constraint_fileType_id" ), PARENT NODE : datablock
 	"constraint_fileCategory_id" BIGINT CHECK ( "constraint_fileCategory_id" >= 0 ) ,
--- NESTED KEY : "constraint_stat_listCategory" ( "constraint_stat_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "constraint_stat_listCategory" ( "constraint_stat_listCategory_id", DELEGATED TO "constraint_stat_listType_id" ), PARENT NODE : datablock
 	"constraint_stat_listCategory_id" BIGINT CHECK ( "constraint_stat_listCategory_id" >= 0 ) ,
--- NESTED KEY : "constraint_stat_list_ensCategory" ( "constraint_stat_list_ensCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "constraint_stat_list_ensCategory" ( "constraint_stat_list_ensCategory_id", DELEGATED TO "constraint_stat_list_ensType_id" ), PARENT NODE : datablock
 	"constraint_stat_list_ensCategory_id" BIGINT CHECK ( "constraint_stat_list_ensCategory_id" >= 0 ) ,
--- NESTED KEY : "constraint_stat_list_repCategory" ( "constraint_stat_list_repCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "constraint_stat_list_repCategory" ( "constraint_stat_list_repCategory_id", DELEGATED TO "constraint_stat_list_repType_id" ), PARENT NODE : datablock
 	"constraint_stat_list_repCategory_id" BIGINT CHECK ( "constraint_stat_list_repCategory_id" >= 0 ) ,
--- NESTED KEY : "constraint_stats_constr_listCategory" ( "constraint_stats_constr_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "constraint_stats_constr_listCategory" ( "constraint_stats_constr_listCategory_id", DELEGATED TO "constraint_stats_constr_listType_id" ), PARENT NODE : datablock
 	"constraint_stats_constr_listCategory_id" BIGINT CHECK ( "constraint_stats_constr_listCategory_id" >= 0 ) ,
--- NESTED KEY : "coupling_constantCategory" ( "coupling_constantCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "coupling_constantCategory" ( "coupling_constantCategory_id", DELEGATED TO "coupling_constantType_id" ), PARENT NODE : datablock
 	"coupling_constantCategory_id" BIGINT CHECK ( "coupling_constantCategory_id" >= 0 ) ,
--- NESTED KEY : "coupling_constant_experimentCategory" ( "coupling_constant_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "coupling_constant_experimentCategory" ( "coupling_constant_experimentCategory_id", DELEGATED TO "coupling_constant_experimentType_id" ), PARENT NODE : datablock
 	"coupling_constant_experimentCategory_id" BIGINT CHECK ( "coupling_constant_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "coupling_constant_listCategory" ( "coupling_constant_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "coupling_constant_listCategory" ( "coupling_constant_listCategory_id", DELEGATED TO "coupling_constant_listType_id" ), PARENT NODE : datablock
 	"coupling_constant_listCategory_id" BIGINT CHECK ( "coupling_constant_listCategory_id" >= 0 ) ,
--- NESTED KEY : "coupling_constant_softwareCategory" ( "coupling_constant_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "coupling_constant_softwareCategory" ( "coupling_constant_softwareCategory_id", DELEGATED TO "coupling_constant_softwareType_id" ), PARENT NODE : datablock
 	"coupling_constant_softwareCategory_id" BIGINT CHECK ( "coupling_constant_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "cross_correlation_d_csaCategory" ( "cross_correlation_d_csaCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "cross_correlation_d_csaCategory" ( "cross_correlation_d_csaCategory_id", DELEGATED TO "cross_correlation_d_csaType_id" ), PARENT NODE : datablock
 	"cross_correlation_d_csaCategory_id" BIGINT CHECK ( "cross_correlation_d_csaCategory_id" >= 0 ) ,
--- NESTED KEY : "cross_correlation_d_csa_experimentCategory" ( "cross_correlation_d_csa_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "cross_correlation_d_csa_experimentCategory" ( "cross_correlation_d_csa_experimentCategory_id", DELEGATED TO "cross_correlation_d_csa_experimentType_id" ), PARENT NODE : datablock
 	"cross_correlation_d_csa_experimentCategory_id" BIGINT CHECK ( "cross_correlation_d_csa_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "cross_correlation_d_csa_listCategory" ( "cross_correlation_d_csa_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "cross_correlation_d_csa_listCategory" ( "cross_correlation_d_csa_listCategory_id", DELEGATED TO "cross_correlation_d_csa_listType_id" ), PARENT NODE : datablock
 	"cross_correlation_d_csa_listCategory_id" BIGINT CHECK ( "cross_correlation_d_csa_listCategory_id" >= 0 ) ,
--- NESTED KEY : "cross_correlation_d_csa_softwareCategory" ( "cross_correlation_d_csa_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "cross_correlation_d_csa_softwareCategory" ( "cross_correlation_d_csa_softwareCategory_id", DELEGATED TO "cross_correlation_d_csa_softwareType_id" ), PARENT NODE : datablock
 	"cross_correlation_d_csa_softwareCategory_id" BIGINT CHECK ( "cross_correlation_d_csa_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "cross_correlation_ddCategory" ( "cross_correlation_ddCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "cross_correlation_ddCategory" ( "cross_correlation_ddCategory_id", DELEGATED TO "cross_correlation_ddType_id" ), PARENT NODE : datablock
 	"cross_correlation_ddCategory_id" BIGINT CHECK ( "cross_correlation_ddCategory_id" >= 0 ) ,
--- NESTED KEY : "cross_correlation_dd_experimentCategory" ( "cross_correlation_dd_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "cross_correlation_dd_experimentCategory" ( "cross_correlation_dd_experimentCategory_id", DELEGATED TO "cross_correlation_dd_experimentType_id" ), PARENT NODE : datablock
 	"cross_correlation_dd_experimentCategory_id" BIGINT CHECK ( "cross_correlation_dd_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "cross_correlation_dd_listCategory" ( "cross_correlation_dd_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "cross_correlation_dd_listCategory" ( "cross_correlation_dd_listCategory_id", DELEGATED TO "cross_correlation_dd_listType_id" ), PARENT NODE : datablock
 	"cross_correlation_dd_listCategory_id" BIGINT CHECK ( "cross_correlation_dd_listCategory_id" >= 0 ) ,
--- NESTED KEY : "cross_correlation_dd_softwareCategory" ( "cross_correlation_dd_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "cross_correlation_dd_softwareCategory" ( "cross_correlation_dd_softwareCategory_id", DELEGATED TO "cross_correlation_dd_softwareType_id" ), PARENT NODE : datablock
 	"cross_correlation_dd_softwareCategory_id" BIGINT CHECK ( "cross_correlation_dd_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "cs_anisotropyCategory" ( "cs_anisotropyCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "cs_anisotropyCategory" ( "cs_anisotropyCategory_id", DELEGATED TO "cs_anisotropyType_id" ), PARENT NODE : datablock
 	"cs_anisotropyCategory_id" BIGINT CHECK ( "cs_anisotropyCategory_id" >= 0 ) ,
--- NESTED KEY : "cs_anisotropy_experimentCategory" ( "cs_anisotropy_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "cs_anisotropy_experimentCategory" ( "cs_anisotropy_experimentCategory_id", DELEGATED TO "cs_anisotropy_experimentType_id" ), PARENT NODE : datablock
 	"cs_anisotropy_experimentCategory_id" BIGINT CHECK ( "cs_anisotropy_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "cs_anisotropy_softwareCategory" ( "cs_anisotropy_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "cs_anisotropy_softwareCategory" ( "cs_anisotropy_softwareCategory_id", DELEGATED TO "cs_anisotropy_softwareType_id" ), PARENT NODE : datablock
 	"cs_anisotropy_softwareCategory_id" BIGINT CHECK ( "cs_anisotropy_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "d_h_fract_factor_experimentCategory" ( "d_h_fract_factor_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "d_h_fract_factor_experimentCategory" ( "d_h_fract_factor_experimentCategory_id", DELEGATED TO "d_h_fract_factor_experimentType_id" ), PARENT NODE : datablock
 	"d_h_fract_factor_experimentCategory_id" BIGINT CHECK ( "d_h_fract_factor_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "d_h_fract_factor_softwareCategory" ( "d_h_fract_factor_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "d_h_fract_factor_softwareCategory" ( "d_h_fract_factor_softwareCategory_id", DELEGATED TO "d_h_fract_factor_softwareType_id" ), PARENT NODE : datablock
 	"d_h_fract_factor_softwareCategory_id" BIGINT CHECK ( "d_h_fract_factor_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "d_h_fractionation_factorCategory" ( "d_h_fractionation_factorCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "d_h_fractionation_factorCategory" ( "d_h_fractionation_factorCategory_id", DELEGATED TO "d_h_fractionation_factorType_id" ), PARENT NODE : datablock
 	"d_h_fractionation_factorCategory_id" BIGINT CHECK ( "d_h_fractionation_factorCategory_id" >= 0 ) ,
--- NESTED KEY : "d_h_fractionation_factor_listCategory" ( "d_h_fractionation_factor_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "d_h_fractionation_factor_listCategory" ( "d_h_fractionation_factor_listCategory_id", DELEGATED TO "d_h_fractionation_factor_listType_id" ), PARENT NODE : datablock
 	"d_h_fractionation_factor_listCategory_id" BIGINT CHECK ( "d_h_fractionation_factor_listCategory_id" >= 0 ) ,
--- NESTED KEY : "data_setCategory" ( "data_setCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "data_setCategory" ( "data_setCategory_id", DELEGATED TO "data_setType_id" ), PARENT NODE : datablock
 	"data_setCategory_id" BIGINT CHECK ( "data_setCategory_id" >= 0 ) ,
--- NESTED KEY : "datumCategory" ( "datumCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "datumCategory" ( "datumCategory_id", DELEGATED TO "datumType_id" ), PARENT NODE : datablock
 	"datumCategory_id" BIGINT CHECK ( "datumCategory_id" >= 0 ) ,
--- NESTED KEY : "decoupling_pulse_sequenceCategory" ( "decoupling_pulse_sequenceCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "decoupling_pulse_sequenceCategory" ( "decoupling_pulse_sequenceCategory_id", DELEGATED TO "decoupling_pulse_sequenceType_id" ), PARENT NODE : datablock
 	"decoupling_pulse_sequenceCategory_id" BIGINT CHECK ( "decoupling_pulse_sequenceCategory_id" >= 0 ) ,
--- NESTED KEY : "deduced_h_bondCategory" ( "deduced_h_bondCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "deduced_h_bondCategory" ( "deduced_h_bondCategory_id", DELEGATED TO "deduced_h_bondType_id" ), PARENT NODE : datablock
 	"deduced_h_bondCategory_id" BIGINT CHECK ( "deduced_h_bondCategory_id" >= 0 ) ,
--- NESTED KEY : "deduced_h_bond_experimentCategory" ( "deduced_h_bond_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "deduced_h_bond_experimentCategory" ( "deduced_h_bond_experimentCategory_id", DELEGATED TO "deduced_h_bond_experimentType_id" ), PARENT NODE : datablock
 	"deduced_h_bond_experimentCategory_id" BIGINT CHECK ( "deduced_h_bond_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "deduced_h_bond_listCategory" ( "deduced_h_bond_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "deduced_h_bond_listCategory" ( "deduced_h_bond_listCategory_id", DELEGATED TO "deduced_h_bond_listType_id" ), PARENT NODE : datablock
 	"deduced_h_bond_listCategory_id" BIGINT CHECK ( "deduced_h_bond_listCategory_id" >= 0 ) ,
--- NESTED KEY : "deduced_h_bond_softwareCategory" ( "deduced_h_bond_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "deduced_h_bond_softwareCategory" ( "deduced_h_bond_softwareCategory_id", DELEGATED TO "deduced_h_bond_softwareType_id" ), PARENT NODE : datablock
 	"deduced_h_bond_softwareCategory_id" BIGINT CHECK ( "deduced_h_bond_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "deduced_secd_struct_experimentCategory" ( "deduced_secd_struct_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "deduced_secd_struct_experimentCategory" ( "deduced_secd_struct_experimentCategory_id", DELEGATED TO "deduced_secd_struct_experimentType_id" ), PARENT NODE : datablock
 	"deduced_secd_struct_experimentCategory_id" BIGINT CHECK ( "deduced_secd_struct_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "deduced_secd_struct_exptlCategory" ( "deduced_secd_struct_exptlCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "deduced_secd_struct_exptlCategory" ( "deduced_secd_struct_exptlCategory_id", DELEGATED TO "deduced_secd_struct_exptlType_id" ), PARENT NODE : datablock
 	"deduced_secd_struct_exptlCategory_id" BIGINT CHECK ( "deduced_secd_struct_exptlCategory_id" >= 0 ) ,
--- NESTED KEY : "deduced_secd_struct_featureCategory" ( "deduced_secd_struct_featureCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "deduced_secd_struct_featureCategory" ( "deduced_secd_struct_featureCategory_id", DELEGATED TO "deduced_secd_struct_featureType_id" ), PARENT NODE : datablock
 	"deduced_secd_struct_featureCategory_id" BIGINT CHECK ( "deduced_secd_struct_featureCategory_id" >= 0 ) ,
--- NESTED KEY : "deduced_secd_struct_listCategory" ( "deduced_secd_struct_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "deduced_secd_struct_listCategory" ( "deduced_secd_struct_listCategory_id", DELEGATED TO "deduced_secd_struct_listType_id" ), PARENT NODE : datablock
 	"deduced_secd_struct_listCategory_id" BIGINT CHECK ( "deduced_secd_struct_listCategory_id" >= 0 ) ,
--- NESTED KEY : "deduced_secd_struct_softwareCategory" ( "deduced_secd_struct_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "deduced_secd_struct_softwareCategory" ( "deduced_secd_struct_softwareCategory_id", DELEGATED TO "deduced_secd_struct_softwareType_id" ), PARENT NODE : datablock
 	"deduced_secd_struct_softwareCategory_id" BIGINT CHECK ( "deduced_secd_struct_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "dipolar_couplingCategory" ( "dipolar_couplingCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "dipolar_couplingCategory" ( "dipolar_couplingCategory_id", DELEGATED TO "dipolar_couplingType_id" ), PARENT NODE : datablock
 	"dipolar_couplingCategory_id" BIGINT CHECK ( "dipolar_couplingCategory_id" >= 0 ) ,
--- NESTED KEY : "dipolar_coupling_experimentCategory" ( "dipolar_coupling_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "dipolar_coupling_experimentCategory" ( "dipolar_coupling_experimentCategory_id", DELEGATED TO "dipolar_coupling_experimentType_id" ), PARENT NODE : datablock
 	"dipolar_coupling_experimentCategory_id" BIGINT CHECK ( "dipolar_coupling_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "dipolar_coupling_listCategory" ( "dipolar_coupling_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "dipolar_coupling_listCategory" ( "dipolar_coupling_listCategory_id", DELEGATED TO "dipolar_coupling_listType_id" ), PARENT NODE : datablock
 	"dipolar_coupling_listCategory_id" BIGINT CHECK ( "dipolar_coupling_listCategory_id" >= 0 ) ,
--- NESTED KEY : "dipolar_coupling_softwareCategory" ( "dipolar_coupling_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "dipolar_coupling_softwareCategory" ( "dipolar_coupling_softwareCategory_id", DELEGATED TO "dipolar_coupling_softwareType_id" ), PARENT NODE : datablock
 	"dipolar_coupling_softwareCategory_id" BIGINT CHECK ( "dipolar_coupling_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "dipole_dipole_relaxCategory" ( "dipole_dipole_relaxCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "dipole_dipole_relaxCategory" ( "dipole_dipole_relaxCategory_id", DELEGATED TO "dipole_dipole_relaxType_id" ), PARENT NODE : datablock
 	"dipole_dipole_relaxCategory_id" BIGINT CHECK ( "dipole_dipole_relaxCategory_id" >= 0 ) ,
--- NESTED KEY : "dipole_dipole_relax_experimentCategory" ( "dipole_dipole_relax_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "dipole_dipole_relax_experimentCategory" ( "dipole_dipole_relax_experimentCategory_id", DELEGATED TO "dipole_dipole_relax_experimentType_id" ), PARENT NODE : datablock
 	"dipole_dipole_relax_experimentCategory_id" BIGINT CHECK ( "dipole_dipole_relax_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "dipole_dipole_relax_listCategory" ( "dipole_dipole_relax_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "dipole_dipole_relax_listCategory" ( "dipole_dipole_relax_listCategory_id", DELEGATED TO "dipole_dipole_relax_listType_id" ), PARENT NODE : datablock
 	"dipole_dipole_relax_listCategory_id" BIGINT CHECK ( "dipole_dipole_relax_listCategory_id" >= 0 ) ,
--- NESTED KEY : "dipole_dipole_relax_softwareCategory" ( "dipole_dipole_relax_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "dipole_dipole_relax_softwareCategory" ( "dipole_dipole_relax_softwareCategory_id", DELEGATED TO "dipole_dipole_relax_softwareType_id" ), PARENT NODE : datablock
 	"dipole_dipole_relax_softwareCategory_id" BIGINT CHECK ( "dipole_dipole_relax_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "dist_constr_software_settingCategory" ( "dist_constr_software_settingCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "dist_constr_software_settingCategory" ( "dist_constr_software_settingCategory_id", DELEGATED TO "dist_constr_software_settingType_id" ), PARENT NODE : datablock
 	"dist_constr_software_settingCategory_id" BIGINT CHECK ( "dist_constr_software_settingCategory_id" >= 0 ) ,
--- NESTED KEY : "dist_constraintCategory" ( "dist_constraintCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "dist_constraintCategory" ( "dist_constraintCategory_id", DELEGATED TO "dist_constraintType_id" ), PARENT NODE : datablock
 	"dist_constraintCategory_id" BIGINT CHECK ( "dist_constraintCategory_id" >= 0 ) ,
--- NESTED KEY : "dist_constraint_comment_orgCategory" ( "dist_constraint_comment_orgCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "dist_constraint_comment_orgCategory" ( "dist_constraint_comment_orgCategory_id", DELEGATED TO "dist_constraint_comment_orgType_id" ), PARENT NODE : datablock
 	"dist_constraint_comment_orgCategory_id" BIGINT CHECK ( "dist_constraint_comment_orgCategory_id" >= 0 ) ,
--- NESTED KEY : "dist_constraint_conv_errCategory" ( "dist_constraint_conv_errCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "dist_constraint_conv_errCategory" ( "dist_constraint_conv_errCategory_id", DELEGATED TO "dist_constraint_conv_errType_id" ), PARENT NODE : datablock
 	"dist_constraint_conv_errCategory_id" BIGINT CHECK ( "dist_constraint_conv_errCategory_id" >= 0 ) ,
--- NESTED KEY : "dist_constraint_parse_errCategory" ( "dist_constraint_parse_errCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "dist_constraint_parse_errCategory" ( "dist_constraint_parse_errCategory_id", DELEGATED TO "dist_constraint_parse_errType_id" ), PARENT NODE : datablock
 	"dist_constraint_parse_errCategory_id" BIGINT CHECK ( "dist_constraint_parse_errCategory_id" >= 0 ) ,
--- NESTED KEY : "dist_constraint_parse_fileCategory" ( "dist_constraint_parse_fileCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "dist_constraint_parse_fileCategory" ( "dist_constraint_parse_fileCategory_id", DELEGATED TO "dist_constraint_parse_fileType_id" ), PARENT NODE : datablock
 	"dist_constraint_parse_fileCategory_id" BIGINT CHECK ( "dist_constraint_parse_fileCategory_id" >= 0 ) ,
--- NESTED KEY : "dist_constraint_treeCategory" ( "dist_constraint_treeCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "dist_constraint_treeCategory" ( "dist_constraint_treeCategory_id", DELEGATED TO "dist_constraint_treeType_id" ), PARENT NODE : datablock
 	"dist_constraint_treeCategory_id" BIGINT CHECK ( "dist_constraint_treeCategory_id" >= 0 ) ,
--- NESTED KEY : "dist_constraint_valueCategory" ( "dist_constraint_valueCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "dist_constraint_valueCategory" ( "dist_constraint_valueCategory_id", DELEGATED TO "dist_constraint_valueType_id" ), PARENT NODE : datablock
 	"dist_constraint_valueCategory_id" BIGINT CHECK ( "dist_constraint_valueCategory_id" >= 0 ) ,
--- NESTED KEY : "distance_constraint_exptCategory" ( "distance_constraint_exptCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "distance_constraint_exptCategory" ( "distance_constraint_exptCategory_id", DELEGATED TO "distance_constraint_exptType_id" ), PARENT NODE : datablock
 	"distance_constraint_exptCategory_id" BIGINT CHECK ( "distance_constraint_exptCategory_id" >= 0 ) ,
--- NESTED KEY : "distance_constraint_listCategory" ( "distance_constraint_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "distance_constraint_listCategory" ( "distance_constraint_listCategory_id", DELEGATED TO "distance_constraint_listType_id" ), PARENT NODE : datablock
 	"distance_constraint_listCategory_id" BIGINT CHECK ( "distance_constraint_listCategory_id" >= 0 ) ,
--- NESTED KEY : "distance_constraint_softwareCategory" ( "distance_constraint_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "distance_constraint_softwareCategory" ( "distance_constraint_softwareCategory_id", DELEGATED TO "distance_constraint_softwareType_id" ), PARENT NODE : datablock
 	"distance_constraint_softwareCategory_id" BIGINT CHECK ( "distance_constraint_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "emr_exptCategory" ( "emr_exptCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "emr_exptCategory" ( "emr_exptCategory_id", DELEGATED TO "emr_exptType_id" ), PARENT NODE : datablock
 	"emr_exptCategory_id" BIGINT CHECK ( "emr_exptCategory_id" >= 0 ) ,
--- NESTED KEY : "emr_instrumentCategory" ( "emr_instrumentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "emr_instrumentCategory" ( "emr_instrumentCategory_id", DELEGATED TO "emr_instrumentType_id" ), PARENT NODE : datablock
 	"emr_instrumentCategory_id" BIGINT CHECK ( "emr_instrumentCategory_id" >= 0 ) ,
--- NESTED KEY : "energetic_penalty_functionCategory" ( "energetic_penalty_functionCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "energetic_penalty_functionCategory" ( "energetic_penalty_functionCategory_id", DELEGATED TO "energetic_penalty_functionType_id" ), PARENT NODE : datablock
 	"energetic_penalty_functionCategory_id" BIGINT CHECK ( "energetic_penalty_functionCategory_id" >= 0 ) ,
--- NESTED KEY : "entityCategory" ( "entityCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entityCategory" ( "entityCategory_id", DELEGATED TO "entityType_id" ), PARENT NODE : datablock
 	"entityCategory_id" BIGINT CHECK ( "entityCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_assemblyCategory" ( "entity_assemblyCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_assemblyCategory" ( "entity_assemblyCategory_id", DELEGATED TO "entity_assemblyType_id" ), PARENT NODE : datablock
 	"entity_assemblyCategory_id" BIGINT CHECK ( "entity_assemblyCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_atom_listCategory" ( "entity_atom_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_atom_listCategory" ( "entity_atom_listCategory_id", DELEGATED TO "entity_atom_listType_id" ), PARENT NODE : datablock
 	"entity_atom_listCategory_id" BIGINT CHECK ( "entity_atom_listCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_biological_functionCategory" ( "entity_biological_functionCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_biological_functionCategory" ( "entity_biological_functionCategory_id", DELEGATED TO "entity_biological_functionType_id" ), PARENT NODE : datablock
 	"entity_biological_functionCategory_id" BIGINT CHECK ( "entity_biological_functionCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_bondCategory" ( "entity_bondCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_bondCategory" ( "entity_bondCategory_id", DELEGATED TO "entity_bondType_id" ), PARENT NODE : datablock
 	"entity_bondCategory_id" BIGINT CHECK ( "entity_bondCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_chem_comp_deleted_atomCategory" ( "entity_chem_comp_deleted_atomCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_chem_comp_deleted_atomCategory" ( "entity_chem_comp_deleted_atomCategory_id", DELEGATED TO "entity_chem_comp_deleted_atomType_id" ), PARENT NODE : datablock
 	"entity_chem_comp_deleted_atomCategory_id" BIGINT CHECK ( "entity_chem_comp_deleted_atomCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_chimera_segmentCategory" ( "entity_chimera_segmentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_chimera_segmentCategory" ( "entity_chimera_segmentCategory_id", DELEGATED TO "entity_chimera_segmentType_id" ), PARENT NODE : datablock
 	"entity_chimera_segmentCategory_id" BIGINT CHECK ( "entity_chimera_segmentCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_citationCategory" ( "entity_citationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_citationCategory" ( "entity_citationCategory_id", DELEGATED TO "entity_citationType_id" ), PARENT NODE : datablock
 	"entity_citationCategory_id" BIGINT CHECK ( "entity_citationCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_common_nameCategory" ( "entity_common_nameCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_common_nameCategory" ( "entity_common_nameCategory_id", DELEGATED TO "entity_common_nameType_id" ), PARENT NODE : datablock
 	"entity_common_nameCategory_id" BIGINT CHECK ( "entity_common_nameCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_comp_indexCategory" ( "entity_comp_indexCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_comp_indexCategory" ( "entity_comp_indexCategory_id", DELEGATED TO "entity_comp_indexType_id" ), PARENT NODE : datablock
 	"entity_comp_indexCategory_id" BIGINT CHECK ( "entity_comp_indexCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_comp_index_altCategory" ( "entity_comp_index_altCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_comp_index_altCategory" ( "entity_comp_index_altCategory_id", DELEGATED TO "entity_comp_index_altType_id" ), PARENT NODE : datablock
 	"entity_comp_index_altCategory_id" BIGINT CHECK ( "entity_comp_index_altCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_db_linkCategory" ( "entity_db_linkCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_db_linkCategory" ( "entity_db_linkCategory_id", DELEGATED TO "entity_db_linkType_id" ), PARENT NODE : datablock
 	"entity_db_linkCategory_id" BIGINT CHECK ( "entity_db_linkCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_deleted_atomCategory" ( "entity_deleted_atomCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_deleted_atomCategory" ( "entity_deleted_atomCategory_id", DELEGATED TO "entity_deleted_atomType_id" ), PARENT NODE : datablock
 	"entity_deleted_atomCategory_id" BIGINT CHECK ( "entity_deleted_atomCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_experimental_srcCategory" ( "entity_experimental_srcCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_experimental_srcCategory" ( "entity_experimental_srcCategory_id", DELEGATED TO "entity_experimental_srcType_id" ), PARENT NODE : datablock
 	"entity_experimental_srcCategory_id" BIGINT CHECK ( "entity_experimental_srcCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_experimental_src_listCategory" ( "entity_experimental_src_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_experimental_src_listCategory" ( "entity_experimental_src_listCategory_id", DELEGATED TO "entity_experimental_src_listType_id" ), PARENT NODE : datablock
 	"entity_experimental_src_listCategory_id" BIGINT CHECK ( "entity_experimental_src_listCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_keywordCategory" ( "entity_keywordCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_keywordCategory" ( "entity_keywordCategory_id", DELEGATED TO "entity_keywordType_id" ), PARENT NODE : datablock
 	"entity_keywordCategory_id" BIGINT CHECK ( "entity_keywordCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_natural_srcCategory" ( "entity_natural_srcCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_natural_srcCategory" ( "entity_natural_srcCategory_id", DELEGATED TO "entity_natural_srcType_id" ), PARENT NODE : datablock
 	"entity_natural_srcCategory_id" BIGINT CHECK ( "entity_natural_srcCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_natural_src_listCategory" ( "entity_natural_src_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_natural_src_listCategory" ( "entity_natural_src_listCategory_id", DELEGATED TO "entity_natural_src_listType_id" ), PARENT NODE : datablock
 	"entity_natural_src_listCategory_id" BIGINT CHECK ( "entity_natural_src_listCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_poly_seqCategory" ( "entity_poly_seqCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_poly_seqCategory" ( "entity_poly_seqCategory_id", DELEGATED TO "entity_poly_seqType_id" ), PARENT NODE : datablock
 	"entity_poly_seqCategory_id" BIGINT CHECK ( "entity_poly_seqCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_purityCategory" ( "entity_purityCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_purityCategory" ( "entity_purityCategory_id", DELEGATED TO "entity_purityType_id" ), PARENT NODE : datablock
 	"entity_purityCategory_id" BIGINT CHECK ( "entity_purityCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_purity_citationCategory" ( "entity_purity_citationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_purity_citationCategory" ( "entity_purity_citationCategory_id", DELEGATED TO "entity_purity_citationType_id" ), PARENT NODE : datablock
 	"entity_purity_citationCategory_id" BIGINT CHECK ( "entity_purity_citationCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_purity_listCategory" ( "entity_purity_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_purity_listCategory" ( "entity_purity_listCategory_id", DELEGATED TO "entity_purity_listType_id" ), PARENT NODE : datablock
 	"entity_purity_listCategory_id" BIGINT CHECK ( "entity_purity_listCategory_id" >= 0 ) ,
--- NESTED KEY : "entity_systematic_nameCategory" ( "entity_systematic_nameCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entity_systematic_nameCategory" ( "entity_systematic_nameCategory_id", DELEGATED TO "entity_systematic_nameType_id" ), PARENT NODE : datablock
 	"entity_systematic_nameCategory_id" BIGINT CHECK ( "entity_systematic_nameCategory_id" >= 0 ) ,
--- NESTED KEY : "entryCategory" ( "entryCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entryCategory" ( "entryCategory_id", DELEGATED TO "entryType_id" ), PARENT NODE : datablock
 	"entryCategory_id" BIGINT CHECK ( "entryCategory_id" >= 0 ) ,
--- NESTED KEY : "entry_authorCategory" ( "entry_authorCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entry_authorCategory" ( "entry_authorCategory_id", DELEGATED TO "entry_authorType_id" ), PARENT NODE : datablock
 	"entry_authorCategory_id" BIGINT CHECK ( "entry_authorCategory_id" >= 0 ) ,
--- NESTED KEY : "entry_experimental_methodsCategory" ( "entry_experimental_methodsCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entry_experimental_methodsCategory" ( "entry_experimental_methodsCategory_id", DELEGATED TO "entry_experimental_methodsType_id" ), PARENT NODE : datablock
 	"entry_experimental_methodsCategory_id" BIGINT CHECK ( "entry_experimental_methodsCategory_id" >= 0 ) ,
--- NESTED KEY : "entry_srcCategory" ( "entry_srcCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "entry_srcCategory" ( "entry_srcCategory_id", DELEGATED TO "entry_srcType_id" ), PARENT NODE : datablock
 	"entry_srcCategory_id" BIGINT CHECK ( "entry_srcCategory_id" >= 0 ) ,
--- NESTED KEY : "experimentCategory" ( "experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "experimentCategory" ( "experimentCategory_id", DELEGATED TO "experimentType_id" ), PARENT NODE : datablock
 	"experimentCategory_id" BIGINT CHECK ( "experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "experiment_fileCategory" ( "experiment_fileCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "experiment_fileCategory" ( "experiment_fileCategory_id", DELEGATED TO "experiment_fileType_id" ), PARENT NODE : datablock
 	"experiment_fileCategory_id" BIGINT CHECK ( "experiment_fileCategory_id" >= 0 ) ,
--- NESTED KEY : "experiment_listCategory" ( "experiment_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "experiment_listCategory" ( "experiment_listCategory_id", DELEGATED TO "experiment_listType_id" ), PARENT NODE : datablock
 	"experiment_listCategory_id" BIGINT CHECK ( "experiment_listCategory_id" >= 0 ) ,
--- NESTED KEY : "floating_chiralityCategory" ( "floating_chiralityCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "floating_chiralityCategory" ( "floating_chiralityCategory_id", DELEGATED TO "floating_chiralityType_id" ), PARENT NODE : datablock
 	"floating_chiralityCategory_id" BIGINT CHECK ( "floating_chiralityCategory_id" >= 0 ) ,
--- NESTED KEY : "floating_chirality_assignCategory" ( "floating_chirality_assignCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "floating_chirality_assignCategory" ( "floating_chirality_assignCategory_id", DELEGATED TO "floating_chirality_assignType_id" ), PARENT NODE : datablock
 	"floating_chirality_assignCategory_id" BIGINT CHECK ( "floating_chirality_assignCategory_id" >= 0 ) ,
--- NESTED KEY : "floating_chirality_softwareCategory" ( "floating_chirality_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "floating_chirality_softwareCategory" ( "floating_chirality_softwareCategory_id", DELEGATED TO "floating_chirality_softwareType_id" ), PARENT NODE : datablock
 	"floating_chirality_softwareCategory_id" BIGINT CHECK ( "floating_chirality_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "fluorescence_instrumentCategory" ( "fluorescence_instrumentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "fluorescence_instrumentCategory" ( "fluorescence_instrumentCategory_id", DELEGATED TO "fluorescence_instrumentType_id" ), PARENT NODE : datablock
 	"fluorescence_instrumentCategory_id" BIGINT CHECK ( "fluorescence_instrumentCategory_id" >= 0 ) ,
--- NESTED KEY : "force_constantCategory" ( "force_constantCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "force_constantCategory" ( "force_constantCategory_id", DELEGATED TO "force_constantType_id" ), PARENT NODE : datablock
 	"force_constantCategory_id" BIGINT CHECK ( "force_constantCategory_id" >= 0 ) ,
--- NESTED KEY : "force_constant_listCategory" ( "force_constant_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "force_constant_listCategory" ( "force_constant_listCategory_id", DELEGATED TO "force_constant_listType_id" ), PARENT NODE : datablock
 	"force_constant_listCategory_id" BIGINT CHECK ( "force_constant_listCategory_id" >= 0 ) ,
--- NESTED KEY : "force_constant_softwareCategory" ( "force_constant_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "force_constant_softwareCategory" ( "force_constant_softwareCategory_id", DELEGATED TO "force_constant_softwareType_id" ), PARENT NODE : datablock
 	"force_constant_softwareCategory_id" BIGINT CHECK ( "force_constant_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "fret_exptCategory" ( "fret_exptCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "fret_exptCategory" ( "fret_exptCategory_id", DELEGATED TO "fret_exptType_id" ), PARENT NODE : datablock
 	"fret_exptCategory_id" BIGINT CHECK ( "fret_exptCategory_id" >= 0 ) ,
--- NESTED KEY : "gen_dist_constraintCategory" ( "gen_dist_constraintCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "gen_dist_constraintCategory" ( "gen_dist_constraintCategory_id", DELEGATED TO "gen_dist_constraintType_id" ), PARENT NODE : datablock
 	"gen_dist_constraintCategory_id" BIGINT CHECK ( "gen_dist_constraintCategory_id" >= 0 ) ,
--- NESTED KEY : "gen_dist_constraint_comment_orgCategory" ( "gen_dist_constraint_comment_orgCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "gen_dist_constraint_comment_orgCategory" ( "gen_dist_constraint_comment_orgCategory_id", DELEGATED TO "gen_dist_constraint_comment_orgType_id" ), PARENT NODE : datablock
 	"gen_dist_constraint_comment_orgCategory_id" BIGINT CHECK ( "gen_dist_constraint_comment_orgCategory_id" >= 0 ) ,
--- NESTED KEY : "gen_dist_constraint_conv_errCategory" ( "gen_dist_constraint_conv_errCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "gen_dist_constraint_conv_errCategory" ( "gen_dist_constraint_conv_errCategory_id", DELEGATED TO "gen_dist_constraint_conv_errType_id" ), PARENT NODE : datablock
 	"gen_dist_constraint_conv_errCategory_id" BIGINT CHECK ( "gen_dist_constraint_conv_errCategory_id" >= 0 ) ,
--- NESTED KEY : "gen_dist_constraint_exptCategory" ( "gen_dist_constraint_exptCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "gen_dist_constraint_exptCategory" ( "gen_dist_constraint_exptCategory_id", DELEGATED TO "gen_dist_constraint_exptType_id" ), PARENT NODE : datablock
 	"gen_dist_constraint_exptCategory_id" BIGINT CHECK ( "gen_dist_constraint_exptCategory_id" >= 0 ) ,
--- NESTED KEY : "gen_dist_constraint_listCategory" ( "gen_dist_constraint_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "gen_dist_constraint_listCategory" ( "gen_dist_constraint_listCategory_id", DELEGATED TO "gen_dist_constraint_listType_id" ), PARENT NODE : datablock
 	"gen_dist_constraint_listCategory_id" BIGINT CHECK ( "gen_dist_constraint_listCategory_id" >= 0 ) ,
--- NESTED KEY : "gen_dist_constraint_parse_errCategory" ( "gen_dist_constraint_parse_errCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "gen_dist_constraint_parse_errCategory" ( "gen_dist_constraint_parse_errCategory_id", DELEGATED TO "gen_dist_constraint_parse_errType_id" ), PARENT NODE : datablock
 	"gen_dist_constraint_parse_errCategory_id" BIGINT CHECK ( "gen_dist_constraint_parse_errCategory_id" >= 0 ) ,
--- NESTED KEY : "gen_dist_constraint_parse_fileCategory" ( "gen_dist_constraint_parse_fileCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "gen_dist_constraint_parse_fileCategory" ( "gen_dist_constraint_parse_fileCategory_id", DELEGATED TO "gen_dist_constraint_parse_fileType_id" ), PARENT NODE : datablock
 	"gen_dist_constraint_parse_fileCategory_id" BIGINT CHECK ( "gen_dist_constraint_parse_fileCategory_id" >= 0 ) ,
--- NESTED KEY : "gen_dist_constraint_softwareCategory" ( "gen_dist_constraint_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "gen_dist_constraint_softwareCategory" ( "gen_dist_constraint_softwareCategory_id", DELEGATED TO "gen_dist_constraint_softwareType_id" ), PARENT NODE : datablock
 	"gen_dist_constraint_softwareCategory_id" BIGINT CHECK ( "gen_dist_constraint_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "gen_dist_constraint_software_paramCategory" ( "gen_dist_constraint_software_paramCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "gen_dist_constraint_software_paramCategory" ( "gen_dist_constraint_software_paramCategory_id", DELEGATED TO "gen_dist_constraint_software_paramType_id" ), PARENT NODE : datablock
 	"gen_dist_constraint_software_paramCategory_id" BIGINT CHECK ( "gen_dist_constraint_software_paramCategory_id" >= 0 ) ,
--- NESTED KEY : "h_chem_shift_constraintCategory" ( "h_chem_shift_constraintCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "h_chem_shift_constraintCategory" ( "h_chem_shift_constraintCategory_id", DELEGATED TO "h_chem_shift_constraintType_id" ), PARENT NODE : datablock
 	"h_chem_shift_constraintCategory_id" BIGINT CHECK ( "h_chem_shift_constraintCategory_id" >= 0 ) ,
--- NESTED KEY : "h_chem_shift_constraint_exptCategory" ( "h_chem_shift_constraint_exptCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "h_chem_shift_constraint_exptCategory" ( "h_chem_shift_constraint_exptCategory_id", DELEGATED TO "h_chem_shift_constraint_exptType_id" ), PARENT NODE : datablock
 	"h_chem_shift_constraint_exptCategory_id" BIGINT CHECK ( "h_chem_shift_constraint_exptCategory_id" >= 0 ) ,
--- NESTED KEY : "h_chem_shift_constraint_listCategory" ( "h_chem_shift_constraint_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "h_chem_shift_constraint_listCategory" ( "h_chem_shift_constraint_listCategory_id", DELEGATED TO "h_chem_shift_constraint_listType_id" ), PARENT NODE : datablock
 	"h_chem_shift_constraint_listCategory_id" BIGINT CHECK ( "h_chem_shift_constraint_listCategory_id" >= 0 ) ,
--- NESTED KEY : "h_chem_shift_constraint_softwareCategory" ( "h_chem_shift_constraint_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "h_chem_shift_constraint_softwareCategory" ( "h_chem_shift_constraint_softwareCategory_id", DELEGATED TO "h_chem_shift_constraint_softwareType_id" ), PARENT NODE : datablock
 	"h_chem_shift_constraint_softwareCategory_id" BIGINT CHECK ( "h_chem_shift_constraint_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "h_exch_protection_fact_experimentCategory" ( "h_exch_protection_fact_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "h_exch_protection_fact_experimentCategory" ( "h_exch_protection_fact_experimentCategory_id", DELEGATED TO "h_exch_protection_fact_experimentType_id" ), PARENT NODE : datablock
 	"h_exch_protection_fact_experimentCategory_id" BIGINT CHECK ( "h_exch_protection_fact_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "h_exch_protection_fact_softwareCategory" ( "h_exch_protection_fact_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "h_exch_protection_fact_softwareCategory" ( "h_exch_protection_fact_softwareCategory_id", DELEGATED TO "h_exch_protection_fact_softwareType_id" ), PARENT NODE : datablock
 	"h_exch_protection_fact_softwareCategory_id" BIGINT CHECK ( "h_exch_protection_fact_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "h_exch_protection_factorCategory" ( "h_exch_protection_factorCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "h_exch_protection_factorCategory" ( "h_exch_protection_factorCategory_id", DELEGATED TO "h_exch_protection_factorType_id" ), PARENT NODE : datablock
 	"h_exch_protection_factorCategory_id" BIGINT CHECK ( "h_exch_protection_factorCategory_id" >= 0 ) ,
--- NESTED KEY : "h_exch_protection_factor_listCategory" ( "h_exch_protection_factor_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "h_exch_protection_factor_listCategory" ( "h_exch_protection_factor_listCategory_id", DELEGATED TO "h_exch_protection_factor_listType_id" ), PARENT NODE : datablock
 	"h_exch_protection_factor_listCategory_id" BIGINT CHECK ( "h_exch_protection_factor_listCategory_id" >= 0 ) ,
--- NESTED KEY : "h_exch_rateCategory" ( "h_exch_rateCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "h_exch_rateCategory" ( "h_exch_rateCategory_id", DELEGATED TO "h_exch_rateType_id" ), PARENT NODE : datablock
 	"h_exch_rateCategory_id" BIGINT CHECK ( "h_exch_rateCategory_id" >= 0 ) ,
--- NESTED KEY : "h_exch_rate_experimentCategory" ( "h_exch_rate_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "h_exch_rate_experimentCategory" ( "h_exch_rate_experimentCategory_id", DELEGATED TO "h_exch_rate_experimentType_id" ), PARENT NODE : datablock
 	"h_exch_rate_experimentCategory_id" BIGINT CHECK ( "h_exch_rate_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "h_exch_rate_listCategory" ( "h_exch_rate_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "h_exch_rate_listCategory" ( "h_exch_rate_listCategory_id", DELEGATED TO "h_exch_rate_listType_id" ), PARENT NODE : datablock
 	"h_exch_rate_listCategory_id" BIGINT CHECK ( "h_exch_rate_listCategory_id" >= 0 ) ,
--- NESTED KEY : "h_exch_rate_softwareCategory" ( "h_exch_rate_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "h_exch_rate_softwareCategory" ( "h_exch_rate_softwareCategory_id", DELEGATED TO "h_exch_rate_softwareType_id" ), PARENT NODE : datablock
 	"h_exch_rate_softwareCategory_id" BIGINT CHECK ( "h_exch_rate_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "heteronucl_noeCategory" ( "heteronucl_noeCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "heteronucl_noeCategory" ( "heteronucl_noeCategory_id", DELEGATED TO "heteronucl_noeType_id" ), PARENT NODE : datablock
 	"heteronucl_noeCategory_id" BIGINT CHECK ( "heteronucl_noeCategory_id" >= 0 ) ,
--- NESTED KEY : "heteronucl_noe_experimentCategory" ( "heteronucl_noe_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "heteronucl_noe_experimentCategory" ( "heteronucl_noe_experimentCategory_id", DELEGATED TO "heteronucl_noe_experimentType_id" ), PARENT NODE : datablock
 	"heteronucl_noe_experimentCategory_id" BIGINT CHECK ( "heteronucl_noe_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "heteronucl_noe_listCategory" ( "heteronucl_noe_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "heteronucl_noe_listCategory" ( "heteronucl_noe_listCategory_id", DELEGATED TO "heteronucl_noe_listType_id" ), PARENT NODE : datablock
 	"heteronucl_noe_listCategory_id" BIGINT CHECK ( "heteronucl_noe_listCategory_id" >= 0 ) ,
--- NESTED KEY : "heteronucl_noe_softwareCategory" ( "heteronucl_noe_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "heteronucl_noe_softwareCategory" ( "heteronucl_noe_softwareCategory_id", DELEGATED TO "heteronucl_noe_softwareType_id" ), PARENT NODE : datablock
 	"heteronucl_noe_softwareCategory_id" BIGINT CHECK ( "heteronucl_noe_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "heteronucl_t1_experimentCategory" ( "heteronucl_t1_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "heteronucl_t1_experimentCategory" ( "heteronucl_t1_experimentCategory_id", DELEGATED TO "heteronucl_t1_experimentType_id" ), PARENT NODE : datablock
 	"heteronucl_t1_experimentCategory_id" BIGINT CHECK ( "heteronucl_t1_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "heteronucl_t1_listCategory" ( "heteronucl_t1_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "heteronucl_t1_listCategory" ( "heteronucl_t1_listCategory_id", DELEGATED TO "heteronucl_t1_listType_id" ), PARENT NODE : datablock
 	"heteronucl_t1_listCategory_id" BIGINT CHECK ( "heteronucl_t1_listCategory_id" >= 0 ) ,
--- NESTED KEY : "heteronucl_t1_softwareCategory" ( "heteronucl_t1_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "heteronucl_t1_softwareCategory" ( "heteronucl_t1_softwareCategory_id", DELEGATED TO "heteronucl_t1_softwareType_id" ), PARENT NODE : datablock
 	"heteronucl_t1_softwareCategory_id" BIGINT CHECK ( "heteronucl_t1_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "heteronucl_t1rho_experimentCategory" ( "heteronucl_t1rho_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "heteronucl_t1rho_experimentCategory" ( "heteronucl_t1rho_experimentCategory_id", DELEGATED TO "heteronucl_t1rho_experimentType_id" ), PARENT NODE : datablock
 	"heteronucl_t1rho_experimentCategory_id" BIGINT CHECK ( "heteronucl_t1rho_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "heteronucl_t1rho_listCategory" ( "heteronucl_t1rho_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "heteronucl_t1rho_listCategory" ( "heteronucl_t1rho_listCategory_id", DELEGATED TO "heteronucl_t1rho_listType_id" ), PARENT NODE : datablock
 	"heteronucl_t1rho_listCategory_id" BIGINT CHECK ( "heteronucl_t1rho_listCategory_id" >= 0 ) ,
--- NESTED KEY : "heteronucl_t1rho_softwareCategory" ( "heteronucl_t1rho_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "heteronucl_t1rho_softwareCategory" ( "heteronucl_t1rho_softwareCategory_id", DELEGATED TO "heteronucl_t1rho_softwareType_id" ), PARENT NODE : datablock
 	"heteronucl_t1rho_softwareCategory_id" BIGINT CHECK ( "heteronucl_t1rho_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "heteronucl_t2_experimentCategory" ( "heteronucl_t2_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "heteronucl_t2_experimentCategory" ( "heteronucl_t2_experimentCategory_id", DELEGATED TO "heteronucl_t2_experimentType_id" ), PARENT NODE : datablock
 	"heteronucl_t2_experimentCategory_id" BIGINT CHECK ( "heteronucl_t2_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "heteronucl_t2_listCategory" ( "heteronucl_t2_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "heteronucl_t2_listCategory" ( "heteronucl_t2_listCategory_id", DELEGATED TO "heteronucl_t2_listType_id" ), PARENT NODE : datablock
 	"heteronucl_t2_listCategory_id" BIGINT CHECK ( "heteronucl_t2_listCategory_id" >= 0 ) ,
--- NESTED KEY : "heteronucl_t2_softwareCategory" ( "heteronucl_t2_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "heteronucl_t2_softwareCategory" ( "heteronucl_t2_softwareCategory_id", DELEGATED TO "heteronucl_t2_softwareType_id" ), PARENT NODE : datablock
 	"heteronucl_t2_softwareCategory_id" BIGINT CHECK ( "heteronucl_t2_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "historyCategory" ( "historyCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "historyCategory" ( "historyCategory_id", DELEGATED TO "historyType_id" ), PARENT NODE : datablock
 	"historyCategory_id" BIGINT CHECK ( "historyCategory_id" >= 0 ) ,
--- NESTED KEY : "homonucl_noeCategory" ( "homonucl_noeCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "homonucl_noeCategory" ( "homonucl_noeCategory_id", DELEGATED TO "homonucl_noeType_id" ), PARENT NODE : datablock
 	"homonucl_noeCategory_id" BIGINT CHECK ( "homonucl_noeCategory_id" >= 0 ) ,
--- NESTED KEY : "homonucl_noe_experimentCategory" ( "homonucl_noe_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "homonucl_noe_experimentCategory" ( "homonucl_noe_experimentCategory_id", DELEGATED TO "homonucl_noe_experimentType_id" ), PARENT NODE : datablock
 	"homonucl_noe_experimentCategory_id" BIGINT CHECK ( "homonucl_noe_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "homonucl_noe_listCategory" ( "homonucl_noe_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "homonucl_noe_listCategory" ( "homonucl_noe_listCategory_id", DELEGATED TO "homonucl_noe_listType_id" ), PARENT NODE : datablock
 	"homonucl_noe_listCategory_id" BIGINT CHECK ( "homonucl_noe_listCategory_id" >= 0 ) ,
--- NESTED KEY : "homonucl_noe_softwareCategory" ( "homonucl_noe_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "homonucl_noe_softwareCategory" ( "homonucl_noe_softwareCategory_id", DELEGATED TO "homonucl_noe_softwareType_id" ), PARENT NODE : datablock
 	"homonucl_noe_softwareCategory_id" BIGINT CHECK ( "homonucl_noe_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "interatomic_distCategory" ( "interatomic_distCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "interatomic_distCategory" ( "interatomic_distCategory_id", DELEGATED TO "interatomic_distType_id" ), PARENT NODE : datablock
 	"interatomic_distCategory_id" BIGINT CHECK ( "interatomic_distCategory_id" >= 0 ) ,
--- NESTED KEY : "interatomic_distance_listCategory" ( "interatomic_distance_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "interatomic_distance_listCategory" ( "interatomic_distance_listCategory_id", DELEGATED TO "interatomic_distance_listType_id" ), PARENT NODE : datablock
 	"interatomic_distance_listCategory_id" BIGINT CHECK ( "interatomic_distance_listCategory_id" >= 0 ) ,
--- NESTED KEY : "isotope_effectCategory" ( "isotope_effectCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "isotope_effectCategory" ( "isotope_effectCategory_id", DELEGATED TO "isotope_effectType_id" ), PARENT NODE : datablock
 	"isotope_effectCategory_id" BIGINT CHECK ( "isotope_effectCategory_id" >= 0 ) ,
--- NESTED KEY : "isotope_effect_experimentCategory" ( "isotope_effect_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "isotope_effect_experimentCategory" ( "isotope_effect_experimentCategory_id", DELEGATED TO "isotope_effect_experimentType_id" ), PARENT NODE : datablock
 	"isotope_effect_experimentCategory_id" BIGINT CHECK ( "isotope_effect_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "isotope_effect_softwareCategory" ( "isotope_effect_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "isotope_effect_softwareCategory" ( "isotope_effect_softwareCategory_id", DELEGATED TO "isotope_effect_softwareType_id" ), PARENT NODE : datablock
 	"isotope_effect_softwareCategory_id" BIGINT CHECK ( "isotope_effect_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "isotope_label_patternCategory" ( "isotope_label_patternCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "isotope_label_patternCategory" ( "isotope_label_patternCategory_id", DELEGATED TO "isotope_label_patternType_id" ), PARENT NODE : datablock
 	"isotope_label_patternCategory_id" BIGINT CHECK ( "isotope_label_patternCategory_id" >= 0 ) ,
--- NESTED KEY : "j_three_bond_constraintCategory" ( "j_three_bond_constraintCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "j_three_bond_constraintCategory" ( "j_three_bond_constraintCategory_id", DELEGATED TO "j_three_bond_constraintType_id" ), PARENT NODE : datablock
 	"j_three_bond_constraintCategory_id" BIGINT CHECK ( "j_three_bond_constraintCategory_id" >= 0 ) ,
--- NESTED KEY : "j_three_bond_constraint_exptCategory" ( "j_three_bond_constraint_exptCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "j_three_bond_constraint_exptCategory" ( "j_three_bond_constraint_exptCategory_id", DELEGATED TO "j_three_bond_constraint_exptType_id" ), PARENT NODE : datablock
 	"j_three_bond_constraint_exptCategory_id" BIGINT CHECK ( "j_three_bond_constraint_exptCategory_id" >= 0 ) ,
--- NESTED KEY : "j_three_bond_constraint_listCategory" ( "j_three_bond_constraint_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "j_three_bond_constraint_listCategory" ( "j_three_bond_constraint_listCategory_id", DELEGATED TO "j_three_bond_constraint_listType_id" ), PARENT NODE : datablock
 	"j_three_bond_constraint_listCategory_id" BIGINT CHECK ( "j_three_bond_constraint_listCategory_id" >= 0 ) ,
--- NESTED KEY : "j_three_bond_constraint_softwareCategory" ( "j_three_bond_constraint_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "j_three_bond_constraint_softwareCategory" ( "j_three_bond_constraint_softwareCategory_id", DELEGATED TO "j_three_bond_constraint_softwareType_id" ), PARENT NODE : datablock
 	"j_three_bond_constraint_softwareCategory_id" BIGINT CHECK ( "j_three_bond_constraint_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "karplus_equationCategory" ( "karplus_equationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "karplus_equationCategory" ( "karplus_equationCategory_id", DELEGATED TO "karplus_equationType_id" ), PARENT NODE : datablock
 	"karplus_equationCategory_id" BIGINT CHECK ( "karplus_equationCategory_id" >= 0 ) ,
--- NESTED KEY : "lacs_charCategory" ( "lacs_charCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "lacs_charCategory" ( "lacs_charCategory_id", DELEGATED TO "lacs_charType_id" ), PARENT NODE : datablock
 	"lacs_charCategory_id" BIGINT CHECK ( "lacs_charCategory_id" >= 0 ) ,
--- NESTED KEY : "lacs_plotCategory" ( "lacs_plotCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "lacs_plotCategory" ( "lacs_plotCategory_id", DELEGATED TO "lacs_plotType_id" ), PARENT NODE : datablock
 	"lacs_plotCategory_id" BIGINT CHECK ( "lacs_plotCategory_id" >= 0 ) ,
--- NESTED KEY : "local_structure_qualityCategory" ( "local_structure_qualityCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "local_structure_qualityCategory" ( "local_structure_qualityCategory_id", DELEGATED TO "local_structure_qualityType_id" ), PARENT NODE : datablock
 	"local_structure_qualityCategory_id" BIGINT CHECK ( "local_structure_qualityCategory_id" >= 0 ) ,
--- NESTED KEY : "mass_specCategory" ( "mass_specCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "mass_specCategory" ( "mass_specCategory_id", DELEGATED TO "mass_specType_id" ), PARENT NODE : datablock
 	"mass_specCategory_id" BIGINT CHECK ( "mass_specCategory_id" >= 0 ) ,
--- NESTED KEY : "mass_spec_citationCategory" ( "mass_spec_citationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "mass_spec_citationCategory" ( "mass_spec_citationCategory_id", DELEGATED TO "mass_spec_citationType_id" ), PARENT NODE : datablock
 	"mass_spec_citationCategory_id" BIGINT CHECK ( "mass_spec_citationCategory_id" >= 0 ) ,
--- NESTED KEY : "mass_spec_component_paramCategory" ( "mass_spec_component_paramCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "mass_spec_component_paramCategory" ( "mass_spec_component_paramCategory_id", DELEGATED TO "mass_spec_component_paramType_id" ), PARENT NODE : datablock
 	"mass_spec_component_paramCategory_id" BIGINT CHECK ( "mass_spec_component_paramCategory_id" >= 0 ) ,
--- NESTED KEY : "mass_spec_configCategory" ( "mass_spec_configCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "mass_spec_configCategory" ( "mass_spec_configCategory_id", DELEGATED TO "mass_spec_configType_id" ), PARENT NODE : datablock
 	"mass_spec_configCategory_id" BIGINT CHECK ( "mass_spec_configCategory_id" >= 0 ) ,
--- NESTED KEY : "mass_spec_ref_compdCategory" ( "mass_spec_ref_compdCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "mass_spec_ref_compdCategory" ( "mass_spec_ref_compdCategory_id", DELEGATED TO "mass_spec_ref_compdType_id" ), PARENT NODE : datablock
 	"mass_spec_ref_compdCategory_id" BIGINT CHECK ( "mass_spec_ref_compdCategory_id" >= 0 ) ,
--- NESTED KEY : "mass_spec_ref_compd_setCategory" ( "mass_spec_ref_compd_setCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "mass_spec_ref_compd_setCategory" ( "mass_spec_ref_compd_setCategory_id", DELEGATED TO "mass_spec_ref_compd_setType_id" ), PARENT NODE : datablock
 	"mass_spec_ref_compd_setCategory_id" BIGINT CHECK ( "mass_spec_ref_compd_setCategory_id" >= 0 ) ,
--- NESTED KEY : "mass_spec_softwareCategory" ( "mass_spec_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "mass_spec_softwareCategory" ( "mass_spec_softwareCategory_id", DELEGATED TO "mass_spec_softwareType_id" ), PARENT NODE : datablock
 	"mass_spec_softwareCategory_id" BIGINT CHECK ( "mass_spec_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "mass_spectrometer_listCategory" ( "mass_spectrometer_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "mass_spectrometer_listCategory" ( "mass_spectrometer_listCategory_id", DELEGATED TO "mass_spectrometer_listType_id" ), PARENT NODE : datablock
 	"mass_spectrometer_listCategory_id" BIGINT CHECK ( "mass_spectrometer_listCategory_id" >= 0 ) ,
--- NESTED KEY : "mass_spectrometer_viewCategory" ( "mass_spectrometer_viewCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "mass_spectrometer_viewCategory" ( "mass_spectrometer_viewCategory_id", DELEGATED TO "mass_spectrometer_viewType_id" ), PARENT NODE : datablock
 	"mass_spectrometer_viewCategory_id" BIGINT CHECK ( "mass_spectrometer_viewCategory_id" >= 0 ) ,
--- NESTED KEY : "matched_entriesCategory" ( "matched_entriesCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "matched_entriesCategory" ( "matched_entriesCategory_id", DELEGATED TO "matched_entriesType_id" ), PARENT NODE : datablock
 	"matched_entriesCategory_id" BIGINT CHECK ( "matched_entriesCategory_id" >= 0 ) ,
--- NESTED KEY : "methodCategory" ( "methodCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "methodCategory" ( "methodCategory_id", DELEGATED TO "methodType_id" ), PARENT NODE : datablock
 	"methodCategory_id" BIGINT CHECK ( "methodCategory_id" >= 0 ) ,
--- NESTED KEY : "method_citationCategory" ( "method_citationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "method_citationCategory" ( "method_citationCategory_id", DELEGATED TO "method_citationType_id" ), PARENT NODE : datablock
 	"method_citationCategory_id" BIGINT CHECK ( "method_citationCategory_id" >= 0 ) ,
--- NESTED KEY : "method_fileCategory" ( "method_fileCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "method_fileCategory" ( "method_fileCategory_id", DELEGATED TO "method_fileType_id" ), PARENT NODE : datablock
 	"method_fileCategory_id" BIGINT CHECK ( "method_fileCategory_id" >= 0 ) ,
--- NESTED KEY : "method_paramCategory" ( "method_paramCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "method_paramCategory" ( "method_paramCategory_id", DELEGATED TO "method_paramType_id" ), PARENT NODE : datablock
 	"method_paramCategory_id" BIGINT CHECK ( "method_paramCategory_id" >= 0 ) ,
--- NESTED KEY : "model_typeCategory" ( "model_typeCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "model_typeCategory" ( "model_typeCategory_id", DELEGATED TO "model_typeType_id" ), PARENT NODE : datablock
 	"model_typeCategory_id" BIGINT CHECK ( "model_typeCategory_id" >= 0 ) ,
--- NESTED KEY : "ms_chrom_ion_annotationCategory" ( "ms_chrom_ion_annotationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ms_chrom_ion_annotationCategory" ( "ms_chrom_ion_annotationCategory_id", DELEGATED TO "ms_chrom_ion_annotationType_id" ), PARENT NODE : datablock
 	"ms_chrom_ion_annotationCategory_id" BIGINT CHECK ( "ms_chrom_ion_annotationCategory_id" >= 0 ) ,
--- NESTED KEY : "ms_chromatogram_experimentCategory" ( "ms_chromatogram_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ms_chromatogram_experimentCategory" ( "ms_chromatogram_experimentCategory_id", DELEGATED TO "ms_chromatogram_experimentType_id" ), PARENT NODE : datablock
 	"ms_chromatogram_experimentCategory_id" BIGINT CHECK ( "ms_chromatogram_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "ms_chromatogram_ionCategory" ( "ms_chromatogram_ionCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ms_chromatogram_ionCategory" ( "ms_chromatogram_ionCategory_id", DELEGATED TO "ms_chromatogram_ionType_id" ), PARENT NODE : datablock
 	"ms_chromatogram_ionCategory_id" BIGINT CHECK ( "ms_chromatogram_ionCategory_id" >= 0 ) ,
--- NESTED KEY : "ms_chromatogram_listCategory" ( "ms_chromatogram_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ms_chromatogram_listCategory" ( "ms_chromatogram_listCategory_id", DELEGATED TO "ms_chromatogram_listType_id" ), PARENT NODE : datablock
 	"ms_chromatogram_listCategory_id" BIGINT CHECK ( "ms_chromatogram_listCategory_id" >= 0 ) ,
--- NESTED KEY : "ms_chromatogram_paramCategory" ( "ms_chromatogram_paramCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ms_chromatogram_paramCategory" ( "ms_chromatogram_paramCategory_id", DELEGATED TO "ms_chromatogram_paramType_id" ), PARENT NODE : datablock
 	"ms_chromatogram_paramCategory_id" BIGINT CHECK ( "ms_chromatogram_paramCategory_id" >= 0 ) ,
--- NESTED KEY : "ms_chromatogram_softwareCategory" ( "ms_chromatogram_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ms_chromatogram_softwareCategory" ( "ms_chromatogram_softwareCategory_id", DELEGATED TO "ms_chromatogram_softwareType_id" ), PARENT NODE : datablock
 	"ms_chromatogram_softwareCategory_id" BIGINT CHECK ( "ms_chromatogram_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "ms_exptCategory" ( "ms_exptCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ms_exptCategory" ( "ms_exptCategory_id", DELEGATED TO "ms_exptType_id" ), PARENT NODE : datablock
 	"ms_exptCategory_id" BIGINT CHECK ( "ms_exptCategory_id" >= 0 ) ,
--- NESTED KEY : "ms_expt_paramCategory" ( "ms_expt_paramCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ms_expt_paramCategory" ( "ms_expt_paramCategory_id", DELEGATED TO "ms_expt_paramType_id" ), PARENT NODE : datablock
 	"ms_expt_paramCategory_id" BIGINT CHECK ( "ms_expt_paramCategory_id" >= 0 ) ,
--- NESTED KEY : "ms_expt_softwareCategory" ( "ms_expt_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ms_expt_softwareCategory" ( "ms_expt_softwareCategory_id", DELEGATED TO "ms_expt_softwareType_id" ), PARENT NODE : datablock
 	"ms_expt_softwareCategory_id" BIGINT CHECK ( "ms_expt_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "mz_precursor_ionCategory" ( "mz_precursor_ionCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "mz_precursor_ionCategory" ( "mz_precursor_ionCategory_id", DELEGATED TO "mz_precursor_ionType_id" ), PARENT NODE : datablock
 	"mz_precursor_ionCategory_id" BIGINT CHECK ( "mz_precursor_ionCategory_id" >= 0 ) ,
--- NESTED KEY : "mz_precursor_ion_annotationCategory" ( "mz_precursor_ion_annotationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "mz_precursor_ion_annotationCategory" ( "mz_precursor_ion_annotationCategory_id", DELEGATED TO "mz_precursor_ion_annotationType_id" ), PARENT NODE : datablock
 	"mz_precursor_ion_annotationCategory_id" BIGINT CHECK ( "mz_precursor_ion_annotationCategory_id" >= 0 ) ,
--- NESTED KEY : "mz_product_ionCategory" ( "mz_product_ionCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "mz_product_ionCategory" ( "mz_product_ionCategory_id", DELEGATED TO "mz_product_ionType_id" ), PARENT NODE : datablock
 	"mz_product_ionCategory_id" BIGINT CHECK ( "mz_product_ionCategory_id" >= 0 ) ,
--- NESTED KEY : "mz_product_ion_annotationCategory" ( "mz_product_ion_annotationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "mz_product_ion_annotationCategory" ( "mz_product_ion_annotationCategory_id", DELEGATED TO "mz_product_ion_annotationType_id" ), PARENT NODE : datablock
 	"mz_product_ion_annotationCategory_id" BIGINT CHECK ( "mz_product_ion_annotationCategory_id" >= 0 ) ,
--- NESTED KEY : "mz_ratio_data_listCategory" ( "mz_ratio_data_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "mz_ratio_data_listCategory" ( "mz_ratio_data_listCategory_id", DELEGATED TO "mz_ratio_data_listType_id" ), PARENT NODE : datablock
 	"mz_ratio_data_listCategory_id" BIGINT CHECK ( "mz_ratio_data_listCategory_id" >= 0 ) ,
--- NESTED KEY : "mz_ratio_experimentCategory" ( "mz_ratio_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "mz_ratio_experimentCategory" ( "mz_ratio_experimentCategory_id", DELEGATED TO "mz_ratio_experimentType_id" ), PARENT NODE : datablock
 	"mz_ratio_experimentCategory_id" BIGINT CHECK ( "mz_ratio_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "mz_ratio_softwareCategory" ( "mz_ratio_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "mz_ratio_softwareCategory" ( "mz_ratio_softwareCategory_id", DELEGATED TO "mz_ratio_softwareType_id" ), PARENT NODE : datablock
 	"mz_ratio_softwareCategory_id" BIGINT CHECK ( "mz_ratio_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "mz_ratio_spectrum_paramCategory" ( "mz_ratio_spectrum_paramCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "mz_ratio_spectrum_paramCategory" ( "mz_ratio_spectrum_paramCategory_id", DELEGATED TO "mz_ratio_spectrum_paramType_id" ), PARENT NODE : datablock
 	"mz_ratio_spectrum_paramCategory_id" BIGINT CHECK ( "mz_ratio_spectrum_paramCategory_id" >= 0 ) ,
--- NESTED KEY : "natural_source_dbCategory" ( "natural_source_dbCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "natural_source_dbCategory" ( "natural_source_dbCategory_id", DELEGATED TO "natural_source_dbType_id" ), PARENT NODE : datablock
 	"natural_source_dbCategory_id" BIGINT CHECK ( "natural_source_dbCategory_id" >= 0 ) ,
--- NESTED KEY : "nmr_experiment_citationCategory" ( "nmr_experiment_citationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "nmr_experiment_citationCategory" ( "nmr_experiment_citationCategory_id", DELEGATED TO "nmr_experiment_citationType_id" ), PARENT NODE : datablock
 	"nmr_experiment_citationCategory_id" BIGINT CHECK ( "nmr_experiment_citationCategory_id" >= 0 ) ,
--- NESTED KEY : "nmr_experiment_fileCategory" ( "nmr_experiment_fileCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "nmr_experiment_fileCategory" ( "nmr_experiment_fileCategory_id", DELEGATED TO "nmr_experiment_fileType_id" ), PARENT NODE : datablock
 	"nmr_experiment_fileCategory_id" BIGINT CHECK ( "nmr_experiment_fileCategory_id" >= 0 ) ,
--- NESTED KEY : "nmr_expt_systematic_nameCategory" ( "nmr_expt_systematic_nameCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "nmr_expt_systematic_nameCategory" ( "nmr_expt_systematic_nameCategory_id", DELEGATED TO "nmr_expt_systematic_nameType_id" ), PARENT NODE : datablock
 	"nmr_expt_systematic_nameCategory_id" BIGINT CHECK ( "nmr_expt_systematic_nameCategory_id" >= 0 ) ,
--- NESTED KEY : "nmr_probeCategory" ( "nmr_probeCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "nmr_probeCategory" ( "nmr_probeCategory_id", DELEGATED TO "nmr_probeType_id" ), PARENT NODE : datablock
 	"nmr_probeCategory_id" BIGINT CHECK ( "nmr_probeCategory_id" >= 0 ) ,
--- NESTED KEY : "nmr_spec_exptCategory" ( "nmr_spec_exptCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "nmr_spec_exptCategory" ( "nmr_spec_exptCategory_id", DELEGATED TO "nmr_spec_exptType_id" ), PARENT NODE : datablock
 	"nmr_spec_exptCategory_id" BIGINT CHECK ( "nmr_spec_exptCategory_id" >= 0 ) ,
--- NESTED KEY : "nmr_spectral_proc_softwareCategory" ( "nmr_spectral_proc_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "nmr_spectral_proc_softwareCategory" ( "nmr_spectral_proc_softwareCategory_id", DELEGATED TO "nmr_spectral_proc_softwareType_id" ), PARENT NODE : datablock
 	"nmr_spectral_proc_softwareCategory_id" BIGINT CHECK ( "nmr_spectral_proc_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "nmr_spectral_processingCategory" ( "nmr_spectral_processingCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "nmr_spectral_processingCategory" ( "nmr_spectral_processingCategory_id", DELEGATED TO "nmr_spectral_processingType_id" ), PARENT NODE : datablock
 	"nmr_spectral_processingCategory_id" BIGINT CHECK ( "nmr_spectral_processingCategory_id" >= 0 ) ,
--- NESTED KEY : "nmr_spectrometerCategory" ( "nmr_spectrometerCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "nmr_spectrometerCategory" ( "nmr_spectrometerCategory_id", DELEGATED TO "nmr_spectrometerType_id" ), PARENT NODE : datablock
 	"nmr_spectrometerCategory_id" BIGINT CHECK ( "nmr_spectrometerCategory_id" >= 0 ) ,
--- NESTED KEY : "nmr_spectrometer_citationCategory" ( "nmr_spectrometer_citationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "nmr_spectrometer_citationCategory" ( "nmr_spectrometer_citationCategory_id", DELEGATED TO "nmr_spectrometer_citationType_id" ), PARENT NODE : datablock
 	"nmr_spectrometer_citationCategory_id" BIGINT CHECK ( "nmr_spectrometer_citationCategory_id" >= 0 ) ,
--- NESTED KEY : "nmr_spectrometer_listCategory" ( "nmr_spectrometer_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "nmr_spectrometer_listCategory" ( "nmr_spectrometer_listCategory_id", DELEGATED TO "nmr_spectrometer_listType_id" ), PARENT NODE : datablock
 	"nmr_spectrometer_listCategory_id" BIGINT CHECK ( "nmr_spectrometer_listCategory_id" >= 0 ) ,
--- NESTED KEY : "nmr_spectrometer_probeCategory" ( "nmr_spectrometer_probeCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "nmr_spectrometer_probeCategory" ( "nmr_spectrometer_probeCategory_id", DELEGATED TO "nmr_spectrometer_probeType_id" ), PARENT NODE : datablock
 	"nmr_spectrometer_probeCategory_id" BIGINT CHECK ( "nmr_spectrometer_probeCategory_id" >= 0 ) ,
--- NESTED KEY : "nmr_spectrometer_probe_citationCategory" ( "nmr_spectrometer_probe_citationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "nmr_spectrometer_probe_citationCategory" ( "nmr_spectrometer_probe_citationCategory_id", DELEGATED TO "nmr_spectrometer_probe_citationType_id" ), PARENT NODE : datablock
 	"nmr_spectrometer_probe_citationCategory_id" BIGINT CHECK ( "nmr_spectrometer_probe_citationCategory_id" >= 0 ) ,
--- NESTED KEY : "nmr_spectrometer_viewCategory" ( "nmr_spectrometer_viewCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "nmr_spectrometer_viewCategory" ( "nmr_spectrometer_viewCategory_id", DELEGATED TO "nmr_spectrometer_viewType_id" ), PARENT NODE : datablock
 	"nmr_spectrometer_viewCategory_id" BIGINT CHECK ( "nmr_spectrometer_viewCategory_id" >= 0 ) ,
--- NESTED KEY : "observed_conformerCategory" ( "observed_conformerCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "observed_conformerCategory" ( "observed_conformerCategory_id", DELEGATED TO "observed_conformerType_id" ), PARENT NODE : datablock
 	"observed_conformerCategory_id" BIGINT CHECK ( "observed_conformerCategory_id" >= 0 ) ,
--- NESTED KEY : "order_paramCategory" ( "order_paramCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "order_paramCategory" ( "order_paramCategory_id", DELEGATED TO "order_paramType_id" ), PARENT NODE : datablock
 	"order_paramCategory_id" BIGINT CHECK ( "order_paramCategory_id" >= 0 ) ,
--- NESTED KEY : "order_parameter_experimentCategory" ( "order_parameter_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "order_parameter_experimentCategory" ( "order_parameter_experimentCategory_id", DELEGATED TO "order_parameter_experimentType_id" ), PARENT NODE : datablock
 	"order_parameter_experimentCategory_id" BIGINT CHECK ( "order_parameter_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "order_parameter_listCategory" ( "order_parameter_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "order_parameter_listCategory" ( "order_parameter_listCategory_id", DELEGATED TO "order_parameter_listType_id" ), PARENT NODE : datablock
 	"order_parameter_listCategory_id" BIGINT CHECK ( "order_parameter_listCategory_id" >= 0 ) ,
--- NESTED KEY : "order_parameter_softwareCategory" ( "order_parameter_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "order_parameter_softwareCategory" ( "order_parameter_softwareCategory_id", DELEGATED TO "order_parameter_softwareType_id" ), PARENT NODE : datablock
 	"order_parameter_softwareCategory_id" BIGINT CHECK ( "order_parameter_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "org_constr_file_commentCategory" ( "org_constr_file_commentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "org_constr_file_commentCategory" ( "org_constr_file_commentCategory_id", DELEGATED TO "org_constr_file_commentType_id" ), PARENT NODE : datablock
 	"org_constr_file_commentCategory_id" BIGINT CHECK ( "org_constr_file_commentCategory_id" >= 0 ) ,
--- NESTED KEY : "other_constraint_exptCategory" ( "other_constraint_exptCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "other_constraint_exptCategory" ( "other_constraint_exptCategory_id", DELEGATED TO "other_constraint_exptType_id" ), PARENT NODE : datablock
 	"other_constraint_exptCategory_id" BIGINT CHECK ( "other_constraint_exptCategory_id" >= 0 ) ,
--- NESTED KEY : "other_constraint_listCategory" ( "other_constraint_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "other_constraint_listCategory" ( "other_constraint_listCategory_id", DELEGATED TO "other_constraint_listType_id" ), PARENT NODE : datablock
 	"other_constraint_listCategory_id" BIGINT CHECK ( "other_constraint_listCategory_id" >= 0 ) ,
--- NESTED KEY : "other_constraint_softwareCategory" ( "other_constraint_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "other_constraint_softwareCategory" ( "other_constraint_softwareCategory_id", DELEGATED TO "other_constraint_softwareType_id" ), PARENT NODE : datablock
 	"other_constraint_softwareCategory_id" BIGINT CHECK ( "other_constraint_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "other_dataCategory" ( "other_dataCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "other_dataCategory" ( "other_dataCategory_id", DELEGATED TO "other_dataType_id" ), PARENT NODE : datablock
 	"other_dataCategory_id" BIGINT CHECK ( "other_dataCategory_id" >= 0 ) ,
--- NESTED KEY : "other_data_experimentCategory" ( "other_data_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "other_data_experimentCategory" ( "other_data_experimentCategory_id", DELEGATED TO "other_data_experimentType_id" ), PARENT NODE : datablock
 	"other_data_experimentCategory_id" BIGINT CHECK ( "other_data_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "other_data_softwareCategory" ( "other_data_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "other_data_softwareCategory" ( "other_data_softwareCategory_id", DELEGATED TO "other_data_softwareType_id" ), PARENT NODE : datablock
 	"other_data_softwareCategory_id" BIGINT CHECK ( "other_data_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "other_data_type_listCategory" ( "other_data_type_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "other_data_type_listCategory" ( "other_data_type_listCategory_id", DELEGATED TO "other_data_type_listType_id" ), PARENT NODE : datablock
 	"other_data_type_listCategory_id" BIGINT CHECK ( "other_data_type_listCategory_id" >= 0 ) ,
--- NESTED KEY : "other_struct_featureCategory" ( "other_struct_featureCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "other_struct_featureCategory" ( "other_struct_featureCategory_id", DELEGATED TO "other_struct_featureType_id" ), PARENT NODE : datablock
 	"other_struct_featureCategory_id" BIGINT CHECK ( "other_struct_featureCategory_id" >= 0 ) ,
--- NESTED KEY : "other_struct_feature_listCategory" ( "other_struct_feature_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "other_struct_feature_listCategory" ( "other_struct_feature_listCategory_id", DELEGATED TO "other_struct_feature_listType_id" ), PARENT NODE : datablock
 	"other_struct_feature_listCategory_id" BIGINT CHECK ( "other_struct_feature_listCategory_id" >= 0 ) ,
--- NESTED KEY : "pb_charCategory" ( "pb_charCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "pb_charCategory" ( "pb_charCategory_id", DELEGATED TO "pb_charType_id" ), PARENT NODE : datablock
 	"pb_charCategory_id" BIGINT CHECK ( "pb_charCategory_id" >= 0 ) ,
--- NESTED KEY : "pb_listCategory" ( "pb_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "pb_listCategory" ( "pb_listCategory_id", DELEGATED TO "pb_listType_id" ), PARENT NODE : datablock
 	"pb_listCategory_id" BIGINT CHECK ( "pb_listCategory_id" >= 0 ) ,
--- NESTED KEY : "pdbx_chem_comp_featureCategory" ( "pdbx_chem_comp_featureCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "pdbx_chem_comp_featureCategory" ( "pdbx_chem_comp_featureCategory_id", DELEGATED TO "pdbx_chem_comp_featureType_id" ), PARENT NODE : datablock
 	"pdbx_chem_comp_featureCategory_id" BIGINT CHECK ( "pdbx_chem_comp_featureCategory_id" >= 0 ) ,
--- NESTED KEY : "pdbx_nonpoly_schemeCategory" ( "pdbx_nonpoly_schemeCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "pdbx_nonpoly_schemeCategory" ( "pdbx_nonpoly_schemeCategory_id", DELEGATED TO "pdbx_nonpoly_schemeType_id" ), PARENT NODE : datablock
 	"pdbx_nonpoly_schemeCategory_id" BIGINT CHECK ( "pdbx_nonpoly_schemeCategory_id" >= 0 ) ,
--- NESTED KEY : "pdbx_poly_seq_schemeCategory" ( "pdbx_poly_seq_schemeCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "pdbx_poly_seq_schemeCategory" ( "pdbx_poly_seq_schemeCategory_id", DELEGATED TO "pdbx_poly_seq_schemeType_id" ), PARENT NODE : datablock
 	"pdbx_poly_seq_schemeCategory_id" BIGINT CHECK ( "pdbx_poly_seq_schemeCategory_id" >= 0 ) ,
--- NESTED KEY : "peakCategory" ( "peakCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "peakCategory" ( "peakCategory_id", DELEGATED TO "peakType_id" ), PARENT NODE : datablock
 	"peakCategory_id" BIGINT CHECK ( "peakCategory_id" >= 0 ) ,
--- NESTED KEY : "peak_charCategory" ( "peak_charCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "peak_charCategory" ( "peak_charCategory_id", DELEGATED TO "peak_charType_id" ), PARENT NODE : datablock
 	"peak_charCategory_id" BIGINT CHECK ( "peak_charCategory_id" >= 0 ) ,
--- NESTED KEY : "peak_constraint_linkCategory" ( "peak_constraint_linkCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "peak_constraint_linkCategory" ( "peak_constraint_linkCategory_id", DELEGATED TO "peak_constraint_linkType_id" ), PARENT NODE : datablock
 	"peak_constraint_linkCategory_id" BIGINT CHECK ( "peak_constraint_linkCategory_id" >= 0 ) ,
--- NESTED KEY : "peak_constraint_link_listCategory" ( "peak_constraint_link_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "peak_constraint_link_listCategory" ( "peak_constraint_link_listCategory_id", DELEGATED TO "peak_constraint_link_listType_id" ), PARENT NODE : datablock
 	"peak_constraint_link_listCategory_id" BIGINT CHECK ( "peak_constraint_link_listCategory_id" >= 0 ) ,
--- NESTED KEY : "peak_general_charCategory" ( "peak_general_charCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "peak_general_charCategory" ( "peak_general_charCategory_id", DELEGATED TO "peak_general_charType_id" ), PARENT NODE : datablock
 	"peak_general_charCategory_id" BIGINT CHECK ( "peak_general_charCategory_id" >= 0 ) ,
--- NESTED KEY : "peak_row_formatCategory" ( "peak_row_formatCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "peak_row_formatCategory" ( "peak_row_formatCategory_id", DELEGATED TO "peak_row_formatType_id" ), PARENT NODE : datablock
 	"peak_row_formatCategory_id" BIGINT CHECK ( "peak_row_formatCategory_id" >= 0 ) ,
--- NESTED KEY : "ph_paramCategory" ( "ph_paramCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ph_paramCategory" ( "ph_paramCategory_id", DELEGATED TO "ph_paramType_id" ), PARENT NODE : datablock
 	"ph_paramCategory_id" BIGINT CHECK ( "ph_paramCategory_id" >= 0 ) ,
--- NESTED KEY : "ph_param_listCategory" ( "ph_param_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ph_param_listCategory" ( "ph_param_listCategory_id", DELEGATED TO "ph_param_listType_id" ), PARENT NODE : datablock
 	"ph_param_listCategory_id" BIGINT CHECK ( "ph_param_listCategory_id" >= 0 ) ,
--- NESTED KEY : "ph_titr_resultCategory" ( "ph_titr_resultCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ph_titr_resultCategory" ( "ph_titr_resultCategory_id", DELEGATED TO "ph_titr_resultType_id" ), PARENT NODE : datablock
 	"ph_titr_resultCategory_id" BIGINT CHECK ( "ph_titr_resultCategory_id" >= 0 ) ,
--- NESTED KEY : "ph_titration_experimentCategory" ( "ph_titration_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ph_titration_experimentCategory" ( "ph_titration_experimentCategory_id", DELEGATED TO "ph_titration_experimentType_id" ), PARENT NODE : datablock
 	"ph_titration_experimentCategory_id" BIGINT CHECK ( "ph_titration_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "ph_titration_listCategory" ( "ph_titration_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ph_titration_listCategory" ( "ph_titration_listCategory_id", DELEGATED TO "ph_titration_listType_id" ), PARENT NODE : datablock
 	"ph_titration_listCategory_id" BIGINT CHECK ( "ph_titration_listCategory_id" >= 0 ) ,
--- NESTED KEY : "ph_titration_softwareCategory" ( "ph_titration_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ph_titration_softwareCategory" ( "ph_titration_softwareCategory_id", DELEGATED TO "ph_titration_softwareType_id" ), PARENT NODE : datablock
 	"ph_titration_softwareCategory_id" BIGINT CHECK ( "ph_titration_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "rdcCategory" ( "rdcCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "rdcCategory" ( "rdcCategory_id", DELEGATED TO "rdcType_id" ), PARENT NODE : datablock
 	"rdcCategory_id" BIGINT CHECK ( "rdcCategory_id" >= 0 ) ,
--- NESTED KEY : "rdc_constraintCategory" ( "rdc_constraintCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "rdc_constraintCategory" ( "rdc_constraintCategory_id", DELEGATED TO "rdc_constraintType_id" ), PARENT NODE : datablock
 	"rdc_constraintCategory_id" BIGINT CHECK ( "rdc_constraintCategory_id" >= 0 ) ,
--- NESTED KEY : "rdc_constraint_comment_orgCategory" ( "rdc_constraint_comment_orgCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "rdc_constraint_comment_orgCategory" ( "rdc_constraint_comment_orgCategory_id", DELEGATED TO "rdc_constraint_comment_orgType_id" ), PARENT NODE : datablock
 	"rdc_constraint_comment_orgCategory_id" BIGINT CHECK ( "rdc_constraint_comment_orgCategory_id" >= 0 ) ,
--- NESTED KEY : "rdc_constraint_conv_errCategory" ( "rdc_constraint_conv_errCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "rdc_constraint_conv_errCategory" ( "rdc_constraint_conv_errCategory_id", DELEGATED TO "rdc_constraint_conv_errType_id" ), PARENT NODE : datablock
 	"rdc_constraint_conv_errCategory_id" BIGINT CHECK ( "rdc_constraint_conv_errCategory_id" >= 0 ) ,
--- NESTED KEY : "rdc_constraint_exptCategory" ( "rdc_constraint_exptCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "rdc_constraint_exptCategory" ( "rdc_constraint_exptCategory_id", DELEGATED TO "rdc_constraint_exptType_id" ), PARENT NODE : datablock
 	"rdc_constraint_exptCategory_id" BIGINT CHECK ( "rdc_constraint_exptCategory_id" >= 0 ) ,
--- NESTED KEY : "rdc_constraint_listCategory" ( "rdc_constraint_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "rdc_constraint_listCategory" ( "rdc_constraint_listCategory_id", DELEGATED TO "rdc_constraint_listType_id" ), PARENT NODE : datablock
 	"rdc_constraint_listCategory_id" BIGINT CHECK ( "rdc_constraint_listCategory_id" >= 0 ) ,
--- NESTED KEY : "rdc_constraint_parse_errCategory" ( "rdc_constraint_parse_errCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "rdc_constraint_parse_errCategory" ( "rdc_constraint_parse_errCategory_id", DELEGATED TO "rdc_constraint_parse_errType_id" ), PARENT NODE : datablock
 	"rdc_constraint_parse_errCategory_id" BIGINT CHECK ( "rdc_constraint_parse_errCategory_id" >= 0 ) ,
--- NESTED KEY : "rdc_constraint_parse_fileCategory" ( "rdc_constraint_parse_fileCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "rdc_constraint_parse_fileCategory" ( "rdc_constraint_parse_fileCategory_id", DELEGATED TO "rdc_constraint_parse_fileType_id" ), PARENT NODE : datablock
 	"rdc_constraint_parse_fileCategory_id" BIGINT CHECK ( "rdc_constraint_parse_fileCategory_id" >= 0 ) ,
--- NESTED KEY : "rdc_constraint_softwareCategory" ( "rdc_constraint_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "rdc_constraint_softwareCategory" ( "rdc_constraint_softwareCategory_id", DELEGATED TO "rdc_constraint_softwareType_id" ), PARENT NODE : datablock
 	"rdc_constraint_softwareCategory_id" BIGINT CHECK ( "rdc_constraint_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "rdc_experimentCategory" ( "rdc_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "rdc_experimentCategory" ( "rdc_experimentCategory_id", DELEGATED TO "rdc_experimentType_id" ), PARENT NODE : datablock
 	"rdc_experimentCategory_id" BIGINT CHECK ( "rdc_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "rdc_listCategory" ( "rdc_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "rdc_listCategory" ( "rdc_listCategory_id", DELEGATED TO "rdc_listType_id" ), PARENT NODE : datablock
 	"rdc_listCategory_id" BIGINT CHECK ( "rdc_listCategory_id" >= 0 ) ,
--- NESTED KEY : "rdc_softwareCategory" ( "rdc_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "rdc_softwareCategory" ( "rdc_softwareCategory_id", DELEGATED TO "rdc_softwareType_id" ), PARENT NODE : datablock
 	"rdc_softwareCategory_id" BIGINT CHECK ( "rdc_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "recoupling_pulse_sequenceCategory" ( "recoupling_pulse_sequenceCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "recoupling_pulse_sequenceCategory" ( "recoupling_pulse_sequenceCategory_id", DELEGATED TO "recoupling_pulse_sequenceType_id" ), PARENT NODE : datablock
 	"recoupling_pulse_sequenceCategory_id" BIGINT CHECK ( "recoupling_pulse_sequenceCategory_id" >= 0 ) ,
--- NESTED KEY : "related_entriesCategory" ( "related_entriesCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "related_entriesCategory" ( "related_entriesCategory_id", DELEGATED TO "related_entriesType_id" ), PARENT NODE : datablock
 	"related_entriesCategory_id" BIGINT CHECK ( "related_entriesCategory_id" >= 0 ) ,
--- NESTED KEY : "releaseCategory" ( "releaseCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "releaseCategory" ( "releaseCategory_id", DELEGATED TO "releaseType_id" ), PARENT NODE : datablock
 	"releaseCategory_id" BIGINT CHECK ( "releaseCategory_id" >= 0 ) ,
--- NESTED KEY : "rep_confCategory" ( "rep_confCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "rep_confCategory" ( "rep_confCategory_id", DELEGATED TO "rep_confType_id" ), PARENT NODE : datablock
 	"rep_confCategory_id" BIGINT CHECK ( "rep_confCategory_id" >= 0 ) ,
--- NESTED KEY : "rep_conf_refinementCategory" ( "rep_conf_refinementCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "rep_conf_refinementCategory" ( "rep_conf_refinementCategory_id", DELEGATED TO "rep_conf_refinementType_id" ), PARENT NODE : datablock
 	"rep_conf_refinementCategory_id" BIGINT CHECK ( "rep_conf_refinementCategory_id" >= 0 ) ,
--- NESTED KEY : "rep_conf_softwareCategory" ( "rep_conf_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "rep_conf_softwareCategory" ( "rep_conf_softwareCategory_id", DELEGATED TO "rep_conf_softwareType_id" ), PARENT NODE : datablock
 	"rep_conf_softwareCategory_id" BIGINT CHECK ( "rep_conf_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "rep_coordinate_detailsCategory" ( "rep_coordinate_detailsCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "rep_coordinate_detailsCategory" ( "rep_coordinate_detailsCategory_id", DELEGATED TO "rep_coordinate_detailsType_id" ), PARENT NODE : datablock
 	"rep_coordinate_detailsCategory_id" BIGINT CHECK ( "rep_coordinate_detailsCategory_id" >= 0 ) ,
--- NESTED KEY : "representative_conformerCategory" ( "representative_conformerCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "representative_conformerCategory" ( "representative_conformerCategory_id", DELEGATED TO "representative_conformerType_id" ), PARENT NODE : datablock
 	"representative_conformerCategory_id" BIGINT CHECK ( "representative_conformerCategory_id" >= 0 ) ,
--- NESTED KEY : "resonanceCategory" ( "resonanceCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "resonanceCategory" ( "resonanceCategory_id", DELEGATED TO "resonanceType_id" ), PARENT NODE : datablock
 	"resonanceCategory_id" BIGINT CHECK ( "resonanceCategory_id" >= 0 ) ,
--- NESTED KEY : "resonance_assignmentCategory" ( "resonance_assignmentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "resonance_assignmentCategory" ( "resonance_assignmentCategory_id", DELEGATED TO "resonance_assignmentType_id" ), PARENT NODE : datablock
 	"resonance_assignmentCategory_id" BIGINT CHECK ( "resonance_assignmentCategory_id" >= 0 ) ,
--- NESTED KEY : "resonance_covalent_linkCategory" ( "resonance_covalent_linkCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "resonance_covalent_linkCategory" ( "resonance_covalent_linkCategory_id", DELEGATED TO "resonance_covalent_linkType_id" ), PARENT NODE : datablock
 	"resonance_covalent_linkCategory_id" BIGINT CHECK ( "resonance_covalent_linkCategory_id" >= 0 ) ,
--- NESTED KEY : "resonance_linker_listCategory" ( "resonance_linker_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "resonance_linker_listCategory" ( "resonance_linker_listCategory_id", DELEGATED TO "resonance_linker_listType_id" ), PARENT NODE : datablock
 	"resonance_linker_listCategory_id" BIGINT CHECK ( "resonance_linker_listCategory_id" >= 0 ) ,
--- NESTED KEY : "sampleCategory" ( "sampleCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "sampleCategory" ( "sampleCategory_id", DELEGATED TO "sampleType_id" ), PARENT NODE : datablock
 	"sampleCategory_id" BIGINT CHECK ( "sampleCategory_id" >= 0 ) ,
--- NESTED KEY : "sample_citationCategory" ( "sample_citationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "sample_citationCategory" ( "sample_citationCategory_id", DELEGATED TO "sample_citationType_id" ), PARENT NODE : datablock
 	"sample_citationCategory_id" BIGINT CHECK ( "sample_citationCategory_id" >= 0 ) ,
--- NESTED KEY : "sample_componentCategory" ( "sample_componentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "sample_componentCategory" ( "sample_componentCategory_id", DELEGATED TO "sample_componentType_id" ), PARENT NODE : datablock
 	"sample_componentCategory_id" BIGINT CHECK ( "sample_componentCategory_id" >= 0 ) ,
--- NESTED KEY : "sample_component_atom_isotopeCategory" ( "sample_component_atom_isotopeCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "sample_component_atom_isotopeCategory" ( "sample_component_atom_isotopeCategory_id", DELEGATED TO "sample_component_atom_isotopeType_id" ), PARENT NODE : datablock
 	"sample_component_atom_isotopeCategory_id" BIGINT CHECK ( "sample_component_atom_isotopeCategory_id" >= 0 ) ,
--- NESTED KEY : "sample_condition_citationCategory" ( "sample_condition_citationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "sample_condition_citationCategory" ( "sample_condition_citationCategory_id", DELEGATED TO "sample_condition_citationType_id" ), PARENT NODE : datablock
 	"sample_condition_citationCategory_id" BIGINT CHECK ( "sample_condition_citationCategory_id" >= 0 ) ,
--- NESTED KEY : "sample_condition_listCategory" ( "sample_condition_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "sample_condition_listCategory" ( "sample_condition_listCategory_id", DELEGATED TO "sample_condition_listType_id" ), PARENT NODE : datablock
 	"sample_condition_listCategory_id" BIGINT CHECK ( "sample_condition_listCategory_id" >= 0 ) ,
--- NESTED KEY : "sample_condition_variableCategory" ( "sample_condition_variableCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "sample_condition_variableCategory" ( "sample_condition_variableCategory_id", DELEGATED TO "sample_condition_variableType_id" ), PARENT NODE : datablock
 	"sample_condition_variableCategory_id" BIGINT CHECK ( "sample_condition_variableCategory_id" >= 0 ) ,
--- NESTED KEY : "saxs_constraintCategory" ( "saxs_constraintCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "saxs_constraintCategory" ( "saxs_constraintCategory_id", DELEGATED TO "saxs_constraintType_id" ), PARENT NODE : datablock
 	"saxs_constraintCategory_id" BIGINT CHECK ( "saxs_constraintCategory_id" >= 0 ) ,
--- NESTED KEY : "saxs_constraint_exptCategory" ( "saxs_constraint_exptCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "saxs_constraint_exptCategory" ( "saxs_constraint_exptCategory_id", DELEGATED TO "saxs_constraint_exptType_id" ), PARENT NODE : datablock
 	"saxs_constraint_exptCategory_id" BIGINT CHECK ( "saxs_constraint_exptCategory_id" >= 0 ) ,
--- NESTED KEY : "saxs_constraint_listCategory" ( "saxs_constraint_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "saxs_constraint_listCategory" ( "saxs_constraint_listCategory_id", DELEGATED TO "saxs_constraint_listType_id" ), PARENT NODE : datablock
 	"saxs_constraint_listCategory_id" BIGINT CHECK ( "saxs_constraint_listCategory_id" >= 0 ) ,
--- NESTED KEY : "saxs_constraint_softwareCategory" ( "saxs_constraint_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "saxs_constraint_softwareCategory" ( "saxs_constraint_softwareCategory_id", DELEGATED TO "saxs_constraint_softwareType_id" ), PARENT NODE : datablock
 	"saxs_constraint_softwareCategory_id" BIGINT CHECK ( "saxs_constraint_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "saxs_exptCategory" ( "saxs_exptCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "saxs_exptCategory" ( "saxs_exptCategory_id", DELEGATED TO "saxs_exptType_id" ), PARENT NODE : datablock
 	"saxs_exptCategory_id" BIGINT CHECK ( "saxs_exptCategory_id" >= 0 ) ,
--- NESTED KEY : "secondary_structCategory" ( "secondary_structCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "secondary_structCategory" ( "secondary_structCategory_id", DELEGATED TO "secondary_structType_id" ), PARENT NODE : datablock
 	"secondary_structCategory_id" BIGINT CHECK ( "secondary_structCategory_id" >= 0 ) ,
--- NESTED KEY : "secondary_struct_listCategory" ( "secondary_struct_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "secondary_struct_listCategory" ( "secondary_struct_listCategory_id", DELEGATED TO "secondary_struct_listType_id" ), PARENT NODE : datablock
 	"secondary_struct_listCategory_id" BIGINT CHECK ( "secondary_struct_listCategory_id" >= 0 ) ,
--- NESTED KEY : "secondary_struct_selCategory" ( "secondary_struct_selCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "secondary_struct_selCategory" ( "secondary_struct_selCategory_id", DELEGATED TO "secondary_struct_selType_id" ), PARENT NODE : datablock
 	"secondary_struct_selCategory_id" BIGINT CHECK ( "secondary_struct_selCategory_id" >= 0 ) ,
--- NESTED KEY : "sg_projectCategory" ( "sg_projectCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "sg_projectCategory" ( "sg_projectCategory_id", DELEGATED TO "sg_projectType_id" ), PARENT NODE : datablock
 	"sg_projectCategory_id" BIGINT CHECK ( "sg_projectCategory_id" >= 0 ) ,
--- NESTED KEY : "softwareCategory" ( "softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "softwareCategory" ( "softwareCategory_id", DELEGATED TO "softwareType_id" ), PARENT NODE : datablock
 	"softwareCategory_id" BIGINT CHECK ( "softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "software_applied_historyCategory" ( "software_applied_historyCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "software_applied_historyCategory" ( "software_applied_historyCategory_id", DELEGATED TO "software_applied_historyType_id" ), PARENT NODE : datablock
 	"software_applied_historyCategory_id" BIGINT CHECK ( "software_applied_historyCategory_id" >= 0 ) ,
--- NESTED KEY : "software_applied_listCategory" ( "software_applied_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "software_applied_listCategory" ( "software_applied_listCategory_id", DELEGATED TO "software_applied_listType_id" ), PARENT NODE : datablock
 	"software_applied_listCategory_id" BIGINT CHECK ( "software_applied_listCategory_id" >= 0 ) ,
--- NESTED KEY : "software_applied_methodsCategory" ( "software_applied_methodsCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "software_applied_methodsCategory" ( "software_applied_methodsCategory_id", DELEGATED TO "software_applied_methodsType_id" ), PARENT NODE : datablock
 	"software_applied_methodsCategory_id" BIGINT CHECK ( "software_applied_methodsCategory_id" >= 0 ) ,
--- NESTED KEY : "software_citationCategory" ( "software_citationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "software_citationCategory" ( "software_citationCategory_id", DELEGATED TO "software_citationType_id" ), PARENT NODE : datablock
 	"software_citationCategory_id" BIGINT CHECK ( "software_citationCategory_id" >= 0 ) ,
--- NESTED KEY : "software_specific_infoCategory" ( "software_specific_infoCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "software_specific_infoCategory" ( "software_specific_infoCategory_id", DELEGATED TO "software_specific_infoType_id" ), PARENT NODE : datablock
 	"software_specific_infoCategory_id" BIGINT CHECK ( "software_specific_infoCategory_id" >= 0 ) ,
--- NESTED KEY : "software_specific_info_listCategory" ( "software_specific_info_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "software_specific_info_listCategory" ( "software_specific_info_listCategory_id", DELEGATED TO "software_specific_info_listType_id" ), PARENT NODE : datablock
 	"software_specific_info_listCategory_id" BIGINT CHECK ( "software_specific_info_listCategory_id" >= 0 ) ,
--- NESTED KEY : "spectral_acq_paramCategory" ( "spectral_acq_paramCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "spectral_acq_paramCategory" ( "spectral_acq_paramCategory_id", DELEGATED TO "spectral_acq_paramType_id" ), PARENT NODE : datablock
 	"spectral_acq_paramCategory_id" BIGINT CHECK ( "spectral_acq_paramCategory_id" >= 0 ) ,
--- NESTED KEY : "spectral_densityCategory" ( "spectral_densityCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "spectral_densityCategory" ( "spectral_densityCategory_id", DELEGATED TO "spectral_densityType_id" ), PARENT NODE : datablock
 	"spectral_densityCategory_id" BIGINT CHECK ( "spectral_densityCategory_id" >= 0 ) ,
--- NESTED KEY : "spectral_density_experimentCategory" ( "spectral_density_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "spectral_density_experimentCategory" ( "spectral_density_experimentCategory_id", DELEGATED TO "spectral_density_experimentType_id" ), PARENT NODE : datablock
 	"spectral_density_experimentCategory_id" BIGINT CHECK ( "spectral_density_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "spectral_density_listCategory" ( "spectral_density_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "spectral_density_listCategory" ( "spectral_density_listCategory_id", DELEGATED TO "spectral_density_listType_id" ), PARENT NODE : datablock
 	"spectral_density_listCategory_id" BIGINT CHECK ( "spectral_density_listCategory_id" >= 0 ) ,
--- NESTED KEY : "spectral_density_softwareCategory" ( "spectral_density_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "spectral_density_softwareCategory" ( "spectral_density_softwareCategory_id", DELEGATED TO "spectral_density_softwareType_id" ), PARENT NODE : datablock
 	"spectral_density_softwareCategory_id" BIGINT CHECK ( "spectral_density_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "spectral_dimCategory" ( "spectral_dimCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "spectral_dimCategory" ( "spectral_dimCategory_id", DELEGATED TO "spectral_dimType_id" ), PARENT NODE : datablock
 	"spectral_dimCategory_id" BIGINT CHECK ( "spectral_dimCategory_id" >= 0 ) ,
--- NESTED KEY : "spectral_dim_transferCategory" ( "spectral_dim_transferCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "spectral_dim_transferCategory" ( "spectral_dim_transferCategory_id", DELEGATED TO "spectral_dim_transferType_id" ), PARENT NODE : datablock
 	"spectral_dim_transferCategory_id" BIGINT CHECK ( "spectral_dim_transferCategory_id" >= 0 ) ,
--- NESTED KEY : "spectral_peak_listCategory" ( "spectral_peak_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "spectral_peak_listCategory" ( "spectral_peak_listCategory_id", DELEGATED TO "spectral_peak_listType_id" ), PARENT NODE : datablock
 	"spectral_peak_listCategory_id" BIGINT CHECK ( "spectral_peak_listCategory_id" >= 0 ) ,
--- NESTED KEY : "spectral_peak_softwareCategory" ( "spectral_peak_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "spectral_peak_softwareCategory" ( "spectral_peak_softwareCategory_id", DELEGATED TO "spectral_peak_softwareType_id" ), PARENT NODE : datablock
 	"spectral_peak_softwareCategory_id" BIGINT CHECK ( "spectral_peak_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "spectral_processing_paramCategory" ( "spectral_processing_paramCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "spectral_processing_paramCategory" ( "spectral_processing_paramCategory_id", DELEGATED TO "spectral_processing_paramType_id" ), PARENT NODE : datablock
 	"spectral_processing_paramCategory_id" BIGINT CHECK ( "spectral_processing_paramCategory_id" >= 0 ) ,
--- NESTED KEY : "spectral_transitionCategory" ( "spectral_transitionCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "spectral_transitionCategory" ( "spectral_transitionCategory_id", DELEGATED TO "spectral_transitionType_id" ), PARENT NODE : datablock
 	"spectral_transitionCategory_id" BIGINT CHECK ( "spectral_transitionCategory_id" >= 0 ) ,
--- NESTED KEY : "spectral_transition_charCategory" ( "spectral_transition_charCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "spectral_transition_charCategory" ( "spectral_transition_charCategory_id", DELEGATED TO "spectral_transition_charType_id" ), PARENT NODE : datablock
 	"spectral_transition_charCategory_id" BIGINT CHECK ( "spectral_transition_charCategory_id" >= 0 ) ,
--- NESTED KEY : "spectral_transition_general_charCategory" ( "spectral_transition_general_charCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "spectral_transition_general_charCategory" ( "spectral_transition_general_charCategory_id", DELEGATED TO "spectral_transition_general_charType_id" ), PARENT NODE : datablock
 	"spectral_transition_general_charCategory_id" BIGINT CHECK ( "spectral_transition_general_charCategory_id" >= 0 ) ,
--- NESTED KEY : "spin_systemCategory" ( "spin_systemCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "spin_systemCategory" ( "spin_systemCategory_id", DELEGATED TO "spin_systemType_id" ), PARENT NODE : datablock
 	"spin_systemCategory_id" BIGINT CHECK ( "spin_systemCategory_id" >= 0 ) ,
--- NESTED KEY : "spin_system_linkCategory" ( "spin_system_linkCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "spin_system_linkCategory" ( "spin_system_linkCategory_id", DELEGATED TO "spin_system_linkType_id" ), PARENT NODE : datablock
 	"spin_system_linkCategory_id" BIGINT CHECK ( "spin_system_linkCategory_id" >= 0 ) ,
--- NESTED KEY : "struct_anno_charCategory" ( "struct_anno_charCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "struct_anno_charCategory" ( "struct_anno_charCategory_id", DELEGATED TO "struct_anno_charType_id" ), PARENT NODE : datablock
 	"struct_anno_charCategory_id" BIGINT CHECK ( "struct_anno_charCategory_id" >= 0 ) ,
--- NESTED KEY : "struct_anno_softwareCategory" ( "struct_anno_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "struct_anno_softwareCategory" ( "struct_anno_softwareCategory_id", DELEGATED TO "struct_anno_softwareType_id" ), PARENT NODE : datablock
 	"struct_anno_softwareCategory_id" BIGINT CHECK ( "struct_anno_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "struct_asymCategory" ( "struct_asymCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "struct_asymCategory" ( "struct_asymCategory_id", DELEGATED TO "struct_asymType_id" ), PARENT NODE : datablock
 	"struct_asymCategory_id" BIGINT CHECK ( "struct_asymCategory_id" >= 0 ) ,
--- NESTED KEY : "struct_classificationCategory" ( "struct_classificationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "struct_classificationCategory" ( "struct_classificationCategory_id", DELEGATED TO "struct_classificationType_id" ), PARENT NODE : datablock
 	"struct_classificationCategory_id" BIGINT CHECK ( "struct_classificationCategory_id" >= 0 ) ,
--- NESTED KEY : "struct_imageCategory" ( "struct_imageCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "struct_imageCategory" ( "struct_imageCategory_id", DELEGATED TO "struct_imageType_id" ), PARENT NODE : datablock
 	"struct_imageCategory_id" BIGINT CHECK ( "struct_imageCategory_id" >= 0 ) ,
--- NESTED KEY : "struct_keywordsCategory" ( "struct_keywordsCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "struct_keywordsCategory" ( "struct_keywordsCategory_id", DELEGATED TO "struct_keywordsType_id" ), PARENT NODE : datablock
 	"struct_keywordsCategory_id" BIGINT CHECK ( "struct_keywordsCategory_id" >= 0 ) ,
--- NESTED KEY : "structure_annotationCategory" ( "structure_annotationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "structure_annotationCategory" ( "structure_annotationCategory_id", DELEGATED TO "structure_annotationType_id" ), PARENT NODE : datablock
 	"structure_annotationCategory_id" BIGINT CHECK ( "structure_annotationCategory_id" >= 0 ) ,
--- NESTED KEY : "structure_interactionCategory" ( "structure_interactionCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "structure_interactionCategory" ( "structure_interactionCategory_id", DELEGATED TO "structure_interactionType_id" ), PARENT NODE : datablock
 	"structure_interactionCategory_id" BIGINT CHECK ( "structure_interactionCategory_id" >= 0 ) ,
--- NESTED KEY : "structure_interaction_listCategory" ( "structure_interaction_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "structure_interaction_listCategory" ( "structure_interaction_listCategory_id", DELEGATED TO "structure_interaction_listType_id" ), PARENT NODE : datablock
 	"structure_interaction_listCategory_id" BIGINT CHECK ( "structure_interaction_listCategory_id" >= 0 ) ,
--- NESTED KEY : "studyCategory" ( "studyCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "studyCategory" ( "studyCategory_id", DELEGATED TO "studyType_id" ), PARENT NODE : datablock
 	"studyCategory_id" BIGINT CHECK ( "studyCategory_id" >= 0 ) ,
--- NESTED KEY : "study_entry_listCategory" ( "study_entry_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "study_entry_listCategory" ( "study_entry_listCategory_id", DELEGATED TO "study_entry_listType_id" ), PARENT NODE : datablock
 	"study_entry_listCategory_id" BIGINT CHECK ( "study_entry_listCategory_id" >= 0 ) ,
--- NESTED KEY : "study_keywordCategory" ( "study_keywordCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "study_keywordCategory" ( "study_keywordCategory_id", DELEGATED TO "study_keywordType_id" ), PARENT NODE : datablock
 	"study_keywordCategory_id" BIGINT CHECK ( "study_keywordCategory_id" >= 0 ) ,
--- NESTED KEY : "study_listCategory" ( "study_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "study_listCategory" ( "study_listCategory_id", DELEGATED TO "study_listType_id" ), PARENT NODE : datablock
 	"study_listCategory_id" BIGINT CHECK ( "study_listCategory_id" >= 0 ) ,
--- NESTED KEY : "subsystem_biological_functionCategory" ( "subsystem_biological_functionCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "subsystem_biological_functionCategory" ( "subsystem_biological_functionCategory_id", DELEGATED TO "subsystem_biological_functionType_id" ), PARENT NODE : datablock
 	"subsystem_biological_functionCategory_id" BIGINT CHECK ( "subsystem_biological_functionCategory_id" >= 0 ) ,
--- NESTED KEY : "subsystem_citationCategory" ( "subsystem_citationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "subsystem_citationCategory" ( "subsystem_citationCategory_id", DELEGATED TO "subsystem_citationType_id" ), PARENT NODE : datablock
 	"subsystem_citationCategory_id" BIGINT CHECK ( "subsystem_citationCategory_id" >= 0 ) ,
--- NESTED KEY : "subsystem_common_nameCategory" ( "subsystem_common_nameCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "subsystem_common_nameCategory" ( "subsystem_common_nameCategory_id", DELEGATED TO "subsystem_common_nameType_id" ), PARENT NODE : datablock
 	"subsystem_common_nameCategory_id" BIGINT CHECK ( "subsystem_common_nameCategory_id" >= 0 ) ,
--- NESTED KEY : "subsystem_componentCategory" ( "subsystem_componentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "subsystem_componentCategory" ( "subsystem_componentCategory_id", DELEGATED TO "subsystem_componentType_id" ), PARENT NODE : datablock
 	"subsystem_componentCategory_id" BIGINT CHECK ( "subsystem_componentCategory_id" >= 0 ) ,
--- NESTED KEY : "subsystem_db_linkCategory" ( "subsystem_db_linkCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "subsystem_db_linkCategory" ( "subsystem_db_linkCategory_id", DELEGATED TO "subsystem_db_linkType_id" ), PARENT NODE : datablock
 	"subsystem_db_linkCategory_id" BIGINT CHECK ( "subsystem_db_linkCategory_id" >= 0 ) ,
--- NESTED KEY : "subsystem_keywordCategory" ( "subsystem_keywordCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "subsystem_keywordCategory" ( "subsystem_keywordCategory_id", DELEGATED TO "subsystem_keywordType_id" ), PARENT NODE : datablock
 	"subsystem_keywordCategory_id" BIGINT CHECK ( "subsystem_keywordCategory_id" >= 0 ) ,
--- NESTED KEY : "subsystem_typeCategory" ( "subsystem_typeCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "subsystem_typeCategory" ( "subsystem_typeCategory_id", DELEGATED TO "subsystem_typeType_id" ), PARENT NODE : datablock
 	"subsystem_typeCategory_id" BIGINT CHECK ( "subsystem_typeCategory_id" >= 0 ) ,
--- NESTED KEY : "systematic_chem_shift_offsetCategory" ( "systematic_chem_shift_offsetCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "systematic_chem_shift_offsetCategory" ( "systematic_chem_shift_offsetCategory_id", DELEGATED TO "systematic_chem_shift_offsetType_id" ), PARENT NODE : datablock
 	"systematic_chem_shift_offsetCategory_id" BIGINT CHECK ( "systematic_chem_shift_offsetCategory_id" >= 0 ) ,
--- NESTED KEY : "t1Category" ( "t1Category_id" ), PARENT NODE : datablock
+-- NESTED KEY : "t1Category" ( "t1Category_id", DELEGATED TO "t1Type_id" ), PARENT NODE : datablock
 	"t1Category_id" BIGINT CHECK ( "t1Category_id" >= 0 ) ,
--- NESTED KEY : "t1rhoCategory" ( "t1rhoCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "t1rhoCategory" ( "t1rhoCategory_id", DELEGATED TO "t1rhoType_id" ), PARENT NODE : datablock
 	"t1rhoCategory_id" BIGINT CHECK ( "t1rhoCategory_id" >= 0 ) ,
--- NESTED KEY : "t2Category" ( "t2Category_id" ), PARENT NODE : datablock
+-- NESTED KEY : "t2Category" ( "t2Category_id", DELEGATED TO "t2Type_id" ), PARENT NODE : datablock
 	"t2Category_id" BIGINT CHECK ( "t2Category_id" >= 0 ) ,
--- NESTED KEY : "ta_constraint_comment_orgCategory" ( "ta_constraint_comment_orgCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ta_constraint_comment_orgCategory" ( "ta_constraint_comment_orgCategory_id", DELEGATED TO "ta_constraint_comment_orgType_id" ), PARENT NODE : datablock
 	"ta_constraint_comment_orgCategory_id" BIGINT CHECK ( "ta_constraint_comment_orgCategory_id" >= 0 ) ,
--- NESTED KEY : "ta_constraint_conv_errCategory" ( "ta_constraint_conv_errCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ta_constraint_conv_errCategory" ( "ta_constraint_conv_errCategory_id", DELEGATED TO "ta_constraint_conv_errType_id" ), PARENT NODE : datablock
 	"ta_constraint_conv_errCategory_id" BIGINT CHECK ( "ta_constraint_conv_errCategory_id" >= 0 ) ,
--- NESTED KEY : "ta_constraint_parse_errCategory" ( "ta_constraint_parse_errCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ta_constraint_parse_errCategory" ( "ta_constraint_parse_errCategory_id", DELEGATED TO "ta_constraint_parse_errType_id" ), PARENT NODE : datablock
 	"ta_constraint_parse_errCategory_id" BIGINT CHECK ( "ta_constraint_parse_errCategory_id" >= 0 ) ,
--- NESTED KEY : "ta_constraint_parse_fileCategory" ( "ta_constraint_parse_fileCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "ta_constraint_parse_fileCategory" ( "ta_constraint_parse_fileCategory_id", DELEGATED TO "ta_constraint_parse_fileType_id" ), PARENT NODE : datablock
 	"ta_constraint_parse_fileCategory_id" BIGINT CHECK ( "ta_constraint_parse_fileCategory_id" >= 0 ) ,
--- NESTED KEY : "taskCategory" ( "taskCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "taskCategory" ( "taskCategory_id", DELEGATED TO "taskType_id" ), PARENT NODE : datablock
 	"taskCategory_id" BIGINT CHECK ( "taskCategory_id" >= 0 ) ,
--- NESTED KEY : "tensorCategory" ( "tensorCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "tensorCategory" ( "tensorCategory_id", DELEGATED TO "tensorType_id" ), PARENT NODE : datablock
 	"tensorCategory_id" BIGINT CHECK ( "tensorCategory_id" >= 0 ) ,
--- NESTED KEY : "tensor_listCategory" ( "tensor_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "tensor_listCategory" ( "tensor_listCategory_id", DELEGATED TO "tensor_listType_id" ), PARENT NODE : datablock
 	"tensor_listCategory_id" BIGINT CHECK ( "tensor_listCategory_id" >= 0 ) ,
--- NESTED KEY : "terminal_residueCategory" ( "terminal_residueCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "terminal_residueCategory" ( "terminal_residueCategory_id", DELEGATED TO "terminal_residueType_id" ), PARENT NODE : datablock
 	"terminal_residueCategory_id" BIGINT CHECK ( "terminal_residueCategory_id" >= 0 ) ,
--- NESTED KEY : "tertiary_structCategory" ( "tertiary_structCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "tertiary_structCategory" ( "tertiary_structCategory_id", DELEGATED TO "tertiary_structType_id" ), PARENT NODE : datablock
 	"tertiary_structCategory_id" BIGINT CHECK ( "tertiary_structCategory_id" >= 0 ) ,
--- NESTED KEY : "tertiary_struct_element_listCategory" ( "tertiary_struct_element_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "tertiary_struct_element_listCategory" ( "tertiary_struct_element_listCategory_id", DELEGATED TO "tertiary_struct_element_listType_id" ), PARENT NODE : datablock
 	"tertiary_struct_element_listCategory_id" BIGINT CHECK ( "tertiary_struct_element_listCategory_id" >= 0 ) ,
--- NESTED KEY : "tertiary_struct_element_selCategory" ( "tertiary_struct_element_selCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "tertiary_struct_element_selCategory" ( "tertiary_struct_element_selCategory_id", DELEGATED TO "tertiary_struct_element_selType_id" ), PARENT NODE : datablock
 	"tertiary_struct_element_selCategory_id" BIGINT CHECK ( "tertiary_struct_element_selCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_auto_relaxationCategory" ( "theoretical_auto_relaxationCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_auto_relaxationCategory" ( "theoretical_auto_relaxationCategory_id", DELEGATED TO "theoretical_auto_relaxationType_id" ), PARENT NODE : datablock
 	"theoretical_auto_relaxationCategory_id" BIGINT CHECK ( "theoretical_auto_relaxationCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_auto_relaxation_experimentCategory" ( "theoretical_auto_relaxation_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_auto_relaxation_experimentCategory" ( "theoretical_auto_relaxation_experimentCategory_id", DELEGATED TO "theoretical_auto_relaxation_experimentType_id" ), PARENT NODE : datablock
 	"theoretical_auto_relaxation_experimentCategory_id" BIGINT CHECK ( "theoretical_auto_relaxation_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_auto_relaxation_listCategory" ( "theoretical_auto_relaxation_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_auto_relaxation_listCategory" ( "theoretical_auto_relaxation_listCategory_id", DELEGATED TO "theoretical_auto_relaxation_listType_id" ), PARENT NODE : datablock
 	"theoretical_auto_relaxation_listCategory_id" BIGINT CHECK ( "theoretical_auto_relaxation_listCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_auto_relaxation_softwareCategory" ( "theoretical_auto_relaxation_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_auto_relaxation_softwareCategory" ( "theoretical_auto_relaxation_softwareCategory_id", DELEGATED TO "theoretical_auto_relaxation_softwareType_id" ), PARENT NODE : datablock
 	"theoretical_auto_relaxation_softwareCategory_id" BIGINT CHECK ( "theoretical_auto_relaxation_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_chem_shiftCategory" ( "theoretical_chem_shiftCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_chem_shiftCategory" ( "theoretical_chem_shiftCategory_id", DELEGATED TO "theoretical_chem_shiftType_id" ), PARENT NODE : datablock
 	"theoretical_chem_shiftCategory_id" BIGINT CHECK ( "theoretical_chem_shiftCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_chem_shift_listCategory" ( "theoretical_chem_shift_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_chem_shift_listCategory" ( "theoretical_chem_shift_listCategory_id", DELEGATED TO "theoretical_chem_shift_listType_id" ), PARENT NODE : datablock
 	"theoretical_chem_shift_listCategory_id" BIGINT CHECK ( "theoretical_chem_shift_listCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_coupling_constantCategory" ( "theoretical_coupling_constantCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_coupling_constantCategory" ( "theoretical_coupling_constantCategory_id", DELEGATED TO "theoretical_coupling_constantType_id" ), PARENT NODE : datablock
 	"theoretical_coupling_constantCategory_id" BIGINT CHECK ( "theoretical_coupling_constantCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_coupling_constant_experimentCategory" ( "theoretical_coupling_constant_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_coupling_constant_experimentCategory" ( "theoretical_coupling_constant_experimentCategory_id", DELEGATED TO "theoretical_coupling_constant_experimentType_id" ), PARENT NODE : datablock
 	"theoretical_coupling_constant_experimentCategory_id" BIGINT CHECK ( "theoretical_coupling_constant_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_coupling_constant_listCategory" ( "theoretical_coupling_constant_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_coupling_constant_listCategory" ( "theoretical_coupling_constant_listCategory_id", DELEGATED TO "theoretical_coupling_constant_listType_id" ), PARENT NODE : datablock
 	"theoretical_coupling_constant_listCategory_id" BIGINT CHECK ( "theoretical_coupling_constant_listCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_coupling_constant_softwareCategory" ( "theoretical_coupling_constant_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_coupling_constant_softwareCategory" ( "theoretical_coupling_constant_softwareCategory_id", DELEGATED TO "theoretical_coupling_constant_softwareType_id" ), PARENT NODE : datablock
 	"theoretical_coupling_constant_softwareCategory_id" BIGINT CHECK ( "theoretical_coupling_constant_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_cross_correlation_ddCategory" ( "theoretical_cross_correlation_ddCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_cross_correlation_ddCategory" ( "theoretical_cross_correlation_ddCategory_id", DELEGATED TO "theoretical_cross_correlation_ddType_id" ), PARENT NODE : datablock
 	"theoretical_cross_correlation_ddCategory_id" BIGINT CHECK ( "theoretical_cross_correlation_ddCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_cross_correlation_dd_experimentCategory" ( "theoretical_cross_correlation_dd_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_cross_correlation_dd_experimentCategory" ( "theoretical_cross_correlation_dd_experimentCategory_id", DELEGATED TO "theoretical_cross_correlation_dd_experimentType_id" ), PARENT NODE : datablock
 	"theoretical_cross_correlation_dd_experimentCategory_id" BIGINT CHECK ( "theoretical_cross_correlation_dd_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_cross_correlation_dd_listCategory" ( "theoretical_cross_correlation_dd_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_cross_correlation_dd_listCategory" ( "theoretical_cross_correlation_dd_listCategory_id", DELEGATED TO "theoretical_cross_correlation_dd_listType_id" ), PARENT NODE : datablock
 	"theoretical_cross_correlation_dd_listCategory_id" BIGINT CHECK ( "theoretical_cross_correlation_dd_listCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_cross_correlation_dd_softwareCategory" ( "theoretical_cross_correlation_dd_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_cross_correlation_dd_softwareCategory" ( "theoretical_cross_correlation_dd_softwareCategory_id", DELEGATED TO "theoretical_cross_correlation_dd_softwareType_id" ), PARENT NODE : datablock
 	"theoretical_cross_correlation_dd_softwareCategory_id" BIGINT CHECK ( "theoretical_cross_correlation_dd_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_heteronucl_noeCategory" ( "theoretical_heteronucl_noeCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_heteronucl_noeCategory" ( "theoretical_heteronucl_noeCategory_id", DELEGATED TO "theoretical_heteronucl_noeType_id" ), PARENT NODE : datablock
 	"theoretical_heteronucl_noeCategory_id" BIGINT CHECK ( "theoretical_heteronucl_noeCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_heteronucl_noe_experimentCategory" ( "theoretical_heteronucl_noe_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_heteronucl_noe_experimentCategory" ( "theoretical_heteronucl_noe_experimentCategory_id", DELEGATED TO "theoretical_heteronucl_noe_experimentType_id" ), PARENT NODE : datablock
 	"theoretical_heteronucl_noe_experimentCategory_id" BIGINT CHECK ( "theoretical_heteronucl_noe_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_heteronucl_noe_listCategory" ( "theoretical_heteronucl_noe_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_heteronucl_noe_listCategory" ( "theoretical_heteronucl_noe_listCategory_id", DELEGATED TO "theoretical_heteronucl_noe_listType_id" ), PARENT NODE : datablock
 	"theoretical_heteronucl_noe_listCategory_id" BIGINT CHECK ( "theoretical_heteronucl_noe_listCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_heteronucl_noe_softwareCategory" ( "theoretical_heteronucl_noe_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_heteronucl_noe_softwareCategory" ( "theoretical_heteronucl_noe_softwareCategory_id", DELEGATED TO "theoretical_heteronucl_noe_softwareType_id" ), PARENT NODE : datablock
 	"theoretical_heteronucl_noe_softwareCategory_id" BIGINT CHECK ( "theoretical_heteronucl_noe_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_heteronucl_t1_experimentCategory" ( "theoretical_heteronucl_t1_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_heteronucl_t1_experimentCategory" ( "theoretical_heteronucl_t1_experimentCategory_id", DELEGATED TO "theoretical_heteronucl_t1_experimentType_id" ), PARENT NODE : datablock
 	"theoretical_heteronucl_t1_experimentCategory_id" BIGINT CHECK ( "theoretical_heteronucl_t1_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_heteronucl_t1_listCategory" ( "theoretical_heteronucl_t1_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_heteronucl_t1_listCategory" ( "theoretical_heteronucl_t1_listCategory_id", DELEGATED TO "theoretical_heteronucl_t1_listType_id" ), PARENT NODE : datablock
 	"theoretical_heteronucl_t1_listCategory_id" BIGINT CHECK ( "theoretical_heteronucl_t1_listCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_heteronucl_t1_softwareCategory" ( "theoretical_heteronucl_t1_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_heteronucl_t1_softwareCategory" ( "theoretical_heteronucl_t1_softwareCategory_id", DELEGATED TO "theoretical_heteronucl_t1_softwareType_id" ), PARENT NODE : datablock
 	"theoretical_heteronucl_t1_softwareCategory_id" BIGINT CHECK ( "theoretical_heteronucl_t1_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_heteronucl_t2_experimentCategory" ( "theoretical_heteronucl_t2_experimentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_heteronucl_t2_experimentCategory" ( "theoretical_heteronucl_t2_experimentCategory_id", DELEGATED TO "theoretical_heteronucl_t2_experimentType_id" ), PARENT NODE : datablock
 	"theoretical_heteronucl_t2_experimentCategory_id" BIGINT CHECK ( "theoretical_heteronucl_t2_experimentCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_heteronucl_t2_listCategory" ( "theoretical_heteronucl_t2_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_heteronucl_t2_listCategory" ( "theoretical_heteronucl_t2_listCategory_id", DELEGATED TO "theoretical_heteronucl_t2_listType_id" ), PARENT NODE : datablock
 	"theoretical_heteronucl_t2_listCategory_id" BIGINT CHECK ( "theoretical_heteronucl_t2_listCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_heteronucl_t2_softwareCategory" ( "theoretical_heteronucl_t2_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_heteronucl_t2_softwareCategory" ( "theoretical_heteronucl_t2_softwareCategory_id", DELEGATED TO "theoretical_heteronucl_t2_softwareType_id" ), PARENT NODE : datablock
 	"theoretical_heteronucl_t2_softwareCategory_id" BIGINT CHECK ( "theoretical_heteronucl_t2_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "theoretical_t1Category" ( "theoretical_t1Category_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_t1Category" ( "theoretical_t1Category_id", DELEGATED TO "theoretical_t1Type_id" ), PARENT NODE : datablock
 	"theoretical_t1Category_id" BIGINT CHECK ( "theoretical_t1Category_id" >= 0 ) ,
--- NESTED KEY : "theoretical_t2Category" ( "theoretical_t2Category_id" ), PARENT NODE : datablock
+-- NESTED KEY : "theoretical_t2Category" ( "theoretical_t2Category_id", DELEGATED TO "theoretical_t2Type_id" ), PARENT NODE : datablock
 	"theoretical_t2Category_id" BIGINT CHECK ( "theoretical_t2Category_id" >= 0 ) ,
--- NESTED KEY : "torsion_angleCategory" ( "torsion_angleCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "torsion_angleCategory" ( "torsion_angleCategory_id", DELEGATED TO "torsion_angleType_id" ), PARENT NODE : datablock
 	"torsion_angleCategory_id" BIGINT CHECK ( "torsion_angleCategory_id" >= 0 ) ,
--- NESTED KEY : "torsion_angle_constraintCategory" ( "torsion_angle_constraintCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "torsion_angle_constraintCategory" ( "torsion_angle_constraintCategory_id", DELEGATED TO "torsion_angle_constraintType_id" ), PARENT NODE : datablock
 	"torsion_angle_constraintCategory_id" BIGINT CHECK ( "torsion_angle_constraintCategory_id" >= 0 ) ,
--- NESTED KEY : "torsion_angle_constraint_listCategory" ( "torsion_angle_constraint_listCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "torsion_angle_constraint_listCategory" ( "torsion_angle_constraint_listCategory_id", DELEGATED TO "torsion_angle_constraint_listType_id" ), PARENT NODE : datablock
 	"torsion_angle_constraint_listCategory_id" BIGINT CHECK ( "torsion_angle_constraint_listCategory_id" >= 0 ) ,
--- NESTED KEY : "torsion_angle_constraint_softwareCategory" ( "torsion_angle_constraint_softwareCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "torsion_angle_constraint_softwareCategory" ( "torsion_angle_constraint_softwareCategory_id", DELEGATED TO "torsion_angle_constraint_softwareType_id" ), PARENT NODE : datablock
 	"torsion_angle_constraint_softwareCategory_id" BIGINT CHECK ( "torsion_angle_constraint_softwareCategory_id" >= 0 ) ,
--- NESTED KEY : "torsion_angle_constraints_exptCategory" ( "torsion_angle_constraints_exptCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "torsion_angle_constraints_exptCategory" ( "torsion_angle_constraints_exptCategory_id", DELEGATED TO "torsion_angle_constraints_exptType_id" ), PARENT NODE : datablock
 	"torsion_angle_constraints_exptCategory_id" BIGINT CHECK ( "torsion_angle_constraints_exptCategory_id" >= 0 ) ,
--- NESTED KEY : "vendorCategory" ( "vendorCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "vendorCategory" ( "vendorCategory_id", DELEGATED TO "vendorType_id" ), PARENT NODE : datablock
 	"vendorCategory_id" BIGINT CHECK ( "vendorCategory_id" >= 0 ) ,
--- NESTED KEY : "xray_instrumentCategory" ( "xray_instrumentCategory_id" ), PARENT NODE : datablock
+-- NESTED KEY : "xray_instrumentCategory" ( "xray_instrumentCategory_id", DELEGATED TO "xray_instrumentType_id" ), PARENT NODE : datablock
 	"xray_instrumentCategory_id" BIGINT CHECK ( "xray_instrumentCategory_id" >= 0 ) ,
 -- ATTRIBUTE
 	"datablockName" TEXT
