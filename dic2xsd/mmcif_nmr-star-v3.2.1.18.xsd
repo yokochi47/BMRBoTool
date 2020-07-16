@@ -56345,6 +56345,7 @@ caused by the long spin-lock pulse.
                   <xsd:enumeration value="temperature compensation block"/>
                   <xsd:enumeration value="single scan interleaving and temperature compensation block"/>
                   <xsd:enumeration value="no temperature control applied"/>
+                  <xsd:enumeration value="na"/>
                 </xsd:restriction>
               </xsd:simpleType>
             </xsd:element>
@@ -59518,6 +59519,7 @@ caused by the long spin-lock pulse.
                   <xsd:enumeration value="single scan interleaving"/>
                   <xsd:enumeration value="temperature compensation block"/>
                   <xsd:enumeration value="no temperature control applied"/>
+                  <xsd:enumeration value="na"/>
                 </xsd:restriction>
               </xsd:simpleType>
             </xsd:element>
