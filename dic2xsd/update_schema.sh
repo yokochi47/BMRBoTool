@@ -55,7 +55,7 @@ source ../scripts/xtool-home.sh
 
 source ../scripts/db-user.sh
 
-BMRB_MIRROR=("www.bmrb.wisc.edu" "bmrb.pdbj.org" "bmrb.cerm.unifi.it")
+BMRB_MIRROR=("www.bmrb.wisc.edu" "bmrb.pdbj.org") # "bmrb.cerm.unifi.it")
 
 printf "    BMRB mirror sites\t\t delay [ms]\n"
 echo "-------------------------------------------"
