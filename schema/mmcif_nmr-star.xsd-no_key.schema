@@ -20905,7 +20905,7 @@ CREATE TYPE ENUM_theoretical_auto_relaxation_list_rex_units AS ENUM ( 's-1', 'ms
 DROP TYPE IF EXISTS ENUM_theoretical_auto_relaxation_list_temp_calibration_method CASCADE;
 CREATE TYPE ENUM_theoretical_auto_relaxation_list_temp_calibration_method AS ENUM ( 'methanol', 'monoethylene glycol', 'no calibration applied', 'na' );
 DROP TYPE IF EXISTS ENUM_theoretical_auto_relaxation_list_temp_control_method CASCADE;
-CREATE TYPE ENUM_theoretical_auto_relaxation_list_temp_control_method AS ENUM ( 'single scan interleaving', 'temperature compensation block', 'single scan interleaving and temperature compensation block', 'no temperature control applied' );
+CREATE TYPE ENUM_theoretical_auto_relaxation_list_temp_control_method AS ENUM ( 'single scan interleaving', 'temperature compensation block', 'single scan interleaving and temperature compensation block', 'no temperature control applied', 'na' );
 CREATE TABLE theoretical_auto_relaxation_list (
 	theoretical_auto_relaxation_list_id BIGINT CHECK ( theoretical_auto_relaxation_list_id >= 0 ) ,
 -- FOREIGN KEY : "theoretical_auto_relaxation_listType" ( "theoretical_auto_relaxation_listType_id" )
@@ -21557,7 +21557,7 @@ CREATE TYPE ENUM_theoretical_heteronucl_t2_list_t2_val_units AS ENUM ( 's-1', 'm
 DROP TYPE IF EXISTS ENUM_theoretical_heteronucl_t2_list_temp_calibration_method CASCADE;
 CREATE TYPE ENUM_theoretical_heteronucl_t2_list_temp_calibration_method AS ENUM ( 'methanol', 'monoethylene glycol', 'no calibration applied', 'na' );
 DROP TYPE IF EXISTS ENUM_theoretical_heteronucl_t2_list_temp_control_method CASCADE;
-CREATE TYPE ENUM_theoretical_heteronucl_t2_list_temp_control_method AS ENUM ( 'single scan interleaving', 'temperature compensation block', 'no temperature control applied' );
+CREATE TYPE ENUM_theoretical_heteronucl_t2_list_temp_control_method AS ENUM ( 'single scan interleaving', 'temperature compensation block', 'no temperature control applied', 'na' );
 CREATE TABLE theoretical_heteronucl_t2_list (
 	theoretical_heteronucl_t2_list_id BIGINT CHECK ( theoretical_heteronucl_t2_list_id >= 0 ) ,
 -- FOREIGN KEY : "theoretical_heteronucl_t2_listType" ( "theoretical_heteronucl_t2_listType_id" )
