@@ -82,7 +82,7 @@ do
 
    if [ $? == 0 ] ; then
 
-    BMRB_MIRROR=$url
+    BMRB_URL=$url
     delay=$time
 
    fi
