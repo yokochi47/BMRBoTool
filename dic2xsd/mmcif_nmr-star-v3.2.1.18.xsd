@@ -26162,6 +26162,7 @@ Metazoa
                   <xsd:enumeration value="Fungi"/>
                   <xsd:enumeration value="Viridiplantae"/>
                   <xsd:enumeration value="Protista"/>
+                  <xsd:enumeration value="Loebvirae"/>
                   <xsd:enumeration value="Orthornavirae"/>
                   <xsd:enumeration value="Pararnavirae"/>
                   <xsd:enumeration value="Not applicable"/>
@@ -60535,7 +60536,7 @@ Standard symbol used to define the atom element type.
             </xsd:element>
             <xsd:element maxOccurs="1" minOccurs="1" name="atom_type_4" type="xsd:string">
               <xsd:annotation>
-                <xsd:documentation xml:lang="en">
+                <xsd:documentation source="http://www.bmrb.wisc.edu/dictionary/tagdetail.php?tag=_Torsion_angle_constraint.Atom_type_4" xml:lang="en">
 
 Standard symbol used to define the atom element type.
                         </xsd:documentation>
