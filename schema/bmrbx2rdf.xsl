@@ -102,10 +102,10 @@
     </xsl:choose>
   </xsl:variable>
 
-  <xsl:variable name="pdbj-bmrbdep">
+  <xsl:variable name="bmrbj">
     <xsl:choose>
-      <xsl:when test="starts-with($entry_id, 'bms')">https://bmrbdep.pdbj.org/bms/</xsl:when>
-      <xsl:otherwise>https://bmrbdep.pdbj.org/bmr/bmr</xsl:otherwise>
+      <xsl:when test="starts-with($entry_id, 'bms')">https://bmrbj.pdbj.org/bms/</xsl:when>
+      <xsl:otherwise>https://bmrbj.pdbj.org/bmr/bmr</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
@@ -119,7 +119,7 @@
   <xsl:template match="/BMRBx:datablock">
     <BMRBo:datablock rdf:about="{$base}" rdfs:label="{$bmrb_urn}{$entry_id}">
       <rdfs:seeAlso rdf:resource="{$bmrbx}{$entry_id}-noatom.xml"/>
-      <rdfs:seeAlso rdf:resource="{$pdbj-bmrbdep}{$entry_id}"/>
+      <rdfs:seeAlso rdf:resource="{$bmrbj}{$entry_id}"/>
       <rdfs:seeAlso rdf:resource="{$pdbj-bmrb}{$entry_id}.str"/>
       <rdfs:seeAlso rdf:resource="{$bmrb}{$entry_id}.str"/>
       <rdfs:seeAlso rdf:resource="{$bmrb-cerm}{$entry_id}.str"/>

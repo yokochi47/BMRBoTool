@@ -124,10 +124,10 @@
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
-  &lt;xsl:variable name="pdbj-bmrbdep"&gt;
+  &lt;xsl:variable name="bmrbj"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($entry_id, 'bms')"&gt;https://bmrbdep.pdbj.org/bms/&lt;/xsl:when&gt;
-      &lt;xsl:otherwise&gt;https://bmrbdep.pdbj.org/bmr/bmr&lt;/xsl:otherwise&gt;
+      &lt;xsl:when test="starts-with($entry_id, 'bms')"&gt;https://bmrbj.pdbj.org/bms/&lt;/xsl:when&gt;
+      &lt;xsl:otherwise&gt;https://bmrbj.pdbj.org/bmr/bmr&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
@@ -141,7 +141,7 @@
   &lt;xsl:template match="/BMRBx:datablock"&gt;
     &lt;BMRBo:datablock rdf:about="{$base}" rdfs:label="{$bmrb_urn}{$entry_id}"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$bmrbx}{$entry_id}-noatom.xml"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$pdbj-bmrbdep}{$entry_id}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$bmrbj}{$entry_id}"/&gt;
       &lt;rdfs:seeAlso rdf:resource="{$pdbj-bmrb}{$entry_id}.str"/&gt;
       &lt;rdfs:seeAlso rdf:resource="{$bmrb}{$entry_id}.str"/&gt;
       &lt;rdfs:seeAlso rdf:resource="{$bmrb-cerm}{$entry_id}.str"/&gt;

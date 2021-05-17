@@ -40,16 +40,16 @@
 -->
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-    <title>PDBj-BMRB - BMRB/RDF Search: Result - <xsl:value-of select="rdf:Description/@rdf:about" /></title>
+    <title>BMRBj - BMRB/RDF Search: Result - <xsl:value-of select="rdf:Description/@rdf:about" /></title>
     <base href="https://bmrbpub.pdbj.org/" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
     <meta http-equiv="Content-Script-Type" content="text/javascript" />
 
-    <meta name="keywords" content="BioMagResBank,BMRB,PDBj-BMRB,CERM-BMRB,wwPDB,RCSB-PDB,PDBj,NDBC,NMR-STAR,BMRB/XML,BMRB/RDF,BMRB/JSON" />
+    <meta name="keywords" content="BioMagResBank,BMRB,BMRBj,PDBj-BMRB,CERM-BMRB,wwPDB,RCSB-PDB,PDBj,NBDC,NMR-STAR,BMRB/XML,BMRB/RDF,BMRB/JSON" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Search results for the object of BMRB/RDF" />
-    <meta name="author" content="PDBj-BMRB" />
+    <meta name="author" content="BMRBj" />
 
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
@@ -81,7 +81,7 @@
 ================================================== -->
 <header class="jumbotron subhead" id="overview">
     <div class="container">
-        <h2>PDBj-BMRB/ Data Server:</h2>
+        <h2>BMRBj/ Data Server:</h2>
         <p class="lead">common open representations of BMRB NMR-STAR data in XML, RDF and JSON formats</p>
     </div>
 </header>
@@ -243,11 +243,11 @@
     <div class="span9">
     <table id="footer" border="0" callpadding="16" cellspacing="16" align="center">
     <tr>
-        <td><a href="http://www.bmrb.wisc.edu/"><img src="images/bmrb.svg" alt="BMRB" width="60" height="60" hspace="16" /></a></td>
-        <td><a href="https://bmrbdep.pdbj.org/"><img src="images/pdbj-bmrb.png" alt="PDBj-BMRB" /></a></td>
-        <td><a href="https://www.pdbj.org/"><img src="images/pdbj.png" alt="PDBj" /></a></td>
+        <td><a href="https://bmrb.io/"><img src="images/bmrb.svg" alt="BMRB" width="120" height="60" hspace="0" /></a></td>
+        <td><a href="https://bmrbj.pdbj.org/"><img src="images/bmrbj.png" alt="BMRBj" width="120" height="60" hspace="0" /></a></td>
+        <td><a href="https://pdbj.org/"><img src="images/pdbj.png" alt="PDBj" /></a></td>
         <td><a href="https://www.wwpdb.org/"><img src="images/wwpdb.png" alt="wwPDB" /></a></td>
-        <td><a href="https://biosciencedbc.jp/en/"><img src="images/ndbc.png" alt="NDBC" /></a></td>
+        <td><a href="https://biosciencedbc.jp/en/"><img src="images/nbdc.png" alt="NBDC" /></a></td>
     </tr>
     </table>
     </div>
