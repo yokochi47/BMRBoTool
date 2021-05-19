@@ -12,21 +12,21 @@ if [ $# = 0 ] || [ $1 = "xsd" ] ; then
 
  source ./scripts/xtool-home.sh
 
- XSD_SCHEMA=schema/mmcif_nmr-star.xsd
+ XML_SCHEMA=schema/mmcif_nmr-star.xsd
  DB_SCHEMA=schema/mmcif_nmr-star.dic.schema
 
- java -cp $BMRBX_TOOL_HOME/extlibs/xsd2pgschema.jar xsd2pgschema --xsd $XSD_SCHEMA --no-rel --hash-by SHA-1 --inplace-doc-key-name entry_id --inplace-doc-key-name entry.id > $DB_SCHEMA
+ java -cp $BMRBX_TOOL_HOME/extlibs/xsd2pgschema.jar xsd2pgschema --xsd $XML_SCHEMA --no-rel --hash-by SHA-1 --inplace-doc-key-name entry_id --inplace-doc-key-name entry.id > $DB_SCHEMA
 
 # DB_SCHEMA=schema/mmcif_nmr-star.xsd-strict.schema
-# java -cp $BMRBX_TOOL_HOME/extlibs/xsd2pgschema.jar xsd2pgschema --xsd $XSD_SCHEMA > $DB_SCHEMA
+# java -cp $BMRBX_TOOL_HOME/extlibs/xsd2pgschema.jar xsd2pgschema --xsd $XML_SCHEMA > $DB_SCHEMA
 
  DB_SCHEMA=schema/mmcif_nmr-star.xsd-no_key.schema
 
- java -cp $BMRBX_TOOL_HOME/extlibs/xsd2pgschema.jar xsd2pgschema --xsd $XSD_SCHEMA --no-key --no-doc-key --hash-by SHA-1 > $DB_SCHEMA
+ java -cp $BMRBX_TOOL_HOME/extlibs/xsd2pgschema.jar xsd2pgschema --xsd $XML_SCHEMA --no-key --no-doc-key --hash-by SHA-1 > $DB_SCHEMA
 
  JSON_SCHEMA=schema/mmcif_nmr-star.json
 
- java -cp $BMRBX_TOOL_HOME/extlibs/xsd2pgschema.jar xsd2jsonschema --xsd $XSD_SCHEMA --col-json --discarded-doc-key-name entry_id > $JSON_SCHEMA
+ java -cp $BMRBX_TOOL_HOME/extlibs/xsd2pgschema.jar xsd2jsonschema --xsd $XML_SCHEMA --col-json --discarded-doc-key-name entry_id > $JSON_SCHEMA
 
 # sed -i -e "3,3 s/\.xsd/\.json/" $JSON_SCHEMA
 # sed -i -e "4,5 s/BMRB\/XML/BMRB\/JSON/g" $JSON_SCHEMA
