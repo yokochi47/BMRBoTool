@@ -1838,7 +1838,6 @@ CREATE TABLE "chem_comp_common_nameType" (
 
 --
 -- Items in the chem_comp_db_link category provide the names of databases and accession numbers for entries in the databases that are related to a chemical component and information about the linked entry.
--- URI-reference = https://bmrb.io/dictionary/tag.php?tagcat=Chem_comp_db_link
 -- xmlns: https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd (BMRBx), schema location: schema/mmcif_nmr-star.xsd
 -- type: admin root, content: false, list: true, bridge: true, virtual: true
 --
@@ -2676,7 +2675,6 @@ CREATE TABLE "cross_correlation_dd_softwareType" (
 
 --
 -- Items in the CS_anisotropy category describe the chemical shift anisotropy values assigned to specific atoms in a molecular assembly.
--- URI-reference = https://bmrb.io/dictionary/tag.php?tagcat=CS_anisotropy
 -- xmlns: https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd (BMRBx), schema location: schema/mmcif_nmr-star.xsd
 -- type: admin root, content: false, list: true, bridge: true, virtual: true
 --
@@ -10181,7 +10179,6 @@ CREATE TABLE chem_comp_common_name (
 --
 -- (quoted from chem_comp_db_linkType)
 -- Items in the chem_comp_db_link category provide the names of databases and accession numbers for entries in the databases that are related to a chemical component and information about the linked entry.
--- URI-reference = https://bmrb.io/dictionary/tag.php?tagcat=Chem_comp_db_link
 -- xmlns: https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd (BMRBx), schema location: schema/mmcif_nmr-star.xsd
 -- type: admin child, content: true, list: false, bridge: false, virtual: false
 --
@@ -12214,7 +12211,6 @@ CREATE TABLE cross_correlation_dd_software (
 --
 -- (quoted from cs_anisotropyType)
 -- Items in the CS_anisotropy category describe the chemical shift anisotropy values assigned to specific atoms in a molecular assembly.
--- URI-reference = https://bmrb.io/dictionary/tag.php?tagcat=CS_anisotropy
 -- xmlns: https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd (BMRBx), schema location: schema/mmcif_nmr-star.xsd
 -- type: admin child, content: true, list: false, bridge: false, virtual: false
 --
@@ -13857,7 +13853,7 @@ CREATE TABLE entity_keyword (
 DROP TYPE IF EXISTS ENUM_entity_natural_src_common CASCADE;
 CREATE TYPE ENUM_entity_natural_src_common AS ENUM ( 'yes', 'no' );
 DROP TYPE IF EXISTS ENUM_entity_natural_src_kingdom CASCADE;
-CREATE TYPE ENUM_entity_natural_src_kingdom AS ENUM ( 'Metazoa', 'Fungi', 'Viridiplantae', 'Protista', 'Loebvirae', 'Orthornavirae', 'Pararnavirae', 'Not applicable' );
+CREATE TYPE ENUM_entity_natural_src_kingdom AS ENUM ( 'Metazoa', 'Fungi', 'Viridiplantae', 'Protista', 'Loebvirae', 'Orthornavirae', 'Pararnavirae', 'Heunggongvirae', 'Bamfordvirae', 'Not applicable' );
 DROP TYPE IF EXISTS ENUM_entity_natural_src_organ CASCADE;
 CREATE TYPE ENUM_entity_natural_src_organ AS ENUM ( 'brain', 'heart', 'intestine', 'kidney', 'liver', 'lung', 'pancreas', 'skin', 'testicle', 'leaf', 'venom gland', 'oral mucosa submandibular-sublingual glands', 'salivary glands', 'oocyte', 'breast', 'stomach', 'electric organ', 'eye', 'ileum', 'small intestine', 'seed', 'blood', 'duodendum', 'jejunum', 'vulva', 'hepatopancreas', 'placenta', 'skeletal muscle', 'aorta', 'telson', 'ubiquitous', 'aciniform gland', 'endoskeleton', 'heamolymph', 'mucous epithelium', 'cardiac skeletal muscle', 'seminal vesicles', 'antennae', 'fruit', 'thymus', 'egg white', 'na' );
 DROP TYPE IF EXISTS ENUM_entity_natural_src_organelle CASCADE;

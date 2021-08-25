@@ -97,6 +97,8 @@ do
 
 done
 
+BMRB_URL=${BMRB_MIRROR[0]}
+
 echo
 echo "$BMRB_URL was selected."
 

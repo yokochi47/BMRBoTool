@@ -20483,6 +20483,8 @@ Kingdom classifications for an organism as defined by NCBI taxonomists.
    Loebvirae    ?
    Orthornavirae    ?
    Pararnavirae    ?
+   Heunggongvirae    ?
+   Bamfordvirae    ?
    'Not applicable'    ?
 
    stop_
@@ -21700,11 +21702,12 @@ of the entity.
 #  'Escherichia coli 'BL21-Gold(DE3)pLysS AG''    ?
 #  'Escherichia coli B41'    ?
 #  'Escherichia coli BW25113'    ?
-#  'Escherichia coli DH5[alpha]'    ?
 #  'Escherichia coli DH1'    ?
+#  'Escherichia coli DH5[alpha]'    ?
 #  'Escherichia coli K-12'    ?
 #  'Escherichia coli O103:H2 str. 12009'    ?
 #  'Escherichia coli-Pichia pastoris shuttle vector pPpARG4'    ?
+#  'Escherichia phage Ecwhy_1'    ?
 #  'Euplotes nobilii'    ?
 #  'Euplotes petzi'    ?
 #  'Euplotes raikovi'    ?
@@ -21750,6 +21753,7 @@ of the entity.
 #  'Panax ginseng'    ?
 #  'Pelodiscus sinensis'    ?
 #  'Penicillium chrysogenum'    ?
+#  'Penicillium rubens Wisconsin 54-1255'    ?
 #  'Petroselinum crispum'    ?
 #  'Pichia'    ?
 #  'Pisum sativum'    ?
@@ -21759,12 +21763,14 @@ of the entity.
 #  'Pseudomonas fluorescens'    ?
 #  'Rana cascadae'    ?
 #  'Reptilian orthoreovirus'    ?
+#  'Rhodopseudomonas palustris'    ?
 #  'Saccharomyces cerevisiae'    ?
 #  'Shigella flexneri'    ?
 #  'Spodoptera frugiperda'    ?
 #  'Staphylococcus epidermidis'    ?
 #  'Stellaria media'    ?
 #  'Streptomonospora alba'    ?
+#  'Streptomyces avermitilis'    ?
 #  'Streptomyces coelicolor'    ?
 #  'Streptomyces leeuwenhoekii'    ?
 #  'Streptomyces lividans'    ?
@@ -21773,6 +21779,7 @@ of the entity.
 #  'Sulfolobus solfataricus'    ?
 #  'Sus scrofa'    ?
 #  'synthetic construct'    ?
+#  'Thioalkalivibrio paradoxus'    ?
 #  'Triticum aestivum'    ?
 #  'Vibrio sp. 60'    ?
 #  'Vitis vinifera'    ?
