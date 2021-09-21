@@ -1,7 +1,7 @@
-PREFIX BMRBo: <https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#>
+PREFIX BMRBo: <http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#>
 
 SELECT ?entity_id ?sequence
-FROM <https://bmrbpub.pdbj.org/rdf/bmr>
+FROM <http://bmrbpub.pdbj.org/rdf/bmr>
 WHERE {
 
   ?s_up BMRBo:entity.entry_id ?entry_id ; # fill entry_id.

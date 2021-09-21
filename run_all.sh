@@ -161,7 +161,7 @@ if [ $? = 0 ] && [ $update_virtuoso = "true" ] ; then
 
    sleep 180
 
-   GRAPH_URI=https://bmrbpub.pdbj.org/rdf/bmr
+   GRAPH_URI=http://bmrbpub.pdbj.org/rdf/bmr
    graph_exist=`./ask_graph_existance.sh $GRAPH_URI` || exit 1
 
    if [ $bmr_ulist_len -gt 0 ] || [ $graph_exist = 0 ] ; then
@@ -176,7 +176,7 @@ if [ $? = 0 ] && [ $update_virtuoso = "true" ] ; then
 
    sleep 180
 
-   GRAPH_URI=https://bmrbpub.pdbj.org/rdf/bms
+   GRAPH_URI=http://bmrbpub.pdbj.org/rdf/bms
    graph_exist=`./ask_graph_existance.sh $GRAPH_URI` || exit 1
 
    if [ $bms_ulist_len -gt 0 ] || [ $graph_exist = 0 ] ; then

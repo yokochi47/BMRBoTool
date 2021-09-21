@@ -33,7 +33,7 @@ by Masahide Kanzaki, and from the OWL2HTML stylesheet (2), by Li Ding. We are ve
   <!ENTITY owl "http://www.w3.org/2002/07/owl#">
   <!ENTITY dc "http://purl.org/dc/elements/1.1/">
   <!ENTITY dcterms "http://purl.org/dc/terms/">
-  <!ENTITY PDBo "https://rdf.wwpdb.org/schema/pdbx-v50.owl#">
+  <!ENTITY PDBo "http://rdf.wwpdb.org/schema/pdbx-v50.owl#">
 ]>
 <xsl:stylesheet
  version="1.0"
@@ -46,7 +46,7 @@ by Masahide Kanzaki, and from the OWL2HTML stylesheet (2), by Li Ding. We are ve
  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
  xmlns:dc="http://purl.org/dc/elements/1.1/"
  xmlns:dcterms="http://purl.org/dc/terms/"
- xmlns:PDBo="https://rdf.wwpdb.org/schema/pdbx-v50.owl#"
+ xmlns:PDBo="http://rdf.wwpdb.org/schema/pdbx-v50.owl#"
  exclude-result-prefixes="xsd html">
 
   <xsl:output
@@ -453,7 +453,7 @@ hr {
           <xsl:value-of select="$name" />
         </a>
       </xsl:when>
-      <xsl:when test="$ns='https://rdf.wwpdb.org/schema/pdbx-v50.owl#'">
+      <xsl:when test="$ns='http://rdf.wwpdb.org/schema/pdbx-v50.owl#'">
         <a href="{concat($ns,$name)}">
           PDBo:
           <xsl:value-of select="$name" />
@@ -494,7 +494,7 @@ hr {
         <xsl:text>http://purl.org/dc/terms/</xsl:text>
       </xsl:when>
       <xsl:when test="$prefix='PDBo'">
-        <xsl:text>https://rdf.wwpdb.org/schema/pdbx-v50.owl#</xsl:text>
+        <xsl:text>http://rdf.wwpdb.org/schema/pdbx-v50.owl#</xsl:text>
       </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="concat($prefix,':')" />

@@ -6,8 +6,8 @@
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:owl="http://www.w3.org/2002/07/owl#"
-  xmlns:BMRBx="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd"
-  xmlns:BMRBo="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#"
+  xmlns:BMRBx="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd"
+  xmlns:BMRBo="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#"
   exclude-result-prefixes="BMRBx">
     
   <xsl:output method="xml" indent="yes"/>
@@ -39,9 +39,9 @@
   <xsl:variable name="refseq-ident">http://identifiers.org/refseq/</xsl:variable>
   <xsl:variable name="scop">http://scop.berkeley.edu/sunid=</xsl:variable>
   <xsl:variable name="scop-ident">http://identifiers.org/scop/</xsl:variable>
-  <xsl:variable name="pdb">https://rdf.wwpdb.org/pdb/</xsl:variable>
+  <xsl:variable name="pdb">http://rdf.wwpdb.org/pdb/</xsl:variable>
   <xsl:variable name="pdb-ident">http://identifiers.org/pdb/</xsl:variable>
-  <xsl:variable name="pdb-ccd">https://rdf.wwpdb.org/cc/</xsl:variable>
+  <xsl:variable name="pdb-ccd">http://rdf.wwpdb.org/cc/</xsl:variable>
   <xsl:variable name="pdb-ccd-ident">http://identifiers.org/pdb-ccd/</xsl:variable>
   <xsl:variable name="pdb.ligand">http://ligand-expo.rcsb.org/pyapps/ldHandler.py?formid=cc-index-search&amp;operation=ccid&amp;target=</xsl:variable>
   <xsl:variable name="pdb.ligand-ident">http://identifiers.org/pdb.ligand/</xsl:variable>
@@ -52,20 +52,20 @@
 
   <xsl:variable name="base">
     <xsl:choose>
-      <xsl:when test="starts-with($entry_id, 'bms')">https://bmrbpub.pdbj.org/rdf/<xsl:value-of select="$entry_id"/></xsl:when>
-      <xsl:otherwise>https://bmrbpub.pdbj.org/rdf/bmr<xsl:value-of select="$entry_id"/></xsl:otherwise>
+      <xsl:when test="starts-with($entry_id, 'bms')">http://bmrbpub.pdbj.org/rdf/<xsl:value-of select="$entry_id"/></xsl:when>
+      <xsl:otherwise>http://bmrbpub.pdbj.org/rdf/bmr<xsl:value-of select="$entry_id"/></xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
   <xsl:variable name="bmrb">
     <xsl:choose>
-      <xsl:when test="starts-with($entry_id, 'bmse')">http://www.bmrb.wisc.edu/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/</xsl:when>
-      <xsl:when test="starts-with($entry_id, 'bmst')">http://www.bmrb.wisc.edu/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/</xsl:when>
-      <xsl:otherwise>http://www.bmrb.wisc.edu/ftp/pub/bmrb/entry_lists/nmr-star3.1/bmr</xsl:otherwise>
+      <xsl:when test="starts-with($entry_id, 'bmse')">https://bmrb.io/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/</xsl:when>
+      <xsl:when test="starts-with($entry_id, 'bmst')">https://bmrb.io/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/</xsl:when>
+      <xsl:otherwise>https://bmrb.io/ftp/pub/bmrb/entry_lists/nmr-star3.1/bmr</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
-  <xsl:variable name="pdbj-bmrb">
+  <xsl:variable name="bmrbj_mirror">
     <xsl:choose>
       <xsl:when test="starts-with($entry_id, 'bmse')">https://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/</xsl:when>
       <xsl:when test="starts-with($entry_id, 'bmst')">https://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/</xsl:when>
@@ -73,18 +73,10 @@
     </xsl:choose>
   </xsl:variable>
 
-  <xsl:variable name="bmrb-cerm">
-    <xsl:choose>
-      <xsl:when test="starts-with($entry_id, 'bmse')">http://bmrb.cerm.unifi.it/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/</xsl:when>
-      <xsl:when test="starts-with($entry_id, 'bmst')">http://bmrb.cerm.unifi.it/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/</xsl:when>
-      <xsl:otherwise>http://bmrb.cerm.unifi.it/ftp/pub/bmrb/entry_lists/nmr-star3.1/bmr</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
   <xsl:variable name="bmrbx">
     <xsl:choose>
-      <xsl:when test="starts-with($entry_id, 'bms')">https://bmrbpub.pdbj.org/xml/bms/</xsl:when>
-      <xsl:otherwise>https://bmrbpub.pdbj.org/xml/bmr/bmr</xsl:otherwise>
+      <xsl:when test="starts-with($entry_id, 'bms')">http://bmrbpub.pdbj.org/xml/bms/</xsl:when>
+      <xsl:otherwise>http://bmrbpub.pdbj.org/xml/bmr/bmr</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
@@ -97,12 +89,12 @@
 
   <xsl:variable name="bmrb_url">
     <xsl:choose>
-      <xsl:when test="starts-with($entry_id, 'bms')">https://bmrbpub.pdbj.org/rdf/</xsl:when>
-      <xsl:otherwise>https://bmrbpub.pdbj.org/rdf/bmr</xsl:otherwise>
+      <xsl:when test="starts-with($entry_id, 'bms')">http://bmrbpub.pdbj.org/rdf/</xsl:when>
+      <xsl:otherwise>http://bmrbpub.pdbj.org/rdf/bmr</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
-  <xsl:variable name="bmrbj">
+  <xsl:variable name="bmrbj_portal">
     <xsl:choose>
       <xsl:when test="starts-with($entry_id, 'bms')">https://bmrbj.pdbj.org/bms/</xsl:when>
       <xsl:otherwise>https://bmrbj.pdbj.org/bmr/bmr</xsl:otherwise>
@@ -119,10 +111,9 @@
   <xsl:template match="/BMRBx:datablock">
     <BMRBo:datablock rdf:about="{$base}" rdfs:label="{$bmrb_urn}{$entry_id}">
       <rdfs:seeAlso rdf:resource="{$bmrbx}{$entry_id}-noatom.xml"/>
-      <rdfs:seeAlso rdf:resource="{$bmrbj}{$entry_id}"/>
-      <rdfs:seeAlso rdf:resource="{$pdbj-bmrb}{$entry_id}.str"/>
+      <rdfs:seeAlso rdf:resource="{$bmrbj_portal}{$entry_id}"/>
+      <rdfs:seeAlso rdf:resource="{$bmrbj_mirror}{$entry_id}.str"/>
       <rdfs:seeAlso rdf:resource="{$bmrb}{$entry_id}.str"/>
-      <rdfs:seeAlso rdf:resource="{$bmrb-cerm}{$entry_id}.str"/>
 
       <BMRBo:datablockName><xsl:value-of select="@datablockName"/></BMRBo:datablockName>
       <xsl:apply-templates select="./*"/>

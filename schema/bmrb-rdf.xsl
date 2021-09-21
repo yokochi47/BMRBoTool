@@ -2,7 +2,7 @@
 <xsl:stylesheet
    version="1.0"
    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-   xmlns:BMRBo="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#"
+   xmlns:BMRBo="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
    xmlns:owl="http://www.w3.org/2002/07/owl#"
@@ -10,8 +10,8 @@
   <xsl:output method="html" indent="yes"/>
 
   <xsl:strip-space elements="*"/>
-  <xsl:variable name="BMRBo">https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#</xsl:variable>
-  <xsl:variable name="BMRBr" select="'https://bmrbpub.pdbj.org/rdf/'" />
+  <xsl:variable name="BMRBo">http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#</xsl:variable>
+  <xsl:variable name="BMRBr" select="'http://bmrbpub.pdbj.org/rdf/'" />
   <xsl:variable name="rdf">http://www.w3.org/1999/02/22-rdf-syntax-ns#</xsl:variable>
   <xsl:variable name="rdfs">http://www.w3.org/2000/01/rdf-schema#</xsl:variable>
   <xsl:variable name="owl">http://www.w3.org/2002/07/owl#</xsl:variable>
@@ -135,9 +135,9 @@
         <li>rdf:  &lt;<a href="https://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a>&gt;</li>
         <li>rdfs:  &lt;<a href="https://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>&gt;</li>
         <li>owl:  &lt;<a href="https://www.w3.org/2002/07/owl#">http://www.w3.org/2002/07/owl#</a>&gt;</li>
-        <li>BMRBx:  &lt;<a href="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd">https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd</a>&gt;</li>
-        <li>BMRBo:  &lt;<a href="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#">https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#</a>&gt;</li>
-        <li>BMRBr:  &lt;<a href="https://bmrbpub.pdbj.org/rdf/">https://bmrbpub.pdbj.org/rdf/</a>&gt;</li>
+        <li>BMRBx:  &lt;<a href="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd">http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd</a>&gt;</li>
+        <li>BMRBo:  &lt;<a href="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#">http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#</a>&gt;</li>
+        <li>BMRBr:  &lt;<a href="http://bmrbpub.pdbj.org/rdf/">http://bmrbpub.pdbj.org/rdf/</a>&gt;</li>
     </ul>
         </span>
     </div>
@@ -158,10 +158,10 @@
             <td><h5>BMRB/RDF:</h5></td>
             <td><h5>BMRB/RDF (N-Triples):</h5></td>
         </tr>
-            <xsl:variable name="url_bmrb-xml" select="concat('https://bmrbpub.pdbj.org/archive/xml/', $entry_id, '.xml.gz')" />
-            <xsl:variable name="url_bmrb-xml-noatom" select="concat('https://bmrbpub.pdbj.org/archive/xml-noatom/', $entry_id, '-noatom.xml.gz')" />
-            <xsl:variable name="url_bmrb-rdf" select="concat('https://bmrbpub.pdbj.org/archive/rdf/', $entry_id, '.rdf.gz')" />
-            <xsl:variable name="url_bmrb-nt" select="concat('https://bmrbpub.pdbj.org/archive/nt/', $entry_id, '.nt.gz')" />
+            <xsl:variable name="url_bmrb-xml" select="concat('http://bmrbpub.pdbj.org/archive/xml/', $entry_id, '.xml.gz')" />
+            <xsl:variable name="url_bmrb-xml-noatom" select="concat('http://bmrbpub.pdbj.org/archive/xml-noatom/', $entry_id, '-noatom.xml.gz')" />
+            <xsl:variable name="url_bmrb-rdf" select="concat('http://bmrbpub.pdbj.org/archive/rdf/', $entry_id, '.rdf.gz')" />
+            <xsl:variable name="url_bmrb-nt" select="concat('http://bmrbpub.pdbj.org/archive/nt/', $entry_id, '.nt.gz')" />
             <xsl:variable name="apos">'</xsl:variable>
         <tr>
             <td>
@@ -253,7 +253,7 @@
         <td>
         <form method="get" action="rdf/subject_search.php" name="subject">
         <div class="ui-widget">
-            <label for="subject">Subject: <b>https://bmrbpub.pdbj.org/rdf/</b></label>
+            <label for="subject">Subject: <b>http://bmrbpub.pdbj.org/rdf/</b></label>
             <input name="subject" id="subject" class="ui-widget-content ui-corner-all"><xsl:attribute name="value"><xsl:value-of select="$entry_id" /></xsl:attribute></input>&#160;<input type="submit" class="button" value="Submit" />
             <label><span class="xsmall">bmr+entry_id/description (e.g. bmr15400/chem_compCategory, bmse000400/atom_chem_shiftCategory).</span></label>
         </div>
@@ -273,7 +273,7 @@
         <div class="ui-widget">
             <label for="predicate">Predicate: <b>BMRBo:</b></label>
             <input name="predicate" id="predicate" value="" class="ui-widget-content ui-corner-all" />&#160;<input type="submit" class="button" value="Submit" />
-            <label><span class="xsmall">Refer to <a href="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl">BMRB/OWL</a> (e.g. datablockName, has_chem_compCategory).</span></label>
+            <label><span class="xsmall">Refer to <a href="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl">BMRB/OWL</a> (e.g. datablockName, has_chem_compCategory).</span></label>
         </div>
         </form>
         </td>
@@ -304,10 +304,10 @@
     <div class="span9">
     <table id="footer" border="0" callpadding="16" cellspacing="16" align="center">
     <tr>
-        <td><a href="https://bmrb.io/"><img src="images/bmrb.svg" alt="BMRB" width="120" height="60" hspace="0" /></a></td>
-        <td><a href="https://bmrbj.pdbj.org/"><img src="images/bmrbj.png" alt="BMRBj" width="120" height="60" hspace="0" /></a></td>
-        <td><a href="https://pdbj.org/"><img src="images/pdbj.png" alt="PDBj" /></a></td>
-        <td><a href="https://www.wwpdb.org/"><img src="images/wwpdb.png" alt="wwPDB" /></a></td>
+        <td><a href="https://bmrb.io"><img src="images/bmrb.svg" alt="BMRB" width="120" height="60" hspace="0" /></a></td>
+        <td><a href="https://bmrbj.pdbj.org"><img src="images/bmrbj.png" alt="BMRBj" width="120" height="60" hspace="0" /></a></td>
+        <td><a href="https://pdbj.org"><img src="images/pdbj.png" alt="PDBj" /></a></td>
+        <td><a href="https://www.wwpdb.org"><img src="images/wwpdb.png" alt="wwPDB" /></a></td>
         <td><a href="https://biosciencedbc.jp/en/"><img src="images/nbdc.png" alt="NBDC" /></a></td>
     </tr>
     </table>

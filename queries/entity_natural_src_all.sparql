@@ -1,8 +1,8 @@
-PREFIX BMRBo: <https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#>
+PREFIX BMRBo: <http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 SELECT ?entry_id ?entity_id ?entity_label ?type ?species ?tax_id ?link_to_taxonomy
-FROM <https://bmrbpub.pdbj.org/rdf/bmr>
+FROM <http://bmrbpub.pdbj.org/rdf/bmr>
 WHERE {
 
   ?s_src BMRBo:entity_natural_src.entry_id ?entry_id ;

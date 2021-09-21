@@ -28,21 +28,21 @@
 &lt;?xml-stylesheet type="text/xsl" href="https://bmrbpub.pdbj.org/schema/owl2xhtml.xsl"?&gt;
 </xsl:text>
     <rdf:RDF
-       xml:base="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl"
+       xml:base="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl"
        xmlns:xml="http://www.w3.org/XML/1998/namespace"
        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
        xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
        xmlns:owl="http://www.w3.org/2002/07/owl#"
        xmlns:dc="http://purl.org/dc/elements/1.1/"
        xmlns:dcterms="http://purl.org/dc/terms/"
-       xmlns:PDBo="https://rdf.wwpdb.org/schema/pdbx-v50.owl#">
+       xmlns:PDBo="http://rdf.wwpdb.org/schema/pdbx-v50.owl#">
 
-      <owl:Ontology rdf:about="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl">
+      <owl:Ontology rdf:about="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl">
 	<rdfs:label>BMRB/OWL</rdfs:label>
 	<rdfs:comment xml:lang="en">The OWL ontology for BMRB/RDF.</rdfs:comment>
-	<rdfs:seeAlso rdf:resource="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd"/>
-	<rdfs:seeAlso rdf:resource="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.dic"/>
-        <owl:versionIRI rdf:resource="https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl/{$dic_version}"/>
+	<rdfs:seeAlso rdf:resource="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd"/>
+	<rdfs:seeAlso rdf:resource="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.dic"/>
+        <owl:versionIRI rdf:resource="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl/{$dic_version}"/>
       </owl:Ontology>
 
       <owl:Class rdf:ID="Category">

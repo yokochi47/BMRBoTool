@@ -1,14 +1,14 @@
-PREFIX BMRBo: <https://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#>
+PREFIX BMRBo: <http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX omim_v: <http://bio2rdf.org/omim_vocabulary:>
 
 SELECT DISTINCT ?entity_id ?uniprot_id ?label ?omim_id ?dbsnp_id ?mutation ?phenotype
-FROM <https://bmrbpub.pdbj.org/rdf/bmr>
+FROM <http://bmrbpub.pdbj.org/rdf/bmr>
 FROM <http://purl.uniprot.org/uniprot>
 FROM <http://bio2rdf.org/omim_resource:bio2rdf.dataset.omim.R3>
 WHERE {
 
-  SERVICE <https://bmrbpub.pdbj.org/search/rdf> {
+  SERVICE <http://bmrbpub.pdbj.org/search/rdf> {
 
     ?s_up BMRBo:entity_db_link.entry_id ?entry_id ; # fill entry_id.
           BMRBo:entity_db_link.entity_id ?entity_id ;

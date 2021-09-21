@@ -1,15 +1,15 @@
-PREFIX PDBo: <https://rdf.wwpdb.org/schema/pdbx-v50.owl#>
+PREFIX PDBo: <http://rdf.wwpdb.org/schema/pdbx-v50.owl#>
 
 SELECT DISTINCT ?pdb_id ?entity_id ?pdb_seq ?uniprot_id ?label ?uniprot_seq
-FROM <https://rdf.wwpdb.org/pdb>
+FROM <http://rdf.wwpdb.org/pdb>
 FROM <http://purl.uniprot.org/uniprot>
 WHERE {
 
   BIND ("2IFY" AS ?pdb_id)
 
-  BIND (IRI(CONCAT("https://rdf.wwpdb.org/pdb/", ?pdb_id, "/struct_refCategory")) AS ?s_pdb)
+  BIND (IRI(CONCAT("http://rdf.wwpdb.org/pdb/", ?pdb_id, "/struct_refCategory")) AS ?s_pdb)
 
-  SERVICE <https://bmrbpub.pdbj.org/search/rdf> {
+  SERVICE <http://bmrbpub.pdbj.org/search/rdf> {
 
     ?s_pdb PDBo:has_struct_ref ?o_struct_ref .
 
@@ -21,9 +21,9 @@ WHERE {
 
   }
 
-  BIND (IRI(CONCAT("https://rdf.wwpdb.org/pdb/", ?pdb_id, "/entity_poly/", ?entity_id)) AS ?s_pdb_entity_poly)
+  BIND (IRI(CONCAT("http://rdf.wwpdb.org/pdb/", ?pdb_id, "/entity_poly/", ?entity_id)) AS ?s_pdb_entity_poly)
 
-  SERVICE <https://bmrbpub.pdbj.org/search/rdf> {
+  SERVICE <http://bmrbpub.pdbj.org/search/rdf> {
 
     ?s_pdb_entity_poly PDBo:entity_poly.pdbx_seq_one_letter_code ?pdb_seq .
 

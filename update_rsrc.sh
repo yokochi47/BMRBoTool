@@ -17,6 +17,8 @@ if [ $# = 0 ] || [ $1 = "xsd" ] ; then
 
  java -cp $BMRBX_TOOL_HOME/extlibs/xsd2pgschema.jar xsd2pgschema --xsd $XML_SCHEMA --no-rel --hash-by SHA-1 --inplace-doc-key-name entry_id --inplace-doc-key-name entry.id > $DB_SCHEMA
 
+ cp -f $DB_SCHEMA $BMRBX_TOOL_HOME/schema/bmrb_clone.schema
+
 # DB_SCHEMA=schema/mmcif_nmr-star.xsd-strict.schema
 # java -cp $BMRBX_TOOL_HOME/extlibs/xsd2pgschema.jar xsd2pgschema --xsd $XML_SCHEMA > $DB_SCHEMA
 

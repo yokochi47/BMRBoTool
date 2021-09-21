@@ -44,7 +44,7 @@ if [ -e $NMRSTAR_DIC_FILE ] ; then
 
 fi
 
-sed -i 's/="http:\/\/pdbml.pdb.org/="https:\/\/bmrbpub.pdbj.org/' $DIC_PREFIX-v$DIC_VERSION.xsd
+sed -i 's/="http:\/\/pdbml.pdb.org/="http:\/\/bmrbpub.pdbj.org/' $DIC_PREFIX-v$DIC_VERSION.xsd
 
 sed '2,6d' $DIC_PREFIX-v$DIC_VERSION.xsd |\
 grep -v "enumeration value=\"\"" |\
@@ -112,7 +112,7 @@ java -jar $SAXON -s:$DIC_PREFIX-v$DIC_VERSION.xsd -xsl:$APPEND_XSD_XSL -o:$DIC_P
 
 mv $DIC_PREFIX-v$DIC_VERSION.xsd~ $DIC_PREFIX-v$DIC_VERSION.xsd
 
-sed -i -e "3,2h; s/http:\/\/pdbml.pdb.org/https:\/\/bmrbpub.pdbj.org/g" $DIC_PREFIX-v$DIC_VERSION.xsd
+sed -i -e "3,2h; s/http:\/\/pdbml.pdb.org/http:\/\/bmrbpub.pdbj.org/g" $DIC_PREFIX-v$DIC_VERSION.xsd
 sed -i -e "s/xsd:integer/xsd:int/g" $DIC_PREFIX-v$DIC_VERSION.xsd
 
 sed '1a\<?xml-stylesheet type="text/xsl" href="https://bmrbpub.pdbj.org/schema/xs3p.xsl"?>' $DIC_PREFIX-v$DIC_VERSION.xsd > $DIC_PREFIX-v$DIC_VERSION.xsd~
