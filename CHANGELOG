@@ -1,8 +1,9 @@
  Changes in BMRBoTool 1.35.0 (release 2021-09-21)
 
   Synchronus update with BMRBxTool.
-  Changed namespace URI to http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd.
-  Changed namespace URI of PDB/RDF to http://rdf.wwpdb.org/schema/pdbx-v50.owl.
+  Changed namespace URI to http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd. (BMRBx)
+  Changed namespace URI to http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl. (BMRBo)
+  Changed namespace URI of PDB/RDF to http://rdf.wwpdb.org/schema/pdbx-v50.owl. (PDBo)
 
  Changes in BMRBoTool 1.34.0 (release 2021-05-17)
 
