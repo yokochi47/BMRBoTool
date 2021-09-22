@@ -16,7 +16,7 @@
   <xsl:output method="xml" indent="yes"/>
   <xsl:strip-space elements="*"/>
   <xsl:variable name="bmrbid"><xsl:value-of select="/BMRBx:datablock/BMRBx:entryCategory/BMRBx:entry/@id"/></xsl:variable>
-  <xsl:variable name="BMRBID"><xsl:value-of select="translate($bmrbid,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')"/></xsl:variable>
+  <xsl:variable name="BMRBID"><xsl:value-of select="translate($bmrbid,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></xsl:variable>
   <xsl:variable name="idorg">http://identifiers.org/</xsl:variable>
   <xsl:variable name="doi">http://doi.org/</xsl:variable>
   <xsl:variable name="orcid">http://orcid.org/</xsl:variable>
@@ -106,7 +106,7 @@
   <!-- level 1 -->
   <xsl:template match="/BMRBx:datablock">
     <BMRBo:datablock rdf:about="{$base}" rdfs:label="{$bmrb_urn}{$bmrbid}">
-      <dcterms:references rdfs:label="doi:{$bmrb_doi}"/><xsl:value-of select="{$doi}{$bmrb_doi}"/></dcterms:references>
+      <dcterms:references rdfs:label="doi:{$bmrb_doi}"><xsl:value-of select="concat($doi,$bmrb_doi)"/></dcterms:references>
       <dcterms:identifier><xsl:value-of select="{$bmrbid}"/></dcterms:identifier>
       <xsl:if test="not(starts-with($bmrbid, 'bms'))">
         <skos:altLabel><xsl:value-of select="bmr{$bmrbid}"/></skos:altLabel>

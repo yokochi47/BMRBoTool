@@ -38,7 +38,7 @@
   &lt;xsl:output method="xml" indent="yes"/&gt;
   &lt;xsl:strip-space elements="*"/&gt;
   &lt;xsl:variable name="bmrbid"&gt;&lt;xsl:value-of select="/BMRBx:datablock/BMRBx:entryCategory/BMRBx:entry/@id"/&gt;&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="BMRBID"&gt;&lt;xsl:value-of select="translate($bmrbid,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')"/&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:variable name="BMRBID"&gt;&lt;xsl:value-of select="translate($bmrbid,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/&gt;&lt;/xsl:variable&gt;
   &lt;xsl:variable name="idorg"&gt;http://identifiers.org/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="doi"&gt;http://doi.org/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="orcid"&gt;http://orcid.org/&lt;/xsl:variable&gt;
@@ -128,7 +128,7 @@
   &lt;!-- level 1 --&gt;
   &lt;xsl:template match="/BMRBx:datablock"&gt;
     &lt;BMRBo:datablock rdf:about="{$base}" rdfs:label="{$bmrb_urn}{$bmrbid}"&gt;
-      &lt;dcterms:references rdfs:label="doi:{$bmrb_doi}"/&gt;&lt;xsl:value-of select="{$doi}{$bmrb_doi}"/&gt;&lt;/dcterms:references&gt;
+      &lt;dcterms:references rdfs:label="doi:{$bmrb_doi}"&gt;&lt;xsl:value-of select="concat($doi,$bmrb_doi)"/&gt;&lt;/dcterms:references&gt;
       &lt;dcterms:identifier&gt;&lt;xsl:value-of select="{$bmrbid}"/&gt;&lt;/dcterms:identifier&gt;
       &lt;xsl:if test="not(starts-with($bmrbid, 'bms'))"&gt;
         &lt;skos:altLabel&gt;&lt;xsl:value-of select="bmr{$bmrbid}"/&gt;&lt;/skos:altLabel&gt;
