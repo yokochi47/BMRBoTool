@@ -128,12 +128,12 @@
   &lt;!-- level 1 --&gt;
   &lt;xsl:template match="/BMRBx:datablock"&gt;
     &lt;BMRBo:datablock rdf:about="{$base}" rdfs:label="{$bmrb_urn}{$bmrbid}"&gt;
-      &lt;dcterms:references rdf:resource="{$doi}{$bmrb_doi}" rdfs:label="doi:{$bmrb_doi}"/&gt;
-      &lt;dcterms:identifier&gt;&lt;xsl:value-of select="{$bmrbid}"/&gt;
+      &lt;dcterms:references rdfs:label="doi:{$bmrb_doi}"/&gt;&lt;xsl:value-of select="{$doi}{$bmrb_doi}"/&gt;&lt;/dcterms:references&gt;
+      &lt;dcterms:identifier&gt;&lt;xsl:value-of select="{$bmrbid}"/&gt;&lt;/dcterms:identifier&gt;
       &lt;xsl:if test="not(starts-with($bmrbid, 'bms'))"&gt;
-        &lt;skos:altLabel&gt;&lt;xsl:value-of select="bmr{$bmrbid}"/&gt;
+        &lt;skos:altLabel&gt;&lt;xsl:value-of select="bmr{$bmrbid}"/&gt;&lt;/skos:altLabel&gt;
       &lt;/xsl:if&gt;
-      &lt;dc:title&gt;&lt;xsl:value-of select="BMRBx:entryCategory/BMRBx:entry/BMRBx:title/text()"/&gt;/&gt;
+      &lt;dc:title&gt;&lt;xsl:value-of select="BMRBx:entryCategory/BMRBx:entry/BMRBx:title/text()"/&gt;&lt;/dc:title&gt;
       &lt;rdfs:seeAlso rdf:resource="{$bmrbx}{$bmrbid}-noatom.xml"/&gt;
       &lt;rdfs:seeAlso rdf:resource="{$bmrbj_portal}{$bmrbid}"/&gt;
       &lt;rdfs:seeAlso rdf:resource="{$bmrbj_mirror}{$bmrbid}.str"/&gt;

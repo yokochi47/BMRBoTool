@@ -106,12 +106,12 @@
   <!-- level 1 -->
   <xsl:template match="/BMRBx:datablock">
     <BMRBo:datablock rdf:about="{$base}" rdfs:label="{$bmrb_urn}{$bmrbid}">
-      <dcterms:references rdf:resource="{$doi}{$bmrb_doi}" rdfs:label="doi:{$bmrb_doi}"/>
-      <dcterms:identifier><xsl:value-of select="{$bmrbid}"/>
+      <dcterms:references rdfs:label="doi:{$bmrb_doi}"/><xsl:value-of select="{$doi}{$bmrb_doi}"/></dcterms:references>
+      <dcterms:identifier><xsl:value-of select="{$bmrbid}"/></dcterms:identifier>
       <xsl:if test="not(starts-with($bmrbid, 'bms'))">
-        <skos:altLabel><xsl:value-of select="bmr{$bmrbid}"/>
+        <skos:altLabel><xsl:value-of select="bmr{$bmrbid}"/></skos:altLabel>
       </xsl:if>
-      <dc:title><xsl:value-of select="BMRBx:entryCategory/BMRBx:entry/BMRBx:title/text()"/>/>
+      <dc:title><xsl:value-of select="BMRBx:entryCategory/BMRBx:entry/BMRBx:title/text()"/></dc:title>
       <rdfs:seeAlso rdf:resource="{$bmrbx}{$bmrbid}-noatom.xml"/>
       <rdfs:seeAlso rdf:resource="{$bmrbj_portal}{$bmrbid}"/>
       <rdfs:seeAlso rdf:resource="{$bmrbj_mirror}{$bmrbid}.str"/>
