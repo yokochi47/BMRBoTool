@@ -21,6 +21,9 @@
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
   xmlns:BMRBx="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd"
   xmlns:BMRBo="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#"
   exclude-result-prefixes="BMRBx"&gt;
@@ -34,92 +37,85 @@
     <xsl2:text disable-output-escaping="yes">
   &lt;xsl:output method="xml" indent="yes"/&gt;
   &lt;xsl:strip-space elements="*"/&gt;
-  &lt;xsl:variable name="entry_id"&gt;&lt;xsl:value-of select="/BMRBx:datablock/BMRBx:entryCategory/BMRBx:entry/@id"/&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:variable name="bmrbid"&gt;&lt;xsl:value-of select="/BMRBx:datablock/BMRBx:entryCategory/BMRBx:entry/@id"/&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:variable name="BMRBID"&gt;&lt;xsl:value-of select="translate($bmrbid,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')"/&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:variable name="idorg"&gt;http://identifiers.org/&lt;/xsl:variable&gt;
+  &lt;xsl:variable name="doi"&gt;http://doi.org/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="orcid"&gt;http://orcid.org/&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="orcid-ident"&gt;http://identifiers.org/orcid/&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="doi"&gt;http://dx.doi.org/&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="doi-ident"&gt;http://identifiers.org/doi/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="pubmed"&gt;http://rdf.ncbi.nlm.nih.gov/pubmed/&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="pubmed-ident"&gt;http://identifiers.org/pubmed/&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="issn"&gt;http://www.worldcat.org/issn/&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="issn-ident"&gt;http://identifiers.org/issn/&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="isbn"&gt;http://www.isbnsearch.org/isbn/&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="isbn-ident"&gt;http://identifiers.org/isbn/&lt;/xsl:variable&gt;
+  &lt;xsl:variable name="issn"&gt;http://portal.issn.org/resource/ISSN/&lt;/xsl:variable&gt;
+  &lt;xsl:variable name="isbn"&gt;http://www.worldcat.org/isbn/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="taxonomy"&gt;http://purl.uniprot.org/taxonomy/&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="taxonomy-ident"&gt;http://identifiers.org/taxonomy/&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="ec-code"&gt;http://enzyme.expasy.org/EC/&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="ec-code-ident"&gt;http://identifiers.org/ec-code/&lt;/xsl:variable&gt;
+  &lt;xsl:variable name="enzyme"&gt;http://purl.uniprot.org/enzyme/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="uniprot"&gt;http://purl.uniprot.org/uniprot/&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="uniprot-ident"&gt;http://identifiers.org/uniprot/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="ddbj"&gt;http://www.ncbi.nlm.nih.gov/protein/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="embl"&gt;http://www.ncbi.nlm.nih.gov/protein/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="genbank"&gt;http://www.ncbi.nlm.nih.gov/protein/&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="ncbiprotein-ident"&gt;http://identifiers.org/ncbiprotein/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="pir"&gt;http://www.ncbi.nlm.nih.gov/protein/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="prf"&gt;http://www.ncbi.nlm.nih.gov/protein/?term=prf+&lt;/xsl:variable&gt;
   &lt;xsl:variable name="refseq"&gt;http://www.ncbi.nlm.nih.gov/protein/&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="refseq-ident"&gt;http://identifiers.org/refseq/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="scop"&gt;http://scop.berkeley.edu/sunid=&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="scop-ident"&gt;http://identifiers.org/scop/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="pdb"&gt;http://rdf.wwpdb.org/pdb/&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="pdb-ident"&gt;http://identifiers.org/pdb/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="pdb-ccd"&gt;http://rdf.wwpdb.org/cc/&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="pdb-ccd-ident"&gt;http://identifiers.org/pdb-ccd/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="pdb.ligand"&gt;http://ligand-expo.rcsb.org/pyapps/ldHandler.py?formid=cc-index-search&amp;amp;operation=ccid&amp;amp;target=&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="pdb.ligand-ident"&gt;http://identifiers.org/pdb.ligand/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="pubchem.substance"&gt;http://rdf.ncbi.nlm.nih.gov/pubchem/substance/SID&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="pubchem.substance-ident"&gt;http://identifiers.org/pubchem.substance/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="pubchem.compound"&gt;http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="pubchem.compound-ident"&gt;http://identifiers.org/pubchem.compound/&lt;/xsl:variable&gt;
 
   &lt;xsl:variable name="base"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($entry_id, 'bms')"&gt;http://bmrbpub.pdbj.org/rdf/&lt;xsl:value-of select="$entry_id"/&gt;&lt;/xsl:when&gt;
-      &lt;xsl:otherwise&gt;http://bmrbpub.pdbj.org/rdf/bmr&lt;xsl:value-of select="$entry_id"/&gt;&lt;/xsl:otherwise&gt;
+      &lt;xsl:when test="starts-with($bmrbid, 'bms')"&gt;http://bmrbpub.pdbj.org/rdf/&lt;xsl:value-of select="$bmrbid"/&gt;&lt;/xsl:when&gt;
+      &lt;xsl:otherwise&gt;http://bmrbpub.pdbj.org/rdf/bmr&lt;xsl:value-of select="$bmrbid"/&gt;&lt;/xsl:otherwise&gt;
+    &lt;/xsl:choose&gt;
+  &lt;/xsl:variable&gt;
+
+  &lt;xsl:variable name="bmrb_doi"&gt;
+    &lt;xsl:choose&gt;
+      &lt;xsl:when test="starts-with($bmrbid, 'bms')"&gt;10.13018/&lt;xsl:value-of select="$BMRBID"/&gt;&lt;/xsl:when&gt;
+      &lt;xsl:otherwise&gt;10.13018/BMR&lt;xsl:value-of select="$bmrbid"/&gt;&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
   &lt;xsl:variable name="bmrb"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($entry_id, 'bmse')"&gt;https://bmrb.io/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/&lt;/xsl:when&gt;
-      &lt;xsl:when test="starts-with($entry_id, 'bmst')"&gt;https://bmrb.io/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/&lt;/xsl:when&gt;
-      &lt;xsl:otherwise&gt;https://bmrb.io/ftp/pub/bmrb/entry_lists/nmr-star3.1/bmr&lt;/xsl:otherwise&gt;
+      &lt;xsl:when test="starts-with($bmrbid, 'bmse')"&gt;http://bmrb.io/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/&lt;/xsl:when&gt;
+      &lt;xsl:when test="starts-with($bmrbid, 'bmst')"&gt;http://bmrb.io/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/&lt;/xsl:when&gt;
+      &lt;xsl:otherwise&gt;http://bmrb.io/ftp/pub/bmrb/entry_lists/nmr-star3.1/bmr&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
   &lt;xsl:variable name="bmrbj_mirror"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($entry_id, 'bmse')"&gt;https://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/&lt;/xsl:when&gt;
-      &lt;xsl:when test="starts-with($entry_id, 'bmst')"&gt;https://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/&lt;/xsl:when&gt;
-      &lt;xsl:otherwise&gt;https://bmrb.pdbj.org/ftp/pub/bmrb/entry_lists/nmr-star3.1/bmr&lt;/xsl:otherwise&gt;
+      &lt;xsl:when test="starts-with($bmrbid, 'bmse')"&gt;http://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/&lt;/xsl:when&gt;
+      &lt;xsl:when test="starts-with($bmrbid, 'bmst')"&gt;http://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/&lt;/xsl:when&gt;
+      &lt;xsl:otherwise&gt;http://bmrb.pdbj.org/ftp/pub/bmrb/entry_lists/nmr-star3.1/bmr&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
   &lt;xsl:variable name="bmrbx"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($entry_id, 'bms')"&gt;http://bmrbpub.pdbj.org/xml/bms/&lt;/xsl:when&gt;
+      &lt;xsl:when test="starts-with($bmrbid, 'bms')"&gt;http://bmrbpub.pdbj.org/xml/bms/&lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;http://bmrbpub.pdbj.org/xml/bmr/bmr&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
   &lt;xsl:variable name="bmrb_urn"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($entry_id, 'bms')"&gt;info:bmrb.metabolomics/&lt;/xsl:when&gt;
+      &lt;xsl:when test="starts-with($bmrbid, 'bms')"&gt;info:bmrb.metabolomics/&lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;info:bmrb/&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
   &lt;xsl:variable name="bmrb_url"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($entry_id, 'bms')"&gt;http://bmrbpub.pdbj.org/rdf/&lt;/xsl:when&gt;
+      &lt;xsl:when test="starts-with($bmrbid, 'bms')"&gt;http://bmrbpub.pdbj.org/rdf/&lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;http://bmrbpub.pdbj.org/rdf/bmr&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
   &lt;xsl:variable name="bmrbj_portal"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($entry_id, 'bms')"&gt;https://bmrbj.pdbj.org/bms/&lt;/xsl:when&gt;
-      &lt;xsl:otherwise&gt;https://bmrbj.pdbj.org/bmr/bmr&lt;/xsl:otherwise&gt;
+      &lt;xsl:when test="starts-with($bmrbid, 'bms')"&gt;http://bmrbj.pdbj.org/bms/&lt;/xsl:when&gt;
+      &lt;xsl:otherwise&gt;http://bmrbj.pdbj.org/bmr/bmr&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
@@ -131,11 +127,17 @@
 
   &lt;!-- level 1 --&gt;
   &lt;xsl:template match="/BMRBx:datablock"&gt;
-    &lt;BMRBo:datablock rdf:about="{$base}" rdfs:label="{$bmrb_urn}{$entry_id}"&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$bmrbx}{$entry_id}-noatom.xml"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$bmrbj_portal}{$entry_id}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$bmrbj_mirror}{$entry_id}.str"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$bmrb}{$entry_id}.str"/&gt;
+    &lt;BMRBo:datablock rdf:about="{$base}" rdfs:label="{$bmrb_urn}{$bmrbid}"&gt;
+      &lt;dcterms:references rdf:resource="{$doi}{$bmrb_doi}" rdfs:label="doi:{$bmrb_doi}"/&gt;
+      &lt;dcterms:identifier&gt;&lt;xsl:value-of select="{$bmrbid}"/&gt;
+      &lt;xsl:if test="not(starts-with($bmrbid, 'bms'))"&gt;
+        &lt;skos:altLabel&gt;&lt;xsl:value-of select="bmr{$bmrbid}"/&gt;
+      &lt;/xsl:if&gt;
+      &lt;dc:title&gt;&lt;xsl:value-of select="BMRBx:entryCategory/BMRBx:entry/BMRBx:title/text()"/&gt;/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$bmrbx}{$bmrbid}-noatom.xml"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$bmrbj_portal}{$bmrbid}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$bmrbj_mirror}{$bmrbid}.str"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$bmrb}{$bmrbid}.str"/&gt;
 
       &lt;BMRBo:datablockName&gt;&lt;xsl:value-of select="@datablockName"/&gt;&lt;/BMRBo:datablockName&gt;
       &lt;xsl:apply-templates select="./*"/&gt;
@@ -173,42 +175,42 @@
   &lt;!-- level 4 (linked data) --&gt;
   &lt;xsl:template match="BMRBx:entry_author/BMRBx:orcid[text() != '' and text() != 'na']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$orcid}{text()}" rdfs:label="info:orcid/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$orcid-ident}{text()}" rdfs:label="urn:miriam:orcid:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}orcid:{text()}" rdfs:label="orcid:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:citation_author/BMRBx:orcid[text() != '' and text() != 'na']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$orcid}{text()}" rdfs:label="info:orcid/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$orcid-ident}{text()}" rdfs:label="urn:miriam:orcid:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}orcid:{text()}" rdfs:label="orcid:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:entry/BMRBx:doi[text() != '' and text() != 'na']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$doi}{text()}" rdfs:label="info:doi/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$doi-ident}{text()}" rdfs:label="urn:miriam:doi:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}doi:{text()}" rdfs:label="doi:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:auxiliary_files/BMRBx:doi[text() != '' and text() != 'na']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$doi}{text()}" rdfs:label="info:doi/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$doi-ident}{text()}" rdfs:label="urn:miriam:doi:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}doi:{text()}" rdfs:label="doi:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:citation/BMRBx:doi[text() != '' and text() != 'na']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$doi}{text()}" rdfs:label="info:doi/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$doi-ident}{text()}" rdfs:label="urn:miriam:doi:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}doi:{text()}" rdfs:label="doi:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:citation/BMRBx:pubmed_id[text() != '' and text() != 'na']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$pubmed}{text()}" rdfs:label="info:pmid/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$pubmed-ident}{text()}" rdfs:label="urn:miriam:pubmed:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}pubmed:{text()}" rdfs:label="pubmed:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:citation/BMRBx:journal_issn[text() != '' and text() != 'na']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$issn}{text()}" rdfs:label="urn:ISSN:{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$issn-ident}{text()}" rdfs:label="urn:miriam:issn:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}issn:{text()}" rdfs:label="issn:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:citation/BMRBx:book_isbn[text() != '' and text() != 'na']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$isbn}{text()}" rdfs:label="urn:ISBN:{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$isbn-ident}{text()}" rdfs:label="urn:miriam:isbn:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}isbn:{text()}" rdfs:label="isbn:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:citation/BMRBx:www_url[text() != '' and text() != 'na']" mode="linked"&gt;
@@ -217,12 +219,12 @@
 
   &lt;xsl:template match="BMRBx:entity_natural_src/BMRBx:ncbi_taxonomy_id[text() != '' and text() != 'na' and text() != 'n/a']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$taxonomy}{text()}" rdfs:label="info:taxonomy/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$taxonomy-ident}{text()}" rdfs:label="urn:miriam:taxonomy:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}taxonomy:{text()}" rdfs:label="taxonomy:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:entity_experimental_src/BMRBx:host_org_ncbi_taxonomy_id[text() != '' and text() != 'na' and text() != 'n/a']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$taxonomy}{text()}" rdfs:label="info:taxonomy/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$taxonomy-ident}{text()}" rdfs:label="urn:miriam:taxonomy:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}taxonomy:{text()}" rdfs:label="taxonomy:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:assembly/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a' and not(contains(text(), ' '))]" mode="linked"&gt;
@@ -230,13 +232,13 @@
       &lt;xsl:when test="contains(text(), ',')"&gt;
         &lt;xsl:for-each select="tokenize(text(), ', ')"&gt;
           &lt;xsl:variable name="ec_number" select="."/&gt;
-          &lt;rdfs:seeAlso rdf:resource="{$ec-code}{$ec_number}" rdfs:label="info:ec-code/{$ec_number}"/&gt;
-          &lt;rdfs:seeAlso rdf:resource="{$ec-code-ident}{$ec_number}" rdfs:label="urn:miriam:ec-code:{$ec_number}"/&gt;
+          &lt;rdfs:seeAlso rdf:resource="{$enzyme}{$ec_number}" rdfs:label="info:ec-code/{$ec_number}"/&gt;
+          &lt;rdfs:seeAlso rdf:resource="{$idorg}ec-code:{$ec_number}" rdfs:label="ec-code:{$ec_number}"/&gt;
         &lt;/xsl:for-each&gt;
       &lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$ec-code}{text()}" rdfs:label="info:ec-code/{text()}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$ec-code-ident}{text()}" rdfs:label="urn:miriam:ec-code:{text()}"/&gt;
+        &lt;rdfs:seeAlso rdf:resource="{$enzyme}{text()}" rdfs:label="info:ec-code/{text()}"/&gt;
+        &lt;rdfs:seeAlso rdf:resource="{$idorg}ec-code:{text()}" rdfs:label="ec-code:{text()}"/&gt;
       &lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:template&gt;
@@ -246,13 +248,13 @@
       &lt;xsl:when test="contains(text(), ',')"&gt;
         &lt;xsl:for-each select="tokenize(text(), ', ')"&gt;
           &lt;xsl:variable name="ec_number" select="."/&gt;
-          &lt;rdfs:seeAlso rdf:resource="{$ec-code}{$ec_number}" rdfs:label="info:ec-code/{$ec_number}"/&gt;
-          &lt;rdfs:seeAlso rdf:resource="{$ec-code-ident}{$ec_number}" rdfs:label="urn:miriam:ec-code:{$ec_number}"/&gt;
+          &lt;rdfs:seeAlso rdf:resource="{$enzyme}{$ec_number}" rdfs:label="info:ec-code/{$ec_number}"/&gt;
+          &lt;rdfs:seeAlso rdf:resource="{$idorg}ec-code:{$ec_number}" rdfs:label="ec-code:{$ec_number}"/&gt;
         &lt;/xsl:for-each&gt;
       &lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$ec-code}{text()}" rdfs:label="info:ec-code/{text()}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$ec-code-ident}{text()}" rdfs:label="urn:miriam:ec-code:{text()}"/&gt;
+        &lt;rdfs:seeAlso rdf:resource="{$enzyme}{text()}" rdfs:label="info:ec-code/{text()}"/&gt;
+        &lt;rdfs:seeAlso rdf:resource="{$idorg}ec-code:{text()}" rdfs:label="ec-code:{text()}"/&gt;
       &lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:template&gt;
@@ -262,118 +264,118 @@
       &lt;xsl:when test="contains(text(), ',')"&gt;
         &lt;xsl:for-each select="tokenize(text(), ', ')"&gt;
           &lt;xsl:variable name="ec_number" select="."/&gt;
-          &lt;rdfs:seeAlso rdf:resource="{$ec-code}{$ec_number}" rdfs:label="info:ec-code/{$ec_number}"/&gt;
-          &lt;rdfs:seeAlso rdf:resource="{$ec-code-ident}{$ec_number}" rdfs:label="urn:miriam:ec-code:{$ec_number}"/&gt;
+          &lt;rdfs:seeAlso rdf:resource="{$enzyme}{$ec_number}" rdfs:label="info:ec-code/{$ec_number}"/&gt;
+          &lt;rdfs:seeAlso rdf:resource="{$idorg}ec-code:{$ec_number}" rdfs:label="ec-code:{$ec_number}"/&gt;
         &lt;/xsl:for-each&gt;
       &lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$ec-code}{text()}" rdfs:label="info:ec-code/{text()}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$ec-code-ident}{text()}" rdfs:label="urn:miriam:ec-code:{text()}"/&gt;
+        &lt;rdfs:seeAlso rdf:resource="{$enzyme}{text()}" rdfs:label="info:ec-code/{text()}"/&gt;
+        &lt;rdfs:seeAlso rdf:resource="{$idorg}ec-code:{text()}" rdfs:label="ec-code:{text()}"/&gt;
       &lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:assembly_db_link[@database_code='SP']/@accession_code" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$uniprot}{.}" rdfs:label="info:uniprot/{.}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$uniprot-ident}{.}" rdfs:label="urn:miriam:uniprot:{.}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}uniprot:{.}" rdfs:label="uniprot:{.}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:entity_db_link[@database_code='SP']/@accession_code" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$uniprot}{.}" rdfs:label="info:uniprot/{.}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$uniprot-ident}{.}" rdfs:label="urn:miriam:uniprot:{.}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}uniprot:{.}" rdfs:label="uniprot:{.}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:related_entries[@database_name='SP']/@database_accession_code" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$uniprot}{.}" rdfs:label="info:uniprot/{.}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$uniprot-ident}{.}" rdfs:label="urn:miriam:uniprot:{.}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}uniprot:{.}" rdfs:label="uniprot:{.}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:matched_entries[@database_name='SP']/@database_accession_code" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$uniprot}{.}" rdfs:label="info:uniprot/{.}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$uniprot-ident}{.}" rdfs:label="urn:miriam:uniprot:{.}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}uniprot:{.}" rdfs:label="uniprot:{.}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:assembly_db_link[@database_code='DBJ']/@accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$ddbj}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:entity_db_link[@database_code='DBJ']/@accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$ddbj}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:related_entries[@database_name='DBJ']/@database_accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$ddbj}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:matched_entries[@database_name='DBJ']/@database_accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$ddbj}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:assembly_db_link[@database_code='EMBL']/@accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$embl}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:entity_db_link[@database_code='EMBL']/@accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$embl}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:related_entries[@database_name='EMBL']/@database_accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$embl}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:matched_entries[@database_name='EMBL']/@database_accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$embl}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:assembly_db_link[@database_code='GB']/@accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$genbank}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:entity_db_link[@database_code='GB']/@accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$genbank}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:related_entries[@database_name='GB']/@database_accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$genbank}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:matched_entries[@database_name='GB']/@database_accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$genbank}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$ncbiprotein-ident}{.}" rdfs:label="urn:miriam:ncbiprotein:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
@@ -411,79 +413,79 @@
 
   &lt;xsl:template match="BMRBx:assembly_db_link[@database_code='REF']/@accession_code" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$refseq}{.}" rdfs:label="info:refseq/{.}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$refseq-ident}{.}" rdfs:label="urn:miriam:refseq:{.}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}refseq:{.}" rdfs:label="refseq:{.}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:entity_db_link[@database_code='REF']/@accession_code" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$refseq}{.}" rdfs:label="info:refseq/{.}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$refseq-ident}{.}" rdfs:label="urn:miriam:refseq:{.}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}refseq:{.}" rdfs:label="refseq:{.}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:related_entries[@database_name='REF']/@database_accession_code" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$refseq}{.}" rdfs:label="info:refseq/{.}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$refseq-ident}{.}" rdfs:label="urn:miriam:refseq:{.}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}refseq:{.}" rdfs:label="refseq:{.}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:matched_entries[@database_name='REF']/@database_accession_code" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$refseq}{.}" rdfs:label="info:refseq/{.}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$refseq-ident}{.}" rdfs:label="urn:miriam:refseq:{.}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}refseq:{.}" rdfs:label="refseq:{.}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:struct_classification/BMRBx:sunid[text() != '' and text() != 'na']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$scop}{text()}" rdfs:label="info:scop/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$scop-ident}{text()}" rdfs:label="urn:miriam:scop:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}scop:{text()}" rdfs:label="scop:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:entry/BMRBx:assigned_pdb_id[text() != '']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$pdb-ident}{text()}" rdfs:label="urn:miriam:pdb:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{text()}" rdfs:label="pdb:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:conformer_family_coord_set/BMRBx:pdb_accession_code[text() != '']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$pdb-ident}{text()}" rdfs:label="urn:miriam:pdb:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{text()}" rdfs:label="pdb:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:representative_conformer/BMRBx:pdb_accession_code[text() != '']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$pdb-ident}{text()}" rdfs:label="urn:miriam:pdb:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{text()}" rdfs:label="pdb:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:structure_annotation/BMRBx:pdb_id[text() != '']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$pdb-ident}{text()}" rdfs:label="urn:miriam:pdb:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{text()}" rdfs:label="pdb:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:pb_list/BMRBx:pdb_id[text() != '']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$pdb-ident}{text()}" rdfs:label="urn:miriam:pdb:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{text()}" rdfs:label="pdb:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:assembly_db_link[@database_code='PDB']/@accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$pdb-ident}{.}" rdfs:label="urn:miriam:pdb:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{.}" rdfs:label="pdb:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:entity_db_link[@database_code='PDB']/@accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$pdb-ident}{.}" rdfs:label="urn:miriam:pdb:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{.}" rdfs:label="pdb:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:related_entries[@database_name='PDB']/@database_accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$pdb-ident}{.}" rdfs:label="urn:miriam:pdb:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{.}" rdfs:label="pdb:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:matched_entries[@database_name='PDB']/@database_accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$pdb-ident}{.}" rdfs:label="urn:miriam:pdb:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{.}" rdfs:label="pdb:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
@@ -589,35 +591,35 @@
         &lt;xsl:variable name="pdb_code" select="substring-after(text(),'pdb/')"/&gt;
         &lt;xsl:variable name="cc_code" select="substring-after(text(),'chem_comp/')"/&gt;
         &lt;rdfs:seeAlso rdf:resource="{$pdb}{translate($pdb_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="info:pdb/{$pdb_code}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$pdb-ident}{translate($pdb_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="urn:miriam:pdb:{$pdb_code}"/&gt;
+        &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{translate($pdb_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb:{$pdb_code}"/&gt;
         &lt;rdfs:seeAlso rdf:resource="{$pdb.ligand}{translate($cc_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="info:pdb.ligand/{$cc_code}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$pdb.ligand-ident}{translate($cc_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="urn:miriam:pdb.ligand:{$cc_code}"/&gt;
+        &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb.ligand:{translate($cc_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb.ligand:{$cc_code}"/&gt;
       &lt;/xsl:when&gt;
       &lt;xsl:when test="starts-with(text(), 'bmrb_ligand_expo/')"/&gt;
       &lt;xsl:when test="starts-with(text(), 'no_records/')"/&gt;
       &lt;xsl:otherwise&gt;
         &lt;rdfs:seeAlso rdf:resource="{$pdb-ccd}{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="info:pdb-ccd/{text()}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$pdb-ccd-ident}{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="urn:miriam:pdb-ccd:{text()}"/&gt;
+        &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb-ccd:{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb-ccd:{text()}"/&gt;
         &lt;rdfs:seeAlso rdf:resource="{$pdb.ligand}{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="info:pdb.ligand/{text()}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$pdb.ligand-ident}{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="urn:miriam:pdb.ligand:{text()}"/&gt;
+        &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb.ligand:{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb.ligand:{text()}"/&gt;
       &lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:chem_comp/BMRBx:pubchem_code[text() != '' and text() != 'na']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$pubchem.substance}{text()}" rdfs:label="info:pubchem.substance/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$pubchem.substance-ident}{text()}" rdfs:label="urn:miriam:pubchem.substance:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$igorg}pubchem.substance{text()}" rdfs:label="pubchem.substance:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:chem_comp_db_link[@database_code='PubChem' and @accession_code != '' and @accession_code != 'na']/BMRBx:accession_code_type" mode="linked"&gt;
     &lt;xsl:variable name="pubchem_id" select="../@accession_code"/&gt;
     &lt;xsl:if test="text()='sid'"&gt;
        &lt;rdfs:seeAlso rdf:resource="{$pubchem.substance}{$pubchem_id}" rdfs:label="info:pubchem.substance/{$pubchem_id}"/&gt;
-       &lt;rdfs:seeAlso rdf:resource="{$pubchem.substance-ident}{$pubchem_id}" rdfs:label="urn:miriam:pubchem.substance:{$pubchem_id}"/&gt;
+       &lt;rdfs:seeAlso rdf:resource="{$idorg}pubchem.substance:{$pubchem_id}" rdfs:label="pubchem.substance:{$pubchem_id}"/&gt;
     &lt;/xsl:if&gt;
     &lt;xsl:if test="text()='cid'"&gt;
        &lt;rdfs:seeAlso rdf:resource="{$pubchem.compound}{$pubchem_id}" rdfs:label="info:pubchem.compound/{$pubchem_id}"/&gt;
-       &lt;rdfs:seeAlso rdf:resource="{$pubchem.compound-ident}{$pubchem_id}" rdfs:label="urn:miriam:pubchem.compound:{$pubchem_id}"/&gt;
+       &lt;rdfs:seeAlso rdf:resource="{idorg}pubchem.compound:{$pubchem_id}" rdfs:label="pubchem.compound:{$pubchem_id}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 

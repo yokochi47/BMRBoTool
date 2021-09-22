@@ -2,7 +2,7 @@
 
 if [ $# = 0 ] || [ $1 = "xsd" ] ; then
 
- ( cd dic2xsd; ./update_schema.sh )
+ #( cd dic2xsd; ./update_schema.sh )
 
  if [ $? = 0 ] && [ -e schema/mmcif_nmr-star.xsd ] ; then
   echo "Updated BMRB/XML Schema (schema/mmcif_nmr-star.xsd)."
