@@ -5379,7 +5379,6 @@ CREATE TABLE entity_comp_index (
 --
 -- (quoted from entity_comp_index_altType)
 -- Items in the entity_comp_index_alt category define an alternate residue numbering scheme for the an entity.
--- URI-reference = https://bmrb.io/dictionary/tag.php?tagcat=Entity_comp_index_alt
 -- xmlns: http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd (BMRBx), schema location: schema/mmcif_nmr-star.xsd
 -- type: admin child, content: true, list: false, bridge: false, virtual: false
 --

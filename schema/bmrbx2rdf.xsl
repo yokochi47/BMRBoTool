@@ -416,54 +416,54 @@
 
   <xsl:template match="BMRBx:entry/BMRBx:assigned_pdb_id[text() != '']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$igorg}pdb:{text()}" rdfs:label="pdb:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb:{text()}" rdfs:label="pdb:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:conformer_family_coord_set/BMRBx:pdb_accession_code[text() != '']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$igorg}pdb:{text()}" rdfs:label="pdb:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb:{text()}" rdfs:label="pdb:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:representative_conformer/BMRBx:pdb_accession_code[text() != '']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$igorg}pdb:{text()}" rdfs:label="pdb:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb:{text()}" rdfs:label="pdb:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:structure_annotation/BMRBx:pdb_id[text() != '']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$igorg}pdb:{text()}" rdfs:label="pdb:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb:{text()}" rdfs:label="pdb:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:pb_list/BMRBx:pdb_id[text() != '']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$igorg}pdb:{text()}" rdfs:label="pdb:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb:{text()}" rdfs:label="pdb:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='PDB']/@accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$igorg}pdb:{.}" rdfs:label="pdb:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}pdb:{.}" rdfs:label="pdb:{.}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:entity_db_link[@database_code='PDB']/@accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$igorg}pdb:{.}" rdfs:label="pdb:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}pdb:{.}" rdfs:label="pdb:{.}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:related_entries[@database_name='PDB']/@database_accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$igorg}pdb:{.}" rdfs:label="pdb:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}pdb:{.}" rdfs:label="pdb:{.}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:matched_entries[@database_name='PDB']/@database_accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$igorg}pdb:{.}" rdfs:label="pdb:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}pdb:{.}" rdfs:label="pdb:{.}"/>
     </xsl:if>
   </xsl:template>
 
@@ -569,24 +569,24 @@
         <xsl:variable name="pdb_code" select="substring-after(text(),'pdb/')"/>
         <xsl:variable name="cc_code" select="substring-after(text(),'chem_comp/')"/>
         <rdfs:seeAlso rdf:resource="{$pdb}{translate($pdb_code,' []@#%+&amp;','_()a....')}" rdfs:label="info:pdb/{$pdb_code}"/>
-        <rdfs:seeAlso rdf:resource="{$igorg}pdb:{translate($pdb_code,' []@#%+&amp;','_()a....')}" rdfs:label="pdb:{$pdb_code}"/>
+        <rdfs:seeAlso rdf:resource="{$idorg}pdb:{translate($pdb_code,' []@#%+&amp;','_()a....')}" rdfs:label="pdb:{$pdb_code}"/>
         <rdfs:seeAlso rdf:resource="{$pdb.ligand}{translate($cc_code,' []@#%+&amp;','_()a....')}" rdfs:label="info:pdb.ligand/{$cc_code}"/>
-        <rdfs:seeAlso rdf:resource="{$igorg}pdb.ligand:{translate($cc_code,' []@#%+&amp;','_()a....')}" rdfs:label="pdb.ligand:{$cc_code}"/>
+        <rdfs:seeAlso rdf:resource="{$idorg}pdb.ligand:{translate($cc_code,' []@#%+&amp;','_()a....')}" rdfs:label="pdb.ligand:{$cc_code}"/>
       </xsl:when>
       <xsl:when test="starts-with(text(), 'bmrb_ligand_expo/')"/>
       <xsl:when test="starts-with(text(), 'no_records/')"/>
       <xsl:otherwise>
         <rdfs:seeAlso rdf:resource="{$pdb-ccd}{translate(text(),' []@#%+&amp;','_()a....')}" rdfs:label="info:pdb-ccd/{text()}"/>
-        <rdfs:seeAlso rdf:resource="{$igorg}pdb-ccd:{translate(text(),' []@#%+&amp;','_()a....')}" rdfs:label="pdb-ccd:{text()}"/>
+        <rdfs:seeAlso rdf:resource="{$idorg}pdb-ccd:{translate(text(),' []@#%+&amp;','_()a....')}" rdfs:label="pdb-ccd:{text()}"/>
         <rdfs:seeAlso rdf:resource="{$pdb.ligand}{translate(text(),' []@#%+&amp;','_()a....')}" rdfs:label="info:pdb.ligand/{text()}"/>
-        <rdfs:seeAlso rdf:resource="{$igorg}pdb.ligand:{translate(text(),' []@#%+&amp;','_()a....')}" rdfs:label="pdb.ligand:{text()}"/>
+        <rdfs:seeAlso rdf:resource="{$idorg}pdb.ligand:{translate(text(),' []@#%+&amp;','_()a....')}" rdfs:label="pdb.ligand:{text()}"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
 
   <xsl:template match="BMRBx:chem_comp/BMRBx:pubchem_code[text() != '' and text() != 'na']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$pubchem.substance}{text()}" rdfs:label="info:pubchem.substance/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$igorg}pubchem.substance{text()}" rdfs:label="pubchem.substance:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pubchem.substance:{text()}" rdfs:label="pubchem.substance:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:chem_comp_db_link[@database_code='PubChem' and @accession_code != '' and @accession_code != 'na']/BMRBx:accession_code_type" mode="linked">
