@@ -438,54 +438,54 @@
 
   &lt;xsl:template match="BMRBx:entry/BMRBx:assigned_pdb_id[text() != '']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{text()}" rdfs:label="pdb:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}pdb:{text()}" rdfs:label="pdb:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:conformer_family_coord_set/BMRBx:pdb_accession_code[text() != '']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{text()}" rdfs:label="pdb:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}pdb:{text()}" rdfs:label="pdb:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:representative_conformer/BMRBx:pdb_accession_code[text() != '']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{text()}" rdfs:label="pdb:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}pdb:{text()}" rdfs:label="pdb:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:structure_annotation/BMRBx:pdb_id[text() != '']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{text()}" rdfs:label="pdb:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}pdb:{text()}" rdfs:label="pdb:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:pb_list/BMRBx:pdb_id[text() != '']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{text()}" rdfs:label="pdb:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}pdb:{text()}" rdfs:label="pdb:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:assembly_db_link[@database_code='PDB']/@accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{.}" rdfs:label="pdb:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$idorg}pdb:{.}" rdfs:label="pdb:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:entity_db_link[@database_code='PDB']/@accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{.}" rdfs:label="pdb:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$idorg}pdb:{.}" rdfs:label="pdb:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:related_entries[@database_name='PDB']/@database_accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{.}" rdfs:label="pdb:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$idorg}pdb:{.}" rdfs:label="pdb:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:matched_entries[@database_name='PDB']/@database_accession_code" mode="linked"&gt;
     &lt;xsl:if test="not(contains(., ' '))"&gt;
       &lt;rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{.}" rdfs:label="pdb:{.}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$idorg}pdb:{.}" rdfs:label="pdb:{.}"/&gt;
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
@@ -591,24 +591,24 @@
         &lt;xsl:variable name="pdb_code" select="substring-after(text(),'pdb/')"/&gt;
         &lt;xsl:variable name="cc_code" select="substring-after(text(),'chem_comp/')"/&gt;
         &lt;rdfs:seeAlso rdf:resource="{$pdb}{translate($pdb_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="info:pdb/{$pdb_code}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb:{translate($pdb_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb:{$pdb_code}"/&gt;
+        &lt;rdfs:seeAlso rdf:resource="{$idorg}pdb:{translate($pdb_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb:{$pdb_code}"/&gt;
         &lt;rdfs:seeAlso rdf:resource="{$pdb.ligand}{translate($cc_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="info:pdb.ligand/{$cc_code}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb.ligand:{translate($cc_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb.ligand:{$cc_code}"/&gt;
+        &lt;rdfs:seeAlso rdf:resource="{$idorg}pdb.ligand:{translate($cc_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb.ligand:{$cc_code}"/&gt;
       &lt;/xsl:when&gt;
       &lt;xsl:when test="starts-with(text(), 'bmrb_ligand_expo/')"/&gt;
       &lt;xsl:when test="starts-with(text(), 'no_records/')"/&gt;
       &lt;xsl:otherwise&gt;
         &lt;rdfs:seeAlso rdf:resource="{$pdb-ccd}{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="info:pdb-ccd/{text()}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb-ccd:{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb-ccd:{text()}"/&gt;
+        &lt;rdfs:seeAlso rdf:resource="{$idorg}pdb-ccd:{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb-ccd:{text()}"/&gt;
         &lt;rdfs:seeAlso rdf:resource="{$pdb.ligand}{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="info:pdb.ligand/{text()}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$igorg}pdb.ligand:{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb.ligand:{text()}"/&gt;
+        &lt;rdfs:seeAlso rdf:resource="{$idorg}pdb.ligand:{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb.ligand:{text()}"/&gt;
       &lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:chem_comp/BMRBx:pubchem_code[text() != '' and text() != 'na']" mode="linked"&gt;
     &lt;rdfs:seeAlso rdf:resource="{$pubchem.substance}{text()}" rdfs:label="info:pubchem.substance/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$igorg}pubchem.substance{text()}" rdfs:label="pubchem.substance:{text()}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}pubchem.substance:{text()}" rdfs:label="pubchem.substance:{text()}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:chem_comp_db_link[@database_code='PubChem' and @accession_code != '' and @accession_code != 'na']/BMRBx:accession_code_type" mode="linked"&gt;
