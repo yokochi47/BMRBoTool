@@ -15,8 +15,8 @@
     
   <xsl:output method="xml" indent="yes"/>
   <xsl:strip-space elements="*"/>
-  <xsl:variable name="bmrbid"><xsl:value-of select="/BMRBx:datablock/BMRBx:entryCategory/BMRBx:entry/@id"/></xsl:variable>
-  <xsl:variable name="BMRBID"><xsl:value-of select="translate($bmrbid,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></xsl:variable>
+  <xsl:variable name="bmrb_id"><xsl:value-of select="/BMRBx:datablock/BMRBx:entryCategory/BMRBx:entry/@id"/></xsl:variable>
+  <xsl:variable name="BMRB_ID"><xsl:value-of select="translate($bmrb_id,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></xsl:variable>
   <xsl:variable name="idorg">http://identifiers.org/</xsl:variable>
   <xsl:variable name="doi">http://doi.org/</xsl:variable>
   <xsl:variable name="orcid">http://orcid.org/</xsl:variable>
@@ -41,58 +41,58 @@
 
   <xsl:variable name="base">
     <xsl:choose>
-      <xsl:when test="starts-with($bmrbid, 'bms')">http://bmrbpub.pdbj.org/rdf/<xsl:value-of select="$bmrbid"/></xsl:when>
-      <xsl:otherwise>http://bmrbpub.pdbj.org/rdf/bmr<xsl:value-of select="$bmrbid"/></xsl:otherwise>
+      <xsl:when test="starts-with($bmrb_id, 'bms')">http://bmrbpub.pdbj.org/rdf/<xsl:value-of select="$bmrb_id"/></xsl:when>
+      <xsl:otherwise>http://bmrbpub.pdbj.org/rdf/bmr<xsl:value-of select="$bmrb_id"/></xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
   <xsl:variable name="bmrb_doi">
     <xsl:choose>
-      <xsl:when test="starts-with($bmrbid, 'bms')">10.13018/<xsl:value-of select="$BMRBID"/></xsl:when>
-      <xsl:otherwise>10.13018/BMR<xsl:value-of select="$bmrbid"/></xsl:otherwise>
+      <xsl:when test="starts-with($bmrb_id, 'bms')">10.13018/<xsl:value-of select="$BMRB_ID"/></xsl:when>
+      <xsl:otherwise>10.13018/BMR<xsl:value-of select="$bmrb_id"/></xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
   <xsl:variable name="bmrb">
     <xsl:choose>
-      <xsl:when test="starts-with($bmrbid, 'bmse')">http://bmrb.io/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/</xsl:when>
-      <xsl:when test="starts-with($bmrbid, 'bmst')">http://bmrb.io/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/</xsl:when>
+      <xsl:when test="starts-with($bmrb_id, 'bmse')">http://bmrb.io/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/</xsl:when>
+      <xsl:when test="starts-with($bmrb_id, 'bmst')">http://bmrb.io/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/</xsl:when>
       <xsl:otherwise>http://bmrb.io/ftp/pub/bmrb/entry_lists/nmr-star3.1/bmr</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
   <xsl:variable name="bmrbj_mirror">
     <xsl:choose>
-      <xsl:when test="starts-with($bmrbid, 'bmse')">http://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/</xsl:when>
-      <xsl:when test="starts-with($bmrbid, 'bmst')">http://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/</xsl:when>
+      <xsl:when test="starts-with($bmrb_id, 'bmse')">http://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/</xsl:when>
+      <xsl:when test="starts-with($bmrb_id, 'bmst')">http://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/</xsl:when>
       <xsl:otherwise>http://bmrb.pdbj.org/ftp/pub/bmrb/entry_lists/nmr-star3.1/bmr</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
   <xsl:variable name="bmrbx">
     <xsl:choose>
-      <xsl:when test="starts-with($bmrbid, 'bms')">http://bmrbpub.pdbj.org/xml/bms/</xsl:when>
+      <xsl:when test="starts-with($bmrb_id, 'bms')">http://bmrbpub.pdbj.org/xml/bms/</xsl:when>
       <xsl:otherwise>http://bmrbpub.pdbj.org/xml/bmr/bmr</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
   <xsl:variable name="bmrb_urn">
     <xsl:choose>
-      <xsl:when test="starts-with($bmrbid, 'bms')">info:bmrb.metabolomics/</xsl:when>
+      <xsl:when test="starts-with($bmrb_id, 'bms')">info:bmrb.metabolomics/</xsl:when>
       <xsl:otherwise>info:bmrb/</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
   <xsl:variable name="bmrb_url">
     <xsl:choose>
-      <xsl:when test="starts-with($bmrbid, 'bms')">http://bmrbpub.pdbj.org/rdf/</xsl:when>
+      <xsl:when test="starts-with($bmrb_id, 'bms')">http://bmrbpub.pdbj.org/rdf/</xsl:when>
       <xsl:otherwise>http://bmrbpub.pdbj.org/rdf/bmr</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
 
   <xsl:variable name="bmrbj_portal">
     <xsl:choose>
-      <xsl:when test="starts-with($bmrbid, 'bms')">http://bmrbj.pdbj.org/bms/</xsl:when>
+      <xsl:when test="starts-with($bmrb_id, 'bms')">http://bmrbj.pdbj.org/bms/</xsl:when>
       <xsl:otherwise>http://bmrbj.pdbj.org/bmr/bmr</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
@@ -105,17 +105,17 @@
 
   <!-- level 1 -->
   <xsl:template match="/BMRBx:datablock">
-    <BMRBo:datablock rdf:about="{$base}" rdfs:label="{$bmrb_urn}{$bmrbid}">
+    <BMRBo:datablock rdf:about="{$base}" rdfs:label="{$bmrb_urn}{$bmrb_id}">
       <dcterms:references rdf:resource="{$doi}{$bmrb_doi}" rdfs:label="doi:{$bmrb_doi}"/>
-      <dcterms:identifier><xsl:value-of select="{$bmrbid}"/></dcterms:identifier>
-      <xsl:if test="not(starts-with($bmrbid, 'bms'))">
-        <skos:altLabel><xsl:value-of select="bmr{$bmrbid}"/></skos:altLabel>
+      <dcterms:identifier><xsl:value-of select="$bmrb_id"/></dcterms:identifier>
+      <xsl:if test="not(starts-with($bmrb_id, 'bms'))">
+        <skos:altLabel><xsl:value-of select="concat('bmr',$bmrb_id)"/></skos:altLabel>
       </xsl:if>
       <dc:title><xsl:value-of select="BMRBx:entryCategory/BMRBx:entry/BMRBx:title/text()"/></dc:title>
-      <rdfs:seeAlso rdf:resource="{$bmrbx}{$bmrbid}-noatom.xml"/>
-      <rdfs:seeAlso rdf:resource="{$bmrbj_portal}{$bmrbid}"/>
-      <rdfs:seeAlso rdf:resource="{$bmrbj_mirror}{$bmrbid}.str"/>
-      <rdfs:seeAlso rdf:resource="{$bmrb}{$bmrbid}.str"/>
+      <rdfs:seeAlso rdf:resource="{$bmrbx}{$bmrb_id}-noatom.xml"/>
+      <rdfs:seeAlso rdf:resource="{$bmrbj_portal}{$bmrb_id}"/>
+      <rdfs:seeAlso rdf:resource="{$bmrbj_mirror}{$bmrb_id}.str"/>
+      <rdfs:seeAlso rdf:resource="{$bmrb}{$bmrb_id}.str"/>
 
       <BMRBo:datablockName><xsl:value-of select="@datablockName"/></BMRBo:datablockName>
       <xsl:apply-templates select="./*"/>

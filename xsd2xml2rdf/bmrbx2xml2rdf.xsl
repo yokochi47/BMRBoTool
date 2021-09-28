@@ -37,8 +37,8 @@
     <xsl2:text disable-output-escaping="yes">
   &lt;xsl:output method="xml" indent="yes"/&gt;
   &lt;xsl:strip-space elements="*"/&gt;
-  &lt;xsl:variable name="bmrbid"&gt;&lt;xsl:value-of select="/BMRBx:datablock/BMRBx:entryCategory/BMRBx:entry/@id"/&gt;&lt;/xsl:variable&gt;
-  &lt;xsl:variable name="BMRBID"&gt;&lt;xsl:value-of select="translate($bmrbid,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:variable name="bmrb_id"&gt;&lt;xsl:value-of select="/BMRBx:datablock/BMRBx:entryCategory/BMRBx:entry/@id"/&gt;&lt;/xsl:variable&gt;
+  &lt;xsl:variable name="BMRB_ID"&gt;&lt;xsl:value-of select="translate($bmrb_id,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/&gt;&lt;/xsl:variable&gt;
   &lt;xsl:variable name="idorg"&gt;http://identifiers.org/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="doi"&gt;http://doi.org/&lt;/xsl:variable&gt;
   &lt;xsl:variable name="orcid"&gt;http://orcid.org/&lt;/xsl:variable&gt;
@@ -63,58 +63,58 @@
 
   &lt;xsl:variable name="base"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($bmrbid, 'bms')"&gt;http://bmrbpub.pdbj.org/rdf/&lt;xsl:value-of select="$bmrbid"/&gt;&lt;/xsl:when&gt;
-      &lt;xsl:otherwise&gt;http://bmrbpub.pdbj.org/rdf/bmr&lt;xsl:value-of select="$bmrbid"/&gt;&lt;/xsl:otherwise&gt;
+      &lt;xsl:when test="starts-with($bmrb_id, 'bms')"&gt;http://bmrbpub.pdbj.org/rdf/&lt;xsl:value-of select="$bmrb_id"/&gt;&lt;/xsl:when&gt;
+      &lt;xsl:otherwise&gt;http://bmrbpub.pdbj.org/rdf/bmr&lt;xsl:value-of select="$bmrb_id"/&gt;&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
   &lt;xsl:variable name="bmrb_doi"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($bmrbid, 'bms')"&gt;10.13018/&lt;xsl:value-of select="$BMRBID"/&gt;&lt;/xsl:when&gt;
-      &lt;xsl:otherwise&gt;10.13018/BMR&lt;xsl:value-of select="$bmrbid"/&gt;&lt;/xsl:otherwise&gt;
+      &lt;xsl:when test="starts-with($bmrb_id, 'bms')"&gt;10.13018/&lt;xsl:value-of select="$BMRB_ID"/&gt;&lt;/xsl:when&gt;
+      &lt;xsl:otherwise&gt;10.13018/BMR&lt;xsl:value-of select="$bmrb_id"/&gt;&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
   &lt;xsl:variable name="bmrb"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($bmrbid, 'bmse')"&gt;http://bmrb.io/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/&lt;/xsl:when&gt;
-      &lt;xsl:when test="starts-with($bmrbid, 'bmst')"&gt;http://bmrb.io/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/&lt;/xsl:when&gt;
+      &lt;xsl:when test="starts-with($bmrb_id, 'bmse')"&gt;http://bmrb.io/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/&lt;/xsl:when&gt;
+      &lt;xsl:when test="starts-with($bmrb_id, 'bmst')"&gt;http://bmrb.io/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/&lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;http://bmrb.io/ftp/pub/bmrb/entry_lists/nmr-star3.1/bmr&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
   &lt;xsl:variable name="bmrbj_mirror"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($bmrbid, 'bmse')"&gt;http://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/&lt;/xsl:when&gt;
-      &lt;xsl:when test="starts-with($bmrbid, 'bmst')"&gt;http://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/&lt;/xsl:when&gt;
+      &lt;xsl:when test="starts-with($bmrb_id, 'bmse')"&gt;http://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_experimental_entries/&lt;/xsl:when&gt;
+      &lt;xsl:when test="starts-with($bmrb_id, 'bmst')"&gt;http://bmrb.pdbj.org/ftp/pub/bmrb/metabolomics/NMR_STAR_theoretical_entries/&lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;http://bmrb.pdbj.org/ftp/pub/bmrb/entry_lists/nmr-star3.1/bmr&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
   &lt;xsl:variable name="bmrbx"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($bmrbid, 'bms')"&gt;http://bmrbpub.pdbj.org/xml/bms/&lt;/xsl:when&gt;
+      &lt;xsl:when test="starts-with($bmrb_id, 'bms')"&gt;http://bmrbpub.pdbj.org/xml/bms/&lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;http://bmrbpub.pdbj.org/xml/bmr/bmr&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
   &lt;xsl:variable name="bmrb_urn"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($bmrbid, 'bms')"&gt;info:bmrb.metabolomics/&lt;/xsl:when&gt;
+      &lt;xsl:when test="starts-with($bmrb_id, 'bms')"&gt;info:bmrb.metabolomics/&lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;info:bmrb/&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
   &lt;xsl:variable name="bmrb_url"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($bmrbid, 'bms')"&gt;http://bmrbpub.pdbj.org/rdf/&lt;/xsl:when&gt;
+      &lt;xsl:when test="starts-with($bmrb_id, 'bms')"&gt;http://bmrbpub.pdbj.org/rdf/&lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;http://bmrbpub.pdbj.org/rdf/bmr&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
 
   &lt;xsl:variable name="bmrbj_portal"&gt;
     &lt;xsl:choose&gt;
-      &lt;xsl:when test="starts-with($bmrbid, 'bms')"&gt;http://bmrbj.pdbj.org/bms/&lt;/xsl:when&gt;
+      &lt;xsl:when test="starts-with($bmrb_id, 'bms')"&gt;http://bmrbj.pdbj.org/bms/&lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;http://bmrbj.pdbj.org/bmr/bmr&lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:variable&gt;
@@ -127,17 +127,17 @@
 
   &lt;!-- level 1 --&gt;
   &lt;xsl:template match="/BMRBx:datablock"&gt;
-    &lt;BMRBo:datablock rdf:about="{$base}" rdfs:label="{$bmrb_urn}{$bmrbid}"&gt;
+    &lt;BMRBo:datablock rdf:about="{$base}" rdfs:label="{$bmrb_urn}{$bmrb_id}"&gt;
       &lt;dcterms:references rdf:resource="{$doi}{$bmrb_doi}" rdfs:label="doi:{$bmrb_doi}"/&gt;
-      &lt;dcterms:identifier&gt;&lt;xsl:value-of select="{$bmrbid}"/&gt;&lt;/dcterms:identifier&gt;
-      &lt;xsl:if test="not(starts-with($bmrbid, 'bms'))"&gt;
-        &lt;skos:altLabel&gt;&lt;xsl:value-of select="bmr{$bmrbid}"/&gt;&lt;/skos:altLabel&gt;
+      &lt;dcterms:identifier&gt;&lt;xsl:value-of select="$bmrb_id"/&gt;&lt;/dcterms:identifier&gt;
+      &lt;xsl:if test="not(starts-with($bmrb_id, 'bms'))"&gt;
+        &lt;skos:altLabel&gt;&lt;xsl:value-of select="concat('bmr',$bmrb_id)"/&gt;&lt;/skos:altLabel&gt;
       &lt;/xsl:if&gt;
       &lt;dc:title&gt;&lt;xsl:value-of select="BMRBx:entryCategory/BMRBx:entry/BMRBx:title/text()"/&gt;&lt;/dc:title&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$bmrbx}{$bmrbid}-noatom.xml"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$bmrbj_portal}{$bmrbid}"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$bmrbj_mirror}{$bmrbid}.str"/&gt;
-      &lt;rdfs:seeAlso rdf:resource="{$bmrb}{$bmrbid}.str"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$bmrbx}{$bmrb_id}-noatom.xml"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$bmrbj_portal}{$bmrb_id}"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$bmrbj_mirror}{$bmrb_id}.str"/&gt;
+      &lt;rdfs:seeAlso rdf:resource="{$bmrb}{$bmrb_id}.str"/&gt;
 
       &lt;BMRBo:datablockName&gt;&lt;xsl:value-of select="@datablockName"/&gt;&lt;/BMRBo:datablockName&gt;
       &lt;xsl:apply-templates select="./*"/&gt;
