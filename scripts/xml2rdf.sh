@@ -203,7 +203,8 @@ convert() {
 
      if [ -e $XML_DOC_FILE ] ; then
 
-      java -jar $SAXON -s:$XML_DOC_FILE -xsl:$BMRBX2RDF_XSL -o:$RDF_DOC_FILE -versionmsg:off 2> $RDF_ERR_FILE
+      xsltproc -o $RDF_DOC_FILE $BMRBX2RDF_XSL $XML_DOC_FILE 2> $RDF_ERR_FILE
+      #java -jar $SAXON -s:$XML_DOC_FILE -xsl:$BMRBX2RDF_XSL -o:$RDF_DOC_FILE -versionmsg:off 2> $RDF_ERR_FILE
 
       if [ $? = 0 ] ; then
 
