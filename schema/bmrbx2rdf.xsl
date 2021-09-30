@@ -13,7 +13,7 @@
   xmlns:BMRBo="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#"
   exclude-result-prefixes="BMRBx">
     
-  <xsl:output method="xml" indent="yes"/>
+  <xsl:output method="xml" encoding="UTF-8" indent="yes"/>
   <xsl:strip-space elements="*"/>
   <xsl:variable name="bmrb_id"><xsl:value-of select="/BMRBx:datablock/BMRBx:entryCategory/BMRBx:entry/@id"/></xsl:variable>
   <xsl:variable name="BMRB_ID"><xsl:value-of select="translate($bmrb_id,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/></xsl:variable>

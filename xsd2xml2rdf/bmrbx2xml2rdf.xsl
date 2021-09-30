@@ -9,7 +9,7 @@
    xmlns:xsl2="http://www.w3.org/1999/XSL/Transform"
    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
-  <xsl2:output method="xml" indent="yes"/>
+  <xsl2:output method="xml" encoding="UTF-8" indent="yes"/>
   <xsl2:strip-space elements="*"/>
 
   <xsl2:template match="/">
@@ -35,7 +35,7 @@
 
   <xsl2:template match="/xsd:schema">
     <xsl2:text disable-output-escaping="yes">
-  &lt;xsl:output method="xml" indent="yes"/&gt;
+  &lt;xsl:output method="xml" encoding="UTF-8" indent="yes"/&gt;
   &lt;xsl:strip-space elements="*"/&gt;
   &lt;xsl:variable name="bmrb_id"&gt;&lt;xsl:value-of select="/BMRBx:datablock/BMRBx:entryCategory/BMRBx:entry/@id"/&gt;&lt;/xsl:variable&gt;
   &lt;xsl:variable name="BMRB_ID"&gt;&lt;xsl:value-of select="translate($bmrb_id,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/&gt;&lt;/xsl:variable&gt;
