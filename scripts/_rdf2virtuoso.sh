@@ -71,8 +71,6 @@ if [ $errs = 0 ] ; then
 
  date -u +"%b %d, %Y" > /tmp/$PREFIX-virtuoso-last
 
- sleep 60
-
 else
 
  for file in $VIRTUOSO_ERR_DIR/*_err
