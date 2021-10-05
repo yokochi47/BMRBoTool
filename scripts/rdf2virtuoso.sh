@@ -53,12 +53,12 @@ fi
 
 if [ $ATOM = "atom" ] ; then
 
- RDF_RAW_DIR=$PREFIX"_rdf_"$ATOM"_raw"
+ RDF_DOC_DIR=$PREFIX"_rdf_"$ATOM"_doc"
  VIRTUOSO_ERR_DIR=$PREFIX"_virtuoso_"$ATOM"_err"
 
 else
 
- RDF_RAW_DIR=$PREFIX"_rdf_raw"
+ RDF_DOC_DIR=$PREFIX"_rdf_doc"
  VIRTUOSO_ERR_DIR=$PREFIX"_virtuoso_err"
 
 fi
@@ -73,9 +73,9 @@ if [ $? != 0 ] ; then
 
 fi
 
-if [ ! -d $RDF_RAW_DIR ] ; then
+if [ ! -d $RDF_DOC_DIR ] ; then
 
- echo "Couldn't find $RDF_RAW_DIR directory."
+ echo "Couldn't find $RDF_DOC_DIR directory."
  exit 1
 
 fi
@@ -100,7 +100,7 @@ if [ $graph_exist = 1 ] ; then
  ./clear_graph.sh $GRAPH_URI
 fi
 
-VIRTUOSO_EXEC_COM="ld_dir('$PWD/$RDF_RAW_DIR', '*.rdf', '$GRAPH_URI');"
+VIRTUOSO_EXEC_COM="ld_dir('$PWD/$RDF_DOC_DIR', '*.rdf.gz', '$GRAPH_URI');"
 echo $VIRTUOSO_EXEC_COM
 
 isql $VIRTUOSO_DB_PORT $VIRTUOSO_DB_USER $VIRTUOSO_DB_PASS exec="$VIRTUOSO_EXEC_COM" 2> $VIRTUOSO_ERR_FILE || exit 1
