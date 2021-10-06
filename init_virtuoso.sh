@@ -55,7 +55,7 @@ if [ $? = 0 ] ; then
   echo "stop virtuoso (local)"
   isql $VIRTUOSO_DB_PORT $VIRTUOSO_DB_USER $VIRTUOSO_DB_PASS -K
 
-  sleep 60
+  sleep 30
 
  done
 

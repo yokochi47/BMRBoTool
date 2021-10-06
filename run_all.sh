@@ -159,7 +159,7 @@ if [ $? = 0 ] && [ $update_virtuoso = "true" ] ; then
 
    ./start_virtuoso.sh || exit 1
 
-   sleep 180
+   sleep 30
 
    GRAPH_URI=http://bmrbpub.pdbj.org/rdf/bmr
    graph_exist=`./ask_graph_existance.sh $GRAPH_URI` || exit 1
@@ -174,7 +174,7 @@ if [ $? = 0 ] && [ $update_virtuoso = "true" ] ; then
 
    fi
 
-   sleep 180
+   sleep 30
 
    GRAPH_URI=http://bmrbpub.pdbj.org/rdf/bms
    graph_exist=`./ask_graph_existance.sh $GRAPH_URI` || exit 1
