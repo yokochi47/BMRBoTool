@@ -6,6 +6,9 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
    xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
 >
   <xsl:output method="html" indent="yes"/>
 
@@ -15,6 +18,9 @@
   <xsl:variable name="rdf">http://www.w3.org/1999/02/22-rdf-syntax-ns#</xsl:variable>
   <xsl:variable name="rdfs">http://www.w3.org/2000/01/rdf-schema#</xsl:variable>
   <xsl:variable name="owl">http://www.w3.org/2002/07/owl#</xsl:variable>
+  <xsl:variable name="dc">http://purl.org/dc/elements/1.1/</xsl:variable>
+  <xsl:variable name="dcterms">http://purl.org/dc/terms/</xsl:variable>
+  <xsl:variable name="skos">http://www.w3.org/2004/02/skos/core#</xsl:variable>
 
   <xsl:template name="string-replace">
     <xsl:param name="text" />
@@ -29,11 +35,11 @@
       <xsl:otherwise>
         <xsl:value-of select="$text" />
       </xsl:otherwise>
-    </xsl:choose>    
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="/rdf:RDF">
-    <xsl:variable name="entry_id" select="./BMRBo:BMRBID/rdfs:label/text()" />
+    <xsl:variable name="entry_id" select="./skos:hiddenLabel/text()" />
 <!--
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -132,10 +138,12 @@
         <span class="icon-info-sign"></span>  Prefixes of BMRB/RDF
         <span class="small">
     <ul>
-        <li>rdf:  &lt;<a href="https://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a>&gt;</li>
-        <li>rdfs:  &lt;<a href="https://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>&gt;</li>
-        <li>owl:  &lt;<a href="https://www.w3.org/2002/07/owl#">http://www.w3.org/2002/07/owl#</a>&gt;</li>
-        <li>BMRBx:  &lt;<a href="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd">http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd</a>&gt;</li>
+        <li>rdf:  &lt;<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a>&gt;</li>
+        <li>rdfs:  &lt;<a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>&gt;</li>
+        <li>owl:  &lt;<a href="http://www.w3.org/2002/07/owl#">http://www.w3.org/2002/07/owl#</a>&gt;</li>
+        <li>dc: &lt;<a href="http://purl.org/dc/elements/1.1/">http://purl.org/dc/elements/1.1/</a>&gt;</li>
+        <li>dcterms: &lt;<a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a>&gt;</li>
+        <li>skos: &lt;<a href="http://www.w3.org/2004/02/skos/core#">http://www.w3.org/2004/02/skos/core#</a>&gt;</li>
         <li>BMRBo:  &lt;<a href="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#">http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#</a>&gt;</li>
         <li>BMRBr:  &lt;<a href="http://bmrbpub.pdbj.org/rdf/">http://bmrbpub.pdbj.org/rdf/</a>&gt;</li>
     </ul>
@@ -193,7 +201,7 @@
 <!--            <xsl:variable name="url_summary" select="concat('https://bmrb.pdbj.org/data_library/summary/index.php?bmrbId=', $bmr_id)" /> -->
                 <xsl:variable name="url_summary" select="concat('https://bmrbj.pdbj.org/bmr/bmr', $bmr_id)" />
                 <a class="download-btn ui-button-primary"><xsl:attribute name="href"><xsl:value-of select="$url_nmr-star3" /></xsl:attribute>Download</a>&#160;&#160;
-                <a class="download-btn"><xsl:attribute name="href"><xsl:value-of select="$url_summary" /></xsl:attribute>Summary</a> 
+                <a class="download-btn"><xsl:attribute name="href"><xsl:value-of select="$url_summary" /></xsl:attribute>Summary</a>
                 </form>
               </xsl:otherwise>
             </xsl:choose>
@@ -327,7 +335,7 @@
 </html>
   </xsl:template>
 
-  <xsl:template match="BMRBo:BMRBID">
+  <xsl:template match="skos:hiddenLabel">
   </xsl:template>
 
   <xsl:template match="rdf:Description">
@@ -384,6 +392,60 @@
     <tr>
       <td>
         <a href="{$owl}{local-name()}" target="predicate"><xsl:value-of select="name()"/></a>
+      </td>
+      <td>
+        <xsl:choose>
+          <xsl:when test="@rdf:resource!=''">
+            <a href="{@rdf:resource}"><xsl:value-of select="@rdf:resource"/></a>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="."/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </td>
+    </tr>
+  </xsl:template>
+
+  <xsl:template match="dc:*">
+    <tr>
+      <td>
+        <a href="{$dc}{local-name()}" target="predicate"><xsl:value-of select="name()"/></a>
+      </td>
+      <td>
+        <xsl:choose>
+          <xsl:when test="@rdf:resource!=''">
+            <a href="{@rdf:resource}"><xsl:value-of select="@rdf:resource"/></a>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="."/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </td>
+    </tr>
+  </xsl:template>
+
+  <xsl:template match="dcterms:*">
+    <tr>
+      <td>
+        <a href="{$dcterms}{local-name()}" target="predicate"><xsl:value-of select="name()"/></a>
+      </td>
+      <td>
+        <xsl:choose>
+          <xsl:when test="@rdf:resource!=''">
+            <a href="{@rdf:resource}"><xsl:value-of select="@rdf:resource"/></a>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="."/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </td>
+    </tr>
+  </xsl:template>
+
+  <xsl:template match="skos:*">
+    <tr>
+      <td>
+        <a href="{$skos}{local-name()}" target="predicate"><xsl:value-of select="name()"/></a>
       </td>
       <td>
         <xsl:choose>

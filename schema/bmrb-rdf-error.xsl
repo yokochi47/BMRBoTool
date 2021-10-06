@@ -6,6 +6,9 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
    xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:dcterms="http://purl.org/dc/terms/"
+   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
 >
   <xsl:output method="html" indent="yes"/>
 
@@ -15,6 +18,9 @@
   <xsl:variable name="rdf">http://www.w3.org/1999/02/22-rdf-syntax-ns#</xsl:variable>
   <xsl:variable name="rdfs">http://www.w3.org/2000/01/rdf-schema#</xsl:variable>
   <xsl:variable name="owl">http://www.w3.org/2002/07/owl#</xsl:variable>
+  <xsl:variable name="dc">http://purl.org/dc/elements/1.1/</xsl:variable>
+  <xsl:variable name="dcterms">http://purl.org/dc/terms/</xsl:variable>
+  <xsl:variable name="skos">http://www.w3.org/2004/02/skos/core#</xsl:variable>
 
   <xsl:template name="string-replace">
     <xsl:param name="text" />
@@ -29,7 +35,7 @@
       <xsl:otherwise>
         <xsl:value-of select="$text" />
       </xsl:otherwise>
-    </xsl:choose>    
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template match="/error">
@@ -133,10 +139,12 @@
         <span class="icon-info-sign"></span>  Prefixes of BMRB/RDF
         <span class="small">
     <ul>
-        <li>rdf:  &lt;<a href="https://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a>&gt;</li>
-        <li>rdfs:  &lt;<a href="https://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>&gt;</li>
-        <li>owl:  &lt;<a href="https://www.w3.org/2002/07/owl#">http://www.w3.org/2002/07/owl#</a>&gt;</li>
-        <li>BMRBx:  &lt;<a href="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd">http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd</a>&gt;</li>
+        <li>rdf:  &lt;<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#">http://www.w3.org/1999/02/22-rdf-syntax-ns#</a>&gt;</li>
+        <li>rdfs:  &lt;<a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>&gt;</li>
+        <li>owl:  &lt;<a href="http://www.w3.org/2002/07/owl#">http://www.w3.org/2002/07/owl#</a>&gt;</li>
+        <li>dc: &lt;<a href="http://purl.org/dc/elements/1.1/">http://purl.org/dc/elements/1.1/</a>&gt;</li>
+        <li>dcterms: &lt;<a href="http://purl.org/dc/terms/">http://purl.org/dc/terms/</a>&gt;</li>
+        <li>skos: &lt;<a href="http://www.w3.org/2004/02/skos/core#">http://www.w3.org/2004/02/skos/core#</a>&gt;</li>
         <li>BMRBo:  &lt;<a href="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#">http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#</a>&gt;</li>
         <li>BMRBr:  &lt;<a href="http://bmrbpub.pdbj.org/rdf/">http://bmrbpub.pdbj.org/rdf/</a>&gt;</li>
     </ul>
