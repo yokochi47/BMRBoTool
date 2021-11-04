@@ -153,42 +153,42 @@
   <!-- level 4 (linked data) -->
   <xsl:template match="BMRBx:entry_author/BMRBx:orcid[text() != '' and text() != 'na']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$orcid}{text()}" rdfs:label="info:orcid/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}orcid:{text()}" rdfs:label="orcid:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}orcid/{text()}" rdfs:label="orcid:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:citation_author/BMRBx:orcid[text() != '' and text() != 'na']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$orcid}{text()}" rdfs:label="info:orcid/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}orcid:{text()}" rdfs:label="orcid:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}orcid/{text()}" rdfs:label="orcid:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:entry/BMRBx:doi[text() != '' and text() != 'na']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$doi}{text()}" rdfs:label="info:doi/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}doi:{text()}" rdfs:label="doi:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}doi/{text()}" rdfs:label="doi:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:auxiliary_files/BMRBx:doi[text() != '' and text() != 'na']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$doi}{text()}" rdfs:label="info:doi/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}doi:{text()}" rdfs:label="doi:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}doi/{text()}" rdfs:label="doi:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:citation/BMRBx:doi[text() != '' and text() != 'na']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$doi}{text()}" rdfs:label="info:doi/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}doi:{text()}" rdfs:label="doi:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}doi/{text()}" rdfs:label="doi:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:citation/BMRBx:pubmed_id[text() != '' and text() != 'na']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$pubmed}{text()}" rdfs:label="info:pmid/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}pubmed:{text()}" rdfs:label="pubmed:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pubmed/{text()}" rdfs:label="pubmed:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:citation/BMRBx:journal_issn[text() != '' and text() != 'na']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$issn}{text()}" rdfs:label="urn:ISSN:{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}issn:{text()}" rdfs:label="issn:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}issn/{text()}" rdfs:label="issn:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:citation/BMRBx:book_isbn[text() != '' and text() != 'na']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$isbn}{text()}" rdfs:label="urn:ISBN:{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}isbn:{text()}" rdfs:label="isbn:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}isbn/{text()}" rdfs:label="isbn:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:citation/BMRBx:www_url[text() != '' and text() != 'na']" mode="linked">
@@ -197,12 +197,12 @@
 
   <xsl:template match="BMRBx:entity_natural_src/BMRBx:ncbi_taxonomy_id[text() != '' and text() != 'na' and text() != 'n/a']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$taxonomy}{text()}" rdfs:label="info:taxonomy/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}taxonomy:{text()}" rdfs:label="taxonomy:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}taxonomy/{text()}" rdfs:label="taxonomy:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:entity_experimental_src/BMRBx:host_org_ncbi_taxonomy_id[text() != '' and text() != 'na' and text() != 'n/a']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$taxonomy}{text()}" rdfs:label="info:taxonomy/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}taxonomy:{text()}" rdfs:label="taxonomy:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}taxonomy/{text()}" rdfs:label="taxonomy:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a' and not(contains(text(), ' '))]" mode="linked">
@@ -211,12 +211,12 @@
         <xsl:for-each select="tokenize(text(), ', ')">
           <xsl:variable name="ec_number" select="."/>
           <rdfs:seeAlso rdf:resource="{$enzyme}{$ec_number}" rdfs:label="info:ec-code/{$ec_number}"/>
-          <rdfs:seeAlso rdf:resource="{$idorg}ec-code:{$ec_number}" rdfs:label="ec-code:{$ec_number}"/>
+          <rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec_number}" rdfs:label="ec-code:{$ec_number}"/>
         </xsl:for-each>
       </xsl:when>
       <xsl:otherwise>
         <rdfs:seeAlso rdf:resource="{$enzyme}{text()}" rdfs:label="info:ec-code/{text()}"/>
-        <rdfs:seeAlso rdf:resource="{$idorg}ec-code:{text()}" rdfs:label="ec-code:{text()}"/>
+        <rdfs:seeAlso rdf:resource="{$idorg}ec-code/{text()}" rdfs:label="ec-code:{text()}"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -227,12 +227,12 @@
         <xsl:for-each select="tokenize(text(), ', ')">
           <xsl:variable name="ec_number" select="."/>
           <rdfs:seeAlso rdf:resource="{$enzyme}{$ec_number}" rdfs:label="info:ec-code/{$ec_number}"/>
-          <rdfs:seeAlso rdf:resource="{$idorg}ec-code:{$ec_number}" rdfs:label="ec-code:{$ec_number}"/>
+          <rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec_number}" rdfs:label="ec-code:{$ec_number}"/>
         </xsl:for-each>
       </xsl:when>
       <xsl:otherwise>
         <rdfs:seeAlso rdf:resource="{$enzyme}{text()}" rdfs:label="info:ec-code/{text()}"/>
-        <rdfs:seeAlso rdf:resource="{$idorg}ec-code:{text()}" rdfs:label="ec-code:{text()}"/>
+        <rdfs:seeAlso rdf:resource="{$idorg}ec-code/{text()}" rdfs:label="ec-code:{text()}"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -243,117 +243,117 @@
         <xsl:for-each select="tokenize(text(), ', ')">
           <xsl:variable name="ec_number" select="."/>
           <rdfs:seeAlso rdf:resource="{$enzyme}{$ec_number}" rdfs:label="info:ec-code/{$ec_number}"/>
-          <rdfs:seeAlso rdf:resource="{$idorg}ec-code:{$ec_number}" rdfs:label="ec-code:{$ec_number}"/>
+          <rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec_number}" rdfs:label="ec-code:{$ec_number}"/>
         </xsl:for-each>
       </xsl:when>
       <xsl:otherwise>
         <rdfs:seeAlso rdf:resource="{$enzyme}{text()}" rdfs:label="info:ec-code/{text()}"/>
-        <rdfs:seeAlso rdf:resource="{$idorg}ec-code:{text()}" rdfs:label="ec-code:{text()}"/>
+        <rdfs:seeAlso rdf:resource="{$idorg}ec-code/{text()}" rdfs:label="ec-code:{text()}"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='SP']/@accession_code" mode="linked">
     <rdfs:seeAlso rdf:resource="{$uniprot}{.}" rdfs:label="info:uniprot/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}uniprot:{.}" rdfs:label="uniprot:{.}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:entity_db_link[@database_code='SP']/@accession_code" mode="linked">
     <rdfs:seeAlso rdf:resource="{$uniprot}{.}" rdfs:label="info:uniprot/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}uniprot:{.}" rdfs:label="uniprot:{.}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:related_entries[@database_name='SP']/@database_accession_code" mode="linked">
     <rdfs:seeAlso rdf:resource="{$uniprot}{.}" rdfs:label="info:uniprot/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}uniprot:{.}" rdfs:label="uniprot:{.}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:matched_entries[@database_name='SP']/@database_accession_code" mode="linked">
     <rdfs:seeAlso rdf:resource="{$uniprot}{.}" rdfs:label="info:uniprot/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}uniprot:{.}" rdfs:label="uniprot:{.}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='DBJ']/@accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$ddbj}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein/{.}" rdfs:label="ncbiprotein:{.}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:entity_db_link[@database_code='DBJ']/@accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$ddbj}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein/{.}" rdfs:label="ncbiprotein:{.}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:related_entries[@database_name='DBJ']/@database_accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$ddbj}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein/{.}" rdfs:label="ncbiprotein:{.}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:matched_entries[@database_name='DBJ']/@database_accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$ddbj}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein/{.}" rdfs:label="ncbiprotein:{.}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='EMBL']/@accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$embl}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein/{.}" rdfs:label="ncbiprotein:{.}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:entity_db_link[@database_code='EMBL']/@accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$embl}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein/{.}" rdfs:label="ncbiprotein:{.}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:related_entries[@database_name='EMBL']/@database_accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$embl}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein/{.}" rdfs:label="ncbiprotein:{.}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:matched_entries[@database_name='EMBL']/@database_accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$embl}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein/{.}" rdfs:label="ncbiprotein:{.}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='GB']/@accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$genbank}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein/{.}" rdfs:label="ncbiprotein:{.}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:entity_db_link[@database_code='GB']/@accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$genbank}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein/{.}" rdfs:label="ncbiprotein:{.}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:related_entries[@database_name='GB']/@database_accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$genbank}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein/{.}" rdfs:label="ncbiprotein:{.}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:matched_entries[@database_name='GB']/@database_accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$genbank}{.}" rdfs:label="info:ddbj-embl-genbank/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein:{.}" rdfs:label="ncbiprotein:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}ncbiprotein/{.}" rdfs:label="ncbiprotein:{.}"/>
     </xsl:if>
   </xsl:template>
 
@@ -391,79 +391,79 @@
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='REF']/@accession_code" mode="linked">
     <rdfs:seeAlso rdf:resource="{$refseq}{.}" rdfs:label="info:refseq/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}refseq:{.}" rdfs:label="refseq:{.}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}refseq/{.}" rdfs:label="refseq:{.}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:entity_db_link[@database_code='REF']/@accession_code" mode="linked">
     <rdfs:seeAlso rdf:resource="{$refseq}{.}" rdfs:label="info:refseq/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}refseq:{.}" rdfs:label="refseq:{.}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}refseq/{.}" rdfs:label="refseq:{.}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:related_entries[@database_name='REF']/@database_accession_code" mode="linked">
     <rdfs:seeAlso rdf:resource="{$refseq}{.}" rdfs:label="info:refseq/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}refseq:{.}" rdfs:label="refseq:{.}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}refseq/{.}" rdfs:label="refseq:{.}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:matched_entries[@database_name='REF']/@database_accession_code" mode="linked">
     <rdfs:seeAlso rdf:resource="{$refseq}{.}" rdfs:label="info:refseq/{.}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}refseq:{.}" rdfs:label="refseq:{.}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}refseq/{.}" rdfs:label="refseq:{.}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:struct_classification/BMRBx:sunid[text() != '' and text() != 'na']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$scop}{text()}" rdfs:label="info:scop/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}scop:{text()}" rdfs:label="scop:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}scop/{text()}" rdfs:label="scop:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:entry/BMRBx:assigned_pdb_id[text() != '']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}pdb:{text()}" rdfs:label="pdb:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{text()}" rdfs:label="pdb:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:conformer_family_coord_set/BMRBx:pdb_accession_code[text() != '']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}pdb:{text()}" rdfs:label="pdb:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{text()}" rdfs:label="pdb:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:representative_conformer/BMRBx:pdb_accession_code[text() != '']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}pdb:{text()}" rdfs:label="pdb:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{text()}" rdfs:label="pdb:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:structure_annotation/BMRBx:pdb_id[text() != '']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}pdb:{text()}" rdfs:label="pdb:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{text()}" rdfs:label="pdb:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:pb_list/BMRBx:pdb_id[text() != '']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}pdb:{text()}" rdfs:label="pdb:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{text()}" rdfs:label="pdb:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='PDB']/@accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}pdb:{.}" rdfs:label="pdb:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}pdb/{.}" rdfs:label="pdb:{.}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:entity_db_link[@database_code='PDB']/@accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}pdb:{.}" rdfs:label="pdb:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}pdb/{.}" rdfs:label="pdb:{.}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:related_entries[@database_name='PDB']/@database_accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}pdb:{.}" rdfs:label="pdb:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}pdb/{.}" rdfs:label="pdb:{.}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:matched_entries[@database_name='PDB']/@database_accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}pdb:{.}" rdfs:label="pdb:{.}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}pdb/{.}" rdfs:label="pdb:{.}"/>
     </xsl:if>
   </xsl:template>
 
@@ -569,35 +569,35 @@
         <xsl:variable name="pdb_code" select="substring-after(text(),'pdb/')"/>
         <xsl:variable name="cc_code" select="substring-after(text(),'chem_comp/')"/>
         <rdfs:seeAlso rdf:resource="{$pdb}{translate($pdb_code,' []@#%+&amp;','_()a....')}" rdfs:label="info:pdb/{$pdb_code}"/>
-        <rdfs:seeAlso rdf:resource="{$idorg}pdb:{translate($pdb_code,' []@#%+&amp;','_()a....')}" rdfs:label="pdb:{$pdb_code}"/>
+        <rdfs:seeAlso rdf:resource="{$idorg}pdb/{translate($pdb_code,' []@#%+&amp;','_()a....')}" rdfs:label="pdb:{$pdb_code}"/>
         <rdfs:seeAlso rdf:resource="{$pdb.ligand}{translate($cc_code,' []@#%+&amp;','_()a....')}" rdfs:label="info:pdb.ligand/{$cc_code}"/>
-        <rdfs:seeAlso rdf:resource="{$idorg}pdb.ligand:{translate($cc_code,' []@#%+&amp;','_()a....')}" rdfs:label="pdb.ligand:{$cc_code}"/>
+        <rdfs:seeAlso rdf:resource="{$idorg}pdb.ligand/{translate($cc_code,' []@#%+&amp;','_()a....')}" rdfs:label="pdb.ligand:{$cc_code}"/>
       </xsl:when>
       <xsl:when test="starts-with(text(), 'bmrb_ligand_expo/')"/>
       <xsl:when test="starts-with(text(), 'no_records/')"/>
       <xsl:otherwise>
         <rdfs:seeAlso rdf:resource="{$pdb-ccd}{translate(text(),' []@#%+&amp;','_()a....')}" rdfs:label="info:pdb-ccd/{text()}"/>
-        <rdfs:seeAlso rdf:resource="{$idorg}pdb-ccd:{translate(text(),' []@#%+&amp;','_()a....')}" rdfs:label="pdb-ccd:{text()}"/>
+        <rdfs:seeAlso rdf:resource="{$idorg}pdb-ccd/{translate(text(),' []@#%+&amp;','_()a....')}" rdfs:label="pdb-ccd:{text()}"/>
         <rdfs:seeAlso rdf:resource="{$pdb.ligand}{translate(text(),' []@#%+&amp;','_()a....')}" rdfs:label="info:pdb.ligand/{text()}"/>
-        <rdfs:seeAlso rdf:resource="{$idorg}pdb.ligand:{translate(text(),' []@#%+&amp;','_()a....')}" rdfs:label="pdb.ligand:{text()}"/>
+        <rdfs:seeAlso rdf:resource="{$idorg}pdb.ligand/{translate(text(),' []@#%+&amp;','_()a....')}" rdfs:label="pdb.ligand:{text()}"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
 
   <xsl:template match="BMRBx:chem_comp/BMRBx:pubchem_code[text() != '' and text() != 'na']" mode="linked">
     <rdfs:seeAlso rdf:resource="{$pubchem.substance}{text()}" rdfs:label="info:pubchem.substance/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}pubchem.substance:{text()}" rdfs:label="pubchem.substance:{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pubchem.substance/{text()}" rdfs:label="pubchem.substance:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:chem_comp_db_link[@database_code='PubChem' and @accession_code != '' and @accession_code != 'na']/BMRBx:accession_code_type" mode="linked">
     <xsl:variable name="pubchem_id" select="../@accession_code"/>
     <xsl:if test="text()='sid'">
        <rdfs:seeAlso rdf:resource="{$pubchem.substance}{$pubchem_id}" rdfs:label="info:pubchem.substance/{$pubchem_id}"/>
-       <rdfs:seeAlso rdf:resource="{$idorg}pubchem.substance:{$pubchem_id}" rdfs:label="pubchem.substance:{$pubchem_id}"/>
+       <rdfs:seeAlso rdf:resource="{$idorg}pubchem.substance/{$pubchem_id}" rdfs:label="pubchem.substance:{$pubchem_id}"/>
     </xsl:if>
     <xsl:if test="text()='cid'">
        <rdfs:seeAlso rdf:resource="{$pubchem.compound}{$pubchem_id}" rdfs:label="info:pubchem.compound/{$pubchem_id}"/>
-       <rdfs:seeAlso rdf:resource="{idorg}pubchem.compound:{$pubchem_id}" rdfs:label="pubchem.compound:{$pubchem_id}"/>
+       <rdfs:seeAlso rdf:resource="{idorg}pubchem.compound/{$pubchem_id}" rdfs:label="pubchem.compound:{$pubchem_id}"/>
     </xsl:if>
   </xsl:template>
 
