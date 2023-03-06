@@ -24336,19 +24336,6 @@ FROM "datablockType" WHERE "entity_systematic_nameCategory_id" IS NOT NULL;
 -- xmlns: http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd (BMRBx), schema location: schema/mmcif_nmr-star.xsd
 -- type: admin child (view), content: false, list: false, bridge: true, virtual: false
 --
-CREATE OR REPLACE VIEW "entryCategory" AS
-SELECT
--- PRIMARY KEY
-	"entryCategory_id" ,
--- NESTED KEY : "entryType" ( "entryType_id" ), PARENT NODE : datablock
-	"entryCategory_id" AS "entryType_id"
-FROM "datablockType" WHERE "entryCategory_id" IS NOT NULL;
-
---
--- No annotation is available
--- xmlns: http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd (BMRBx), schema location: schema/mmcif_nmr-star.xsd
--- type: admin child (view), content: false, list: false, bridge: true, virtual: false
---
 CREATE OR REPLACE VIEW "entry_authorCategory" AS
 SELECT
 -- PRIMARY KEY
@@ -27918,6 +27905,19 @@ SELECT
 -- NESTED KEY : "xray_instrumentType" ( "xray_instrumentType_id" ), PARENT NODE : datablock
 	"xray_instrumentCategory_id" AS "xray_instrumentType_id"
 FROM "datablockType" WHERE "xray_instrumentCategory_id" IS NOT NULL;
+
+--
+-- No annotation is available
+-- xmlns: http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd (BMRBx), schema location: schema/mmcif_nmr-star.xsd
+-- type: admin child (view), content: false, list: false, bridge: true, virtual: false
+--
+CREATE OR REPLACE VIEW "entryCategory" AS
+SELECT
+-- PRIMARY KEY
+	"entryCategory_id" ,
+-- NESTED KEY : "entryType" ( "entryType_id" ), PARENT NODE : datablock
+	"entryCategory_id" AS "entryType_id"
+FROM "datablockType" WHERE "entryCategory_id" IS NOT NULL;
 
 --ALTER TABLE "datablockType" ADD PRIMARY KEY ( "datablockType_id" );
 
