@@ -35,6 +35,11 @@
 
   <xsl2:template match="/xsd:schema">
     <xsl2:text disable-output-escaping="yes">
+  &lt;xsl:include href="url-encode.xsl"/&gt;
+
+  &lt;xsl:param name="primitive_type_mapping" select="'https://raw.githubusercontent.com/yokochi47/BMRBoTool/master/schema/bmrbx_primitive_type_mapping.xml'" required="no"/&gt;
+  &lt;xsl:param name="type_mapping" select="document($primitive_type_mapping)"/&gt;
+
   &lt;xsl:output method="xml" encoding="UTF-8" indent="yes"/&gt;
   &lt;xsl:strip-space elements="*"/&gt;
   &lt;xsl:variable name="bmrb_id"&gt;&lt;xsl:value-of select="/BMRBx:datablock/BMRBx:entryCategory/BMRBx:entry/@id"/&gt;&lt;/xsl:variable&gt;
@@ -131,7 +136,7 @@
       &lt;dcterms:references rdf:resource="{$doi}{$bmrb_doi}" rdfs:label="doi:{$bmrb_doi}"/&gt;
       &lt;dcterms:identifier&gt;&lt;xsl:value-of select="$bmrb_id"/&gt;&lt;/dcterms:identifier&gt;
       &lt;xsl:if test="not(starts-with($bmrb_id, 'bms'))"&gt;
-        &lt;skos:altLabel&gt;&lt;xsl:value-of select="concat('bmr',$bmrb_id)"/&gt;&lt;/skos:altLabel&gt;
+	&lt;skos:altLabel&gt;&lt;xsl:value-of select="concat('bmr',$bmrb_id)"/&gt;&lt;/skos:altLabel&gt;
       &lt;/xsl:if&gt;
       &lt;dc:title&gt;&lt;xsl:value-of select="BMRBx:entryCategory/BMRBx:entry/BMRBx:title/text()"/&gt;&lt;/dc:title&gt;
       &lt;rdfs:seeAlso rdf:resource="{$bmrbx}{$bmrb_id}-noatom.xml"/&gt;
@@ -159,15 +164,41 @@
   &lt;/xsl:template&gt;
 
   &lt;!-- level 4 (element) --&gt;
-  &lt;xsl:template match="/BMRBx:datablock/*/*/*[not(xsi:nil) and text() != '']"&gt;
-    &lt;xsl:element name="BMRBo:{concat(local-name(parent::node()),'.',local-name())}"&gt;
-      &lt;xsl:value-of select="."/&gt;
+  &lt;xsl:template match="/BMRBx:datablock/*/*/*[not(xsi:nil) and text()!='']"&gt;
+    &lt;xsl:variable name="category_item"&gt;&lt;xsl:value-of select="local-name(parent::node())"/&gt;&lt;/xsl:variable&gt;
+    &lt;xsl:variable name="data_item"&gt;&lt;xsl:value-of select="local-name()"/&gt;&lt;/xsl:variable&gt;
+    &lt;xsl:variable name="tag_name"&gt;&lt;xsl:value-of select="concat($category_item,'.',$data_item)"/&gt;&lt;/xsl:variable&gt;
+    &lt;xsl:variable name="data_type"&gt;&lt;xsl:value-of select="$type_mapping/primitive_type_mapping/category_item[@name=$category_item]/data_item[@name=$data_item]/@type"/&gt;&lt;/xsl:variable&gt;
+    &lt;xsl:element name="BMRBo:{$tag_name}"&gt;
+      &lt;xsl:if test="$data_type!=''"&gt;
+	&lt;xsl:attribute name="rdf:datatype"&gt;&lt;xsl:value-of select="$data_type"/&gt;&lt;/xsl:attribute&gt;
+      &lt;/xsl:if&gt;
+      &lt;xsl:choose&gt;
+	&lt;xsl:when test="contains(local-name(),'one_letter_code')"&gt;
+	  &lt;xsl:choose&gt;
+	    &lt;xsl:when test=".='?' or .='.'"/&gt;
+	    &lt;xsl:otherwise&gt;
+	      &lt;xsl:value-of select="translate(normalize-space(.),'&#xa;&#xd;','')"/&gt;
+	    &lt;/xsl:otherwise&gt;
+	  &lt;/xsl:choose&gt;
+	&lt;/xsl:when&gt;
+	&lt;xsl:otherwise&gt;
+	  &lt;xsl:value-of select="."/&gt;
+	&lt;/xsl:otherwise&gt;
+      &lt;/xsl:choose&gt;
     &lt;/xsl:element&gt;
   &lt;/xsl:template&gt;
 
   &lt;!-- level 4 (attribute) --&gt;
   &lt;xsl:template match="/BMRBx:datablock/*/*/@*"&gt;
-    &lt;xsl:element name="BMRBo:{concat(local-name(parent::node()),'.',translate(name(),'@',''))}"&gt;
+    &lt;xsl:variable name="category_item"&gt;&lt;xsl:value-of select="local-name(parent::node())"/&gt;&lt;/xsl:variable&gt;
+    &lt;xsl:variable name="data_item"&gt;&lt;xsl:value-of select="translate(name(),'@','')"/&gt;&lt;/xsl:variable&gt;
+    &lt;xsl:variable name="tag_name"&gt;&lt;xsl:value-of select="concat($category_item,'.',$data_item)"/&gt;&lt;/xsl:variable&gt;
+    &lt;xsl:variable name="data_type"&gt;&lt;xsl:value-of select="$type_mapping/primitive_type_mapping/category_item[@name=$category_item]/data_item[@name=$data_item]/@type"/&gt;&lt;/xsl:variable&gt;
+    &lt;xsl:element name="BMRBo:{$tag_name}"&gt;
+      &lt;xsl:if test="$data_type!=''"&gt;
+	&lt;xsl:attribute name="rdf:datatype"&gt;&lt;xsl:value-of select="$data_type"/&gt;&lt;/xsl:attribute&gt;
+      &lt;/xsl:if&gt;
       &lt;xsl:value-of select="."/&gt;
     &lt;/xsl:element&gt;
   &lt;/xsl:template&gt;
@@ -230,15 +261,15 @@
   &lt;xsl:template match="BMRBx:assembly/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a' and not(contains(text(), ' '))]" mode="linked"&gt;
     &lt;xsl:choose&gt;
       &lt;xsl:when test="contains(text(), ',')"&gt;
-        &lt;xsl:for-each select="tokenize(text(), ', ')"&gt;
-          &lt;xsl:variable name="ec_number" select="."/&gt;
-          &lt;rdfs:seeAlso rdf:resource="{$enzyme}{$ec_number}" rdfs:label="info:ec-code/{$ec_number}"/&gt;
-          &lt;rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec_number}" rdfs:label="ec-code:{$ec_number}"/&gt;
-        &lt;/xsl:for-each&gt;
+	&lt;xsl:for-each select="tokenize(text(), ', ')"&gt;
+	  &lt;xsl:variable name="ec_number" select="."/&gt;
+	  &lt;rdfs:seeAlso rdf:resource="{$enzyme}{$ec_number}" rdfs:label="info:ec-code/{$ec_number}"/&gt;
+	  &lt;rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec_number}" rdfs:label="ec-code:{$ec_number}"/&gt;
+	&lt;/xsl:for-each&gt;
       &lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$enzyme}{text()}" rdfs:label="info:ec-code/{text()}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$idorg}ec-code/{text()}" rdfs:label="ec-code:{text()}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$enzyme}{text()}" rdfs:label="info:ec-code/{text()}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$idorg}ec-code/{text()}" rdfs:label="ec-code:{text()}"/&gt;
       &lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:template&gt;
@@ -246,15 +277,15 @@
   &lt;xsl:template match="BMRBx:assembly_subsystem/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a' and not(contains(text(), ' '))]" mode="linked"&gt;
     &lt;xsl:choose&gt;
       &lt;xsl:when test="contains(text(), ',')"&gt;
-        &lt;xsl:for-each select="tokenize(text(), ', ')"&gt;
-          &lt;xsl:variable name="ec_number" select="."/&gt;
-          &lt;rdfs:seeAlso rdf:resource="{$enzyme}{$ec_number}" rdfs:label="info:ec-code/{$ec_number}"/&gt;
-          &lt;rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec_number}" rdfs:label="ec-code:{$ec_number}"/&gt;
-        &lt;/xsl:for-each&gt;
+	&lt;xsl:for-each select="tokenize(text(), ', ')"&gt;
+	  &lt;xsl:variable name="ec_number" select="."/&gt;
+	  &lt;rdfs:seeAlso rdf:resource="{$enzyme}{$ec_number}" rdfs:label="info:ec-code/{$ec_number}"/&gt;
+	  &lt;rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec_number}" rdfs:label="ec-code:{$ec_number}"/&gt;
+	&lt;/xsl:for-each&gt;
       &lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$enzyme}{text()}" rdfs:label="info:ec-code/{text()}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$idorg}ec-code/{text()}" rdfs:label="ec-code:{text()}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$enzyme}{text()}" rdfs:label="info:ec-code/{text()}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$idorg}ec-code/{text()}" rdfs:label="ec-code:{text()}"/&gt;
       &lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:template&gt;
@@ -262,15 +293,15 @@
   &lt;xsl:template match="BMRBx:entity/BMRBx:ec_number[text() != '' and text() != 'na' and text() != 'n/a' and not(contains(text(), ' '))]" mode="linked"&gt;
     &lt;xsl:choose&gt;
       &lt;xsl:when test="contains(text(), ',')"&gt;
-        &lt;xsl:for-each select="tokenize(text(), ', ')"&gt;
-          &lt;xsl:variable name="ec_number" select="."/&gt;
-          &lt;rdfs:seeAlso rdf:resource="{$enzyme}{$ec_number}" rdfs:label="info:ec-code/{$ec_number}"/&gt;
-          &lt;rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec_number}" rdfs:label="ec-code:{$ec_number}"/&gt;
-        &lt;/xsl:for-each&gt;
+	&lt;xsl:for-each select="tokenize(text(), ', ')"&gt;
+	  &lt;xsl:variable name="ec_number" select="."/&gt;
+	  &lt;rdfs:seeAlso rdf:resource="{$enzyme}{$ec_number}" rdfs:label="info:ec-code/{$ec_number}"/&gt;
+	  &lt;rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec_number}" rdfs:label="ec-code:{$ec_number}"/&gt;
+	&lt;/xsl:for-each&gt;
       &lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$enzyme}{text()}" rdfs:label="info:ec-code/{text()}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$idorg}ec-code/{text()}" rdfs:label="ec-code:{text()}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$enzyme}{text()}" rdfs:label="info:ec-code/{text()}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$idorg}ec-code/{text()}" rdfs:label="ec-code:{text()}"/&gt;
       &lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:template&gt;
@@ -493,10 +524,10 @@
     &lt;xsl:variable name="bmrb_id" select="."/&gt;
     &lt;xsl:choose&gt;
       &lt;xsl:when test="starts-with($bmrb_id, 'bms')"&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb.metabolomics/{$bmrb_id}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb.metabolomics/{$bmrb_id}"/&gt;
       &lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb/{$bmrb_id}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb/{$bmrb_id}"/&gt;
       &lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:template&gt;
@@ -505,10 +536,10 @@
     &lt;xsl:variable name="bmrb_id" select="."/&gt;
     &lt;xsl:choose&gt;
       &lt;xsl:when test="starts-with($bmrb_id, 'bms')"&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb.metabolomics/{$bmrb_id}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb.metabolomics/{$bmrb_id}"/&gt;
       &lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb/{$bmrb_id}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb/{$bmrb_id}"/&gt;
       &lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:template&gt;
@@ -517,10 +548,10 @@
     &lt;xsl:variable name="bmrb_id" select="."/&gt;
     &lt;xsl:choose&gt;
       &lt;xsl:when test="starts-with($bmrb_id, 'bms')"&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb.metabolomics/{$bmrb_id}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb.metabolomics/{$bmrb_id}"/&gt;
       &lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb/{$bmrb_id}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb/{$bmrb_id}"/&gt;
       &lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:template&gt;
@@ -529,10 +560,10 @@
     &lt;xsl:variable name="bmrb_id" select="."/&gt;
     &lt;xsl:choose&gt;
       &lt;xsl:when test="starts-with($bmrb_id, 'bms')"&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb.metabolomics/{$bmrb_id}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb.metabolomics/{$bmrb_id}"/&gt;
       &lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb/{$bmrb_id}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb/{$bmrb_id}"/&gt;
       &lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:template&gt;
@@ -541,10 +572,10 @@
     &lt;xsl:variable name="bmrb_id" select="."/&gt;
     &lt;xsl:choose&gt;
       &lt;xsl:when test="starts-with($bmrb_id, 'bms')"&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb.metabolomics/{$bmrb_id}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb.metabolomics/{$bmrb_id}"/&gt;
       &lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb/{$bmrb_id}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb/{$bmrb_id}"/&gt;
       &lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:template&gt;
@@ -553,10 +584,10 @@
     &lt;xsl:variable name="bmrb_id" select="."/&gt;
     &lt;xsl:choose&gt;
       &lt;xsl:when test="starts-with($bmrb_id, 'bms')"&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb.metabolomics/{$bmrb_id}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb.metabolomics/{$bmrb_id}"/&gt;
       &lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb/{$bmrb_id}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb/{$bmrb_id}"/&gt;
       &lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:template&gt;
@@ -565,10 +596,10 @@
     &lt;xsl:variable name="bmrb_id" select="."/&gt;
     &lt;xsl:choose&gt;
       &lt;xsl:when test="starts-with($bmrb_id, 'bms')"&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb.metabolomics/{$bmrb_id}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb.metabolomics/{$bmrb_id}"/&gt;
       &lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb/{$bmrb_id}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb/{$bmrb_id}"/&gt;
       &lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:template&gt;
@@ -577,10 +608,10 @@
     &lt;xsl:variable name="bmrb_id" select="."/&gt;
     &lt;xsl:choose&gt;
       &lt;xsl:when test="starts-with($bmrb_id, 'bms')"&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb.metabolomics/{$bmrb_id}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb.metabolomics/{$bmrb_id}"/&gt;
       &lt;/xsl:when&gt;
       &lt;xsl:otherwise&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb/{$bmrb_id}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$bmrb_url}{$bmrb_id}" rdfs:label="info:bmrb/{$bmrb_id}"/&gt;
       &lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:template&gt;
@@ -588,20 +619,20 @@
   &lt;xsl:template match="BMRBx:chem_comp/BMRBx:pdb_code[text() != '' and text() != 'na']" mode="linked"&gt;
     &lt;xsl:choose&gt;
       &lt;xsl:when test="starts-with(text(), 'pdb/')"&gt;
-        &lt;xsl:variable name="pdb_code" select="substring-after(text(),'pdb/')"/&gt;
-        &lt;xsl:variable name="cc_code" select="substring-after(text(),'chem_comp/')"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$pdb}{translate($pdb_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="info:pdb/{$pdb_code}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$idorg}pdb/{translate($pdb_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb:{$pdb_code}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$pdb.ligand}{translate($cc_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="info:pdb.ligand/{$cc_code}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$idorg}pdb.ligand/{translate($cc_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb.ligand:{$cc_code}"/&gt;
+	&lt;xsl:variable name="pdb_code" select="substring-after(text(),'pdb/')"/&gt;
+	&lt;xsl:variable name="cc_code" select="substring-after(text(),'chem_comp/')"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$pdb}{translate($pdb_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="info:pdb/{$pdb_code}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$idorg}pdb/{translate($pdb_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb:{$pdb_code}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$pdb.ligand}{translate($cc_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="info:pdb.ligand/{$cc_code}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$idorg}pdb.ligand/{translate($cc_code,' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb.ligand:{$cc_code}"/&gt;
       &lt;/xsl:when&gt;
       &lt;xsl:when test="starts-with(text(), 'bmrb_ligand_expo/')"/&gt;
       &lt;xsl:when test="starts-with(text(), 'no_records/')"/&gt;
       &lt;xsl:otherwise&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$pdb-ccd}{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="info:pdb-ccd/{text()}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$idorg}pdb-ccd/{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb-ccd:{text()}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$pdb.ligand}{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="info:pdb.ligand/{text()}"/&gt;
-        &lt;rdfs:seeAlso rdf:resource="{$idorg}pdb.ligand/{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb.ligand:{text()}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$pdb-ccd}{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="info:pdb-ccd/{text()}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$idorg}pdb-ccd/{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb-ccd:{text()}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$pdb.ligand}{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="info:pdb.ligand/{text()}"/&gt;
+	&lt;rdfs:seeAlso rdf:resource="{$idorg}pdb.ligand/{translate(text(),' []@#%+&amp;amp;','_()a....')}" rdfs:label="pdb.ligand:{text()}"/&gt;
       &lt;/xsl:otherwise&gt;
     &lt;/xsl:choose&gt;
   &lt;/xsl:template&gt;
@@ -635,15 +666,30 @@
   </xsl2:template>
 
   <xsl2:template name="check_fields">
-    <xsl2:param name="field"/><xsl2:value-of select="$field/@xpath"/>!=''<xsl2:if test="$field/following-sibling::node()[1]/@xpath != ''"><xsl2:text> and </xsl2:text><xsl2:call-template name="check_fields"><xsl2:with-param name="field" select="$field/following-sibling::node()[1]"/></xsl2:call-template></xsl2:if>
+    <xsl2:param name="field"/><xsl2:value-of select="$field/@xpath"/>!=''<xsl2:if test="$field/following-sibling::node()[1]/@xpath!=''"><xsl2:text> and </xsl2:text><xsl2:call-template name="check_fields"><xsl2:with-param name="field" select="$field/following-sibling::node()[1]"/></xsl2:call-template></xsl2:if>
   </xsl2:template>
 
   <xsl2:template name="concat_fields">
-    <xsl2:param name="selector"/><xsl2:param name="field"/>{translate(<xsl2:value-of select="$field/@xpath"/>,' []@#%+&amp;','_()a....')}<xsl2:if test="$field/following-sibling::node()[1]/@xpath != ''"><xsl2:text>,</xsl2:text><xsl2:call-template name="concat_fields"><xsl2:with-param name="selector" select="$selector"/><xsl2:with-param name="field" select="$field/following-sibling::node()[1]"/></xsl2:call-template></xsl2:if>
+    <xsl2:param name="selector"/><xsl2:param name="field"/>{$<xsl2:value-of select="concat(translate($field/@xpath,':/@','_'),'_encoded')"/>}<xsl2:if test="$field/following-sibling::node()[1]/@xpath!=''"><xsl2:text>,</xsl2:text><xsl2:call-template name="concat_fields"><xsl2:with-param name="selector" select="$selector"/><xsl2:with-param name="field" select="$field/following-sibling::node()[1]"/></xsl2:call-template></xsl2:if>
+  </xsl2:template>
+
+  <xsl2:template name="encode_fields">
+    <xsl2:param name="selector"/><xsl2:param name="field"/>
+      <xsl2:text disable-output-escaping="yes">
+      &lt;xsl:variable name="</xsl2:text><xsl2:value-of select="concat(translate($field/@xpath,':/@','_'),'_truncated')"/><xsl2:text disable-output-escaping="yes">"&gt;&lt;xsl:choose&gt;&lt;xsl:when test="string-length(</xsl2:text><xsl2:value-of select="$field/@xpath"/><xsl2:text disable-output-escaping="yes">)&amp;lt;64"&gt;&lt;xsl:value-of select="</xsl2:text><xsl2:value-of select="$field/@xpath"/><xsl2:text disable-output-escaping="yes">"/&gt;&lt;/xsl:when&gt;&lt;xsl:when test="contains(</xsl2:text><xsl2:value-of select="$field/@xpath"/><xsl2:text disable-output-escaping="yes">,',')"&gt;&lt;xsl:call-template name="substring-before-last"&gt;&lt;xsl:with-param name="str" select="substring(</xsl2:text><xsl2:value-of select="$field/@xpath"/><xsl2:text disable-output-escaping="yes">,1,64)"/&gt;&lt;xsl:with-param name="substr"&gt;,&lt;/xsl:with-param&gt;&lt;/xsl:call-template&gt;&lt;/xsl:when&gt;&lt;xsl:otherwise&gt;&lt;xsl:value-of select="substring(</xsl2:text><xsl2:value-of select="$field/@xpath"/><xsl2:text disable-output-escaping="yes">,1,64)"/&gt;&lt;/xsl:otherwise&gt;&lt;/xsl:choose&gt;&lt;/xsl:variable&gt;
+      &lt;xsl:variable name="</xsl2:text><xsl2:value-of select="concat(translate($field/@xpath,':/@','_'),'_encoded')"/><xsl2:text disable-output-escaping="yes">"&gt;&lt;xsl:call-template name="url-encode"&gt;&lt;xsl:with-param name="str" select="translate(normalize-space($</xsl2:text><xsl2:value-of select="concat(translate($field/@xpath,':/@','_'),'_truncated')"/><xsl2:text disable-output-escaping="yes">),' ^','__')"/&gt;&lt;/xsl:call-template&gt;&lt;/xsl:variable&gt;</xsl2:text><xsl2:if test="$field/following-sibling::node()[1]/@xpath!=''"><xsl2:call-template name="encode_fields"><xsl2:with-param name="selector" select="$selector"/><xsl2:with-param name="field" select="$field/following-sibling::node()[1]"/></xsl2:call-template></xsl2:if>
+  </xsl2:template>
+
+  <xsl2:template name="encode_fields2">
+    <xsl2:param name="selector"/><xsl2:param name="field"/>
+      <xsl2:if test="not(starts-with($field/@xpath,'@'))">
+	<xsl2:text disable-output-escaping="yes">
+      &lt;xsl:variable name="</xsl2:text><xsl2:value-of select="concat(translate($field/@xpath,':/@','_'),'_truncated')"/><xsl2:text disable-output-escaping="yes">"&gt;&lt;xsl:choose&gt;&lt;xsl:when test="string-length(</xsl2:text><xsl2:value-of select="$field/@xpath"/><xsl2:text disable-output-escaping="yes">)&amp;lt;64"&gt;&lt;xsl:value-of select="</xsl2:text><xsl2:value-of select="$field/@xpath"/><xsl2:text disable-output-escaping="yes">"/&gt;&lt;/xsl:when&gt;&lt;xsl:when test="contains(</xsl2:text><xsl2:value-of select="$field/@xpath"/><xsl2:text disable-output-escaping="yes">,',')"&gt;&lt;xsl:call-template name="substring-before-last"&gt;&lt;xsl:with-param name="str" select="substring(</xsl2:text><xsl2:value-of select="$field/@xpath"/><xsl2:text disable-output-escaping="yes">,1,64)"/&gt;&lt;xsl:with-param name="substr"&gt;,&lt;/xsl:with-param&gt;&lt;/xsl:call-template&gt;&lt;/xsl:when&gt;&lt;xsl:otherwise&gt;&lt;xsl:value-of select="substring(</xsl2:text><xsl2:value-of select="$field/@xpath"/><xsl2:text disable-output-escaping="yes">,1,64)"/&gt;&lt;/xsl:otherwise&gt;&lt;/xsl:choose&gt;&lt;/xsl:variable&gt;
+      &lt;xsl:variable name="</xsl2:text><xsl2:value-of select="concat(translate($field/@xpath,':/@','_'),'_encoded')"/><xsl2:text disable-output-escaping="yes">"&gt;&lt;xsl:call-template name="url-encode"&gt;&lt;xsl:with-param name="str" select="translate(normalize-space($</xsl2:text><xsl2:value-of select="concat(translate($field/@xpath,':/@','_'),'_truncated')"/><xsl2:text disable-output-escaping="yes">),' ^','__')"/&gt;&lt;/xsl:call-template&gt;&lt;/xsl:variable&gt;</xsl2:text></xsl2:if><xsl2:if test="$field/following-sibling::node()[1]/@xpath!=''"><xsl2:call-template name="encode_fields2"><xsl2:with-param name="selector" select="$selector"/><xsl2:with-param name="field" select="$field/following-sibling::node()[1]"/></xsl2:call-template></xsl2:if>
   </xsl2:template>
 
   <xsl2:template name="concat_fields2">
-    <xsl2:param name="field1"/><xsl2:param name="selector2"/><xsl2:param name="field2"/>{translate(<xsl2:value-of select="$field1/@xpath"/>,' []@#%+&amp;','_()a....')}<xsl2:if test="$field1/following-sibling::node()[1]/@xpath != ''"><xsl2:text>,</xsl2:text><xsl2:call-template name="concat_fields2"><xsl2:with-param name="field1" select="$field1/following-sibling::node()[1]"/><xsl2:with-param name="selector2" select="$selector2"/><xsl2:with-param name="field2" select="$field2/following-sibling::node()[1]"/></xsl2:call-template></xsl2:if>
+    <xsl2:param name="field1"/><xsl2:param name="selector2"/><xsl2:param name="field2"/><xsl2:if test="not(starts-with($field1/@xpath,'@'))">{translate(<xsl2:value-of select="$field1/@xpath"/>,' ^','__')}</xsl2:if><xsl2:if test="$field1/following-sibling::node()[1]/@xpath!=''"><xsl2:text>,</xsl2:text><xsl2:call-template name="concat_fields2"><xsl2:with-param name="field1" select="$field1/following-sibling::node()[1]"/><xsl2:with-param name="selector2" select="$selector2"/><xsl2:with-param name="field2" select="$field2/following-sibling::node()[1]"/></xsl2:call-template></xsl2:if>
   </xsl2:template>
 
   <xsl2:template name="key_category">
@@ -651,12 +697,16 @@
       <!--<xsl2:call-template name="key_items"/>-->
       <!-- removing bulky categories -->
       <xsl2:choose>
+	<xsl2:when test="./xsd:selector/@xpath='BMRBx:atom_siteCategory/BMRBx:atom_site'"/>
+	<!--
 	<xsl2:when test="./xsd:selector/@xpath = 'BMRBx:entityCategory/BMRBx:polymer_seq_one_letter_code_can'"/>
 	<xsl2:when test="./xsd:selector/@xpath = 'BMRBx:entityCategory/BMRBx:polymer_seq_one_letter_code'"/>
+	-->
 	<xsl2:otherwise>
 	  <xsl2:call-template name="key_items"/>
 	</xsl2:otherwise>
       </xsl2:choose>
+      <xsl2:call-template name="key_items"/>
     </xsl2:for-each>
   </xsl2:template>
 
@@ -669,11 +719,14 @@
 	<xsl2:with-param name="field" select="xsd:field[1]"/></xsl2:call-template></xsl2:variable>
     <xsl2:text disable-output-escaping="yes">
   &lt;xsl:template match=&quot;</xsl2:text><xsl2:value-of select="$docpath"/><xsl2:text disable-output-escaping="yes">&quot;&gt;</xsl2:text>
+    <xsl2:call-template name="encode_fields">
+      <xsl2:with-param name="selector" select="$name"/>
+      <xsl2:with-param name="field" select="xsd:field[1]"/></xsl2:call-template>
     <xsl2:text disable-output-escaping="yes">
       &lt;</xsl2:text>BMRBo:has_<xsl2:value-of select='$name'/><xsl2:text disable-output-escaping="yes">&gt;</xsl2:text>
     <xsl2:text disable-output-escaping="yes">
       &lt;</xsl2:text>BMRBo:<xsl2:value-of select='$name'/> rdf:about="{$base}/<xsl2:value-of select='$resource'/>"<xsl2:text disable-output-escaping="yes">&gt;
-	&lt;BMRBo:of_datablock rdf:resource="{$base}"/&gt;</xsl2:text>
+      &lt;BMRBo:of_datablock rdf:resource="{$base}"/&gt;</xsl2:text>
     <xsl2:call-template name="category_unique">
       <xsl2:with-param name="name" select="$name"/>
       <xsl2:with-param name="original" select="$resource"/>
@@ -711,6 +764,9 @@
 	<xsl2:text disable-output-escaping="yes">
       &lt;xsl:if test=</xsl2:text>"<xsl2:value-of select='$check'/>"<xsl2:text disable-output-escaping='yes'>&gt;
 	&lt;owl:sameAs&gt;</xsl2:text>
+	<xsl2:call-template name="encode_fields2">
+	  <xsl2:with-param name="selector" select="$name"/>
+	  <xsl2:with-param name="field" select="xsd:field[1]"/></xsl2:call-template>
 	<xsl2:text disable-output-escaping="yes">
 	  &lt;</xsl2:text>BMRBo:<xsl2:value-of select="$name"/> rdf:about="{$base}/<xsl2:value-of select='$resource'/>"<xsl2:text disable-output-escaping="yes">&gt;</xsl2:text>
 	<xsl2:text disable-output-escaping="yes">

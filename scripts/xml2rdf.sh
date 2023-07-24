@@ -58,6 +58,8 @@ if [ $ATOM != "noatom" ] && [ $ATOM != "atom" ] ; then
 
 fi
 
+_BMRBX_PRIMITIVE_TYPE_MAPPING_XML=bmrbx_primitive_type_mapping.xml
+
 if [ $ATOM = "atom" ] ; then
 
  XML_DOC_DIR=$BMRBX_TOOL_HOME/$PREFIX"_xml_doc"
@@ -203,8 +205,8 @@ convert() {
 
      if [ -e $XML_DOC_FILE ] ; then
 
-      xsltproc -o $RDF_DOC_FILE $BMRBX2RDF_XSL $XML_DOC_FILE 2> $RDF_ERR_FILE
-      #java -jar $SAXON -s:$XML_DOC_FILE -xsl:$BMRBX2RDF_XSL -o:$RDF_DOC_FILE -versionmsg:off 2> $RDF_ERR_FILE
+      xsltproc -o $RDF_DOC_FILE --stringparam primitive_type_mapping $_BMRBX_PRIMITIVE_TYPE_MAPPING_XML $BMRBX2RDF_XSL $XML_DOC_FILE 2> $RDF_ERR_FILE
+      #java -jar $SAXON -s:$XML_DOC_FILE -xsl:$BMRBX2RDF_XSL -o:$RDF_DOC_FILE primitive_type_mapping=$_BMRBX_PRIMITIVE_TYPE_MAPPING_XML -versionmsg:off 2> $RDF_ERR_FILE
 
       if [ $? = 0 ] ; then
 
