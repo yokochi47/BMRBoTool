@@ -694,8 +694,9 @@
   </xsl:template>
 
   <xsl:template match="BMRBx:chem_comp/BMRBx:pubchem_code[text() != '' and text() != 'na']" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$pubchem.substance}{text()}" rdfs:label="info:pubchem.substance/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}pubchem.substance/{text()}" rdfs:label="pubchem.substance:{text()}"/>
+    <xsl:variable name="acc"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
+    <rdfs:seeAlso rdf:resource="{$pubchem.substance}{$acc}" rdfs:label="info:pubchem.substance/{$acc}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pubchem.substance/{$acc}" rdfs:label="pubchem.substance:{$acc}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:chem_comp_db_link[@database_code='PubChem' and @accession_code != '' and @accession_code != 'na']/BMRBx:accession_code_type" mode="linked">

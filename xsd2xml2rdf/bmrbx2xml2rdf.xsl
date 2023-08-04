@@ -715,8 +715,9 @@
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:chem_comp/BMRBx:pubchem_code[text() != '' and text() != 'na']" mode="linked"&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$pubchem.substance}{text()}" rdfs:label="info:pubchem.substance/{text()}"/&gt;
-    &lt;rdfs:seeAlso rdf:resource="{$idorg}pubchem.substance/{text()}" rdfs:label="pubchem.substance:{text()}"/&gt;
+    &lt;xsl:variable name="acc"&gt;&lt;xsl:value-of select="translate(text(),' ','')"/&gt;&lt;/xsl:variable&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$pubchem.substance}{$acc}" rdfs:label="info:pubchem.substance/{$acc}"/&gt;
+    &lt;rdfs:seeAlso rdf:resource="{$idorg}pubchem.substance/{$acc}" rdfs:label="pubchem.substance:{$acc}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:chem_comp_db_link[@database_code='PubChem' and @accession_code != '' and @accession_code != 'na']/BMRBx:accession_code_type" mode="linked"&gt;
