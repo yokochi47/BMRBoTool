@@ -12,7 +12,7 @@
   xmlns:skos="http://www.w3.org/2004/02/skos/core#"
   xmlns:BMRBx="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.xsd"
   xmlns:BMRBo="http://bmrbpub.pdbj.org/schema/mmcif_nmr-star.owl#"
-  exclude-result-prefixes="BMRBx">
+  xmlns:ext="http://exslt.org/common" exclude-result-prefixes="BMRBx ext">
     
   <xsl:include href="url-encode.xsl"/>
 
@@ -195,18 +195,57 @@
   </xsl:template>
 
   <xsl:template match="BMRBx:entry/BMRBx:doi[text() != '' and text() != 'na']" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$doi}{text()}" rdfs:label="info:doi/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}doi/{text()}" rdfs:label="doi:{text()}"/>
+    <xsl:variable name="escaped_url">
+      <xsl:call-template name="replace-string">
+	<xsl:with-param name="str">
+	  <xsl:call-template name="replace-string">
+	    <xsl:with-param name="str" select="text()"/>
+	    <xsl:with-param name="replace">&lt;</xsl:with-param>
+	    <xsl:with-param name="with">&amp;lt;</xsl:with-param>
+	  </xsl:call-template>
+	</xsl:with-param>
+	<xsl:with-param name="replace">&gt;</xsl:with-param>
+	<xsl:with-param name="with">&amp;gt;</xsl:with-param>
+      </xsl:call-template>
+    </xsl:variable>
+    <rdfs:seeAlso rdf:resource="{$doi}{$escaped_url}" rdfs:label="info:doi/{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}doi/{escaped_url}" rdfs:label="doi:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:auxiliary_files/BMRBx:doi[text() != '' and text() != 'na']" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$doi}{text()}" rdfs:label="info:doi/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}doi/{text()}" rdfs:label="doi:{text()}"/>
+    <xsl:variable name="escaped_url">
+      <xsl:call-template name="replace-string">
+	<xsl:with-param name="str">
+	  <xsl:call-template name="replace-string">
+	    <xsl:with-param name="str" select="text()"/>
+	    <xsl:with-param name="replace">&lt;</xsl:with-param>
+	    <xsl:with-param name="with">&amp;lt;</xsl:with-param>
+	  </xsl:call-template>
+	</xsl:with-param>
+	<xsl:with-param name="replace">&gt;</xsl:with-param>
+	<xsl:with-param name="with">&amp;gt;</xsl:with-param>
+      </xsl:call-template>
+    </xsl:variable>
+    <rdfs:seeAlso rdf:resource="{$doi}{$escaped_url}" rdfs:label="info:doi/{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}doi/{$escaped_url}" rdfs:label="doi:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:citation/BMRBx:doi[text() != '' and text() != 'na']" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$doi}{text()}" rdfs:label="info:doi/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}doi/{text()}" rdfs:label="doi:{text()}"/>
+    <xsl:variable name="escaped_url">
+      <xsl:call-template name="replace-string">
+	<xsl:with-param name="str">
+	  <xsl:call-template name="replace-string">
+	    <xsl:with-param name="str" select="text()"/>
+	    <xsl:with-param name="replace">&lt;</xsl:with-param>
+	    <xsl:with-param name="with">&amp;lt;</xsl:with-param>
+	  </xsl:call-template>
+	</xsl:with-param>
+	<xsl:with-param name="replace">&gt;</xsl:with-param>
+	<xsl:with-param name="with">&amp;gt;</xsl:with-param>
+      </xsl:call-template>
+    </xsl:variable>
+    <rdfs:seeAlso rdf:resource="{$doi}{$escaped_url}" rdfs:label="info:doi/{text()}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}doi/{$escaped_url}" rdfs:label="doi:{text()}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:citation/BMRBx:pubmed_id[text() != '' and text() != 'na']" mode="linked">
@@ -229,61 +268,92 @@
   </xsl:template>
 
   <xsl:template match="BMRBx:entity_natural_src/BMRBx:ncbi_taxonomy_id[text() != '' and text() != 'na' and text() != 'n/a']" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$taxonomy}{text()}" rdfs:label="info:taxonomy/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}taxonomy/{text()}" rdfs:label="taxonomy:{text()}"/>
+    <xsl:variable name="tax_list">
+      <xsl:call-template name="tokenize">
+	<xsl:with-param name="str" select="text()"/>
+	<xsl:with-param name="substr">,</xsl:with-param>
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:for-each select="ext:node-set($tax_list)/token">
+      <xsl:variable name="tax"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
+      <xsl:if test="string-length($tax)!=0">
+	<rdfs:seeAlso rdf:resource="{$taxonomy}{$tax}" rdfs:label="info:taxonomy/{$tax}"/>
+	<rdfs:seeAlso rdf:resource="{$idorg}taxonomy/{$tax}" rdfs:label="taxonomy:{$tax}"/>
+      </xsl:if>
+    </xsl:for-each>
   </xsl:template>
 
   <xsl:template match="BMRBx:entity_experimental_src/BMRBx:host_org_ncbi_taxonomy_id[text() != '' and text() != 'na' and text() != 'n/a']" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$taxonomy}{text()}" rdfs:label="info:taxonomy/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}taxonomy/{text()}" rdfs:label="taxonomy:{text()}"/>
+    <xsl:variable name="tax_list">
+      <xsl:call-template name="tokenize">
+	<xsl:with-param name="str" select="text()"/>
+	<xsl:with-param name="substr">,</xsl:with-param>
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:for-each select="ext:node-set($tax_list)/token">
+      <xsl:variable name="tax"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
+      <xsl:if test="string-length($tax)!=0">
+	<rdfs:seeAlso rdf:resource="{$taxonomy}{$tax}" rdfs:label="info:taxonomy/{$tax}"/>
+	<rdfs:seeAlso rdf:resource="{$idorg}taxonomy/{$tax}" rdfs:label="taxonomy:{$tax}"/>
+      </xsl:if>
+    </xsl:for-each>
   </xsl:template>
 
-  <xsl:template match="BMRBx:assembly/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a' and not(contains(text(), ' '))]" mode="linked">
-    <xsl:choose>
-      <xsl:when test="contains(text(), ',')">
-	<xsl:for-each select="tokenize(text(), ', ')">
-	  <xsl:variable name="ec_number" select="."/>
-	  <rdfs:seeAlso rdf:resource="{$enzyme}{$ec_number}" rdfs:label="info:ec-code/{$ec_number}"/>
-	  <rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec_number}" rdfs:label="ec-code:{$ec_number}"/>
-	</xsl:for-each>
-      </xsl:when>
-      <xsl:otherwise>
-	<rdfs:seeAlso rdf:resource="{$enzyme}{text()}" rdfs:label="info:ec-code/{text()}"/>
-	<rdfs:seeAlso rdf:resource="{$idorg}ec-code/{text()}" rdfs:label="ec-code:{text()}"/>
-      </xsl:otherwise>
-    </xsl:choose>
+  <xsl:template match="BMRBx:assembly/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a'" mode="linked">
+    <xsl:variable name="ec_norm"><xsl:value-of select="normalize-space(text())"/></xsl:variable>
+    <xsl:if test="$ec_norm!=''">
+     <xsl:variable name="ec_list">
+	<xsl:call-template name="tokenize">
+	  <xsl:with-param name="str" select="$ec_norm"/>
+	  <xsl:with-param name="substr">,</xsl:with-param>
+	</xsl:call-template>
+      </xsl:variable>
+      <xsl:for-each select="ext:node-set($ec_list)/token">
+	<xsl:variable name="ec"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
+	<xsl:if test="string-length($ec)!=0">
+	  <rdfs:seeAlso rdf:resource="{$enzyme}{$ec}" rdfs:label="info:ec-code/{$ec}"/>
+	  <rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec}" rdfs:label="ec-code:{$ec}"/>
+	</xsl:if>
+      </xsl:for-each>
+    </xsl:if>
   </xsl:template>
 
-  <xsl:template match="BMRBx:assembly_subsystem/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a' and not(contains(text(), ' '))]" mode="linked">
-    <xsl:choose>
-      <xsl:when test="contains(text(), ',')">
-	<xsl:for-each select="tokenize(text(), ', ')">
-	  <xsl:variable name="ec_number" select="."/>
-	  <rdfs:seeAlso rdf:resource="{$enzyme}{$ec_number}" rdfs:label="info:ec-code/{$ec_number}"/>
-	  <rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec_number}" rdfs:label="ec-code:{$ec_number}"/>
-	</xsl:for-each>
-      </xsl:when>
-      <xsl:otherwise>
-	<rdfs:seeAlso rdf:resource="{$enzyme}{text()}" rdfs:label="info:ec-code/{text()}"/>
-	<rdfs:seeAlso rdf:resource="{$idorg}ec-code/{text()}" rdfs:label="ec-code:{text()}"/>
-      </xsl:otherwise>
-    </xsl:choose>
+  <xsl:template match="BMRBx:assembly_subsystem/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a'" mode="linked">
+    <xsl:variable name="ec_norm"><xsl:value-of select="normalize-space(text())"/></xsl:variable>
+    <xsl:if test="$ec_norm!=''">
+     <xsl:variable name="ec_list">
+	<xsl:call-template name="tokenize">
+	  <xsl:with-param name="str" select="$ec_norm"/>
+	  <xsl:with-param name="substr">,</xsl:with-param>
+	</xsl:call-template>
+      </xsl:variable>
+      <xsl:for-each select="ext:node-set($ec_list)/token">
+	<xsl:variable name="ec"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
+	<xsl:if test="string-length($ec)!=0">
+	  <rdfs:seeAlso rdf:resource="{$enzyme}{$ec}" rdfs:label="info:ec-code/{$ec}"/>
+	  <rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec}" rdfs:label="ec-code:{$ec}"/>
+	</xsl:if>
+      </xsl:for-each>
+    </xsl:if>
   </xsl:template>
 
-  <xsl:template match="BMRBx:entity/BMRBx:ec_number[text() != '' and text() != 'na' and text() != 'n/a' and not(contains(text(), ' '))]" mode="linked">
-    <xsl:choose>
-      <xsl:when test="contains(text(), ',')">
-	<xsl:for-each select="tokenize(text(), ', ')">
-	  <xsl:variable name="ec_number" select="."/>
-	  <rdfs:seeAlso rdf:resource="{$enzyme}{$ec_number}" rdfs:label="info:ec-code/{$ec_number}"/>
-	  <rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec_number}" rdfs:label="ec-code:{$ec_number}"/>
-	</xsl:for-each>
-      </xsl:when>
-      <xsl:otherwise>
-	<rdfs:seeAlso rdf:resource="{$enzyme}{text()}" rdfs:label="info:ec-code/{text()}"/>
-	<rdfs:seeAlso rdf:resource="{$idorg}ec-code/{text()}" rdfs:label="ec-code:{text()}"/>
-      </xsl:otherwise>
-    </xsl:choose>
+  <xsl:template match="BMRBx:entity/BMRBx:ec_number[text() != '' and text() != 'na' and text() != 'n/a'" mode="linked">
+    <xsl:variable name="ec_norm"><xsl:value-of select="normalize-space(text())"/></xsl:variable>
+    <xsl:if test="$ec_norm!=''">
+     <xsl:variable name="ec_list">
+	<xsl:call-template name="tokenize">
+	  <xsl:with-param name="str" select="$ec_norm"/>
+	  <xsl:with-param name="substr">,</xsl:with-param>
+	</xsl:call-template>
+      </xsl:variable>
+      <xsl:for-each select="ext:node-set($ec_list)/token">
+	<xsl:variable name="ec"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
+	<xsl:if test="string-length($ec)!=0">
+	  <rdfs:seeAlso rdf:resource="{$enzyme}{$ec}" rdfs:label="info:ec-code/{$ec}"/>
+	  <rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec}" rdfs:label="ec-code:{$ec}"/>
+	</xsl:if>
+      </xsl:for-each>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='SP']/@accession_code" mode="linked">
@@ -443,33 +513,39 @@
   </xsl:template>
 
   <xsl:template match="BMRBx:struct_classification/BMRBx:sunid[text() != '' and text() != 'na']" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$scop}{text()}" rdfs:label="info:scop/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}scop/{text()}" rdfs:label="scop:{text()}"/>
+    <xsl:variable name="acc"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
+    <rdfs:seeAlso rdf:resource="{$scop}{$acc}" rdfs:label="info:scop/{$acc}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}scop/{$acc}" rdfs:label="scop:{$acc}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:entry/BMRBx:assigned_pdb_id[text() != '']" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{text()}" rdfs:label="pdb:{text()}"/>
+    <xsl:variable name="acc"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
+    <rdfs:seeAlso rdf:resource="{$pdb}{$acc}" rdfs:label="info:pdb/{$acc}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$acc}" rdfs:label="pdb:{$acc}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:conformer_family_coord_set/BMRBx:pdb_accession_code[text() != '']" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{text()}" rdfs:label="pdb:{text()}"/>
+    <xsl:variable name="acc"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
+    <rdfs:seeAlso rdf:resource="{$pdb}{$acc}" rdfs:label="info:pdb/{$acc}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$acc}" rdfs:label="pdb:{$acc}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:representative_conformer/BMRBx:pdb_accession_code[text() != '']" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{text()}" rdfs:label="pdb:{text()}"/>
+    <xsl:variable name="acc"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
+    <rdfs:seeAlso rdf:resource="{$pdb}{$acc}" rdfs:label="info:pdb/{$acc}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$acc}" rdfs:label="pdb:{$acc}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:structure_annotation/BMRBx:pdb_id[text() != '']" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{text()}" rdfs:label="pdb:{text()}"/>
+    <xsl:variable name="acc"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
+    <rdfs:seeAlso rdf:resource="{$pdb}{$acc}" rdfs:label="info:pdb/{$acc}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$acc}" rdfs:label="pdb:{$acc}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:pb_list/BMRBx:pdb_id[text() != '']" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$pdb}{text()}" rdfs:label="info:pdb/{text()}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{text()}" rdfs:label="pdb:{text()}"/>
+    <xsl:variable name="acc"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
+    <rdfs:seeAlso rdf:resource="{$pdb}{$acc}" rdfs:label="info:pdb/{$acc}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$acc}" rdfs:label="pdb:{$acc}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='PDB']/@accession_code" mode="linked">
