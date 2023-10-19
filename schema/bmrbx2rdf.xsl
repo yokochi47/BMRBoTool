@@ -299,7 +299,7 @@
     </xsl:for-each>
   </xsl:template>
 
-  <xsl:template match="BMRBx:assembly/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a'" mode="linked">
+  <xsl:template match="BMRBx:assembly/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a']" mode="linked">
     <xsl:variable name="ec_norm"><xsl:value-of select="normalize-space(text())"/></xsl:variable>
     <xsl:if test="$ec_norm!=''">
      <xsl:variable name="ec_list">
@@ -318,7 +318,7 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="BMRBx:assembly_subsystem/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a'" mode="linked">
+  <xsl:template match="BMRBx:assembly_subsystem/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a']" mode="linked">
     <xsl:variable name="ec_norm"><xsl:value-of select="normalize-space(text())"/></xsl:variable>
     <xsl:if test="$ec_norm!=''">
      <xsl:variable name="ec_list">
@@ -337,7 +337,7 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template match="BMRBx:entity/BMRBx:ec_number[text() != '' and text() != 'na' and text() != 'n/a'" mode="linked">
+  <xsl:template match="BMRBx:entity/BMRBx:ec_number[text() != '' and text() != 'na' and text() != 'n/a']" mode="linked">
     <xsl:variable name="ec_norm"><xsl:value-of select="normalize-space(text())"/></xsl:variable>
     <xsl:if test="$ec_norm!=''">
      <xsl:variable name="ec_list">

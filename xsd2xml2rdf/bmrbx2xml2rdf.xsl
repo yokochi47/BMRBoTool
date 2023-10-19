@@ -320,7 +320,7 @@
     &lt;/xsl:for-each&gt;
   &lt;/xsl:template&gt;
 
-  &lt;xsl:template match="BMRBx:assembly/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a'" mode="linked"&gt;
+  &lt;xsl:template match="BMRBx:assembly/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a']" mode="linked"&gt;
     &lt;xsl:variable name="ec_norm"&gt;&lt;xsl:value-of select="normalize-space(text())"/&gt;&lt;/xsl:variable&gt;
     &lt;xsl:if test="$ec_norm!=''"&gt;
      &lt;xsl:variable name="ec_list"&gt;
@@ -339,7 +339,7 @@
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
-  &lt;xsl:template match="BMRBx:assembly_subsystem/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a'" mode="linked"&gt;
+  &lt;xsl:template match="BMRBx:assembly_subsystem/BMRBx:enzyme_commission_number[text() != '' and text() != 'na' and text() != 'n/a']" mode="linked"&gt;
     &lt;xsl:variable name="ec_norm"&gt;&lt;xsl:value-of select="normalize-space(text())"/&gt;&lt;/xsl:variable&gt;
     &lt;xsl:if test="$ec_norm!=''"&gt;
      &lt;xsl:variable name="ec_list"&gt;
@@ -358,7 +358,7 @@
     &lt;/xsl:if&gt;
   &lt;/xsl:template&gt;
 
-  &lt;xsl:template match="BMRBx:entity/BMRBx:ec_number[text() != '' and text() != 'na' and text() != 'n/a'" mode="linked"&gt;
+  &lt;xsl:template match="BMRBx:entity/BMRBx:ec_number[text() != '' and text() != 'na' and text() != 'n/a']" mode="linked"&gt;
     &lt;xsl:variable name="ec_norm"&gt;&lt;xsl:value-of select="normalize-space(text())"/&gt;&lt;/xsl:variable&gt;
     &lt;xsl:if test="$ec_norm!=''"&gt;
      &lt;xsl:variable name="ec_list"&gt;
