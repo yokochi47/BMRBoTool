@@ -8,7 +8,7 @@ if [ $MAXPROCS = 0 ] ; then
  MAXPROCS=1
 fi
 
-RDF_DIRS=("bmr_rdf_raw" "bms_rdf_raw")
+RDF_DIRS=("bmr_rdf_doc" "bms_rdf_doc")
 
 for RDF_DIR in ${RDF_DIRS[@]} ; do
 
@@ -16,12 +16,12 @@ for RDF_DIR in ${RDF_DIRS[@]} ; do
 
   rdf_file_list=rdf_file_list
 
-  find $RDF_DIR -maxdepth 1 -name '*.rdf' > $rdf_file_list
+  find $RDF_DIR -maxdepth 1 -name '*.rdf.gz' > $rdf_file_list
   total=`wc -l $rdf_file_list`
 
   for proc_id in `seq 1 $MAXPROCS` ; do
 
-   ./scripts/avoid_qname_attr_worker.sh -d $RDF_DIR -l $rdf_file_list -n $proc_id"of"$MAXPROCS -t $total &
+   ./scripts/avoid_qname_attr_gz_worker.sh -d $RDF_DIR -l $rdf_file_list -n $proc_id"of"$MAXPROCS -t $total &
 
   done
 

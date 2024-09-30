@@ -44,21 +44,23 @@ PROC_ID=$(($PROC_ID - 1))
 
 proc_id=0
 
-while read rdf_file
+while read rdf_gz_file
 do
 
  proc_id_mod=$(($proc_id % $MAXPROCS))
 
  if [ $proc_id_mod = $PROC_ID ] ; then
 
-  if [ ! -e $rdf_file ] ; then
+  if [ ! -e $rdf_gz_file ] ; then
 
    let proc_id++
    continue
 
   fi
 
-  sed -i -e 's/xsd:/http:\/\/www.w3.org\/2001\/XMLSchema#/' $rdf_file
+  rdf_file=${rdf_gz_file%.*}
+
+  ( gunzip -c $rdf_gz_file | sed 's/xsd:/http:\/\/www.w3.org\/2001\/XMLSchema#/' > $rdf_file ; rm -f $rdf_gz_file ; gzip $rdf_file )
 
   if [ $proc_id_mod -eq 0 ] ; then
    echo -e -n "\rDone "$((proc_id + 1)) of $TOTAL ...
