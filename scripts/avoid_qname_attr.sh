@@ -1,7 +1,5 @@
 #!/bin/bash
 
-exit
-
 MAXPROCS=`cat /proc/cpuinfo 2> /dev/null | grep 'cpu cores' | wc -l 2> /dev/null`
 
 if [ $MAXPROCS = 0 ] ; then
