@@ -36955,14 +36955,14 @@
                     {
                       "type": "string",
                       "description": "Kingdom classifications for an organism as defined by NCBI taxonomists. Metazoa, URI-reference = https://bmrb.io/dictionary/tagdetail.php?tag=_Entity_natural_src.Kingdom",
-                      "enum": ["Metazoa", "Fungi", "Viridiplantae", "Loebvirae", "Orthornavirae", "Pararnavirae", "Heunggongvirae", "Bamfordvirae", "Helvetiavirae", "Sangervirae", "Shotokuvirae", "Trapavirae", "Zilligvirae", "Bacillati", "Pseudomonadati", "Not applicable", ""]
+                      "enum": ["Metazoa", "Fungi", "Viridiplantae", "Loebvirae", "Orthornavirae", "Pararnavirae", "Heunggongvirae", "Bamfordvirae", "Helvetiavirae", "Sangervirae", "Shotokuvirae", "Trapavirae", "Zilligvirae", "Bacillati", "Pseudomonadati", "Methanobacteriati", "Not applicable", ""]
                     },
                     {
                       "type": "array",
                       "items": {
                         "type": "string",
                         "description": "alternative array representation of kingdom",
-                        "enum": ["Metazoa", "Fungi", "Viridiplantae", "Loebvirae", "Orthornavirae", "Pararnavirae", "Heunggongvirae", "Bamfordvirae", "Helvetiavirae", "Sangervirae", "Shotokuvirae", "Trapavirae", "Zilligvirae", "Bacillati", "Pseudomonadati", "Not applicable", ""]
+                        "enum": ["Metazoa", "Fungi", "Viridiplantae", "Loebvirae", "Orthornavirae", "Pararnavirae", "Heunggongvirae", "Bamfordvirae", "Helvetiavirae", "Sangervirae", "Shotokuvirae", "Trapavirae", "Zilligvirae", "Bacillati", "Pseudomonadati", "Methanobacteriati", "Not applicable", ""]
                       }
                     }
                   ]

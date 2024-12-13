@@ -26173,6 +26173,7 @@ Metazoa
                   <xsd:enumeration value="Zilligvirae"/>
                   <xsd:enumeration value="Bacillati"/>
                   <xsd:enumeration value="Pseudomonadati"/>
+                  <xsd:enumeration value="Methanobacteriati"/>
                   <xsd:enumeration value="Not applicable"/>
                 </xsd:restriction>
               </xsd:simpleType>
