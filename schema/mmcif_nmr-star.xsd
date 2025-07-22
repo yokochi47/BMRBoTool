@@ -26174,6 +26174,7 @@ Metazoa
                   <xsd:enumeration value="Bacillati"/>
                   <xsd:enumeration value="Pseudomonadati"/>
                   <xsd:enumeration value="Methanobacteriati"/>
+                  <xsd:enumeration value="Thermotogati"/>
                   <xsd:enumeration value="Not applicable"/>
                 </xsd:restriction>
               </xsd:simpleType>
