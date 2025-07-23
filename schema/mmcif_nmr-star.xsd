@@ -51275,18 +51275,13 @@ Text describing the reported list of spectral peaks.
                         </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element maxOccurs="1" minOccurs="0" name="experiment_class" nillable="true">
+            <xsd:element maxOccurs="1" minOccurs="0" name="experiment_class" nillable="true" type="xsd:string">
               <xsd:annotation>
                 <xsd:documentation source="https://bmrb.io/dictionary/tagdetail.php?tag=_Spectral_peak_list.Experiment_class" xml:lang="en">
 
 ?
                         </xsd:documentation>
               </xsd:annotation>
-              <xsd:simpleType>
-                <xsd:restriction base="xsd:string">
-                  <xsd:enumeration value="H_H[C].through-space"/>
-                </xsd:restriction>
-              </xsd:simpleType>
             </xsd:element>
             <xsd:element maxOccurs="1" minOccurs="0" name="experiment_id" type="xsd:int">
               <xsd:annotation>
@@ -51304,18 +51299,13 @@ Pointer to a saveframe of the category 'NMR_spectrometer_expt'
                         </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element maxOccurs="1" minOccurs="0" name="experiment_type" nillable="true">
+            <xsd:element maxOccurs="1" minOccurs="0" name="experiment_type" nillable="true" type="xsd:string">
               <xsd:annotation>
                 <xsd:documentation source="https://bmrb.io/dictionary/tagdetail.php?tag=_Spectral_peak_list.Experiment_type" xml:lang="en">
 
 ?
                         </xsd:documentation>
               </xsd:annotation>
-              <xsd:simpleType>
-                <xsd:restriction base="xsd:string">
-                  <xsd:enumeration value="13C-NOESY-HSQC"/>
-                </xsd:restriction>
-              </xsd:simpleType>
             </xsd:element>
             <xsd:element maxOccurs="1" minOccurs="0" name="name" nillable="true" type="xsd:string">
               <xsd:annotation>
