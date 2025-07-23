@@ -36955,14 +36955,14 @@
                     {
                       "type": "string",
                       "description": "Kingdom classifications for an organism as defined by NCBI taxonomists. Metazoa, URI-reference = https://bmrb.io/dictionary/tagdetail.php?tag=_Entity_natural_src.Kingdom",
-                      "enum": ["Metazoa", "Fungi", "Viridiplantae", "Loebvirae", "Orthornavirae", "Pararnavirae", "Heunggongvirae", "Bamfordvirae", "Helvetiavirae", "Sangervirae", "Shotokuvirae", "Trapavirae", "Zilligvirae", "Bacillati", "Pseudomonadati", "Methanobacteriati", "Not applicable", ""]
+                      "enum": ["Metazoa", "Fungi", "Viridiplantae", "Loebvirae", "Orthornavirae", "Pararnavirae", "Heunggongvirae", "Bamfordvirae", "Helvetiavirae", "Sangervirae", "Shotokuvirae", "Trapavirae", "Zilligvirae", "Bacillati", "Pseudomonadati", "Methanobacteriati", "Thermotogati", "Not applicable", ""]
                     },
                     {
                       "type": "array",
                       "items": {
                         "type": "string",
                         "description": "alternative array representation of kingdom",
-                        "enum": ["Metazoa", "Fungi", "Viridiplantae", "Loebvirae", "Orthornavirae", "Pararnavirae", "Heunggongvirae", "Bamfordvirae", "Helvetiavirae", "Sangervirae", "Shotokuvirae", "Trapavirae", "Zilligvirae", "Bacillati", "Pseudomonadati", "Methanobacteriati", "Not applicable", ""]
+                        "enum": ["Metazoa", "Fungi", "Viridiplantae", "Loebvirae", "Orthornavirae", "Pararnavirae", "Heunggongvirae", "Bamfordvirae", "Helvetiavirae", "Sangervirae", "Shotokuvirae", "Trapavirae", "Zilligvirae", "Bacillati", "Pseudomonadati", "Methanobacteriati", "Thermotogati", "Not applicable", ""]
                       }
                     }
                   ]
@@ -71904,16 +71904,14 @@
                 "experiment_class": {
                   "oneOf": [
                     {
-                      "type": "string",
-                      "description": "?, URI-reference = https://bmrb.io/dictionary/tagdetail.php?tag=_Spectral_peak_list.Experiment_class",
-                      "enum": ["H_H[C].through-space", ""]
+                      "type": ["string", "null"],
+                      "description": "?, URI-reference = https://bmrb.io/dictionary/tagdetail.php?tag=_Spectral_peak_list.Experiment_class"
                     },
                     {
                       "type": "array",
                       "items": {
-                        "type": "string",
-                        "description": "alternative array representation of experiment_class",
-                        "enum": ["H_H[C].through-space", ""]
+                        "type": ["string", "null"],
+                        "description": "alternative array representation of experiment_class"
                       }
                     }
                   ]
@@ -71951,16 +71949,14 @@
                 "experiment_type": {
                   "oneOf": [
                     {
-                      "type": "string",
-                      "description": "?, URI-reference = https://bmrb.io/dictionary/tagdetail.php?tag=_Spectral_peak_list.Experiment_type",
-                      "enum": ["13C-NOESY-HSQC", ""]
+                      "type": ["string", "null"],
+                      "description": "?, URI-reference = https://bmrb.io/dictionary/tagdetail.php?tag=_Spectral_peak_list.Experiment_type"
                     },
                     {
                       "type": "array",
                       "items": {
-                        "type": "string",
-                        "description": "alternative array representation of experiment_type",
-                        "enum": ["13C-NOESY-HSQC", ""]
+                        "type": ["string", "null"],
+                        "description": "alternative array representation of experiment_type"
                       }
                     }
                   ]
