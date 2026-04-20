@@ -189,7 +189,7 @@
             &lt;xsl:when test="$data_item='title'"&gt;
               &lt;xsl:value-of select="normalize-space(.)"/&gt;
             &lt;/xsl:when&gt;
-            &lt;/xsl:otherwise&gt;
+            &lt;xsl:otherwise&gt;
               &lt;xsl:value-of select="."/&gt;
             &lt;/xsl:otherwise&gt;
           &lt;/xsl:choose&gt;

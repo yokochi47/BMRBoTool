@@ -168,7 +168,7 @@
             <xsl:when test="$data_item='title'">
               <xsl:value-of select="normalize-space(.)"/>
             </xsl:when>
-            </xsl:otherwise>
+            <xsl:otherwise>
               <xsl:value-of select="."/>
             </xsl:otherwise>
           </xsl:choose>
