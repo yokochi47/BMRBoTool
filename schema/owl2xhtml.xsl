@@ -69,12 +69,12 @@ by Masahide Kanzaki, and from the OWL2HTML stylesheet (2), by Li Ding. We are ve
   <xsl:template match="/">
     <html>
       <head>
-	<title>
-	  <xsl:value-of select="$class-name" />
-	</title>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<style type="text/css">
-	  <xsl:text>
+        <title>
+          <xsl:value-of select="$class-name" />
+        </title>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+        <style type="text/css">
+          <xsl:text>
 body {
   margin:0;
   border:0;
@@ -214,11 +214,11 @@ hr {
   olor:#000;
   ackground-color:#000;
 }
-	  </xsl:text>
-	</style>
+          </xsl:text>
+        </style>
       </head>
       <body>
-	<xsl:apply-templates />
+        <xsl:apply-templates />
       </body>
     </html>
   </xsl:template>
@@ -227,82 +227,82 @@ hr {
     <!-- Match RDF data -->
     <div id="header">
       <div id="superHeader">
-	<big style="font-weight: bold;">
-	  <xsl:value-of select="$class-name" />
-	</big>
-	<p class="alignright">
-	</p>
+        <big style="font-weight: bold;">
+          <xsl:value-of select="$class-name" />
+        </big>
+        <p class="alignright">
+        </p>
       </div>
       <div id="nav">
-	<table>
-	  <tr>
-	    <td width="180">
-	      <a href="#OngologyDescription">Ontology Description</a>
-	    </td>
-	    <td />
-	  </tr>
-	  <tr>
-	    <td>
-	      <a href="#Classes"> Classes ( <xsl:value-of select="count($nodeset-class)" />) </a>
-	    </td>
-	    <td width="2" />
-	    <td>
-	      <form action="">
-		<select onChange="window.location.hash = document.forms[0].navi.options[document.forms[0].navi.selectedIndex].value" name="navi">
-		  <xsl:apply-templates select="$nodeset-class" mode="menu">
-		    <xsl:sort select="@rdf:ID" />
-		  </xsl:apply-templates>
-		</select>
-	      </form>
-	    </td>
-	  </tr>
-	  <tr>
-	    <td>
-	      <a href="#Properties"> Properties ( <xsl:value-of select="count($nodeset-property)" />) </a>
-	    </td>
-	    <td />
-	    <td>
-	      <form action="">
-		<select onChange="window.location.hash = document.forms[1].navi2.options[document.forms[1].navi2.selectedIndex].value" name="navi2">
-		  <xsl:apply-templates select="$nodeset-property" mode="menu">
-		    <xsl:sort select="@rdf:ID" />
-		  </xsl:apply-templates>
-		</select>
-	      </form>
-	    </td>
-	  </tr>
-	  <tr>
-	    <td>
-	      <a href="#ObjectProperties"> - Object ( <xsl:value-of select="count($nodeset-property-object)" />) </a>
-	    </td>
-	    <td />
-	    <td>
-	      <form action="">
-		<select onChange="window.location.hash = document.forms[2].navi3.options[document.forms[2].navi3.selectedIndex].value" name="navi3">
-		  <xsl:apply-templates select="$nodeset-property-object" mode="menu">
-		    <xsl:sort select="@rdf:ID" />
-		  </xsl:apply-templates>
-		</select>
-	      </form>
-	    </td>
-	  </tr>
-	  <tr>
-	    <td>
-	      <a href="#DatatypeProperties"> - Datatype ( <xsl:value-of select="count($nodeset-property-datatype)" />)
-	      </a>
-	    </td>
-	    <td />
-	    <td>
-	      <form action="">
-		<select onChange="window.location.hash = document.forms[3].navi4.options[document.forms[3].navi4.selectedIndex].value" name="navi4">
-		  <xsl:apply-templates select="$nodeset-property-datatype" mode="menu">
-		    <xsl:sort select="@rdf:ID" />
-		  </xsl:apply-templates>
-		</select>
-	      </form>
-	    </td>
-	  </tr>
-	</table>
+        <table>
+          <tr>
+            <td width="180">
+              <a href="#OngologyDescription">Ontology Description</a>
+            </td>
+            <td />
+          </tr>
+          <tr>
+            <td>
+              <a href="#Classes"> Classes ( <xsl:value-of select="count($nodeset-class)" />) </a>
+            </td>
+            <td width="2" />
+            <td>
+              <form action="">
+                <select onChange="window.location.hash = document.forms[0].navi.options[document.forms[0].navi.selectedIndex].value" name="navi">
+                  <xsl:apply-templates select="$nodeset-class" mode="menu">
+                    <xsl:sort select="@rdf:ID" />
+                  </xsl:apply-templates>
+                </select>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="#Properties"> Properties ( <xsl:value-of select="count($nodeset-property)" />) </a>
+            </td>
+            <td />
+            <td>
+              <form action="">
+                <select onChange="window.location.hash = document.forms[1].navi2.options[document.forms[1].navi2.selectedIndex].value" name="navi2">
+                  <xsl:apply-templates select="$nodeset-property" mode="menu">
+                    <xsl:sort select="@rdf:ID" />
+                  </xsl:apply-templates>
+                </select>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="#ObjectProperties"> - Object ( <xsl:value-of select="count($nodeset-property-object)" />) </a>
+            </td>
+            <td />
+            <td>
+              <form action="">
+                <select onChange="window.location.hash = document.forms[2].navi3.options[document.forms[2].navi3.selectedIndex].value" name="navi3">
+                  <xsl:apply-templates select="$nodeset-property-object" mode="menu">
+                    <xsl:sort select="@rdf:ID" />
+                  </xsl:apply-templates>
+                </select>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <a href="#DatatypeProperties"> - Datatype ( <xsl:value-of select="count($nodeset-property-datatype)" />)
+              </a>
+            </td>
+            <td />
+            <td>
+              <form action="">
+                <select onChange="window.location.hash = document.forms[3].navi4.options[document.forms[3].navi4.selectedIndex].value" name="navi4">
+                  <xsl:apply-templates select="$nodeset-property-datatype" mode="menu">
+                    <xsl:sort select="@rdf:ID" />
+                  </xsl:apply-templates>
+                </select>
+              </form>
+            </td>
+          </tr>
+        </table>
       </div>
       <!-- end of nav -->
     </div>
@@ -310,32 +310,32 @@ hr {
     <div id="container">
       <h1 id="OngologyDescription">Ontology Description</h1>
       <xsl:if test="count($nodeset-ontology)&gt;0">
-	<xsl:apply-templates select="$nodeset-ontology" mode="details_ontology" />
+        <xsl:apply-templates select="$nodeset-ontology" mode="details_ontology" />
       </xsl:if>
       <h1 id="Classes">Classes</h1>
       <xsl:if test="count($nodeset-class)&gt;0">
-	<ol>
-	  <xsl:apply-templates select="$nodeset-class" mode="details">
-	    <xsl:sort select="@rdf:ID" />
-	  </xsl:apply-templates>
-	</ol>
+        <ol>
+          <xsl:apply-templates select="$nodeset-class" mode="details">
+            <xsl:sort select="@rdf:ID" />
+          </xsl:apply-templates>
+        </ol>
       </xsl:if>
       <h1 id="Properties">Properties</h1>
       <h2 id="ObjectProperties">Object Properties</h2>
       <xsl:if test="count($nodeset-property-object)&gt;0">
-	<ol>
-	  <xsl:apply-templates select="$nodeset-property-object" mode="details">
-	    <xsl:sort select="@rdf:ID" />
-	  </xsl:apply-templates>
-	</ol>
+        <ol>
+          <xsl:apply-templates select="$nodeset-property-object" mode="details">
+            <xsl:sort select="@rdf:ID" />
+          </xsl:apply-templates>
+        </ol>
       </xsl:if>
       <h2 id="DatatypeProperties">Datatype Properties</h2>
       <xsl:if test="count($nodeset-property-datatype)&gt;0">
-	<ol>
-	  <xsl:apply-templates select="$nodeset-property-datatype" mode="details">
-	    <xsl:sort select="@rdf:ID" />
-	  </xsl:apply-templates>
-	</ol>
+        <ol>
+          <xsl:apply-templates select="$nodeset-property-datatype" mode="details">
+            <xsl:sort select="@rdf:ID" />
+          </xsl:apply-templates>
+        </ol>
       </xsl:if>
     </div>
     <!-- end of container -->
@@ -350,33 +350,33 @@ hr {
   <xsl:template match="*" mode="details_ontology">
     <xsl:variable name="ref">
       <xsl:choose>
-	<xsl:when test="@rdf:ID">
-	  <xsl:value-of select="@rdf:ID" />
-	</xsl:when>
-	<xsl:when test="@rdf:about">
-	  <xsl:value-of select="@rdf:about" />
-	</xsl:when>
-	<xsl:otherwise>BLANK</xsl:otherwise>
+        <xsl:when test="@rdf:ID">
+          <xsl:value-of select="@rdf:ID" />
+        </xsl:when>
+        <xsl:when test="@rdf:about">
+          <xsl:value-of select="@rdf:about" />
+        </xsl:when>
+        <xsl:otherwise>BLANK</xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
     <div class="Class" id="ontologylabel">
       <a>
-	<xsl:value-of select="//owl:Ontology/rdfs:label" />
+        <xsl:value-of select="//owl:Ontology/rdfs:label" />
       </a>
       <span class="cp-type">
-	( rdf:type
-	<xsl:call-template name="url">
-	  <xsl:with-param name="ns" select="namespace-uri()" />
-	  <xsl:with-param name="name" select="local-name()" />
-	</xsl:call-template>
-	)
+        ( rdf:type
+        <xsl:call-template name="url">
+          <xsl:with-param name="ns" select="namespace-uri()" />
+          <xsl:with-param name="name" select="local-name()" />
+        </xsl:call-template>
+        )
       </span>
     </div>
     <xsl:if test="count(*)+count(@*)&gt;0">
       <ul>
-	<xsl:text />
-	<xsl:apply-templates select="." mode="attribute" />
-	<xsl:apply-templates select="*" mode="child" />
+        <xsl:text />
+        <xsl:apply-templates select="." mode="attribute" />
+        <xsl:apply-templates select="*" mode="child" />
       </ul>
     </xsl:if>
   </xsl:template>
@@ -384,37 +384,37 @@ hr {
   <xsl:template match="*" mode="details">
     <li>
       <xsl:variable name="ref">
-	<xsl:choose>
-	  <xsl:when test="@rdf:ID">
-	    <xsl:value-of select="@rdf:ID" />
-	  </xsl:when>
-	  <xsl:when test="@rdf:about">
-	    <xsl:value-of select="@rdf:about" />
-	  </xsl:when>
-	  <xsl:otherwise>BLANK</xsl:otherwise>
-	</xsl:choose>
+        <xsl:choose>
+          <xsl:when test="@rdf:ID">
+            <xsl:value-of select="@rdf:ID" />
+          </xsl:when>
+          <xsl:when test="@rdf:about">
+            <xsl:value-of select="@rdf:about" />
+          </xsl:when>
+          <xsl:otherwise>BLANK</xsl:otherwise>
+        </xsl:choose>
       </xsl:variable>
       <xsl:if test="string-length($ref)&gt;0">
-	<div class="Class" id="{$ref}">
-	  <a>
-	    <xsl:value-of select="$ref" />
-	  </a>
-	  <span class="cp-type">
-	    ( rdf:type
-	    <xsl:call-template name="url">
-	      <xsl:with-param name="ns" select="namespace-uri()" />
-	      <xsl:with-param name="name" select="local-name()" />
-	    </xsl:call-template>
-	    )
-	  </span>
-	</div>
+        <div class="Class" id="{$ref}">
+          <a>
+            <xsl:value-of select="$ref" />
+          </a>
+          <span class="cp-type">
+            ( rdf:type
+            <xsl:call-template name="url">
+              <xsl:with-param name="ns" select="namespace-uri()" />
+              <xsl:with-param name="name" select="local-name()" />
+            </xsl:call-template>
+            )
+          </span>
+        </div>
       </xsl:if>
       <xsl:if test="count(*)+count(@*)&gt;0">
-	<ul>
-	  <xsl:text />
-	  <xsl:apply-templates select="." mode="attribute" />
-	  <xsl:apply-templates select="*" mode="child" />
-	</ul>
+        <ul>
+          <xsl:text />
+          <xsl:apply-templates select="." mode="attribute" />
+          <xsl:apply-templates select="*" mode="child" />
+        </ul>
       </xsl:if>
     </li>
   </xsl:template>
@@ -424,28 +424,28 @@ hr {
     <xsl:param name="name" />
     <xsl:choose>
       <xsl:when test="$ns='http://www.w3.org/1999/02/22-rdf-syntax-ns#'">
-	<a href="{concat($ns,$name)}">
-	  rdf:
-	  <xsl:value-of select="$name" />
-	</a>
+        <a href="{concat($ns,$name)}">
+          rdf:
+          <xsl:value-of select="$name" />
+        </a>
       </xsl:when>
       <xsl:when test="$ns='http://www.w3.org/2000/01/rdf-schema#'">
-	<a href="{concat($ns,$name)}">
-	  rdfs:
-	  <xsl:value-of select="$name" />
-	</a>
+        <a href="{concat($ns,$name)}">
+          rdfs:
+          <xsl:value-of select="$name" />
+        </a>
       </xsl:when>
       <xsl:when test="$ns='http://www.w3.org/2002/07/owl#'">
-	<a href="{concat($ns,$name)}">
-	  owl:
-	  <xsl:value-of select="$name" />
-	</a>
+        <a href="{concat($ns,$name)}">
+          owl:
+          <xsl:value-of select="$name" />
+        </a>
       </xsl:when>
       <xsl:when test="$ns='http://purl.org/dc/elements/1.1/'">
-	<a href="{concat($ns,$name)}">
-	  dc:
-	  <xsl:value-of select="$name" />
-	</a>
+        <a href="{concat($ns,$name)}">
+          dc:
+          <xsl:value-of select="$name" />
+        </a>
       </xsl:when>
       <xsl:when test="$ns='http://purl.org/dc/terms/'">
         <a href="{concat($ns,$name)}">
@@ -460,17 +460,17 @@ hr {
         </a>
       </xsl:when>
       <xsl:when test="$ns=/rdf:RDF/@xml:base">
-	<a href="{concat('#',$name)}">
-	  <xsl:value-of select="$name" />
-	</a>
+        <a href="{concat('#',$name)}">
+          <xsl:value-of select="$name" />
+        </a>
       </xsl:when>
       <xsl:when test="(string-length($ns)&gt;0) or starts-with($name,'http')">
-	<a href="{concat($ns,$name)}">
-	  <xsl:value-of select="$name" />
-	</a>
+        <a href="{concat($ns,$name)}">
+          <xsl:value-of select="$name" />
+        </a>
       </xsl:when>
       <xsl:otherwise>
-	<xsl:value-of select="$name" />
+        <xsl:value-of select="$name" />
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
@@ -505,9 +505,9 @@ hr {
   <xsl:template match="*" mode="resource">
     <xsl:choose>
       <xsl:when test="@rdf:resource">
-	<a href="{@rdf:resource}">
-	  <xsl:value-of select="@rdf:resource" />
-	</a>
+        <a href="{@rdf:resource}">
+          <xsl:value-of select="@rdf:resource" />
+        </a>
       </xsl:when>
     </xsl:choose>
   </xsl:template>
@@ -515,15 +515,15 @@ hr {
   <xsl:template match="*" mode="attribute">
     <xsl:for-each select="@*">
       <li>
-	<xsl:call-template name="url">
-	  <xsl:with-param name="ns" select="namespace-uri()" />
-	  <xsl:with-param name="name" select="local-name()" />
-	</xsl:call-template>
-	--
-	<xsl:call-template name="url">
-	  <xsl:with-param name="ns" select="''" />
-	  <xsl:with-param name="name" select="." />
-	</xsl:call-template>
+        <xsl:call-template name="url">
+          <xsl:with-param name="ns" select="namespace-uri()" />
+          <xsl:with-param name="name" select="local-name()" />
+        </xsl:call-template>
+        --
+        <xsl:call-template name="url">
+          <xsl:with-param name="ns" select="''" />
+          <xsl:with-param name="name" select="." />
+        </xsl:call-template>
       </li>
     </xsl:for-each>
   </xsl:template>
@@ -531,17 +531,17 @@ hr {
   <xsl:template match="*" mode="child">
     <li>
       <i>
-	<xsl:call-template name="url">
-	  <xsl:with-param name="ns" select="namespace-uri()" />
-	  <xsl:with-param name="name" select="local-name()" />
-	</xsl:call-template>
+        <xsl:call-template name="url">
+          <xsl:with-param name="ns" select="namespace-uri()" />
+          <xsl:with-param name="name" select="local-name()" />
+        </xsl:call-template>
       </i>
       <xsl:text>--</xsl:text>
       <xsl:choose>
-	<xsl:when test="@rdf:resource">
+        <xsl:when test="@rdf:resource">
           <xsl:choose>
             <xsl:when test="starts-with(@rdf:resource,'#')">
-	      <xsl:apply-templates select="." mode="resource" />
+              <xsl:apply-templates select="." mode="resource" />
             </xsl:when>
             <xsl:otherwise>
               <xsl:variable name="uri">
@@ -555,40 +555,40 @@ hr {
               </xsl:call-template>
             </xsl:otherwise>
           </xsl:choose>
-	</xsl:when>
-	<xsl:when test="@*">
-	  <xsl:value-of select="text()" />
-	  <xsl:if test="@xml:lang">
-	    ^^
-	    <xsl:apply-templates select="@xml:lang" mode="resource" />
-	  </xsl:if>
-	  <ul>
-	    <xsl:text />
-	    <xsl:apply-templates select="." mode="attribute" />
-	  </ul>
-	</xsl:when>
-	<xsl:otherwise>
-	  <xsl:value-of select="text()" />
-	  <xsl:if test="@xml:lang">
-	    ^^
-	    <xsl:apply-templates select="@xml:lang" mode="resource" />
-	  </xsl:if>
-	  <ul>
-	    <xsl:text />
-	    <a href="http://www.w3.org/2002/07/owl#unionOf">owl:unionOf</a>
-	    <xsl:variable name="this">
-	      <xsl:value-of select="owl:Class/owl:unionOf/@rdf:nodeID" />
-	    </xsl:variable>
-	    (
-	    <xsl:for-each select="owl:Class/owl:unionOf/owl:Class">
-	      <a href="{@rdf:about}">
-		<xsl:value-of select="@rdf:about" />
-	      </a>
-	      <xsl:if test="position() != last()">or</xsl:if>
-	    </xsl:for-each>
-	    )
-	  </ul>
-	</xsl:otherwise>
+        </xsl:when>
+        <xsl:when test="@*">
+          <xsl:value-of select="text()" />
+          <xsl:if test="@xml:lang">
+            ^^
+            <xsl:apply-templates select="@xml:lang" mode="resource" />
+          </xsl:if>
+          <ul>
+            <xsl:text />
+            <xsl:apply-templates select="." mode="attribute" />
+          </ul>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="text()" />
+          <xsl:if test="@xml:lang">
+            ^^
+            <xsl:apply-templates select="@xml:lang" mode="resource" />
+          </xsl:if>
+          <ul>
+            <xsl:text />
+            <a href="http://www.w3.org/2002/07/owl#unionOf">owl:unionOf</a>
+            <xsl:variable name="this">
+              <xsl:value-of select="owl:Class/owl:unionOf/@rdf:nodeID" />
+            </xsl:variable>
+            (
+            <xsl:for-each select="owl:Class/owl:unionOf/owl:Class">
+              <a href="{@rdf:about}">
+                <xsl:value-of select="@rdf:about" />
+              </a>
+              <xsl:if test="position() != last()">or</xsl:if>
+            </xsl:for-each>
+            )
+          </ul>
+        </xsl:otherwise>
       </xsl:choose>
     </li>
   </xsl:template>

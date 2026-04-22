@@ -15,6 +15,7 @@
   xmlns:ext="http://exslt.org/common" exclude-result-prefixes="BMRBx ext">
     
   <xsl:include href="url-encode.xsl"/>
+  <xsl:include href="compatible-pdb-id.xsl"/>
 
   <xsl:param name="primitive_type_mapping" select="'https://raw.githubusercontent.com/yokochi47/BMRBoTool/master/schema/bmrbx_primitive_type_mapping.xml'" required="no"/>
   <xsl:param name="type_mapping" select="document($primitive_type_mapping)"/>
@@ -527,60 +528,64 @@
   </xsl:template>
 
   <xsl:template match="BMRBx:entry/BMRBx:assigned_pdb_id[text() != '']" mode="linked">
-    <xsl:variable name="acc"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
-    <rdfs:seeAlso rdf:resource="{$pdb}{$acc}" rdfs:label="info:pdb/{$acc}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$acc}" rdfs:label="pdb:{$acc}"/>
+    <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="text()"/></xsl:call-template></xsl:variable>
+    <rdfs:seeAlso rdf:resource="{$pdb}{$normalized_pdb_id}" rdfs:label="info:pdb/{$normalized_pdb_id}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:conformer_family_coord_set/BMRBx:pdb_accession_code[text() != '']" mode="linked">
-    <xsl:variable name="acc"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
-    <rdfs:seeAlso rdf:resource="{$pdb}{$acc}" rdfs:label="info:pdb/{$acc}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$acc}" rdfs:label="pdb:{$acc}"/>
+    <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="text()"/></xsl:call-template></xsl:variable>
+    <rdfs:seeAlso rdf:resource="{$pdb}{$normalized_pdb_id}" rdfs:label="info:pdb/{$normalized_pdb_id}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:representative_conformer/BMRBx:pdb_accession_code[text() != '']" mode="linked">
-    <xsl:variable name="acc"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
-    <rdfs:seeAlso rdf:resource="{$pdb}{$acc}" rdfs:label="info:pdb/{$acc}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$acc}" rdfs:label="pdb:{$acc}"/>
+    <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="text()"/></xsl:call-template></xsl:variable>
+    <rdfs:seeAlso rdf:resource="{$pdb}{$normalized_pdb_id}" rdfs:label="info:pdb/{$normalized_pdb_id}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:structure_annotation/BMRBx:pdb_id[text() != '']" mode="linked">
-    <xsl:variable name="acc"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
-    <rdfs:seeAlso rdf:resource="{$pdb}{$acc}" rdfs:label="info:pdb/{$acc}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$acc}" rdfs:label="pdb:{$acc}"/>
+    <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="text()"/></xsl:call-template></xsl:variable>
+    <rdfs:seeAlso rdf:resource="{$pdb}{$normalized_pdb_id}" rdfs:label="info:pdb/{$normalized_pdb_id}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:pb_list/BMRBx:pdb_id[text() != '']" mode="linked">
-    <xsl:variable name="acc"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
-    <rdfs:seeAlso rdf:resource="{$pdb}{$acc}" rdfs:label="info:pdb/{$acc}"/>
-    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$acc}" rdfs:label="pdb:{$acc}"/>
+    <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="text()"/></xsl:call-template></xsl:variable>
+    <rdfs:seeAlso rdf:resource="{$pdb}{$normalized_pdb_id}" rdfs:label="info:pdb/{$normalized_pdb_id}"/>
+    <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='PDB']/@accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
-      <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}pdb/{.}" rdfs:label="pdb:{.}"/>
+      <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="."/></xsl:call-template></xsl:variable>
+      <rdfs:seeAlso rdf:resource="{$pdb}{$normalized_pdb_id}" rdfs:label="info:pdb/{$normalized_pdb_id}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:entity_db_link[@database_code='PDB']/@accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
-      <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}pdb/{.}" rdfs:label="pdb:{.}"/>
+      <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="."/></xsl:call-template></xsl:variable>
+      <rdfs:seeAlso rdf:resource="{$pdb}{$normalized_pdb_id}" rdfs:label="info:pdb/{$normalized_pdb_id}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:related_entries[@database_name='PDB']/@database_accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
-      <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}pdb/{.}" rdfs:label="pdb:{.}"/>
+      <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="."/></xsl:call-template></xsl:variable>
+      <rdfs:seeAlso rdf:resource="{$pdb}{$normalized_pdb_id}" rdfs:label="info:pdb/{$normalized_pdb_id}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
     </xsl:if>
   </xsl:template>
 
   <xsl:template match="BMRBx:matched_entries[@database_name='PDB']/@database_accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
-      <rdfs:seeAlso rdf:resource="{$pdb}{.}" rdfs:label="info:pdb/{.}"/>
-      <rdfs:seeAlso rdf:resource="{$idorg}pdb/{.}" rdfs:label="pdb:{.}"/>
+      <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="."/></xsl:call-template></xsl:variable>
+      <rdfs:seeAlso rdf:resource="{$pdb}{$normalized_pdb_id}" rdfs:label="info:pdb/{$normalized_pdb_id}"/>
+      <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
     </xsl:if>
   </xsl:template>
 
@@ -683,20 +688,22 @@
   <xsl:template match="BMRBx:chem_comp/BMRBx:pdb_code[text() != '' and text() != 'na']" mode="linked">
     <xsl:choose>
       <xsl:when test="starts-with(text(), 'pdb/')">
-        <xsl:variable name="pdb_code" select="substring-after(text(),'pdb/')"/>
-        <xsl:variable name="cc_code" select="substring-after(text(),'chem_comp/')"/>
-        <rdfs:seeAlso rdf:resource="{$pdb}{translate($pdb_code,' []@#%+&amp;','_()a....')}" rdfs:label="info:pdb/{$pdb_code}"/>
-        <rdfs:seeAlso rdf:resource="{$idorg}pdb/{translate($pdb_code,' []@#%+&amp;','_()a....')}" rdfs:label="pdb:{$pdb_code}"/>
-        <rdfs:seeAlso rdf:resource="{$pdb.ligand}{translate($cc_code,' []@#%+&amp;','_()a....')}" rdfs:label="info:pdb.ligand/{$cc_code}"/>
-        <rdfs:seeAlso rdf:resource="{$idorg}pdb.ligand/{translate($cc_code,' []@#%+&amp;','_()a....')}" rdfs:label="pdb.ligand:{$cc_code}"/>
+        <xsl:variable name="pdb_code" select="translate(substring-after(text(),'pdb/'),' []@#%+&amp;','_()a....')"/>
+        <xsl:variable name="cc_code" select="translate(substring-after(text(),'chem_comp/',' []@#%+&amp;','_()a....')"/>
+        <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="$pdb_code"/></xsl:call-template></xsl:variable>
+        <rdfs:seeAlso rdf:resource="{$pdb}{$normalized_pdb_id}" rdfs:label="info:pdb/{$normalized_pdb_id}"/>
+        <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
+        <rdfs:seeAlso rdf:resource="{$pdb.ligand}{$cc_code}" rdfs:label="info:pdb.ligand/{$cc_code}"/>
+        <rdfs:seeAlso rdf:resource="{$idorg}pdb.ligand/{$cc_code}" rdfs:label="pdb.ligand:{$cc_code}"/>
       </xsl:when>
       <xsl:when test="starts-with(text(), 'bmrb_ligand_expo/')"/>
       <xsl:when test="starts-with(text(), 'no_records/')"/>
       <xsl:otherwise>
-        <rdfs:seeAlso rdf:resource="{$pdb-ccd}{translate(text(),' []@#%+&amp;','_()a....')}" rdfs:label="info:pdb-ccd/{text()}"/>
-        <rdfs:seeAlso rdf:resource="{$idorg}pdb-ccd/{translate(text(),' []@#%+&amp;','_()a....')}" rdfs:label="pdb-ccd:{text()}"/>
-        <rdfs:seeAlso rdf:resource="{$pdb.ligand}{translate(text(),' []@#%+&amp;','_()a....')}" rdfs:label="info:pdb.ligand/{text()}"/>
-        <rdfs:seeAlso rdf:resource="{$idorg}pdb.ligand/{translate(text(),' []@#%+&amp;','_()a....')}" rdfs:label="pdb.ligand:{text()}"/>
+        <xsl:variable name="cc_code" select="translate(text(),' []@#%+&amp;','_()a....')"/>
+        <rdfs:seeAlso rdf:resource="{$pdb-ccd}{$cc_code}" rdfs:label="info:pdb-ccd/{$cc_code}"/>
+        <rdfs:seeAlso rdf:resource="{$idorg}pdb-ccd/{$cc_code}" rdfs:label="pdb-ccd:{$cc_code}"/>
+        <rdfs:seeAlso rdf:resource="{$pdb.ligand}{$cc_code}" rdfs:label="info:pdb.ligand/{$cc_code}"/>
+        <rdfs:seeAlso rdf:resource="{$idorg}pdb.ligand/{$cc_code}" rdfs:label="pdb.ligand:{$cc_code}"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
