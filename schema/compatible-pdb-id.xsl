@@ -6,7 +6,7 @@
     <xsl:if test="$str">
       <xsl:variable name="pdb_id"><xsl:value-of select="translate(translate($str,' ',''),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz')"/></xsl:variable>
       <xsl:choose>
-        <xsl:when test="string-legth($pdb_id)=4">
+        <xsl:when test="string-length($pdb_id)=4">
           <xsl:value-of select="translate($pdb_id,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
         </xsl:when>
         <xsl:when test="starts-with($pdb_id,'pdb_0000')">
