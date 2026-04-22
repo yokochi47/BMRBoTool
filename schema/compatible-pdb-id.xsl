@@ -10,7 +10,7 @@
           <xsl:value-of select="translate($pdb_id,'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
         </xsl:when>
         <xsl:when test="starts-with($pdb_id,'pdb_0000')">
-          <xsl:value-of select="translate(substing-after($pdb_id,'pdb_0000'),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
+          <xsl:value-of select="translate(substring-after($pdb_id,'pdb_0000'),'abcdefghijklmnopqrstuvwxyz','ABCDEFGHIJKLMNOPQRSTUVWXYZ')"/>
         </xsl:when>
         <xsl:when test="starts-with($pdb_id,'pdb_')">
           <xsl:value-of select="$pdb_id"/>
