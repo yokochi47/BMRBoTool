@@ -689,7 +689,7 @@
     <xsl:choose>
       <xsl:when test="starts-with(text(), 'pdb/')">
         <xsl:variable name="pdb_code" select="translate(substring-after(text(),'pdb/'),' []@#%+&amp;','_()a....')"/>
-        <xsl:variable name="cc_code" select="translate(substring-after(text(),'chem_comp/',' []@#%+&amp;','_()a....')"/>
+        <xsl:variable name="cc_code" select="translate(substring-after(text(),'chem_comp/'),' []@#%+&amp;','_()a....')"/>
         <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="$pdb_code"/></xsl:call-template></xsl:variable>
         <rdfs:seeAlso rdf:resource="{$pdb}{$normalized_pdb_id}" rdfs:label="info:pdb/{$normalized_pdb_id}"/>
         <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>

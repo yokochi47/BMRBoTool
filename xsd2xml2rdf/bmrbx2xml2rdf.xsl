@@ -710,7 +710,7 @@
     &lt;xsl:choose&gt;
       &lt;xsl:when test="starts-with(text(), 'pdb/')"&gt;
         &lt;xsl:variable name="pdb_code" select="translate(substring-after(text(),'pdb/'),' []@#%+&amp;amp;','_()a....')"/&gt;
-        &lt;xsl:variable name="cc_code" select="translate(substring-after(text(),'chem_comp/',' []@#%+&amp;amp;','_()a....')"/&gt;
+        &lt;xsl:variable name="cc_code" select="translate(substring-after(text(),'chem_comp/'),' []@#%+&amp;amp;','_()a....')"/&gt;
         &lt;xsl:variable name="normalized_pdb_id"&gt;&lt;xsl:call-template name="compatible-pdb-id"&gt;&lt;xsl:with-param name="str" select="$pdb_code"/&gt;&lt;/xsl:call-template&gt;&lt;/xsl:variable&gt;
         &lt;rdfs:seeAlso rdf:resource="{$pdb}{$normalized_pdb_id}" rdfs:label="info:pdb/{$normalized_pdb_id}"/&gt;
         &lt;rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/&gt;
