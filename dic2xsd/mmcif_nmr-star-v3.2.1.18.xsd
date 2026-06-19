@@ -26176,6 +26176,7 @@ Metazoa
                   <xsd:enumeration value="Methanobacteriati"/>
                   <xsd:enumeration value="Thermotogati"/>
                   <xsd:enumeration value="Thermoproteati"/>
+                  <xsd:enumeration value="Promethearchaeati"/>
                   <xsd:enumeration value="Not applicable"/>
                 </xsd:restriction>
               </xsd:simpleType>

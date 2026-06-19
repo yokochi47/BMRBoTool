@@ -65266,8 +65266,13 @@ ICTV database decimal code for a virus
                                                                                                                         <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Thermoproteati</rdf:first>
                                                                                                                         <rdf:rest>
                                                                                                                            <rdf:List>
-                                                                                                                              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Not applicable</rdf:first>
-                                                                                                                              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                                              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Promethearchaeati</rdf:first>
+                                                                                                                              <rdf:rest>
+                                                                                                                                 <rdf:List>
+                                                                                                                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Not applicable</rdf:first>
+                                                                                                                                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                                                 </rdf:List>
+                                                                                                                              </rdf:rest>
                                                                                                                            </rdf:List>
                                                                                                                         </rdf:rest>
                                                                                                                      </rdf:List>
