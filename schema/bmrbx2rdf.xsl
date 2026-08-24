@@ -166,7 +166,7 @@
               <xsl:attribute name="rdf:datatype"><xsl:value-of select="$data_type"/></xsl:attribute>
               <xsl:value-of select="normalize-space(.)"/>
             </xsl:when>
-            <xsl:when test="$data_item='title'">
+            <xsl:when test="$data_item='title' or $data_item='name'">
               <xsl:value-of select="normalize-space(.)"/>
             </xsl:when>
             <xsl:otherwise>
@@ -816,7 +816,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_angular_order_param rdf:resource="{$base}/angular_order_param/{$angular_order_parameter_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -844,7 +844,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_angular_order_param rdf:resource="{$base}/angular_order_param/{$angular_order_parameter_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -870,7 +870,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_angular_order_parameter_list rdf:resource="{$base}/angular_order_parameter_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -896,7 +896,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_angular_order_parameter_list rdf:resource="{$base}/angular_order_parameter_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -922,7 +922,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_assembly rdf:resource="{$base}/assembly/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -948,7 +948,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_assembly rdf:resource="{$base}/assembly/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -974,7 +974,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_assembly_annotation_list rdf:resource="{$base}/assembly_annotation_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -1000,7 +1000,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_assembly_annotation_list rdf:resource="{$base}/assembly_annotation_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -1338,7 +1338,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_assembly_subsystem rdf:resource="{$base}/assembly_subsystem/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -1364,7 +1364,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_assembly_subsystem rdf:resource="{$base}/assembly_subsystem/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -1466,7 +1466,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_assigned_chem_shift_list rdf:resource="{$base}/assigned_chem_shift_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -1492,7 +1492,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_assigned_chem_shift_list rdf:resource="{$base}/assigned_chem_shift_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -1718,7 +1718,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_atom_site rdf:resource="{$base}/atom_site/{$conformer_family_coord_set_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -1746,7 +1746,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_atom_sites_footnote rdf:resource="{$base}/atom_sites_footnote/{$conformer_family_coord_set_id_encoded},{$entry_id_encoded},{$footnote_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -1774,7 +1774,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_atom_sites_footnote rdf:resource="{$base}/atom_sites_footnote/{$conformer_family_coord_set_id_encoded},{$entry_id_encoded},{$footnote_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -1878,7 +1878,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_auto_relaxation rdf:resource="{$base}/auto_relaxation/{$auto_relaxation_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -1906,7 +1906,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_auto_relaxation rdf:resource="{$base}/auto_relaxation/{$auto_relaxation_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -1934,7 +1934,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_auto_relaxation_experiment rdf:resource="{$base}/auto_relaxation_experiment/{$auto_relaxation_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -1962,7 +1962,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_auto_relaxation_experiment rdf:resource="{$base}/auto_relaxation_experiment/{$auto_relaxation_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -1988,7 +1988,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_auto_relaxation_list rdf:resource="{$base}/auto_relaxation_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2014,7 +2014,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_auto_relaxation_list rdf:resource="{$base}/auto_relaxation_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2042,7 +2042,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_auto_relaxation_software rdf:resource="{$base}/auto_relaxation_software/{$auto_relaxation_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2070,7 +2070,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_auto_relaxation_software rdf:resource="{$base}/auto_relaxation_software/{$auto_relaxation_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2096,7 +2096,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_auxiliary_files rdf:resource="{$base}/auxiliary_files/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2122,7 +2122,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_auxiliary_files rdf:resource="{$base}/auxiliary_files/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2150,7 +2150,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_binding_experiment rdf:resource="{$base}/binding_experiment/{$binding_value_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2178,7 +2178,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_binding_experiment rdf:resource="{$base}/binding_experiment/{$binding_value_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2206,7 +2206,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_binding_param rdf:resource="{$base}/binding_param/{$binding_param_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2234,7 +2234,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_binding_param rdf:resource="{$base}/binding_param/{$binding_param_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2260,7 +2260,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_binding_param_list rdf:resource="{$base}/binding_param_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2286,7 +2286,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_binding_param_list rdf:resource="{$base}/binding_param_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2316,7 +2316,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_binding_partners rdf:resource="{$base}/binding_partners/{$assembly_id_encoded},{$binding_value_list_id_encoded},{$entity_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2346,7 +2346,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_binding_partners rdf:resource="{$base}/binding_partners/{$assembly_id_encoded},{$binding_value_list_id_encoded},{$entity_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2374,7 +2374,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_binding_result rdf:resource="{$base}/binding_result/{$binding_value_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2402,7 +2402,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_binding_result rdf:resource="{$base}/binding_result/{$binding_value_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2430,7 +2430,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_binding_software rdf:resource="{$base}/binding_software/{$binding_value_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2458,7 +2458,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_binding_software rdf:resource="{$base}/binding_software/{$binding_value_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2484,7 +2484,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_binding_value_list rdf:resource="{$base}/binding_value_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2510,7 +2510,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_binding_value_list rdf:resource="{$base}/binding_value_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2576,7 +2576,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_bond_annotation rdf:resource="{$base}/bond_annotation/{$bond_annotation_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2604,7 +2604,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_bond_annotation rdf:resource="{$base}/bond_annotation/{$bond_annotation_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2630,7 +2630,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_bond_annotation_list rdf:resource="{$base}/bond_annotation_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2656,7 +2656,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_bond_annotation_list rdf:resource="{$base}/bond_annotation_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2688,7 +2688,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_bond_observed_conformer rdf:resource="{$base}/bond_observed_conformer/{$atom_site_model_id_encoded},{$bond_annotation_id_encoded},{$bond_annotation_list_id_encoded},{$conformer_family_coord_set_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2720,7 +2720,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_bond_observed_conformer rdf:resource="{$base}/bond_observed_conformer/{$atom_site_model_id_encoded},{$bond_annotation_id_encoded},{$bond_annotation_list_id_encoded},{$conformer_family_coord_set_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2748,7 +2748,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ca_cb_constraint rdf:resource="{$base}/ca_cb_constraint/{$ca_cb_constraint_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2776,7 +2776,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ca_cb_constraint rdf:resource="{$base}/ca_cb_constraint/{$ca_cb_constraint_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2804,7 +2804,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ca_cb_constraint_expt rdf:resource="{$base}/ca_cb_constraint_expt/{$ca_cb_constraint_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2832,7 +2832,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ca_cb_constraint_expt rdf:resource="{$base}/ca_cb_constraint_expt/{$ca_cb_constraint_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2858,7 +2858,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ca_cb_constraint_list rdf:resource="{$base}/ca_cb_constraint_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2884,7 +2884,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ca_cb_constraint_list rdf:resource="{$base}/ca_cb_constraint_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2912,7 +2912,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ca_cb_constraint_software rdf:resource="{$base}/ca_cb_constraint_software/{$ca_cb_constraint_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -2940,7 +2940,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ca_cb_constraint_software rdf:resource="{$base}/ca_cb_constraint_software/{$ca_cb_constraint_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -3004,7 +3004,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chem_comp rdf:resource="{$base}/chem_comp/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -3030,7 +3030,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chem_comp rdf:resource="{$base}/chem_comp/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -3138,7 +3138,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chem_comp_atom rdf:resource="{$base}/chem_comp_atom/{$atom_id_encoded},{$comp_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -3166,7 +3166,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chem_comp_atom rdf:resource="{$base}/chem_comp_atom/{$atom_id_encoded},{$comp_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -3646,7 +3646,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chem_shift_anisotropy rdf:resource="{$base}/chem_shift_anisotropy/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -3672,7 +3672,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chem_shift_anisotropy rdf:resource="{$base}/chem_shift_anisotropy/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -3700,7 +3700,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chem_shift_completeness_char rdf:resource="{$base}/chem_shift_completeness_char/{$assigned_chem_shift_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -3728,7 +3728,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chem_shift_completeness_char rdf:resource="{$base}/chem_shift_completeness_char/{$assigned_chem_shift_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -3754,7 +3754,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chem_shift_completeness_list rdf:resource="{$base}/chem_shift_completeness_list/{$assigned_chem_shift_list_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -3780,7 +3780,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chem_shift_completeness_list rdf:resource="{$base}/chem_shift_completeness_list/{$assigned_chem_shift_list_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -3844,7 +3844,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chem_shift_isotope_effect_list rdf:resource="{$base}/chem_shift_isotope_effect_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -3870,7 +3870,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chem_shift_isotope_effect_list rdf:resource="{$base}/chem_shift_isotope_effect_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -3972,7 +3972,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chem_shift_perturbation_list rdf:resource="{$base}/chem_shift_perturbation_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -3998,7 +3998,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chem_shift_perturbation_list rdf:resource="{$base}/chem_shift_perturbation_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4108,7 +4108,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chem_shift_reference rdf:resource="{$base}/chem_shift_reference/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4134,7 +4134,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chem_shift_reference rdf:resource="{$base}/chem_shift_reference/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4236,7 +4236,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chem_shifts_calc_type rdf:resource="{$base}/chem_shifts_calc_type/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4262,7 +4262,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chem_shifts_calc_type rdf:resource="{$base}/chem_shifts_calc_type/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4328,7 +4328,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chemical_rate rdf:resource="{$base}/chemical_rate/{$chemical_rate_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4356,7 +4356,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chemical_rate rdf:resource="{$base}/chemical_rate/{$chemical_rate_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4384,7 +4384,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chemical_rate_experiment rdf:resource="{$base}/chemical_rate_experiment/{$chemical_rate_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4412,7 +4412,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chemical_rate_experiment rdf:resource="{$base}/chemical_rate_experiment/{$chemical_rate_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4438,7 +4438,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chemical_rate_list rdf:resource="{$base}/chemical_rate_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4464,7 +4464,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chemical_rate_list rdf:resource="{$base}/chemical_rate_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4492,7 +4492,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chemical_rate_software rdf:resource="{$base}/chemical_rate_software/{$chemical_rate_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4520,7 +4520,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chemical_rate_software rdf:resource="{$base}/chemical_rate_software/{$chemical_rate_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4546,7 +4546,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chromatographic_column rdf:resource="{$base}/chromatographic_column/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4572,7 +4572,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chromatographic_column rdf:resource="{$base}/chromatographic_column/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4598,7 +4598,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chromatographic_system rdf:resource="{$base}/chromatographic_system/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4624,7 +4624,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_chromatographic_system rdf:resource="{$base}/chromatographic_system/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4650,7 +4650,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_citation rdf:resource="{$base}/citation/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4676,7 +4676,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_citation rdf:resource="{$base}/citation/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4816,7 +4816,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_computer rdf:resource="{$base}/computer/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4842,7 +4842,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_computer rdf:resource="{$base}/computer/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4910,7 +4910,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_conf_family_coord_set_constr_list rdf:resource="{$base}/conf_family_coord_set_constr_list/{$conformer_family_coord_set_id_encoded},{$constraint_list_category_encoded},{$constraint_list_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4940,7 +4940,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_conf_family_coord_set_constr_list rdf:resource="{$base}/conf_family_coord_set_constr_list/{$conformer_family_coord_set_id_encoded},{$constraint_list_category_encoded},{$constraint_list_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4968,7 +4968,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_conf_stats_software rdf:resource="{$base}/conf_stats_software/{$conformer_stat_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -4996,7 +4996,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_conf_stats_software rdf:resource="{$base}/conf_stats_software/{$conformer_stat_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5022,7 +5022,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_conformer_family_coord_set rdf:resource="{$base}/conformer_family_coord_set/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5048,7 +5048,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_conformer_family_coord_set rdf:resource="{$base}/conformer_family_coord_set/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5076,7 +5076,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_conformer_family_coord_set_expt rdf:resource="{$base}/conformer_family_coord_set_expt/{$conformer_family_coord_set_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5104,7 +5104,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_conformer_family_coord_set_expt rdf:resource="{$base}/conformer_family_coord_set_expt/{$conformer_family_coord_set_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5132,7 +5132,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_conformer_family_refinement rdf:resource="{$base}/conformer_family_refinement/{$conformer_family_coord_set_id_encoded},{$entry_id_encoded},{$refine_method_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5160,7 +5160,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_conformer_family_refinement rdf:resource="{$base}/conformer_family_refinement/{$conformer_family_coord_set_id_encoded},{$entry_id_encoded},{$refine_method_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5188,7 +5188,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_conformer_family_software rdf:resource="{$base}/conformer_family_software/{$conformer_family_coord_set_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5216,7 +5216,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_conformer_family_software rdf:resource="{$base}/conformer_family_software/{$conformer_family_coord_set_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5242,7 +5242,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_conformer_stat_list rdf:resource="{$base}/conformer_stat_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5268,7 +5268,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_conformer_stat_list rdf:resource="{$base}/conformer_stat_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5294,7 +5294,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_conformer_stat_list_ens rdf:resource="{$base}/conformer_stat_list_ens/{$conformer_stat_list_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5320,7 +5320,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_conformer_stat_list_ens rdf:resource="{$base}/conformer_stat_list_ens/{$conformer_stat_list_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5346,7 +5346,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_conformer_stat_list_rep rdf:resource="{$base}/conformer_stat_list_rep/{$conformer_stat_list_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5372,7 +5372,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_conformer_stat_list_rep rdf:resource="{$base}/conformer_stat_list_rep/{$conformer_stat_list_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5404,7 +5404,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_constraint_file rdf:resource="{$base}/constraint_file/{$constraint_filename_encoded},{$constraint_stat_list_id_encoded},{$constraint_subtype_encoded},{$constraint_type_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5436,7 +5436,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_constraint_file rdf:resource="{$base}/constraint_file/{$constraint_filename_encoded},{$constraint_stat_list_id_encoded},{$constraint_subtype_encoded},{$constraint_type_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5462,7 +5462,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_constraint_stat_list rdf:resource="{$base}/constraint_stat_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5488,7 +5488,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_constraint_stat_list rdf:resource="{$base}/constraint_stat_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5514,7 +5514,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_constraint_stat_list_ens rdf:resource="{$base}/constraint_stat_list_ens/{$constraint_stat_list_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5540,7 +5540,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_constraint_stat_list_ens rdf:resource="{$base}/constraint_stat_list_ens/{$constraint_stat_list_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5566,7 +5566,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_constraint_stat_list_rep rdf:resource="{$base}/constraint_stat_list_rep/{$constraint_stat_list_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5592,7 +5592,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_constraint_stat_list_rep rdf:resource="{$base}/constraint_stat_list_rep/{$constraint_stat_list_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5622,7 +5622,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_constraint_stats_constr_list rdf:resource="{$base}/constraint_stats_constr_list/{$constraint_list_category_encoded},{$constraint_list_id_encoded},{$constraint_stat_list_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5652,7 +5652,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_constraint_stats_constr_list rdf:resource="{$base}/constraint_stats_constr_list/{$constraint_list_category_encoded},{$constraint_list_id_encoded},{$constraint_stat_list_id_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5754,7 +5754,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_coupling_constant_list rdf:resource="{$base}/coupling_constant_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5780,7 +5780,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_coupling_constant_list rdf:resource="{$base}/coupling_constant_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5846,7 +5846,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_cross_correlation_d_csa rdf:resource="{$base}/cross_correlation_d_csa/{$cross_correlation_d_csa_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5874,7 +5874,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_cross_correlation_d_csa rdf:resource="{$base}/cross_correlation_d_csa/{$cross_correlation_d_csa_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5902,7 +5902,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_cross_correlation_d_csa_experiment rdf:resource="{$base}/cross_correlation_d_csa_experiment/{$cross_correlation_d_csa_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5930,7 +5930,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_cross_correlation_d_csa_experiment rdf:resource="{$base}/cross_correlation_d_csa_experiment/{$cross_correlation_d_csa_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5956,7 +5956,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_cross_correlation_d_csa_list rdf:resource="{$base}/cross_correlation_d_csa_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -5982,7 +5982,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_cross_correlation_d_csa_list rdf:resource="{$base}/cross_correlation_d_csa_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6010,7 +6010,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_cross_correlation_d_csa_software rdf:resource="{$base}/cross_correlation_d_csa_software/{$cross_correlation_d_csa_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6038,7 +6038,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_cross_correlation_d_csa_software rdf:resource="{$base}/cross_correlation_d_csa_software/{$cross_correlation_d_csa_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6066,7 +6066,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_cross_correlation_dd rdf:resource="{$base}/cross_correlation_dd/{$cross_correlation_dd_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6094,7 +6094,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_cross_correlation_dd rdf:resource="{$base}/cross_correlation_dd/{$cross_correlation_dd_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6122,7 +6122,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_cross_correlation_dd_experiment rdf:resource="{$base}/cross_correlation_dd_experiment/{$cross_correlation_dd_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6150,7 +6150,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_cross_correlation_dd_experiment rdf:resource="{$base}/cross_correlation_dd_experiment/{$cross_correlation_dd_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6176,7 +6176,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_cross_correlation_dd_list rdf:resource="{$base}/cross_correlation_dd_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6202,7 +6202,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_cross_correlation_dd_list rdf:resource="{$base}/cross_correlation_dd_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6230,7 +6230,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_cross_correlation_dd_software rdf:resource="{$base}/cross_correlation_dd_software/{$cross_correlation_dd_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6258,7 +6258,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_cross_correlation_dd_software rdf:resource="{$base}/cross_correlation_dd_software/{$cross_correlation_dd_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6400,7 +6400,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_d_h_fract_factor_experiment rdf:resource="{$base}/d_h_fract_factor_experiment/{$d_h_fractionation_factor_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6428,7 +6428,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_d_h_fract_factor_experiment rdf:resource="{$base}/d_h_fract_factor_experiment/{$d_h_fractionation_factor_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6456,7 +6456,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_d_h_fract_factor_software rdf:resource="{$base}/d_h_fract_factor_software/{$d_h_fractionation_factor_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6484,7 +6484,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_d_h_fract_factor_software rdf:resource="{$base}/d_h_fract_factor_software/{$d_h_fractionation_factor_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6512,7 +6512,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_d_h_fractionation_factor rdf:resource="{$base}/d_h_fractionation_factor/{$d_h_fractionation_factor_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6540,7 +6540,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_d_h_fractionation_factor rdf:resource="{$base}/d_h_fractionation_factor/{$d_h_fractionation_factor_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6566,7 +6566,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_d_h_fractionation_factor_list rdf:resource="{$base}/d_h_fractionation_factor_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6592,7 +6592,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_d_h_fractionation_factor_list rdf:resource="{$base}/d_h_fractionation_factor_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6618,7 +6618,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_data_set rdf:resource="{$base}/data_set/{$entry_id_encoded},{$type_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6644,7 +6644,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_data_set rdf:resource="{$base}/data_set/{$entry_id_encoded},{$type_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6670,7 +6670,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_datum rdf:resource="{$base}/datum/{$entry_id_encoded},{$type_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6696,7 +6696,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_datum rdf:resource="{$base}/datum/{$entry_id_encoded},{$type_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6766,7 +6766,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_deduced_h_bond rdf:resource="{$base}/deduced_h_bond/{$deduced_hydrogen_bond_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6794,7 +6794,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_deduced_h_bond rdf:resource="{$base}/deduced_h_bond/{$deduced_hydrogen_bond_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6822,7 +6822,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_deduced_h_bond_experiment rdf:resource="{$base}/deduced_h_bond_experiment/{$deduced_h_bond_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6850,7 +6850,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_deduced_h_bond_experiment rdf:resource="{$base}/deduced_h_bond_experiment/{$deduced_h_bond_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6876,7 +6876,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_deduced_h_bond_list rdf:resource="{$base}/deduced_h_bond_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6902,7 +6902,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_deduced_h_bond_list rdf:resource="{$base}/deduced_h_bond_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6930,7 +6930,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_deduced_h_bond_software rdf:resource="{$base}/deduced_h_bond_software/{$deduced_h_bond_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6958,7 +6958,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_deduced_h_bond_software rdf:resource="{$base}/deduced_h_bond_software/{$deduced_h_bond_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -6986,7 +6986,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_deduced_secd_struct_experiment rdf:resource="{$base}/deduced_secd_struct_experiment/{$deduced_secd_struct_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7014,7 +7014,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_deduced_secd_struct_experiment rdf:resource="{$base}/deduced_secd_struct_experiment/{$deduced_secd_struct_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7042,7 +7042,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_deduced_secd_struct_exptl rdf:resource="{$base}/deduced_secd_struct_exptl/{$deduced_secd_struct_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7070,7 +7070,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_deduced_secd_struct_exptl rdf:resource="{$base}/deduced_secd_struct_exptl/{$deduced_secd_struct_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7104,7 +7104,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_deduced_secd_struct_feature rdf:resource="{$base}/deduced_secd_struct_feature/{$atom_id_encoded},{$comp_index_id_encoded},{$deduced_secd_struct_list_id_encoded},{$entity_assembly_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7138,7 +7138,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_deduced_secd_struct_feature rdf:resource="{$base}/deduced_secd_struct_feature/{$atom_id_encoded},{$comp_index_id_encoded},{$deduced_secd_struct_list_id_encoded},{$entity_assembly_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7164,7 +7164,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_deduced_secd_struct_list rdf:resource="{$base}/deduced_secd_struct_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7190,7 +7190,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_deduced_secd_struct_list rdf:resource="{$base}/deduced_secd_struct_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7218,7 +7218,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_deduced_secd_struct_software rdf:resource="{$base}/deduced_secd_struct_software/{$deduced_secd_struct_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7246,7 +7246,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_deduced_secd_struct_software rdf:resource="{$base}/deduced_secd_struct_software/{$deduced_secd_struct_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7274,7 +7274,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dipolar_coupling rdf:resource="{$base}/dipolar_coupling/{$dipolar_coupling_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7302,7 +7302,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dipolar_coupling rdf:resource="{$base}/dipolar_coupling/{$dipolar_coupling_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7330,7 +7330,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dipolar_coupling_experiment rdf:resource="{$base}/dipolar_coupling_experiment/{$dipolar_coupling_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7358,7 +7358,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dipolar_coupling_experiment rdf:resource="{$base}/dipolar_coupling_experiment/{$dipolar_coupling_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7384,7 +7384,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dipolar_coupling_list rdf:resource="{$base}/dipolar_coupling_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7410,7 +7410,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dipolar_coupling_list rdf:resource="{$base}/dipolar_coupling_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7438,7 +7438,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dipolar_coupling_software rdf:resource="{$base}/dipolar_coupling_software/{$dipolar_coupling_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7466,7 +7466,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dipolar_coupling_software rdf:resource="{$base}/dipolar_coupling_software/{$dipolar_coupling_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7494,7 +7494,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dipole_dipole_relax rdf:resource="{$base}/dipole_dipole_relax/{$dipole_dipole_relax_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7522,7 +7522,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dipole_dipole_relax rdf:resource="{$base}/dipole_dipole_relax/{$dipole_dipole_relax_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7550,7 +7550,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dipole_dipole_relax_experiment rdf:resource="{$base}/dipole_dipole_relax_experiment/{$dipole_dipole_relax_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7578,7 +7578,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dipole_dipole_relax_experiment rdf:resource="{$base}/dipole_dipole_relax_experiment/{$dipole_dipole_relax_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7604,7 +7604,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dipole_dipole_relax_list rdf:resource="{$base}/dipole_dipole_relax_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7630,7 +7630,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dipole_dipole_relax_list rdf:resource="{$base}/dipole_dipole_relax_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7658,7 +7658,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dipole_dipole_relax_software rdf:resource="{$base}/dipole_dipole_relax_software/{$dipole_dipole_relax_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7686,7 +7686,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dipole_dipole_relax_software rdf:resource="{$base}/dipole_dipole_relax_software/{$dipole_dipole_relax_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7716,7 +7716,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dist_constr_software_setting rdf:resource="{$base}/dist_constr_software_setting/{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$software_id_encoded},{$type_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7746,7 +7746,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dist_constr_software_setting rdf:resource="{$base}/dist_constr_software_setting/{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$software_id_encoded},{$type_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7776,7 +7776,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dist_constraint rdf:resource="{$base}/dist_constraint/{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$tree_node_member_constraint_id_encoded},{$tree_node_member_node_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7806,7 +7806,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dist_constraint rdf:resource="{$base}/dist_constraint/{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$tree_node_member_constraint_id_encoded},{$tree_node_member_node_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7834,7 +7834,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dist_constraint_comment_org rdf:resource="{$base}/dist_constraint_comment_org/{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7862,7 +7862,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dist_constraint_comment_org rdf:resource="{$base}/dist_constraint_comment_org/{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7890,7 +7890,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dist_constraint_conv_err rdf:resource="{$base}/dist_constraint_conv_err/{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7918,7 +7918,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dist_constraint_conv_err rdf:resource="{$base}/dist_constraint_conv_err/{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7946,7 +7946,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dist_constraint_parse_err rdf:resource="{$base}/dist_constraint_parse_err/{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -7974,7 +7974,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dist_constraint_parse_err rdf:resource="{$base}/dist_constraint_parse_err/{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -8002,7 +8002,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dist_constraint_parse_file rdf:resource="{$base}/dist_constraint_parse_file/{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -8030,7 +8030,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dist_constraint_parse_file rdf:resource="{$base}/dist_constraint_parse_file/{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -8060,7 +8060,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dist_constraint_tree rdf:resource="{$base}/dist_constraint_tree/{$constraint_id_encoded},{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$node_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -8090,7 +8090,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dist_constraint_tree rdf:resource="{$base}/dist_constraint_tree/{$constraint_id_encoded},{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$node_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -8120,7 +8120,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dist_constraint_value rdf:resource="{$base}/dist_constraint_value/{$constraint_id_encoded},{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$tree_node_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -8150,7 +8150,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_dist_constraint_value rdf:resource="{$base}/dist_constraint_value/{$constraint_id_encoded},{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$tree_node_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -8178,7 +8178,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_distance_constraint_expt rdf:resource="{$base}/distance_constraint_expt/{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -8206,7 +8206,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_distance_constraint_expt rdf:resource="{$base}/distance_constraint_expt/{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$experiment_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -8232,7 +8232,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_distance_constraint_list rdf:resource="{$base}/distance_constraint_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -8258,7 +8258,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_distance_constraint_list rdf:resource="{$base}/distance_constraint_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -8286,7 +8286,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_distance_constraint_software rdf:resource="{$base}/distance_constraint_software/{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -8314,7 +8314,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_distance_constraint_software rdf:resource="{$base}/distance_constraint_software/{$distance_constraint_list_id_encoded},{$entry_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -8374,7 +8374,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_emr_instrument rdf:resource="{$base}/emr_instrument/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -8400,7 +8400,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_emr_instrument rdf:resource="{$base}/emr_instrument/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -8428,7 +8428,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_energetic_penalty_function rdf:resource="{$base}/energetic_penalty_function/{$conformer_family_coord_set_id_encoded},{$entry_id_encoded},{$function_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -8456,7 +8456,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_energetic_penalty_function rdf:resource="{$base}/energetic_penalty_function/{$conformer_family_coord_set_id_encoded},{$entry_id_encoded},{$function_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -8482,7 +8482,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_entity rdf:resource="{$base}/entity/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -8508,7 +8508,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_entity rdf:resource="{$base}/entity/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9044,7 +9044,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_entity_experimental_src_list rdf:resource="{$base}/entity_experimental_src_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9070,7 +9070,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_entity_experimental_src_list rdf:resource="{$base}/entity_experimental_src_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9136,7 +9136,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_entity_natural_src rdf:resource="{$base}/entity_natural_src/{$entity_natural_src_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9164,7 +9164,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_entity_natural_src rdf:resource="{$base}/entity_natural_src/{$entity_natural_src_list_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9190,7 +9190,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_entity_natural_src_list rdf:resource="{$base}/entity_natural_src_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9216,7 +9216,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_entity_natural_src_list rdf:resource="{$base}/entity_natural_src_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9356,7 +9356,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_entity_purity_list rdf:resource="{$base}/entity_purity_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9382,7 +9382,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_entity_purity_list rdf:resource="{$base}/entity_purity_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9476,7 +9476,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_entry_author rdf:resource="{$base}/entry_author/{$entry_id_encoded},{$ordinal_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9502,7 +9502,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_entry_author rdf:resource="{$base}/entry_author/{$entry_id_encoded},{$ordinal_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9528,7 +9528,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_entry_experimental_methods rdf:resource="{$base}/entry_experimental_methods/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9554,7 +9554,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_entry_experimental_methods rdf:resource="{$base}/entry_experimental_methods/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9580,7 +9580,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_entry_src rdf:resource="{$base}/entry_src/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9606,7 +9606,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_entry_src rdf:resource="{$base}/entry_src/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9704,7 +9704,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_experiment_list rdf:resource="{$base}/experiment_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9730,7 +9730,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_experiment_list rdf:resource="{$base}/experiment_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9758,7 +9758,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_floating_chirality rdf:resource="{$base}/floating_chirality/{$entry_id_encoded},{$floating_chirality_assign_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9786,7 +9786,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_floating_chirality rdf:resource="{$base}/floating_chirality/{$entry_id_encoded},{$floating_chirality_assign_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9812,7 +9812,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_floating_chirality_assign rdf:resource="{$base}/floating_chirality_assign/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9838,7 +9838,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_floating_chirality_assign rdf:resource="{$base}/floating_chirality_assign/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9866,7 +9866,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_floating_chirality_software rdf:resource="{$base}/floating_chirality_software/{$entry_id_encoded},{$floating_chirality_assign_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9894,7 +9894,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_floating_chirality_software rdf:resource="{$base}/floating_chirality_software/{$entry_id_encoded},{$floating_chirality_assign_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9920,7 +9920,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_fluorescence_instrument rdf:resource="{$base}/fluorescence_instrument/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9946,7 +9946,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_fluorescence_instrument rdf:resource="{$base}/fluorescence_instrument/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -9974,7 +9974,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_force_constant rdf:resource="{$base}/force_constant/{$entry_id_encoded},{$force_constant_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10002,7 +10002,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_force_constant rdf:resource="{$base}/force_constant/{$entry_id_encoded},{$force_constant_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10028,7 +10028,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_force_constant_list rdf:resource="{$base}/force_constant_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10054,7 +10054,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_force_constant_list rdf:resource="{$base}/force_constant_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10082,7 +10082,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_force_constant_software rdf:resource="{$base}/force_constant_software/{$entry_id_encoded},{$force_constant_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10110,7 +10110,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_force_constant_software rdf:resource="{$base}/force_constant_software/{$entry_id_encoded},{$force_constant_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10172,7 +10172,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_gen_dist_constraint rdf:resource="{$base}/gen_dist_constraint/{$entry_id_encoded},{$gen_dist_constraint_list_id_encoded},{$index_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10200,7 +10200,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_gen_dist_constraint rdf:resource="{$base}/gen_dist_constraint/{$entry_id_encoded},{$gen_dist_constraint_list_id_encoded},{$index_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10228,7 +10228,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_gen_dist_constraint_comment_org rdf:resource="{$base}/gen_dist_constraint_comment_org/{$entry_id_encoded},{$gen_dist_constraint_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10256,7 +10256,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_gen_dist_constraint_comment_org rdf:resource="{$base}/gen_dist_constraint_comment_org/{$entry_id_encoded},{$gen_dist_constraint_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10284,7 +10284,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_gen_dist_constraint_conv_err rdf:resource="{$base}/gen_dist_constraint_conv_err/{$entry_id_encoded},{$gen_dist_constraint_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10312,7 +10312,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_gen_dist_constraint_conv_err rdf:resource="{$base}/gen_dist_constraint_conv_err/{$entry_id_encoded},{$gen_dist_constraint_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10340,7 +10340,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_gen_dist_constraint_expt rdf:resource="{$base}/gen_dist_constraint_expt/{$entry_id_encoded},{$experiment_id_encoded},{$gen_dist_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10368,7 +10368,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_gen_dist_constraint_expt rdf:resource="{$base}/gen_dist_constraint_expt/{$entry_id_encoded},{$experiment_id_encoded},{$gen_dist_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10394,7 +10394,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_gen_dist_constraint_list rdf:resource="{$base}/gen_dist_constraint_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10420,7 +10420,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_gen_dist_constraint_list rdf:resource="{$base}/gen_dist_constraint_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10448,7 +10448,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_gen_dist_constraint_parse_err rdf:resource="{$base}/gen_dist_constraint_parse_err/{$entry_id_encoded},{$gen_dist_constraint_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10476,7 +10476,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_gen_dist_constraint_parse_err rdf:resource="{$base}/gen_dist_constraint_parse_err/{$entry_id_encoded},{$gen_dist_constraint_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10504,7 +10504,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_gen_dist_constraint_parse_file rdf:resource="{$base}/gen_dist_constraint_parse_file/{$entry_id_encoded},{$gen_dist_constraint_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10532,7 +10532,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_gen_dist_constraint_parse_file rdf:resource="{$base}/gen_dist_constraint_parse_file/{$entry_id_encoded},{$gen_dist_constraint_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10560,7 +10560,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_gen_dist_constraint_software rdf:resource="{$base}/gen_dist_constraint_software/{$entry_id_encoded},{$gen_dist_constraint_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10588,7 +10588,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_gen_dist_constraint_software rdf:resource="{$base}/gen_dist_constraint_software/{$entry_id_encoded},{$gen_dist_constraint_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10618,7 +10618,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_gen_dist_constraint_software_param rdf:resource="{$base}/gen_dist_constraint_software_param/{$entry_id_encoded},{$gen_dist_constraint_list_id_encoded},{$software_id_encoded},{$type_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10648,7 +10648,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_gen_dist_constraint_software_param rdf:resource="{$base}/gen_dist_constraint_software_param/{$entry_id_encoded},{$gen_dist_constraint_list_id_encoded},{$software_id_encoded},{$type_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10676,7 +10676,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_chem_shift_constraint rdf:resource="{$base}/h_chem_shift_constraint/{$entry_id_encoded},{$h_chem_shift_constraint_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10704,7 +10704,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_chem_shift_constraint rdf:resource="{$base}/h_chem_shift_constraint/{$entry_id_encoded},{$h_chem_shift_constraint_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10732,7 +10732,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_chem_shift_constraint_expt rdf:resource="{$base}/h_chem_shift_constraint_expt/{$entry_id_encoded},{$experiment_id_encoded},{$h_chem_shift_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10760,7 +10760,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_chem_shift_constraint_expt rdf:resource="{$base}/h_chem_shift_constraint_expt/{$entry_id_encoded},{$experiment_id_encoded},{$h_chem_shift_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10786,7 +10786,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_chem_shift_constraint_list rdf:resource="{$base}/h_chem_shift_constraint_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10812,7 +10812,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_chem_shift_constraint_list rdf:resource="{$base}/h_chem_shift_constraint_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10840,7 +10840,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_chem_shift_constraint_software rdf:resource="{$base}/h_chem_shift_constraint_software/{$entry_id_encoded},{$h_chem_shift_constraint_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10868,7 +10868,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_chem_shift_constraint_software rdf:resource="{$base}/h_chem_shift_constraint_software/{$entry_id_encoded},{$h_chem_shift_constraint_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10896,7 +10896,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_exch_protection_fact_experiment rdf:resource="{$base}/h_exch_protection_fact_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$h_exch_protection_factor_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10924,7 +10924,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_exch_protection_fact_experiment rdf:resource="{$base}/h_exch_protection_fact_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$h_exch_protection_factor_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10952,7 +10952,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_exch_protection_fact_software rdf:resource="{$base}/h_exch_protection_fact_software/{$entry_id_encoded},{$h_exch_protection_factor_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -10980,7 +10980,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_exch_protection_fact_software rdf:resource="{$base}/h_exch_protection_fact_software/{$entry_id_encoded},{$h_exch_protection_factor_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11008,7 +11008,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_exch_protection_factor rdf:resource="{$base}/h_exch_protection_factor/{$entry_id_encoded},{$h_exch_protection_factor_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11036,7 +11036,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_exch_protection_factor rdf:resource="{$base}/h_exch_protection_factor/{$entry_id_encoded},{$h_exch_protection_factor_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11062,7 +11062,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_exch_protection_factor_list rdf:resource="{$base}/h_exch_protection_factor_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11088,7 +11088,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_exch_protection_factor_list rdf:resource="{$base}/h_exch_protection_factor_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11116,7 +11116,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_exch_rate rdf:resource="{$base}/h_exch_rate/{$entry_id_encoded},{$h_exch_rate_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11144,7 +11144,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_exch_rate rdf:resource="{$base}/h_exch_rate/{$entry_id_encoded},{$h_exch_rate_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11172,7 +11172,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_exch_rate_experiment rdf:resource="{$base}/h_exch_rate_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$h_exch_rate_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11200,7 +11200,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_exch_rate_experiment rdf:resource="{$base}/h_exch_rate_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$h_exch_rate_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11226,7 +11226,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_exch_rate_list rdf:resource="{$base}/h_exch_rate_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11252,7 +11252,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_exch_rate_list rdf:resource="{$base}/h_exch_rate_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11280,7 +11280,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_exch_rate_software rdf:resource="{$base}/h_exch_rate_software/{$entry_id_encoded},{$h_exch_rate_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11308,7 +11308,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_h_exch_rate_software rdf:resource="{$base}/h_exch_rate_software/{$entry_id_encoded},{$h_exch_rate_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11336,7 +11336,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_noe rdf:resource="{$base}/heteronucl_noe/{$entry_id_encoded},{$heteronucl_noe_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11364,7 +11364,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_noe rdf:resource="{$base}/heteronucl_noe/{$entry_id_encoded},{$heteronucl_noe_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11392,7 +11392,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_noe_experiment rdf:resource="{$base}/heteronucl_noe_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$heteronucl_noe_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11420,7 +11420,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_noe_experiment rdf:resource="{$base}/heteronucl_noe_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$heteronucl_noe_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11446,7 +11446,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_noe_list rdf:resource="{$base}/heteronucl_noe_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11472,7 +11472,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_noe_list rdf:resource="{$base}/heteronucl_noe_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11500,7 +11500,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_noe_software rdf:resource="{$base}/heteronucl_noe_software/{$entry_id_encoded},{$heteronucl_noe_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11528,7 +11528,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_noe_software rdf:resource="{$base}/heteronucl_noe_software/{$entry_id_encoded},{$heteronucl_noe_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11556,7 +11556,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_t1_experiment rdf:resource="{$base}/heteronucl_t1_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$heteronucl_t1_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11584,7 +11584,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_t1_experiment rdf:resource="{$base}/heteronucl_t1_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$heteronucl_t1_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11610,7 +11610,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_t1_list rdf:resource="{$base}/heteronucl_t1_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11636,7 +11636,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_t1_list rdf:resource="{$base}/heteronucl_t1_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11664,7 +11664,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_t1_software rdf:resource="{$base}/heteronucl_t1_software/{$entry_id_encoded},{$heteronucl_t1_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11692,7 +11692,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_t1_software rdf:resource="{$base}/heteronucl_t1_software/{$entry_id_encoded},{$heteronucl_t1_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11720,7 +11720,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_t1rho_experiment rdf:resource="{$base}/heteronucl_t1rho_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$heteronucl_t1rho_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11748,7 +11748,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_t1rho_experiment rdf:resource="{$base}/heteronucl_t1rho_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$heteronucl_t1rho_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11774,7 +11774,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_t1rho_list rdf:resource="{$base}/heteronucl_t1rho_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11800,7 +11800,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_t1rho_list rdf:resource="{$base}/heteronucl_t1rho_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11828,7 +11828,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_t1rho_software rdf:resource="{$base}/heteronucl_t1rho_software/{$entry_id_encoded},{$heteronucl_t1rho_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11856,7 +11856,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_t1rho_software rdf:resource="{$base}/heteronucl_t1rho_software/{$entry_id_encoded},{$heteronucl_t1rho_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11884,7 +11884,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_t2_experiment rdf:resource="{$base}/heteronucl_t2_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$heteronucl_t2_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11912,7 +11912,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_t2_experiment rdf:resource="{$base}/heteronucl_t2_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$heteronucl_t2_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11938,7 +11938,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_t2_list rdf:resource="{$base}/heteronucl_t2_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11964,7 +11964,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_t2_list rdf:resource="{$base}/heteronucl_t2_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -11992,7 +11992,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_t2_software rdf:resource="{$base}/heteronucl_t2_software/{$entry_id_encoded},{$heteronucl_t2_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12020,7 +12020,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_heteronucl_t2_software rdf:resource="{$base}/heteronucl_t2_software/{$entry_id_encoded},{$heteronucl_t2_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12050,7 +12050,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_history rdf:resource="{$base}/history/{$entry_id_encoded},{$run_number_encoded},{$software_applied_history_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12080,7 +12080,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_history rdf:resource="{$base}/history/{$entry_id_encoded},{$run_number_encoded},{$software_applied_history_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12108,7 +12108,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_homonucl_noe rdf:resource="{$base}/homonucl_noe/{$entry_id_encoded},{$homonucl_noe_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12136,7 +12136,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_homonucl_noe rdf:resource="{$base}/homonucl_noe/{$entry_id_encoded},{$homonucl_noe_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12164,7 +12164,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_homonucl_noe_experiment rdf:resource="{$base}/homonucl_noe_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$homonucl_noe_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12192,7 +12192,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_homonucl_noe_experiment rdf:resource="{$base}/homonucl_noe_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$homonucl_noe_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12218,7 +12218,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_homonucl_noe_list rdf:resource="{$base}/homonucl_noe_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12244,7 +12244,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_homonucl_noe_list rdf:resource="{$base}/homonucl_noe_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12272,7 +12272,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_homonucl_noe_software rdf:resource="{$base}/homonucl_noe_software/{$entry_id_encoded},{$homonucl_noe_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12300,7 +12300,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_homonucl_noe_software rdf:resource="{$base}/homonucl_noe_software/{$entry_id_encoded},{$homonucl_noe_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12328,7 +12328,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_interatomic_dist rdf:resource="{$base}/interatomic_dist/{$entry_id_encoded},{$id_encoded},{$interatomic_distance_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12356,7 +12356,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_interatomic_dist rdf:resource="{$base}/interatomic_dist/{$entry_id_encoded},{$id_encoded},{$interatomic_distance_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12382,7 +12382,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_interatomic_distance_list rdf:resource="{$base}/interatomic_distance_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12408,7 +12408,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_interatomic_distance_list rdf:resource="{$base}/interatomic_distance_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12588,7 +12588,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_j_three_bond_constraint rdf:resource="{$base}/j_three_bond_constraint/{$entry_id_encoded},{$id_encoded},{$j_three_bond_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12616,7 +12616,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_j_three_bond_constraint rdf:resource="{$base}/j_three_bond_constraint/{$entry_id_encoded},{$id_encoded},{$j_three_bond_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12644,7 +12644,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_j_three_bond_constraint_expt rdf:resource="{$base}/j_three_bond_constraint_expt/{$entry_id_encoded},{$experiment_id_encoded},{$j_three_bond_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12672,7 +12672,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_j_three_bond_constraint_expt rdf:resource="{$base}/j_three_bond_constraint_expt/{$entry_id_encoded},{$experiment_id_encoded},{$j_three_bond_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12698,7 +12698,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_j_three_bond_constraint_list rdf:resource="{$base}/j_three_bond_constraint_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12724,7 +12724,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_j_three_bond_constraint_list rdf:resource="{$base}/j_three_bond_constraint_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12752,7 +12752,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_j_three_bond_constraint_software rdf:resource="{$base}/j_three_bond_constraint_software/{$entry_id_encoded},{$j_three_bond_constraint_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12780,7 +12780,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_j_three_bond_constraint_software rdf:resource="{$base}/j_three_bond_constraint_software/{$entry_id_encoded},{$j_three_bond_constraint_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12808,7 +12808,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_karplus_equation rdf:resource="{$base}/karplus_equation/{$entry_id_encoded},{$torsion_angle_code_encoded},{$torsion_angle_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12836,7 +12836,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_karplus_equation rdf:resource="{$base}/karplus_equation/{$entry_id_encoded},{$torsion_angle_code_encoded},{$torsion_angle_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12864,7 +12864,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_lacs_char rdf:resource="{$base}/lacs_char/{$entry_id_encoded},{$id_encoded},{$lacs_plot_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12892,7 +12892,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_lacs_char rdf:resource="{$base}/lacs_char/{$entry_id_encoded},{$id_encoded},{$lacs_plot_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12918,7 +12918,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_lacs_plot rdf:resource="{$base}/lacs_plot/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12944,7 +12944,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_lacs_plot rdf:resource="{$base}/lacs_plot/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -12972,7 +12972,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_local_structure_quality rdf:resource="{$base}/local_structure_quality/{$conformer_family_coord_set_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13000,7 +13000,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_local_structure_quality rdf:resource="{$base}/local_structure_quality/{$conformer_family_coord_set_id_encoded},{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13026,7 +13026,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mass_spec rdf:resource="{$base}/mass_spec/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13052,7 +13052,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mass_spec rdf:resource="{$base}/mass_spec/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13234,7 +13234,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mass_spec_ref_compd_set rdf:resource="{$base}/mass_spec_ref_compd_set/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13260,7 +13260,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mass_spec_ref_compd_set rdf:resource="{$base}/mass_spec_ref_compd_set/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13322,7 +13322,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mass_spectrometer_list rdf:resource="{$base}/mass_spectrometer_list/{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13346,7 +13346,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mass_spectrometer_list rdf:resource="{$base}/mass_spectrometer_list/{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13412,7 +13412,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_matched_entries rdf:resource="{$base}/matched_entries/{$database_accession_code_encoded},{$database_name_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13440,7 +13440,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_matched_entries rdf:resource="{$base}/matched_entries/{$database_accession_code_encoded},{$database_name_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13466,7 +13466,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_method rdf:resource="{$base}/method/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13492,7 +13492,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_method rdf:resource="{$base}/method/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13632,7 +13632,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="BMRBx:entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/">
+          <rdf:Description rdf:about="{$base}/entry/{translate(BMRBx:entry_id,' ^','__')}">
             <BMRBo:referenced_by_model_type rdf:resource="{$base}/model_type/{$atom_site_model_id_encoded},{$type_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13658,7 +13658,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="BMRBx:entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/">
+          <rdf:Description rdf:about="{$base}/entry/{translate(BMRBx:entry_id,' ^','__')}">
             <BMRBo:referenced_by_model_type rdf:resource="{$base}/model_type/{$atom_site_model_id_encoded},{$type_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13686,7 +13686,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ms_chrom_ion_annotation rdf:resource="{$base}/ms_chrom_ion_annotation/{$entry_id_encoded},{$id_encoded},{$ms_chromatogram_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13714,7 +13714,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ms_chrom_ion_annotation rdf:resource="{$base}/ms_chrom_ion_annotation/{$entry_id_encoded},{$id_encoded},{$ms_chromatogram_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13742,7 +13742,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ms_chromatogram_experiment rdf:resource="{$base}/ms_chromatogram_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$ms_chromatogram_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13770,7 +13770,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ms_chromatogram_experiment rdf:resource="{$base}/ms_chromatogram_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$ms_chromatogram_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13798,7 +13798,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ms_chromatogram_ion rdf:resource="{$base}/ms_chromatogram_ion/{$entry_id_encoded},{$id_encoded},{$ms_chromatogram_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13826,7 +13826,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ms_chromatogram_ion rdf:resource="{$base}/ms_chromatogram_ion/{$entry_id_encoded},{$id_encoded},{$ms_chromatogram_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13852,7 +13852,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ms_chromatogram_list rdf:resource="{$base}/ms_chromatogram_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13878,7 +13878,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ms_chromatogram_list rdf:resource="{$base}/ms_chromatogram_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13906,7 +13906,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ms_chromatogram_param rdf:resource="{$base}/ms_chromatogram_param/{$entry_id_encoded},{$id_encoded},{$ms_chromatogram_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13934,7 +13934,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ms_chromatogram_param rdf:resource="{$base}/ms_chromatogram_param/{$entry_id_encoded},{$id_encoded},{$ms_chromatogram_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13962,7 +13962,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ms_chromatogram_software rdf:resource="{$base}/ms_chromatogram_software/{$entry_id_encoded},{$ms_chromatogram_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -13990,7 +13990,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ms_chromatogram_software rdf:resource="{$base}/ms_chromatogram_software/{$entry_id_encoded},{$ms_chromatogram_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14016,7 +14016,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ms_expt rdf:resource="{$base}/ms_expt/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14042,7 +14042,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ms_expt rdf:resource="{$base}/ms_expt/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14070,7 +14070,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ms_expt_param rdf:resource="{$base}/ms_expt_param/{$entry_id_encoded},{$id_encoded},{$ms_expt_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14098,7 +14098,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ms_expt_param rdf:resource="{$base}/ms_expt_param/{$entry_id_encoded},{$id_encoded},{$ms_expt_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14126,7 +14126,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ms_expt_software rdf:resource="{$base}/ms_expt_software/{$entry_id_encoded},{$ms_expt_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14154,7 +14154,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ms_expt_software rdf:resource="{$base}/ms_expt_software/{$entry_id_encoded},{$ms_expt_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14182,7 +14182,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mz_precursor_ion rdf:resource="{$base}/mz_precursor_ion/{$entry_id_encoded},{$id_encoded},{$mz_ratio_data_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14210,7 +14210,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mz_precursor_ion rdf:resource="{$base}/mz_precursor_ion/{$entry_id_encoded},{$id_encoded},{$mz_ratio_data_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14240,7 +14240,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mz_precursor_ion_annotation rdf:resource="{$base}/mz_precursor_ion_annotation/{$entry_id_encoded},{$id_encoded},{$mz_precursor_ion_id_encoded},{$mz_ratio_data_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14270,7 +14270,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mz_precursor_ion_annotation rdf:resource="{$base}/mz_precursor_ion_annotation/{$entry_id_encoded},{$id_encoded},{$mz_precursor_ion_id_encoded},{$mz_ratio_data_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14298,7 +14298,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mz_product_ion rdf:resource="{$base}/mz_product_ion/{$entry_id_encoded},{$id_encoded},{$mz_ratio_data_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14326,7 +14326,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mz_product_ion rdf:resource="{$base}/mz_product_ion/{$entry_id_encoded},{$id_encoded},{$mz_ratio_data_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14356,7 +14356,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mz_product_ion_annotation rdf:resource="{$base}/mz_product_ion_annotation/{$entry_id_encoded},{$id_encoded},{$mz_product_ion_id_encoded},{$mz_ratio_data_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14386,7 +14386,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mz_product_ion_annotation rdf:resource="{$base}/mz_product_ion_annotation/{$entry_id_encoded},{$id_encoded},{$mz_product_ion_id_encoded},{$mz_ratio_data_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14412,7 +14412,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mz_ratio_data_list rdf:resource="{$base}/mz_ratio_data_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14438,7 +14438,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mz_ratio_data_list rdf:resource="{$base}/mz_ratio_data_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14466,7 +14466,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mz_ratio_experiment rdf:resource="{$base}/mz_ratio_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$mz_ratio_data_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14494,7 +14494,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mz_ratio_experiment rdf:resource="{$base}/mz_ratio_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$mz_ratio_data_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14522,7 +14522,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mz_ratio_software rdf:resource="{$base}/mz_ratio_software/{$entry_id_encoded},{$mz_ratio_data_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14550,7 +14550,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mz_ratio_software rdf:resource="{$base}/mz_ratio_software/{$entry_id_encoded},{$mz_ratio_data_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14578,7 +14578,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mz_ratio_spectrum_param rdf:resource="{$base}/mz_ratio_spectrum_param/{$entry_id_encoded},{$id_encoded},{$mz_ratio_data_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14606,7 +14606,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_mz_ratio_spectrum_param rdf:resource="{$base}/mz_ratio_spectrum_param/{$entry_id_encoded},{$id_encoded},{$mz_ratio_data_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14834,7 +14834,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_nmr_spec_expt rdf:resource="{$base}/nmr_spec_expt/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14860,7 +14860,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_nmr_spec_expt rdf:resource="{$base}/nmr_spec_expt/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14924,7 +14924,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_nmr_spectral_processing rdf:resource="{$base}/nmr_spectral_processing/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14950,7 +14950,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_nmr_spectral_processing rdf:resource="{$base}/nmr_spectral_processing/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -14976,7 +14976,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_nmr_spectrometer rdf:resource="{$base}/nmr_spectrometer/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15002,7 +15002,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_nmr_spectrometer rdf:resource="{$base}/nmr_spectrometer/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15066,7 +15066,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_nmr_spectrometer_list rdf:resource="{$base}/nmr_spectrometer_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15092,7 +15092,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_nmr_spectrometer_list rdf:resource="{$base}/nmr_spectrometer_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15118,7 +15118,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_nmr_spectrometer_probe rdf:resource="{$base}/nmr_spectrometer_probe/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15144,7 +15144,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_nmr_spectrometer_probe rdf:resource="{$base}/nmr_spectrometer_probe/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15256,7 +15256,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_observed_conformer rdf:resource="{$base}/observed_conformer/{$atom_site_model_id_encoded},{$conformer_family_coord_set_id_encoded},{$entry_id_encoded},{$structure_interaction_id_encoded},{$structure_interaction_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15288,7 +15288,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_observed_conformer rdf:resource="{$base}/observed_conformer/{$atom_site_model_id_encoded},{$conformer_family_coord_set_id_encoded},{$entry_id_encoded},{$structure_interaction_id_encoded},{$structure_interaction_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15316,7 +15316,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_order_param rdf:resource="{$base}/order_param/{$entry_id_encoded},{$id_encoded},{$order_parameter_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15344,7 +15344,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_order_param rdf:resource="{$base}/order_param/{$entry_id_encoded},{$id_encoded},{$order_parameter_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15372,7 +15372,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_order_parameter_experiment rdf:resource="{$base}/order_parameter_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$order_parameter_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15400,7 +15400,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_order_parameter_experiment rdf:resource="{$base}/order_parameter_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$order_parameter_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15426,7 +15426,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_order_parameter_list rdf:resource="{$base}/order_parameter_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15452,7 +15452,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_order_parameter_list rdf:resource="{$base}/order_parameter_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15480,7 +15480,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_order_parameter_software rdf:resource="{$base}/order_parameter_software/{$entry_id_encoded},{$order_parameter_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15508,7 +15508,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_order_parameter_software rdf:resource="{$base}/order_parameter_software/{$entry_id_encoded},{$order_parameter_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15534,7 +15534,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_org_constr_file_comment rdf:resource="{$base}/org_constr_file_comment/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15560,7 +15560,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_org_constr_file_comment rdf:resource="{$base}/org_constr_file_comment/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15588,7 +15588,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_other_constraint_expt rdf:resource="{$base}/other_constraint_expt/{$entry_id_encoded},{$experiment_id_encoded},{$other_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15616,7 +15616,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_other_constraint_expt rdf:resource="{$base}/other_constraint_expt/{$entry_id_encoded},{$experiment_id_encoded},{$other_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15642,7 +15642,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_other_constraint_list rdf:resource="{$base}/other_constraint_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15668,7 +15668,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_other_constraint_list rdf:resource="{$base}/other_constraint_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15696,7 +15696,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_other_constraint_software rdf:resource="{$base}/other_constraint_software/{$entry_id_encoded},{$other_constraint_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15724,7 +15724,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_other_constraint_software rdf:resource="{$base}/other_constraint_software/{$entry_id_encoded},{$other_constraint_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15752,7 +15752,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_other_data rdf:resource="{$base}/other_data/{$entry_id_encoded},{$id_encoded},{$other_data_type_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15780,7 +15780,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_other_data rdf:resource="{$base}/other_data/{$entry_id_encoded},{$id_encoded},{$other_data_type_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15808,7 +15808,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_other_data_experiment rdf:resource="{$base}/other_data_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$other_data_type_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15836,7 +15836,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_other_data_experiment rdf:resource="{$base}/other_data_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$other_data_type_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15864,7 +15864,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_other_data_software rdf:resource="{$base}/other_data_software/{$entry_id_encoded},{$other_data_type_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15892,7 +15892,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_other_data_software rdf:resource="{$base}/other_data_software/{$entry_id_encoded},{$other_data_type_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15918,7 +15918,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_other_data_type_list rdf:resource="{$base}/other_data_type_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15944,7 +15944,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_other_data_type_list rdf:resource="{$base}/other_data_type_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -15972,7 +15972,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_other_struct_feature rdf:resource="{$base}/other_struct_feature/{$entry_id_encoded},{$id_encoded},{$other_struct_feature_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16000,7 +16000,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_other_struct_feature rdf:resource="{$base}/other_struct_feature/{$entry_id_encoded},{$id_encoded},{$other_struct_feature_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16026,7 +16026,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_other_struct_feature_list rdf:resource="{$base}/other_struct_feature_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16052,7 +16052,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_other_struct_feature_list rdf:resource="{$base}/other_struct_feature_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16080,7 +16080,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_pb_char rdf:resource="{$base}/pb_char/{$entry_id_encoded},{$id_encoded},{$pb_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16108,7 +16108,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_pb_char rdf:resource="{$base}/pb_char/{$entry_id_encoded},{$id_encoded},{$pb_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16134,7 +16134,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_pb_list rdf:resource="{$base}/pb_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16160,7 +16160,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_pb_list rdf:resource="{$base}/pb_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16394,7 +16394,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_peak_constraint_link rdf:resource="{$base}/peak_constraint_link/{$entry_id_encoded},{$id_encoded},{$peak_constraint_link_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16422,7 +16422,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_peak_constraint_link rdf:resource="{$base}/peak_constraint_link/{$entry_id_encoded},{$id_encoded},{$peak_constraint_link_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16448,7 +16448,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_peak_constraint_link_list rdf:resource="{$base}/peak_constraint_link_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16474,7 +16474,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_peak_constraint_link_list rdf:resource="{$base}/peak_constraint_link_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16582,7 +16582,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ph_param rdf:resource="{$base}/ph_param/{$entry_id_encoded},{$id_encoded},{$ph_param_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16610,7 +16610,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ph_param rdf:resource="{$base}/ph_param/{$entry_id_encoded},{$id_encoded},{$ph_param_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16636,7 +16636,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ph_param_list rdf:resource="{$base}/ph_param_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16662,7 +16662,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ph_param_list rdf:resource="{$base}/ph_param_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16690,7 +16690,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ph_titr_result rdf:resource="{$base}/ph_titr_result/{$entry_id_encoded},{$id_encoded},{$ph_titration_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16718,7 +16718,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ph_titr_result rdf:resource="{$base}/ph_titr_result/{$entry_id_encoded},{$id_encoded},{$ph_titration_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16746,7 +16746,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ph_titration_experiment rdf:resource="{$base}/ph_titration_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$ph_titration_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16774,7 +16774,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ph_titration_experiment rdf:resource="{$base}/ph_titration_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$ph_titration_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16800,7 +16800,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ph_titration_list rdf:resource="{$base}/ph_titration_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16826,7 +16826,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ph_titration_list rdf:resource="{$base}/ph_titration_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16854,7 +16854,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ph_titration_software rdf:resource="{$base}/ph_titration_software/{$entry_id_encoded},{$ph_titration_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16882,7 +16882,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ph_titration_software rdf:resource="{$base}/ph_titration_software/{$entry_id_encoded},{$ph_titration_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16910,7 +16910,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc rdf:resource="{$base}/rdc/{$entry_id_encoded},{$id_encoded},{$rdc_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16938,7 +16938,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc rdf:resource="{$base}/rdc/{$entry_id_encoded},{$id_encoded},{$rdc_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16966,7 +16966,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_constraint rdf:resource="{$base}/rdc_constraint/{$entry_id_encoded},{$index_id_encoded},{$rdc_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -16994,7 +16994,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_constraint rdf:resource="{$base}/rdc_constraint/{$entry_id_encoded},{$index_id_encoded},{$rdc_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17022,7 +17022,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_constraint_comment_org rdf:resource="{$base}/rdc_constraint_comment_org/{$entry_id_encoded},{$id_encoded},{$rdc_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17050,7 +17050,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_constraint_comment_org rdf:resource="{$base}/rdc_constraint_comment_org/{$entry_id_encoded},{$id_encoded},{$rdc_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17078,7 +17078,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_constraint_conv_err rdf:resource="{$base}/rdc_constraint_conv_err/{$entry_id_encoded},{$id_encoded},{$rdc_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17106,7 +17106,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_constraint_conv_err rdf:resource="{$base}/rdc_constraint_conv_err/{$entry_id_encoded},{$id_encoded},{$rdc_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17134,7 +17134,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_constraint_expt rdf:resource="{$base}/rdc_constraint_expt/{$entry_id_encoded},{$experiment_id_encoded},{$rdc_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17162,7 +17162,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_constraint_expt rdf:resource="{$base}/rdc_constraint_expt/{$entry_id_encoded},{$experiment_id_encoded},{$rdc_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17188,7 +17188,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_constraint_list rdf:resource="{$base}/rdc_constraint_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17214,7 +17214,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_constraint_list rdf:resource="{$base}/rdc_constraint_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17242,7 +17242,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_constraint_parse_err rdf:resource="{$base}/rdc_constraint_parse_err/{$entry_id_encoded},{$id_encoded},{$rdc_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17270,7 +17270,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_constraint_parse_err rdf:resource="{$base}/rdc_constraint_parse_err/{$entry_id_encoded},{$id_encoded},{$rdc_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17298,7 +17298,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_constraint_parse_file rdf:resource="{$base}/rdc_constraint_parse_file/{$entry_id_encoded},{$id_encoded},{$rdc_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17326,7 +17326,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_constraint_parse_file rdf:resource="{$base}/rdc_constraint_parse_file/{$entry_id_encoded},{$id_encoded},{$rdc_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17354,7 +17354,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_constraint_software rdf:resource="{$base}/rdc_constraint_software/{$entry_id_encoded},{$rdc_constraint_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17382,7 +17382,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_constraint_software rdf:resource="{$base}/rdc_constraint_software/{$entry_id_encoded},{$rdc_constraint_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17410,7 +17410,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_experiment rdf:resource="{$base}/rdc_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$rdc_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17438,7 +17438,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_experiment rdf:resource="{$base}/rdc_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$rdc_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17464,7 +17464,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_list rdf:resource="{$base}/rdc_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17490,7 +17490,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_list rdf:resource="{$base}/rdc_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17518,7 +17518,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_software rdf:resource="{$base}/rdc_software/{$entry_id_encoded},{$rdc_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17546,7 +17546,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rdc_software rdf:resource="{$base}/rdc_software/{$entry_id_encoded},{$rdc_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17616,7 +17616,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_related_entries rdf:resource="{$base}/related_entries/{$database_accession_code_encoded},{$database_name_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17644,7 +17644,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_related_entries rdf:resource="{$base}/related_entries/{$database_accession_code_encoded},{$database_name_encoded},{$entry_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17670,7 +17670,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_release rdf:resource="{$base}/release/{$entry_id_encoded},{$release_number_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17696,7 +17696,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_release rdf:resource="{$base}/release/{$entry_id_encoded},{$release_number_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17724,7 +17724,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rep_conf rdf:resource="{$base}/rep_conf/{$atom_coordinate_id_encoded},{$entry_id_encoded},{$representative_conformer_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17752,7 +17752,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rep_conf rdf:resource="{$base}/rep_conf/{$atom_coordinate_id_encoded},{$entry_id_encoded},{$representative_conformer_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17780,7 +17780,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rep_conf_refinement rdf:resource="{$base}/rep_conf_refinement/{$entry_id_encoded},{$refine_method_encoded},{$representative_conformer_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17808,7 +17808,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rep_conf_refinement rdf:resource="{$base}/rep_conf_refinement/{$entry_id_encoded},{$refine_method_encoded},{$representative_conformer_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17836,7 +17836,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rep_conf_software rdf:resource="{$base}/rep_conf_software/{$entry_id_encoded},{$representative_conformer_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17864,7 +17864,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rep_conf_software rdf:resource="{$base}/rep_conf_software/{$entry_id_encoded},{$representative_conformer_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17892,7 +17892,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rep_coordinate_details rdf:resource="{$base}/rep_coordinate_details/{$entry_id_encoded},{$footnote_id_encoded},{$representative_conformer_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17920,7 +17920,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_rep_coordinate_details rdf:resource="{$base}/rep_coordinate_details/{$entry_id_encoded},{$footnote_id_encoded},{$representative_conformer_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17946,7 +17946,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_representative_conformer rdf:resource="{$base}/representative_conformer/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -17972,7 +17972,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_representative_conformer rdf:resource="{$base}/representative_conformer/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18044,7 +18044,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_resonance_assignment rdf:resource="{$base}/resonance_assignment/{$atom_id_encoded},{$comp_index_id_encoded},{$entity_assembly_id_encoded},{$entry_id_encoded},{$resonance_linker_list_id_encoded},{$resonance_set_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18078,7 +18078,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_resonance_assignment rdf:resource="{$base}/resonance_assignment/{$atom_id_encoded},{$comp_index_id_encoded},{$entity_assembly_id_encoded},{$entry_id_encoded},{$resonance_linker_list_id_encoded},{$resonance_set_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18146,7 +18146,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_resonance_linker_list rdf:resource="{$base}/resonance_linker_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18172,7 +18172,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_resonance_linker_list rdf:resource="{$base}/resonance_linker_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18198,7 +18198,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_sample rdf:resource="{$base}/sample/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18224,7 +18224,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_sample rdf:resource="{$base}/sample/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18414,7 +18414,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_sample_condition_list rdf:resource="{$base}/sample_condition_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18440,7 +18440,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_sample_condition_list rdf:resource="{$base}/sample_condition_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18506,7 +18506,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_saxs_constraint rdf:resource="{$base}/saxs_constraint/{$entry_id_encoded},{$id_encoded},{$saxs_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18534,7 +18534,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_saxs_constraint rdf:resource="{$base}/saxs_constraint/{$entry_id_encoded},{$id_encoded},{$saxs_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18564,7 +18564,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_saxs_constraint_expt rdf:resource="{$base}/saxs_constraint_expt/{$entry_id_encoded},{$experiment_id_encoded},{$sample_id_encoded},{$saxs_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18594,7 +18594,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_saxs_constraint_expt rdf:resource="{$base}/saxs_constraint_expt/{$entry_id_encoded},{$experiment_id_encoded},{$sample_id_encoded},{$saxs_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18620,7 +18620,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_saxs_constraint_list rdf:resource="{$base}/saxs_constraint_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18646,7 +18646,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_saxs_constraint_list rdf:resource="{$base}/saxs_constraint_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18674,7 +18674,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_saxs_constraint_software rdf:resource="{$base}/saxs_constraint_software/{$entry_id_encoded},{$saxs_constraint_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18702,7 +18702,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_saxs_constraint_software rdf:resource="{$base}/saxs_constraint_software/{$entry_id_encoded},{$saxs_constraint_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18764,7 +18764,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_secondary_struct rdf:resource="{$base}/secondary_struct/{$entry_id_encoded},{$id_encoded},{$secondary_struct_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18792,7 +18792,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_secondary_struct rdf:resource="{$base}/secondary_struct/{$entry_id_encoded},{$id_encoded},{$secondary_struct_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18818,7 +18818,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_secondary_struct_list rdf:resource="{$base}/secondary_struct_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18844,7 +18844,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_secondary_struct_list rdf:resource="{$base}/secondary_struct_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18872,7 +18872,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_secondary_struct_sel rdf:resource="{$base}/secondary_struct_sel/{$entry_id_encoded},{$method_id_encoded},{$secondary_struct_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18900,7 +18900,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_secondary_struct_sel rdf:resource="{$base}/secondary_struct_sel/{$entry_id_encoded},{$method_id_encoded},{$secondary_struct_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18926,7 +18926,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_sg_project rdf:resource="{$base}/sg_project/{$entry_id_encoded},{$sg_project_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18952,7 +18952,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_sg_project rdf:resource="{$base}/sg_project/{$entry_id_encoded},{$sg_project_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -18978,7 +18978,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_software rdf:resource="{$base}/software/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19004,7 +19004,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_software rdf:resource="{$base}/software/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19030,7 +19030,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_software_applied_history rdf:resource="{$base}/software_applied_history/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19056,7 +19056,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_software_applied_history rdf:resource="{$base}/software_applied_history/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19082,7 +19082,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_software_applied_list rdf:resource="{$base}/software_applied_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19108,7 +19108,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_software_applied_list rdf:resource="{$base}/software_applied_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19136,7 +19136,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_software_applied_methods rdf:resource="{$base}/software_applied_methods/{$entry_id_encoded},{$software_applied_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19164,7 +19164,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_software_applied_methods rdf:resource="{$base}/software_applied_methods/{$entry_id_encoded},{$software_applied_list_id_encoded},{$software_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19230,7 +19230,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_software_specific_info rdf:resource="{$base}/software_specific_info/{$entry_id_encoded},{$software_saveframe_id_encoded},{$software_specific_info_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19258,7 +19258,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_software_specific_info rdf:resource="{$base}/software_specific_info/{$entry_id_encoded},{$software_saveframe_id_encoded},{$software_specific_info_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19284,7 +19284,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_software_specific_info_list rdf:resource="{$base}/software_specific_info_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19310,7 +19310,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_software_specific_info_list rdf:resource="{$base}/software_specific_info_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19376,7 +19376,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_spectral_density rdf:resource="{$base}/spectral_density/{$entry_id_encoded},{$id_encoded},{$spectral_density_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19404,7 +19404,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_spectral_density rdf:resource="{$base}/spectral_density/{$entry_id_encoded},{$id_encoded},{$spectral_density_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19432,7 +19432,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_spectral_density_experiment rdf:resource="{$base}/spectral_density_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$spectral_density_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19460,7 +19460,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_spectral_density_experiment rdf:resource="{$base}/spectral_density_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$spectral_density_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19486,7 +19486,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_spectral_density_list rdf:resource="{$base}/spectral_density_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19512,7 +19512,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_spectral_density_list rdf:resource="{$base}/spectral_density_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19540,7 +19540,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_spectral_density_software rdf:resource="{$base}/spectral_density_software/{$entry_id_encoded},{$software_id_encoded},{$spectral_density_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19568,7 +19568,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_spectral_density_software rdf:resource="{$base}/spectral_density_software/{$entry_id_encoded},{$software_id_encoded},{$spectral_density_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19682,7 +19682,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_spectral_peak_list rdf:resource="{$base}/spectral_peak_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -19708,7 +19708,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_spectral_peak_list rdf:resource="{$base}/spectral_peak_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20014,7 +20014,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_struct_anno_char rdf:resource="{$base}/struct_anno_char/{$entry_id_encoded},{$id_encoded},{$structure_annotation_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20042,7 +20042,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_struct_anno_char rdf:resource="{$base}/struct_anno_char/{$entry_id_encoded},{$id_encoded},{$structure_annotation_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20070,7 +20070,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_struct_anno_software rdf:resource="{$base}/struct_anno_software/{$entry_id_encoded},{$software_id_encoded},{$structure_annotation_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20098,7 +20098,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_struct_anno_software rdf:resource="{$base}/struct_anno_software/{$entry_id_encoded},{$software_id_encoded},{$structure_annotation_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20164,7 +20164,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_struct_classification rdf:resource="{$base}/struct_classification/{$entry_id_encoded},{$id_encoded},{$structure_annotation_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20192,7 +20192,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_struct_classification rdf:resource="{$base}/struct_classification/{$entry_id_encoded},{$id_encoded},{$structure_annotation_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20220,7 +20220,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_struct_image rdf:resource="{$base}/struct_image/{$conformer_family_coord_set_id_encoded},{$entry_id_encoded},{$file_name_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20248,7 +20248,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_struct_image rdf:resource="{$base}/struct_image/{$conformer_family_coord_set_id_encoded},{$entry_id_encoded},{$file_name_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20274,7 +20274,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_struct_keywords rdf:resource="{$base}/struct_keywords/{$entry_id_encoded},{$keywords_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20300,7 +20300,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_struct_keywords rdf:resource="{$base}/struct_keywords/{$entry_id_encoded},{$keywords_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20326,7 +20326,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_structure_annotation rdf:resource="{$base}/structure_annotation/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20352,7 +20352,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_structure_annotation rdf:resource="{$base}/structure_annotation/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20380,7 +20380,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_structure_interaction rdf:resource="{$base}/structure_interaction/{$entry_id_encoded},{$id_encoded},{$structure_interaction_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20408,7 +20408,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_structure_interaction rdf:resource="{$base}/structure_interaction/{$entry_id_encoded},{$id_encoded},{$structure_interaction_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20434,7 +20434,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_structure_interaction_list rdf:resource="{$base}/structure_interaction_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20460,7 +20460,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_structure_interaction_list rdf:resource="{$base}/structure_interaction_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20608,7 +20608,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_study_list rdf:resource="{$base}/study_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20634,7 +20634,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_study_list rdf:resource="{$base}/study_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20970,7 +20970,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_t1 rdf:resource="{$base}/t1/{$entry_id_encoded},{$heteronucl_t1_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -20998,7 +20998,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_t1 rdf:resource="{$base}/t1/{$entry_id_encoded},{$heteronucl_t1_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21026,7 +21026,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_t1rho rdf:resource="{$base}/t1rho/{$entry_id_encoded},{$heteronucl_t1rho_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21054,7 +21054,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_t1rho rdf:resource="{$base}/t1rho/{$entry_id_encoded},{$heteronucl_t1rho_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21082,7 +21082,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_t2 rdf:resource="{$base}/t2/{$entry_id_encoded},{$heteronucl_t2_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21110,7 +21110,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_t2 rdf:resource="{$base}/t2/{$entry_id_encoded},{$heteronucl_t2_list_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21138,7 +21138,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ta_constraint_comment_org rdf:resource="{$base}/ta_constraint_comment_org/{$entry_id_encoded},{$id_encoded},{$torsion_angle_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21166,7 +21166,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ta_constraint_comment_org rdf:resource="{$base}/ta_constraint_comment_org/{$entry_id_encoded},{$id_encoded},{$torsion_angle_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21194,7 +21194,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ta_constraint_conv_err rdf:resource="{$base}/ta_constraint_conv_err/{$entry_id_encoded},{$id_encoded},{$torsion_angle_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21222,7 +21222,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ta_constraint_conv_err rdf:resource="{$base}/ta_constraint_conv_err/{$entry_id_encoded},{$id_encoded},{$torsion_angle_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21250,7 +21250,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ta_constraint_parse_err rdf:resource="{$base}/ta_constraint_parse_err/{$entry_id_encoded},{$id_encoded},{$torsion_angle_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21278,7 +21278,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ta_constraint_parse_err rdf:resource="{$base}/ta_constraint_parse_err/{$entry_id_encoded},{$id_encoded},{$torsion_angle_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21306,7 +21306,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ta_constraint_parse_file rdf:resource="{$base}/ta_constraint_parse_file/{$entry_id_encoded},{$id_encoded},{$torsion_angle_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21334,7 +21334,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_ta_constraint_parse_file rdf:resource="{$base}/ta_constraint_parse_file/{$entry_id_encoded},{$id_encoded},{$torsion_angle_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21436,7 +21436,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_tensor_list rdf:resource="{$base}/tensor_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21462,7 +21462,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_tensor_list rdf:resource="{$base}/tensor_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21492,7 +21492,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_terminal_residue rdf:resource="{$base}/terminal_residue/{$comp_index_id_encoded},{$entity_id_encoded},{$entry_id_encoded},{$representative_conformer_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21522,7 +21522,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_terminal_residue rdf:resource="{$base}/terminal_residue/{$comp_index_id_encoded},{$entity_id_encoded},{$entry_id_encoded},{$representative_conformer_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21556,7 +21556,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_tertiary_struct rdf:resource="{$base}/tertiary_struct/{$atom_id_encoded},{$comp_index_id_encoded},{$entity_assembly_id_encoded},{$entry_id_encoded},{$id_encoded},{$tertiary_struct_element_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21590,7 +21590,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_tertiary_struct rdf:resource="{$base}/tertiary_struct/{$atom_id_encoded},{$comp_index_id_encoded},{$entity_assembly_id_encoded},{$entry_id_encoded},{$id_encoded},{$tertiary_struct_element_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21616,7 +21616,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_tertiary_struct_element_list rdf:resource="{$base}/tertiary_struct_element_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21642,7 +21642,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_tertiary_struct_element_list rdf:resource="{$base}/tertiary_struct_element_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21670,7 +21670,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_tertiary_struct_element_sel rdf:resource="{$base}/tertiary_struct_element_sel/{$entry_id_encoded},{$method_id_encoded},{$tertiary_struct_element_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21698,7 +21698,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_tertiary_struct_element_sel rdf:resource="{$base}/tertiary_struct_element_sel/{$entry_id_encoded},{$method_id_encoded},{$tertiary_struct_element_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21726,7 +21726,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_auto_relaxation rdf:resource="{$base}/theoretical_auto_relaxation/{$entry_id_encoded},{$id_encoded},{$theoretical_auto_relaxation_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21754,7 +21754,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_auto_relaxation rdf:resource="{$base}/theoretical_auto_relaxation/{$entry_id_encoded},{$id_encoded},{$theoretical_auto_relaxation_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21782,7 +21782,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_auto_relaxation_experiment rdf:resource="{$base}/theoretical_auto_relaxation_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$theoretical_auto_relaxation_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21810,7 +21810,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_auto_relaxation_experiment rdf:resource="{$base}/theoretical_auto_relaxation_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$theoretical_auto_relaxation_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21836,7 +21836,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_auto_relaxation_list rdf:resource="{$base}/theoretical_auto_relaxation_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21862,7 +21862,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_auto_relaxation_list rdf:resource="{$base}/theoretical_auto_relaxation_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21890,7 +21890,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_auto_relaxation_software rdf:resource="{$base}/theoretical_auto_relaxation_software/{$entry_id_encoded},{$software_id_encoded},{$theoretical_auto_relaxation_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21918,7 +21918,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_auto_relaxation_software rdf:resource="{$base}/theoretical_auto_relaxation_software/{$entry_id_encoded},{$software_id_encoded},{$theoretical_auto_relaxation_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21946,7 +21946,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_chem_shift rdf:resource="{$base}/theoretical_chem_shift/{$entry_id_encoded},{$id_encoded},{$theoretical_chem_shift_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -21974,7 +21974,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_chem_shift rdf:resource="{$base}/theoretical_chem_shift/{$entry_id_encoded},{$id_encoded},{$theoretical_chem_shift_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22000,7 +22000,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_chem_shift_list rdf:resource="{$base}/theoretical_chem_shift_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22026,7 +22026,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_chem_shift_list rdf:resource="{$base}/theoretical_chem_shift_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22128,7 +22128,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_coupling_constant_list rdf:resource="{$base}/theoretical_coupling_constant_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22154,7 +22154,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_coupling_constant_list rdf:resource="{$base}/theoretical_coupling_constant_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22220,7 +22220,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_cross_correlation_dd rdf:resource="{$base}/theoretical_cross_correlation_dd/{$entry_id_encoded},{$id_encoded},{$theoretical_cross_correlation_dd_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22248,7 +22248,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_cross_correlation_dd rdf:resource="{$base}/theoretical_cross_correlation_dd/{$entry_id_encoded},{$id_encoded},{$theoretical_cross_correlation_dd_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22276,7 +22276,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_cross_correlation_dd_experiment rdf:resource="{$base}/theoretical_cross_correlation_dd_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$theoretical_cross_correlation_dd_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22304,7 +22304,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_cross_correlation_dd_experiment rdf:resource="{$base}/theoretical_cross_correlation_dd_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$theoretical_cross_correlation_dd_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22330,7 +22330,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_cross_correlation_dd_list rdf:resource="{$base}/theoretical_cross_correlation_dd_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22356,7 +22356,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_cross_correlation_dd_list rdf:resource="{$base}/theoretical_cross_correlation_dd_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22384,7 +22384,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_cross_correlation_dd_software rdf:resource="{$base}/theoretical_cross_correlation_dd_software/{$entry_id_encoded},{$software_id_encoded},{$theoretical_cross_correlation_dd_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22412,7 +22412,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_cross_correlation_dd_software rdf:resource="{$base}/theoretical_cross_correlation_dd_software/{$entry_id_encoded},{$software_id_encoded},{$theoretical_cross_correlation_dd_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22440,7 +22440,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_noe rdf:resource="{$base}/theoretical_heteronucl_noe/{$entry_id_encoded},{$id_encoded},{$theoretical_heteronucl_noe_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22468,7 +22468,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_noe rdf:resource="{$base}/theoretical_heteronucl_noe/{$entry_id_encoded},{$id_encoded},{$theoretical_heteronucl_noe_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22496,7 +22496,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_noe_experiment rdf:resource="{$base}/theoretical_heteronucl_noe_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$theoretical_heteronucl_noe_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22524,7 +22524,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_noe_experiment rdf:resource="{$base}/theoretical_heteronucl_noe_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$theoretical_heteronucl_noe_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22550,7 +22550,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_noe_list rdf:resource="{$base}/theoretical_heteronucl_noe_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22576,7 +22576,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_noe_list rdf:resource="{$base}/theoretical_heteronucl_noe_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22604,7 +22604,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_noe_software rdf:resource="{$base}/theoretical_heteronucl_noe_software/{$entry_id_encoded},{$software_id_encoded},{$theoretical_heteronucl_noe_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22632,7 +22632,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_noe_software rdf:resource="{$base}/theoretical_heteronucl_noe_software/{$entry_id_encoded},{$software_id_encoded},{$theoretical_heteronucl_noe_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22660,7 +22660,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_t1_experiment rdf:resource="{$base}/theoretical_heteronucl_t1_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$theoretical_heteronucl_t1_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22688,7 +22688,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_t1_experiment rdf:resource="{$base}/theoretical_heteronucl_t1_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$theoretical_heteronucl_t1_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22714,7 +22714,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_t1_list rdf:resource="{$base}/theoretical_heteronucl_t1_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22740,7 +22740,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_t1_list rdf:resource="{$base}/theoretical_heteronucl_t1_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22768,7 +22768,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_t1_software rdf:resource="{$base}/theoretical_heteronucl_t1_software/{$entry_id_encoded},{$software_id_encoded},{$theoretical_heteronucl_t1_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22796,7 +22796,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_t1_software rdf:resource="{$base}/theoretical_heteronucl_t1_software/{$entry_id_encoded},{$software_id_encoded},{$theoretical_heteronucl_t1_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22824,7 +22824,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_t2_experiment rdf:resource="{$base}/theoretical_heteronucl_t2_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$theoretical_heteronucl_t2_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22852,7 +22852,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_t2_experiment rdf:resource="{$base}/theoretical_heteronucl_t2_experiment/{$entry_id_encoded},{$experiment_id_encoded},{$theoretical_heteronucl_t2_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22878,7 +22878,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_t2_list rdf:resource="{$base}/theoretical_heteronucl_t2_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22904,7 +22904,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_t2_list rdf:resource="{$base}/theoretical_heteronucl_t2_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22932,7 +22932,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_t2_software rdf:resource="{$base}/theoretical_heteronucl_t2_software/{$entry_id_encoded},{$software_id_encoded},{$theoretical_heteronucl_t2_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22960,7 +22960,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_heteronucl_t2_software rdf:resource="{$base}/theoretical_heteronucl_t2_software/{$entry_id_encoded},{$software_id_encoded},{$theoretical_heteronucl_t2_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -22988,7 +22988,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_t1 rdf:resource="{$base}/theoretical_t1/{$entry_id_encoded},{$id_encoded},{$theoretical_heteronucl_t1_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -23016,7 +23016,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_t1 rdf:resource="{$base}/theoretical_t1/{$entry_id_encoded},{$id_encoded},{$theoretical_heteronucl_t1_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -23044,7 +23044,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_t2 rdf:resource="{$base}/theoretical_t2/{$entry_id_encoded},{$id_encoded},{$theoretical_heteronucl_t2_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -23072,7 +23072,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_theoretical_t2 rdf:resource="{$base}/theoretical_t2/{$entry_id_encoded},{$id_encoded},{$theoretical_heteronucl_t2_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -23138,7 +23138,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_torsion_angle_constraint rdf:resource="{$base}/torsion_angle_constraint/{$entry_id_encoded},{$id_encoded},{$torsion_angle_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -23166,7 +23166,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_torsion_angle_constraint rdf:resource="{$base}/torsion_angle_constraint/{$entry_id_encoded},{$id_encoded},{$torsion_angle_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -23192,7 +23192,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_torsion_angle_constraint_list rdf:resource="{$base}/torsion_angle_constraint_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -23218,7 +23218,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_torsion_angle_constraint_list rdf:resource="{$base}/torsion_angle_constraint_list/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -23246,7 +23246,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_torsion_angle_constraint_software rdf:resource="{$base}/torsion_angle_constraint_software/{$entry_id_encoded},{$software_id_encoded},{$torsion_angle_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -23274,7 +23274,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_torsion_angle_constraint_software rdf:resource="{$base}/torsion_angle_constraint_software/{$entry_id_encoded},{$software_id_encoded},{$torsion_angle_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -23302,7 +23302,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_torsion_angle_constraints_expt rdf:resource="{$base}/torsion_angle_constraints_expt/{$entry_id_encoded},{$experiment_id_encoded},{$torsion_angle_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -23330,7 +23330,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_torsion_angle_constraints_expt rdf:resource="{$base}/torsion_angle_constraints_expt/{$entry_id_encoded},{$experiment_id_encoded},{$torsion_angle_constraint_list_id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -23394,7 +23394,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_xray_instrument rdf:resource="{$base}/xray_instrument/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
@@ -23420,7 +23420,7 @@
       <BMRBo:of_datablock rdf:resource="{$base}"/>
       <xsl:if test="@entry_id!=''">
         <BMRBo:reference_to_entry>
-          <rdf:Description  rdf:about="{$base}/entry/{translate(@entry_id,' ^','__')}">
+          <rdf:Description rdf:about="{$base}/entry/{$entry_id_encoded}">
             <BMRBo:referenced_by_xray_instrument rdf:resource="{$base}/xray_instrument/{$entry_id_encoded},{$id_encoded}"/>
           </rdf:Description>
         </BMRBo:reference_to_entry>
