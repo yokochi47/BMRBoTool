@@ -133,7 +133,7 @@
       </owl:ObjectProperty>
 
       <owl:ObjectProperty rdf:ID="link_to_pubmed">
-	<rdfs:subPropertyOf rdf:resource="#html_link_to"/>
+	<rdfs:subPropertyOf rdf:resource="#rdf_link_to"/>
 	<rdfs:comment xml:lang="en">external link to PubMed.</rdfs:comment>
       </owl:ObjectProperty>
 
@@ -148,7 +148,7 @@
       </owl:ObjectProperty>
 
       <owl:ObjectProperty rdf:ID="link_to_taxonomy">
-	<rdfs:subPropertyOf rdf:resource="#html_link_to"/>
+	<rdfs:subPropertyOf rdf:resource="#rdf_link_to"/>
 	<rdfs:comment xml:lang="en">Abstract property for external link to NCBI Taxonomy.</rdfs:comment>
       </owl:ObjectProperty>
 
@@ -163,7 +163,7 @@
       </owl:ObjectProperty>
 
       <owl:ObjectProperty rdf:ID="link_to_enzyme">
-	<rdfs:subPropertyOf rdf:resource="#html_link_to"/>
+	<rdfs:subPropertyOf rdf:resource="#rdf_link_to"/>
 	<rdfs:comment xml:lang="en">external link to EC (enzyme commission) number.</rdfs:comment>
       </owl:ObjectProperty>
 
