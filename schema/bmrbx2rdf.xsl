@@ -27,12 +27,12 @@
   <xsl:variable name="idorg">http://identifiers.org/</xsl:variable>
   <xsl:variable name="doi">http://doi.org/</xsl:variable>
   <xsl:variable name="orcid">http://orcid.org/</xsl:variable>
-  <xsl:variable name="pubmed">http://rdf.ncbi.nlm.nih.gov/pubmed/</xsl:variable>
+  <xsl:variable name="p_pubmed">http://rdf.ncbi.nlm.nih.gov/pubmed/</xsl:variable>
   <xsl:variable name="issn">http://portal.issn.org/resource/ISSN/</xsl:variable>
   <xsl:variable name="isbn">http://www.worldcat.org/isbn/</xsl:variable>
-  <xsl:variable name="taxonomy">http://purl.uniprot.org/taxonomy/</xsl:variable>
-  <xsl:variable name="enzyme">http://purl.uniprot.org/enzyme/</xsl:variable>
-  <xsl:variable name="uniprot">http://purl.uniprot.org/uniprot/</xsl:variable>
+  <xsl:variable name="p_taxonomy">http://purl.uniprot.org/taxonomy/</xsl:variable>
+  <xsl:variable name="p_enzyme">http://purl.uniprot.org/enzyme/</xsl:variable>
+  <xsl:variable name="p_uniprot">http://purl.uniprot.org/uniprot/</xsl:variable>
   <xsl:variable name="ddbj">http://www.ncbi.nlm.nih.gov/protein/</xsl:variable>
   <xsl:variable name="embl">http://www.ncbi.nlm.nih.gov/protein/</xsl:variable>
   <xsl:variable name="genbank">http://www.ncbi.nlm.nih.gov/protein/</xsl:variable>
@@ -258,7 +258,7 @@
   </xsl:template>
 
   <xsl:template match="BMRBx:citation/BMRBx:pubmed_id[text() != '' and text() != 'na']" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$pubmed}{text()}" rdfs:label="info:pmid/{text()}"/>
+    <owl:sameAs rdf:resource="{$p_pubmed}{text()}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}pubmed/{text()}" rdfs:label="pubmed:{text()}"/>
   </xsl:template>
 
@@ -286,7 +286,7 @@
     <xsl:for-each select="ext:node-set($tax_list)/token">
       <xsl:variable name="tax"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
       <xsl:if test="string-length($tax)!=0">
-        <rdfs:seeAlso rdf:resource="{$taxonomy}{$tax}" rdfs:label="info:taxonomy/{$tax}"/>
+        <owl:sameAs rdf:resource="{$p_taxonomy}{$tax}"/>
         <rdfs:seeAlso rdf:resource="{$idorg}taxonomy/{$tax}" rdfs:label="taxonomy:{$tax}"/>
       </xsl:if>
     </xsl:for-each>
@@ -302,7 +302,7 @@
     <xsl:for-each select="ext:node-set($tax_list)/token">
       <xsl:variable name="tax"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
       <xsl:if test="string-length($tax)!=0">
-        <rdfs:seeAlso rdf:resource="{$taxonomy}{$tax}" rdfs:label="info:taxonomy/{$tax}"/>
+        <owl:sameAs rdf:resource="{$p_taxonomy}{$tax}"/>
         <rdfs:seeAlso rdf:resource="{$idorg}taxonomy/{$tax}" rdfs:label="taxonomy:{$tax}"/>
       </xsl:if>
     </xsl:for-each>
@@ -320,7 +320,7 @@
       <xsl:for-each select="ext:node-set($ec_list)/token">
         <xsl:variable name="ec"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
         <xsl:if test="string-length($ec)!=0">
-          <rdfs:seeAlso rdf:resource="{$enzyme}{$ec}" rdfs:label="info:ec-code/{$ec}"/>
+          <owl:sameAs rdf:resource="{$p_enzyme}{$ec}"/>
           <rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec}" rdfs:label="ec-code:{$ec}"/>
         </xsl:if>
       </xsl:for-each>
@@ -339,7 +339,7 @@
       <xsl:for-each select="ext:node-set($ec_list)/token">
         <xsl:variable name="ec"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
         <xsl:if test="string-length($ec)!=0">
-          <rdfs:seeAlso rdf:resource="{$enzyme}{$ec}" rdfs:label="info:ec-code/{$ec}"/>
+          <owl:sameAs rdf:resource="{$p_enzyme}{$ec}"/>
           <rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec}" rdfs:label="ec-code:{$ec}"/>
         </xsl:if>
       </xsl:for-each>
@@ -358,7 +358,7 @@
       <xsl:for-each select="ext:node-set($ec_list)/token">
         <xsl:variable name="ec"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
         <xsl:if test="string-length($ec)!=0">
-          <rdfs:seeAlso rdf:resource="{$enzyme}{$ec}" rdfs:label="info:ec-code/{$ec}"/>
+          <owl:sameAs rdf:resource="{$p_enzyme}{$ec}"/>
           <rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec}" rdfs:label="ec-code:{$ec}"/>
         </xsl:if>
       </xsl:for-each>
@@ -366,22 +366,22 @@
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='SP']/@accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$uniprot}{.}" rdfs:label="info:uniprot/{.}"/>
+    <owl:sameAs rdf:resource="{$p_uniprot}{$.}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:entity_db_link[@database_code='SP']/@accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$uniprot}{.}" rdfs:label="info:uniprot/{.}"/>
+    <owl:sameAs rdf:resource="{$p_uniprot}{$.}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:related_entries[@database_name='SP']/@database_accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$uniprot}{.}" rdfs:label="info:uniprot/{.}"/>
+    <owl:sameAs rdf:resource="{$p_uniprot}{$.}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:matched_entries[@database_name='SP']/@database_accession_code" mode="linked">
-    <rdfs:seeAlso rdf:resource="{$uniprot}{.}" rdfs:label="info:uniprot/{.}"/>
+    <owl:sameAs rdf:resource="{$p_uniprot}{$.}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/>
   </xsl:template>
 
