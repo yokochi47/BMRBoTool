@@ -258,7 +258,7 @@
   </xsl:template>
 
   <xsl:template match="BMRBx:citation/BMRBx:pubmed_id[text() != '' and text() != 'na']" mode="linked">
-    <owl:sameAs rdf:resource="{$p_pubmed}{text()}"/>
+    <owl:sameAs rdf:resource="{$p_pubmed}{text()}" rdfs:label="pubmed:{text()}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}pubmed/{text()}" rdfs:label="pubmed:{text()}"/>
   </xsl:template>
 
@@ -286,7 +286,7 @@
     <xsl:for-each select="ext:node-set($tax_list)/token">
       <xsl:variable name="tax"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
       <xsl:if test="string-length($tax)!=0">
-        <owl:sameAs rdf:resource="{$p_taxonomy}{$tax}"/>
+        <owl:sameAs rdf:resource="{$p_taxonomy}{$tax}" rdfs:label="taxonomy:{$tax}"/>
         <rdfs:seeAlso rdf:resource="{$idorg}taxonomy/{$tax}" rdfs:label="taxonomy:{$tax}"/>
       </xsl:if>
     </xsl:for-each>
@@ -302,7 +302,7 @@
     <xsl:for-each select="ext:node-set($tax_list)/token">
       <xsl:variable name="tax"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
       <xsl:if test="string-length($tax)!=0">
-        <owl:sameAs rdf:resource="{$p_taxonomy}{$tax}"/>
+        <owl:sameAs rdf:resource="{$p_taxonomy}{$tax}" rdfs:label="taxonomy:{$tax}"/>
         <rdfs:seeAlso rdf:resource="{$idorg}taxonomy/{$tax}" rdfs:label="taxonomy:{$tax}"/>
       </xsl:if>
     </xsl:for-each>
@@ -320,7 +320,7 @@
       <xsl:for-each select="ext:node-set($ec_list)/token">
         <xsl:variable name="ec"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
         <xsl:if test="string-length($ec)!=0">
-          <owl:sameAs rdf:resource="{$p_enzyme}{$ec}"/>
+          <owl:sameAs rdf:resource="{$p_enzyme}{$ec}" rdfs:label="ec-code:{$ec}"/>
           <rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec}" rdfs:label="ec-code:{$ec}"/>
         </xsl:if>
       </xsl:for-each>
@@ -339,7 +339,7 @@
       <xsl:for-each select="ext:node-set($ec_list)/token">
         <xsl:variable name="ec"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
         <xsl:if test="string-length($ec)!=0">
-          <owl:sameAs rdf:resource="{$p_enzyme}{$ec}"/>
+          <owl:sameAs rdf:resource="{$p_enzyme}{$ec}" rdfs:label="ec-code:{$ec}"/>
           <rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec}" rdfs:label="ec-code:{$ec}"/>
         </xsl:if>
       </xsl:for-each>
@@ -358,7 +358,7 @@
       <xsl:for-each select="ext:node-set($ec_list)/token">
         <xsl:variable name="ec"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
         <xsl:if test="string-length($ec)!=0">
-          <owl:sameAs rdf:resource="{$p_enzyme}{$ec}"/>
+          <owl:sameAs rdf:resource="{$p_enzyme}{$ec}" rdfs:label="ec-code:{$ec}"/>
           <rdfs:seeAlso rdf:resource="{$idorg}ec-code/{$ec}" rdfs:label="ec-code:{$ec}"/>
         </xsl:if>
       </xsl:for-each>
@@ -366,22 +366,22 @@
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='SP']/@accession_code" mode="linked">
-    <owl:sameAs rdf:resource="{$p_uniprot}{$.}"/>
+    <owl:sameAs rdf:resource="{$p_uniprot}{$.}" rdfs:label="uniprot:{.}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:entity_db_link[@database_code='SP']/@accession_code" mode="linked">
-    <owl:sameAs rdf:resource="{$p_uniprot}{$.}"/>
+    <owl:sameAs rdf:resource="{$p_uniprot}{$.}" rdfs:label="uniprot:{.}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:related_entries[@database_name='SP']/@database_accession_code" mode="linked">
-    <owl:sameAs rdf:resource="{$p_uniprot}{$.}"/>
+    <owl:sameAs rdf:resource="{$p_uniprot}{$.}" rdfs:label="uniprot:{.}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:matched_entries[@database_name='SP']/@database_accession_code" mode="linked">
-    <owl:sameAs rdf:resource="{$p_uniprot}{$.}"/>
+    <owl:sameAs rdf:resource="{$p_uniprot}{$.}" rdfs:label="uniprot:{.}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/>
   </xsl:template>
 
@@ -529,38 +529,38 @@
 
   <xsl:template match="BMRBx:entry/BMRBx:assigned_pdb_id[text() != '']" mode="linked">
     <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="text()"/></xsl:call-template></xsl:variable>
-    <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}"/>
+    <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:conformer_family_coord_set/BMRBx:pdb_accession_code[text() != '']" mode="linked">
     <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="text()"/></xsl:call-template></xsl:variable>
-    <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}"/>
+    <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:representative_conformer/BMRBx:pdb_accession_code[text() != '']" mode="linked">
     <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="text()"/></xsl:call-template></xsl:variable>
-    <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}"/>
+    <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:structure_annotation/BMRBx:pdb_id[text() != '']" mode="linked">
     <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="text()"/></xsl:call-template></xsl:variable>
-    <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}"/>
+    <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:pb_list/BMRBx:pdb_id[text() != '']" mode="linked">
     <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="text()"/></xsl:call-template></xsl:variable>
-    <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}"/>
+    <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='PDB']/@accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="."/></xsl:call-template></xsl:variable>
-      <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}"/>
+      <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
       <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
     </xsl:if>
   </xsl:template>
@@ -568,7 +568,7 @@
   <xsl:template match="BMRBx:entity_db_link[@database_code='PDB']/@accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="."/></xsl:call-template></xsl:variable>
-      <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}"/>
+      <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
       <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
     </xsl:if>
   </xsl:template>
@@ -576,7 +576,7 @@
   <xsl:template match="BMRBx:related_entries[@database_name='PDB']/@database_accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="."/></xsl:call-template></xsl:variable>
-      <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}"/>
+      <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
       <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
     </xsl:if>
   </xsl:template>
@@ -584,7 +584,7 @@
   <xsl:template match="BMRBx:matched_entries[@database_name='PDB']/@database_accession_code" mode="linked">
     <xsl:if test="not(contains(., ' '))">
       <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="."/></xsl:call-template></xsl:variable>
-      <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}"/>
+      <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
       <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
     </xsl:if>
   </xsl:template>
@@ -691,7 +691,7 @@
         <xsl:variable name="pdb_code" select="translate(substring-after(text(),'pdb/'),' []@#%+&amp;','_()a....')"/>
         <xsl:variable name="cc_code" select="translate(substring-after(text(),'chem_comp/'),' []@#%+&amp;','_()a....')"/>
         <xsl:variable name="normalized_pdb_id"><xsl:call-template name="compatible-pdb-id"><xsl:with-param name="str" select="$pdb_code"/></xsl:call-template></xsl:variable>
-        <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}"/>
+        <owl:sameAs rdf:resource="{$p_pdb}{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
         <rdfs:seeAlso rdf:resource="{$idorg}pdb/{$normalized_pdb_id}" rdfs:label="pdb:{$normalized_pdb_id}"/>
         <rdfs:seeAlso rdf:resource="{$pdb.ligand}{$cc_code}" rdfs:label="info:pdb.ligand/{$cc_code}"/>
         <rdfs:seeAlso rdf:resource="{$idorg}pdb.ligand/{$cc_code}" rdfs:label="pdb.ligand:{$cc_code}"/>
@@ -700,7 +700,7 @@
       <xsl:when test="starts-with(text(), 'no_records/')"/>
       <xsl:otherwise>
         <xsl:variable name="cc_code" select="translate(text(),' []@#%+&amp;','_()a....')"/>
-        <owl:sameAs rdf:resource="{$p_pdb-ccd}{$cc_code}"/>
+        <owl:sameAs rdf:resource="{$p_pdb-ccd}{$cc_code}" rdfs:label="pdb-ccd:{$cc_code}"/>
         <rdfs:seeAlso rdf:resource="{$idorg}pdb-ccd/{$cc_code}" rdfs:label="pdb-ccd:{$cc_code}"/>
         <rdfs:seeAlso rdf:resource="{$pdb.ligand}{$cc_code}" rdfs:label="info:pdb.ligand/{$cc_code}"/>
         <rdfs:seeAlso rdf:resource="{$idorg}pdb.ligand/{$cc_code}" rdfs:label="pdb.ligand:{$cc_code}"/>
@@ -710,18 +710,18 @@
 
   <xsl:template match="BMRBx:chem_comp/BMRBx:pubchem_code[text() != '' and text() != 'na']" mode="linked">
     <xsl:variable name="acc"><xsl:value-of select="translate(text(),' ','')"/></xsl:variable>
-    <owl:sameAs rdf:resource="{$p_pubchem.substance}{$acc}"/>
+    <owl:sameAs rdf:resource="{$p_pubchem.substance}{$acc}" rdfs:label="pubchem.substance:{$acc}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}pubchem.substance/{$acc}" rdfs:label="pubchem.substance:{$acc}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:chem_comp_db_link[@database_code='PubChem' and @accession_code != '' and @accession_code != 'na']/BMRBx:accession_code_type" mode="linked">
     <xsl:variable name="pubchem_id" select="../@accession_code"/>
     <xsl:if test="text()='sid'">
-       <owl:sameAs rdf:resource="{$p_pubchem.substance}{$pubchem_id}"/>
+       <owl:sameAs rdf:resource="{$p_pubchem.substance}{$pubchem_id}" rdfs:label="pubchem.substance:{$pubchem_id}"/>
        <rdfs:seeAlso rdf:resource="{$idorg}pubchem.substance/{$pubchem_id}" rdfs:label="pubchem.substance:{$pubchem_id}"/>
     </xsl:if>
     <xsl:if test="text()='cid'">
-       <owl:sameAs rdf:resource="{$p_pubchem.compound}{$pubchem_id}"/>
+       <owl:sameAs rdf:resource="{$p_pubchem.compound}{$pubchem_id}" rdfs:label="pubchem.compound:{$pubchem_id}"/>
        <rdfs:seeAlso rdf:resource="{idorg}pubchem.compound/{$pubchem_id}" rdfs:label="pubchem.compound:{$pubchem_id}"/>
     </xsl:if>
   </xsl:template>
