@@ -21696,8 +21696,13 @@ component defintion.
                               <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PubChem</rdf:first>
                               <rdf:rest>
                                  <rdf:List>
-                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">na</rdf:first>
-                                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">iNEXT</rdf:first>
+                                    <rdf:rest>
+                                       <rdf:List>
+                                          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">na</rdf:first>
+                                          <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                       </rdf:List>
+                                    </rdf:rest>
                                  </rdf:List>
                               </rdf:rest>
                            </rdf:List>
@@ -69513,17 +69518,22 @@ NOT AVAILABLE
                                                       <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spectral image</rdf:first>
                                                       <rdf:rest>
                                                          <rdf:List>
-                                                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Acquisition parameters</rdf:first>
+                                                            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spectral analysis data</rdf:first>
                                                             <rdf:rest>
                                                                <rdf:List>
-                                                                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Processing parameters</rdf:first>
+                                                                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Acquisition parameters</rdf:first>
                                                                   <rdf:rest>
                                                                      <rdf:List>
-                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RNA fragment binding data</rdf:first>
+                                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Processing parameters</rdf:first>
                                                                         <rdf:rest>
                                                                            <rdf:List>
-                                                                              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">na</rdf:first>
-                                                                              <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">RNA fragment binding data</rdf:first>
+                                                                              <rdf:rest>
+                                                                                 <rdf:List>
+                                                                                    <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">na</rdf:first>
+                                                                                    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                 </rdf:List>
+                                                                              </rdf:rest>
                                                                            </rdf:List>
                                                                         </rdf:rest>
                                                                      </rdf:List>

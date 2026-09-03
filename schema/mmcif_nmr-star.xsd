@@ -7618,6 +7618,7 @@ BMRB
                   <xsd:enumeration value="BMRB"/>
                   <xsd:enumeration value="PDB"/>
                   <xsd:enumeration value="PubChem"/>
+                  <xsd:enumeration value="iNEXT"/>
                   <xsd:enumeration value="na"/>
                 </xsd:restriction>
               </xsd:simpleType>
@@ -27906,6 +27907,7 @@ The kind of data contained in the file.
                   <xsd:enumeration value="Pulse field gradient"/>
                   <xsd:enumeration value="Peak list"/>
                   <xsd:enumeration value="Spectral image"/>
+                  <xsd:enumeration value="Spectral analysis data"/>
                   <xsd:enumeration value="Acquisition parameters"/>
                   <xsd:enumeration value="Processing parameters"/>
                   <xsd:enumeration value="RNA fragment binding data"/>

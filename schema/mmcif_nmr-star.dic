@@ -22838,6 +22838,7 @@ record.
    BMRB    ?
    PDB    ?
    PubChem    ?
+   iNEXT    ?
 # BMRB/XML: Added na.
    na    ?
 
@@ -36579,6 +36580,7 @@ The kind of data contained in the file.
    'Pulse field gradient'    ?
    'Peak list'    ?
    'Spectral image'    ?
+   'Spectral analysis data'    ?
    'Acquisition parameters'    ?
    'Processing parameters'    ?
    'RNA fragment binding data'    ?
