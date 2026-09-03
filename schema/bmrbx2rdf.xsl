@@ -366,22 +366,22 @@
   </xsl:template>
 
   <xsl:template match="BMRBx:assembly_db_link[@database_code='SP']/@accession_code" mode="linked">
-    <owl:sameAs rdf:resource="{$p_uniprot}{$.}" rdfs:label="uniprot:{.}"/>
+    <owl:sameAs rdf:resource="{$p_uniprot}{.}" rdfs:label="uniprot:{.}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:entity_db_link[@database_code='SP']/@accession_code" mode="linked">
-    <owl:sameAs rdf:resource="{$p_uniprot}{$.}" rdfs:label="uniprot:{.}"/>
+    <owl:sameAs rdf:resource="{$p_uniprot}{.}" rdfs:label="uniprot:{.}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:related_entries[@database_name='SP']/@database_accession_code" mode="linked">
-    <owl:sameAs rdf:resource="{$p_uniprot}{$.}" rdfs:label="uniprot:{.}"/>
+    <owl:sameAs rdf:resource="{$p_uniprot}{.}" rdfs:label="uniprot:{.}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/>
   </xsl:template>
 
   <xsl:template match="BMRBx:matched_entries[@database_name='SP']/@database_accession_code" mode="linked">
-    <owl:sameAs rdf:resource="{$p_uniprot}{$.}" rdfs:label="uniprot:{.}"/>
+    <owl:sameAs rdf:resource="{$p_uniprot}{.}" rdfs:label="uniprot:{.}"/>
     <rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/>
   </xsl:template>
 

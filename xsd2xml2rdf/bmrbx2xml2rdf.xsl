@@ -387,22 +387,22 @@
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:assembly_db_link[@database_code='SP']/@accession_code" mode="linked"&gt;
-    &lt;owl:sameAs rdf:resource="{$p_uniprot}{$.}" rdfs:label="uniprot:{.}"/&gt;
+    &lt;owl:sameAs rdf:resource="{$p_uniprot}{.}" rdfs:label="uniprot:{.}"/&gt;
     &lt;rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:entity_db_link[@database_code='SP']/@accession_code" mode="linked"&gt;
-    &lt;owl:sameAs rdf:resource="{$p_uniprot}{$.}" rdfs:label="uniprot:{.}"/&gt;
+    &lt;owl:sameAs rdf:resource="{$p_uniprot}{.}" rdfs:label="uniprot:{.}"/&gt;
     &lt;rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:related_entries[@database_name='SP']/@database_accession_code" mode="linked"&gt;
-    &lt;owl:sameAs rdf:resource="{$p_uniprot}{$.}" rdfs:label="uniprot:{.}"/&gt;
+    &lt;owl:sameAs rdf:resource="{$p_uniprot}{.}" rdfs:label="uniprot:{.}"/&gt;
     &lt;rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/&gt;
   &lt;/xsl:template&gt;
 
   &lt;xsl:template match="BMRBx:matched_entries[@database_name='SP']/@database_accession_code" mode="linked"&gt;
-    &lt;owl:sameAs rdf:resource="{$p_uniprot}{$.}" rdfs:label="uniprot:{.}"/&gt;
+    &lt;owl:sameAs rdf:resource="{$p_uniprot}{.}" rdfs:label="uniprot:{.}"/&gt;
     &lt;rdfs:seeAlso rdf:resource="{$idorg}uniprot/{.}" rdfs:label="uniprot:{.}"/&gt;
   &lt;/xsl:template&gt;
 
