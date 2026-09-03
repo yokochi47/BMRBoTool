@@ -780,7 +780,7 @@
     <xsl2:param name="selector"/><xsl2:param name="field"/>
       <xsl2:if test="not(starts-with($field/@xpath,'@'))">
         <xsl2:text disable-output-escaping="yes">
-      &lt;xsl:variable name="</xsl2:text><xsl2:value-of select="concat(translate($field/@xpath,':/@','_'),'_encoded')"/><xsl2:text disable-output-escaping="yes">"&gt;&lt;xsl:call-template name="key-encode"&gt;&lt;xsl:with-param name="str" select="</xsl2:text><xsl2:value-of select="$field/@xpath"/><xsl2:text disable-output-escaping="yes">"/&gt;&lt;/xsl:call-template&gt;&lt;/xsl:variable&gt;</xsl2:text></xsl2:if><xsl2:if test="$field/following-sibling::node()[1]/@xpath!=''"><xsl2:call-template name="encode_fields2"><xsl2:with-param name="selector" select="$selector"/><xsl2:with-param name="field" select="$field/following-sibling::node()[1]"/></xsl2:call-template></xsl2:if>
+        &lt;xsl:variable name="</xsl2:text><xsl2:value-of select="concat(translate($field/@xpath,':/@','_'),'_encoded')"/><xsl2:text disable-output-escaping="yes">"&gt;&lt;xsl:call-template name="key-encode"&gt;&lt;xsl:with-param name="str" select="</xsl2:text><xsl2:value-of select="$field/@xpath"/><xsl2:text disable-output-escaping="yes">"/&gt;&lt;/xsl:call-template&gt;&lt;/xsl:variable&gt;</xsl2:text></xsl2:if><xsl2:if test="$field/following-sibling::node()[1]/@xpath!=''"><xsl2:call-template name="encode_fields2"><xsl2:with-param name="selector" select="$selector"/><xsl2:with-param name="field" select="$field/following-sibling::node()[1]"/></xsl2:call-template></xsl2:if>
   </xsl2:template>
 
   <xsl2:template name="concat_fields2">
